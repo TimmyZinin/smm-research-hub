@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#eee;font-family:'DM Sans',Helvetica,Arial,sans-serif;padding:40px}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+.slide{width:1080px;height:1080px;margin:40px auto;position:relative;overflow:hidden;border-radius:24px}
+.slide-label{text-align:center;font-size:14px;color:#666;margin-bottom:8px;font-weight:600}
+
+:root{--cream:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418}
+
+.cover{background:linear-gradient(160deg,var(--cream),var(--sand));display:flex;flex-direction:column;justify-content:center;padding:100px}
+.cover h1{font-size:72px;font-weight:800;color:var(--dark);line-height:1.1;margin-bottom:24px}
+.cover .subtitle{font-size:32px;color:var(--terra);font-weight:600;margin-bottom:48px;line-height:1.4}
+.cover .author{font-size:28px;color:var(--dark);font-weight:500}
+.cover .cta{font-size:24px;color:var(--gold);margin-top:24px;font-weight:700}
+.cover .accent-bar{position:absolute;left:0;top:0;width:12px;height:100%;background:var(--terra)}
+
+.content{background:var(--cream);display:flex;flex-direction:column;padding:80px 100px}
+.content h2{font-size:52px;font-weight:800;color:var(--terra);margin-bottom:40px;line-height:1.1}
+.content p,.content li{font-size:32px;color:var(--dark);line-height:1.5;margin-bottom:16px}
+.content ul{list-style:none;padding:0}
+.content li{padding-left:40px;position:relative}
+.content li::before{content:'→';position:absolute;left:0;color:var(--terra);font-weight:700}
+.content .highlight{background:var(--sand);border-radius:16px;padding:24px 32px;margin:20px 0;border-left:6px solid var(--terra)}
+.content .highlight p{margin:0;font-weight:600}
+.content .page{position:absolute;bottom:40px;right:60px;font-size:24px;color:var(--gold);font-weight:700}
+.content .accent-bar{position:absolute;left:0;top:0;width:8px;height:100%;background:var(--terra)}
+
+.cta-slide{background:linear-gradient(160deg,var(--sand),var(--cream));display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px}
+.cta-slide h2{font-size:56px;font-weight:800;color:var(--dark);margin-bottom:32px}
+.cta-slide p{font-size:32px;color:var(--dark);line-height:1.5;max-width:800px;margin-bottom:16px}
+.cta-slide .save{font-size:36px;color:var(--emerald);font-weight:700;margin-top:32px}
+.cta-slide .page{position:absolute;bottom:40px;right:60px;font-size:24px;color:var(--gold);font-weight:700}
+
+.p5-img{background:var(--cream);padding:60px}
+.p5-img h2{font-size:48px;font-weight:800;color:var(--dark);text-align:center;margin-bottom:48px}
+.p5-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.p5-grid .card:nth-child(5){grid-column:1/3;max-width:528px;margin:0 auto}
+.p5-card{background:var(--sand);border-radius:20px;padding:32px;border-left:6px solid var(--terra)}
+.p5-card .name{font-size:28px;font-weight:800;color:var(--terra);margin-bottom:8px}
+.p5-card .desc{font-size:22px;color:var(--dark);line-height:1.4}
+
+.checklist-style li::before{content:'□';color:var(--emerald);font-size:36px}
+</style>
+</head>
+<body>
+
+<!-- CAROUSEL #3: AI AGENTS (GARTNER DATA) -->
+
+<div class="slide-label">Carousel #3 — Slide 1 (s3-1)</div>
+<div class="slide cover" id="s3-1">
+  <div class="accent-bar"></div>
+  <h1>AI-АГЕНТЫ:<br>ЧТО РАБОТАЕТ,<br>А ЧТО — ХАЙП</h1>
+  <div class="subtitle">Данные Gartner + практика</div>
+  <div class="author">Тим Зинин</div>
+  <div class="cta">→ Листай</div>
+</div>
+
+<div class="slide-label">Carousel #3 — Slide 2 (s3-2)</div>
+<div class="slide content" id="s3-2">
+  <div class="accent-bar"></div>
+  <h2>ПРОБЛЕМА</h2>
+  <div class="highlight">
+    <p>Gartner: 40%+ AI-агентных проектов<br>закроют к концу 2027.</p>
+  </div>
+  <p style="margin-top:32px;font-size:36px;font-weight:700">Главные причины:</p>
+  <ul style="margin-top:24px">
+    <li>Раздутые ожидания</li>
+    <li>Непонятный ROI</li>
+    <li>Нет контроля рисков</li>
+  </ul>
+  <p style="margin-top:40px;font-size:22px;color:var(--gold)">Источник: Gartner, июнь 2025</p>
+  <div class="page">2/7</div>
+</div>
+
+<div class="slide-label">Carousel #3 — Slide 3 (s3-3)</div>
+<div class="slide content" id="s3-3">
+  <div class="accent-bar"></div>
+  <h2>«AGENT WASHING»</h2>
+  <div class="highlight">
+    <p>Из тысяч вендоров на рынке<br>только ~130 реально агентные.</p>
+  </div>
+  <p style="margin-top:32px;font-size:36px;font-weight:700">Остальное:</p>
+  <ul style="margin-top:24px">
+    <li>Чат-боты с новым лейблом</li>
+    <li>RPA, переименованные в «agentic»</li>
+    <li>Обёртки над GPT с красивым UI</li>
+  </ul>
+  <div class="highlight" style="margin-top:32px;border-left-color:var(--emerald)">
+    <p style="color:var(--emerald)">Агент ДЕЙСТВУЕТ автономно.<br>Бот ОТВЕЧАЕТ на запрос.</p>
+  </div>
+  <div class="page">3/7</div>
+</div>
+
+<div class="slide-label">Carousel #3 — Slide 4 (s3-4)</div>
+<div class="slide content" id="s3-4">
+  <div class="accent-bar"></div>
+  <h2>КАКИЕ ПРОЕКТЫ<br>ВЫЖИВАЮТ</h2>
+  <p style="font-size:24px;color:var(--gold);margin-bottom:32px">Данные: опрос 3 412 респондентов</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px">
+    <div class="highlight" style="border-left-color:var(--emerald)">
+      <p style="color:var(--emerald);font-size:28px">✓ Узкая задача</p>
+    </div>
+    <div class="highlight" style="border-left-color:var(--emerald)">
+      <p style="color:var(--emerald);font-size:28px">✓ Метрики ДО старта</p>
+    </div>
+    <div class="highlight" style="border-left-color:var(--emerald)">
+      <p style="color:var(--emerald);font-size:28px">✓ Человек в цикле</p>
+    </div>
+    <div class="highlight" style="border-left-color:var(--emerald)">
+      <p style="color:var(--emerald);font-size:28px">✓ Бюджет на итерации</p>
+    </div>
+  </div>
+  <div class="highlight" style="border-left-color:var(--terra);background:#FDF0ED">
+    <p style="color:var(--terra);font-size:28px">✗ «Давайте внедрим AI-агентов»<br>(без конкретной задачи = провал)</p>
+  </div>
+  <div class="page">4/7</div>
+</div>
+
+<div class="slide-label">Carousel #3 — Slide 5 (s3-5)</div>
+<div class="slide content" id="s3-5">
+  <div class="accent-bar"></div>
+  <h2>ЦИФРЫ ПО РЫНКУ</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px">
+    <div class="highlight" style="text-align:center">
+      <p style="font-size:56px;color:var(--terra);margin-bottom:8px">19%</p>
+      <p style="font-size:22px">Крупные инвестиции</p>
+    </div>
+    <div class="highlight" style="text-align:center">
+      <p style="font-size:56px;color:var(--gold);margin-bottom:8px">42%</p>
+      <p style="font-size:22px">Консервативные</p>
+    </div>
+    <div class="highlight" style="text-align:center">
+      <p style="font-size:56px;color:var(--dark);margin-bottom:8px">31%</p>
+      <p style="font-size:22px">Наблюдают</p>
+    </div>
+    <div class="highlight" style="text-align:center">
+      <p style="font-size:56px;color:var(--emerald);margin-bottom:8px">8%</p>
+      <p style="font-size:22px">Не инвестируют</p>
+    </div>
+  </div>
+  <div class="highlight" style="margin-top:32px;border-left-color:var(--gold)">
+    <p style="font-size:26px">К 2028: 33% корпоративного софта<br>включит агентный AI (сейчас &lt; 1%)</p>
+  </div>
+  <p style="margin-top:16px;font-size:20px;color:var(--gold)">Источник: Gartner poll, янв 2025</p>
+  <div class="page">5/7</div>
+</div>
+
+<div class="slide-label">Carousel #3 — Slide 6 (s3-6)</div>
+<div class="slide content" id="s3-6">
+  <div class="accent-bar"></div>
+  <h2>ЧЕКЛИСТ: СТОИТ ЛИ<br>ЗАПУСКАТЬ?</h2>
+  <ul class="checklist-style" style="margin-top:32px">
+    <li style="font-size:30px;margin-bottom:20px">Есть конкретная повторяющаяся задача?</li>
+    <li style="font-size:30px;margin-bottom:20px">Можно измерить результат в деньгах/часах?</li>
+    <li style="font-size:30px;margin-bottom:20px">Есть данные для обучения / контекст?</li>
+    <li style="font-size:30px;margin-bottom:20px">Приемлемо, если агент ошибётся в 10%?</li>
+    <li style="font-size:30px;margin-bottom:20px">Есть бюджет на 3-6 мес итераций?</li>
+  </ul>
+  <div style="margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div class="highlight" style="border-left-color:var(--emerald)">
+      <p style="color:var(--emerald);font-size:28px">3+ «да» → пробовать</p>
+    </div>
+    <div class="highlight" style="border-left-color:var(--terra);background:#FDF0ED">
+      <p style="color:var(--terra);font-size:28px">&lt; 3 → подождать</p>
+    </div>
+  </div>
+  <div class="page">6/7</div>
+</div>
+
+<div class="slide-label">Carousel #3 — Slide 7 (s3-7)</div>
+<div class="slide cta-slide" id="s3-7">
+  <h2>ИТОГО</h2>
+  <p>60% AI-агентных проектов выживут.</p>
+  <p>Но только те, где:</p>
+  <p style="font-weight:700">Задача узкая и конкретная</p>
+  <p style="font-weight:700">Метрики с первого дня</p>
+  <p style="font-weight:700">Человек контролирует критические шаги</p>
+  <div class="save">Сохрани этот чеклист.</div>
+  <div class="page">7/7</div>
+</div>
+
+<!-- POST #5 IMAGE -->
+
+<div class="slide-label">Post #5 Image (p5-img)</div>
+<div class="slide p5-img" id="p5-img">
+  <h2>5 AI-ПРОМПТОВ<br>ДЛЯ КАРЬЕРЫ</h2>
+  <div class="p5-grid">
+    <div class="p5-card card">
+      <div class="name">1. ДЕКОДЕР</div>
+      <div class="desc">Разбери вакансию: 5 реальных навыков vs 5 для объёма</div>
+    </div>
+    <div class="p5-card card">
+      <div class="name">2. АДАПТЕР</div>
+      <div class="desc">Перепиши резюме под язык конкретной вакансии</div>
+    </div>
+    <div class="p5-card card">
+      <div class="name">3. ТРЕНЕР</div>
+      <div class="desc">Собеседование с AI: сложные вопросы + оценка 1-10</div>
+    </div>
+    <div class="p5-card card">
+      <div class="name">4. РЕСЕРЧЕР</div>
+      <div class="desc">10 компаний, о которых большинство не знает</div>
+    </div>
+    <div class="p5-card card">
+      <div class="name">5. ПЕРЕГОВОРЩИК</div>
+      <div class="desc">Стратегия контроффера с аргументами</div>
+    </div>
+  </div>
+</div>
+
+<!-- CAROUSEL #7: SKILLS-BASED HIRING -->
+
+<div class="slide-label">Carousel #7 — Slide 1 (s7-1)</div>
+<div class="slide cover" id="s7-1">
+  <div class="accent-bar"></div>
+  <h1>SKILLS-BASED<br>HIRING:<br>ЧТО ИЗМЕНИЛОСЬ</h1>
+  <div class="subtitle">Диплом больше не пропуск.<br>А что — пропуск?</div>
+  <div class="author">Данные 2026</div>
+  <div class="cta">→ Листай</div>
+</div>
+
+<div class="slide-label">Carousel #7 — Slide 2 (s7-2)</div>
+<div class="slide content" id="s7-2">
+  <div class="accent-bar"></div>
+  <h2>ЧТО ПРОИСХОДИТ</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px">
+    <div class="highlight" style="text-align:center">
+      <p style="font-size:72px;color:var(--terra);margin-bottom:8px">85%</p>
+      <p style="font-size:24px">работодателей перешли<br>на оценку навыков</p>
+    </div>
+    <div class="highlight" style="text-align:center">
+      <p style="font-size:72px;color:var(--gold);margin-bottom:8px">1/4</p>
+      <p style="font-size:24px">компаний убрали<br>требование к ВО</p>
+    </div>
+  </div>
+  <div class="highlight" style="margin-top:32px;border-left-color:var(--emerald)">
+    <p style="font-size:30px">Навыки в <span style="color:var(--terra);font-size:42px">5x</span> лучше предсказывают эффективность, чем диплом</p>
+  </div>
+  <p style="margin-top:20px;font-size:20px;color:var(--gold)">Источник: Kelly Services, 2026</p>
+  <div class="page">2/7</div>
+</div>
+
+<div class="slide-label">Carousel #7 — Slide 3 (s7-3)</div>
+<div class="slide content" id="s7-3">
+  <div class="accent-bar"></div>
+  <h2>ПОЧЕМУ ЭТО<br>ПРОИЗОШЛО</h2>
+  <ul style="margin-top:32px">
+    <li style="margin-bottom:32px"><span style="font-weight:700;font-size:36px">AI меняет навыки каждые 2-3 года</span><br><span style="font-size:26px;color:var(--gold)">Диплом 2018 ≠ навыки 2026</span></li>
+    <li style="margin-bottom:32px"><span style="font-weight:700;font-size:36px">Расширение воронки: до 16x</span><br><span style="font-size:26px;color:var(--gold)">Skills-based подход увеличивает пул кандидатов</span></li>
+    <li style="margin-bottom:32px"><span style="font-weight:700;font-size:36px">Снижение ошибок найма на 88%</span><br><span style="font-size:26px;color:var(--gold)">Оценка навыков > оценка корочки</span></li>
+  </ul>
+  <div class="page">3/7</div>
+</div>
+
+<div class="slide-label">Carousel #7 — Slide 4 (s7-4)</div>
+<div class="slide content" id="s7-4">
+  <div class="accent-bar"></div>
+  <h2>КТО УЖЕ ТАК<br>НАНИМАЕТ</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px">
+    <div class="highlight">
+      <p style="font-size:32px;font-weight:700">IBM</p>
+      <p style="font-size:22px">Убрали диплом с 50%+ позиций</p>
+    </div>
+    <div class="highlight">
+      <p style="font-size:32px;font-weight:700">Google</p>
+      <p style="font-size:22px">«Skills, not degrees» с 2023</p>
+    </div>
+    <div class="highlight">
+      <p style="font-size:32px;font-weight:700">BCG</p>
+      <p style="font-size:22px">Фокус на «adjacent skills»</p>
+    </div>
+    <div class="highlight">
+      <p style="font-size:32px;font-weight:700">Финтех и кибербез</p>
+      <p style="font-size:22px">Лидеры тренда</p>
+    </div>
+  </div>
+  <div class="highlight" style="margin-top:24px;border-left-color:var(--gold)">
+    <p style="font-size:26px">В России: VK, Яндекс, Ozon — тестовые задания вместо требований к ВО</p>
+  </div>
+  <div class="page">4/7</div>
+</div>
+
+<div class="slide-label">Carousel #7 — Slide 5 (s7-5)</div>
+<div class="slide content" id="s7-5">
+  <div class="accent-bar"></div>
+  <h2>ЧТО ЭТО ЗНАЧИТ<br>ДЛЯ ТЕБЯ</h2>
+  <div class="highlight" style="margin-top:32px;border-left-color:var(--emerald)">
+    <p style="font-size:28px;font-weight:700;color:var(--emerald)">Если меняешь карьеру:</p>
+    <p style="font-size:24px;margin-top:8px">Диплом в старой области — не минус.<br>Покажи навыки, которые переносятся.</p>
+  </div>
+  <div class="highlight" style="margin-top:24px;border-left-color:var(--gold)">
+    <p style="font-size:28px;font-weight:700;color:var(--gold)">Если junior:</p>
+    <p style="font-size:24px;margin-top:8px">Портфолио и тестовые > корочки.<br>Сертификаты = быстрый proof of skill.</p>
+  </div>
+  <div class="highlight" style="margin-top:24px;border-left-color:var(--terra)">
+    <p style="font-size:28px;font-weight:700;color:var(--terra)">Если senior:</p>
+    <p style="font-size:24px;margin-top:8px">Навыки обновляются каждые 2-3 года.<br>«Я знал это в 2020» — уже не аргумент.</p>
+  </div>
+  <div class="page">5/7</div>
+</div>
+
+<div class="slide-label">Carousel #7 — Slide 6 (s7-6)</div>
+<div class="slide content" id="s7-6">
+  <div class="accent-bar"></div>
+  <h2>3 ПРАКТИЧЕСКИХ<br>ШАГА</h2>
+  <div class="highlight" style="margin-top:32px;border-left-color:var(--emerald)">
+    <p style="font-size:32px;font-weight:700;color:var(--emerald)">1. Аудит навыков</p>
+    <p style="font-size:24px;margin-top:8px">Выпиши всё, что реально умеешь.<br>Не по диплому — по опыту.</p>
+  </div>
+  <div class="highlight" style="margin-top:24px;border-left-color:var(--gold)">
+    <p style="font-size:32px;font-weight:700;color:var(--gold)">2. Proof of work</p>
+    <p style="font-size:24px;margin-top:8px">Один проект на GitHub/Behance<br>убедительнее любого сертификата.</p>
+  </div>
+  <div class="highlight" style="margin-top:24px;border-left-color:var(--terra)">
+    <p style="font-size:32px;font-weight:700;color:var(--terra)">3. Глаголы + числа</p>
+    <p style="font-size:24px;margin-top:8px">«Настроил CI/CD: деплой 4ч → 15мин»<br>НЕ «Знание DevOps»</p>
+  </div>
+  <div class="page">6/7</div>
+</div>
+
+<div class="slide-label">Carousel #7 — Slide 7 (s7-7)</div>
+<div class="slide cta-slide" id="s7-7">
+  <h2>ИТОГО</h2>
+  <p style="font-size:36px;font-weight:700">Диплом ≠ пропуск в 2026.</p>
+  <p style="font-size:36px;font-weight:700;color:var(--emerald)">Навыки = пропуск.</p>
+  <p style="margin-top:24px">85% компаний это уже поняли.</p>
+  <div class="save">Сохрани карусель —<br>пригодится при обновлении резюме.</div>
+  <div class="page">7/7</div>
+</div>
+
+</body>
+</html>

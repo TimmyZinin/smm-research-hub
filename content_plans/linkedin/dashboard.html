@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LinkedIn Content Dashboard — 5-18 марта 2026</title>
+<title>LinkedIn Content Dashboard — 5-17 марта 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -17,6 +17,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);l
 .topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 12px;border-radius:6px;transition:background .2s}
 .topnav a:hover{background:rgba(255,255,255,.15)}
 .topnav a.active{background:var(--linkedin);font-weight:600}
+.topnav a.hub-link{background:var(--terra);font-weight:600}
 
 /* Container */
 .container{max-width:1400px;margin:0 auto;padding:24px}
@@ -86,6 +87,9 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
 .post-card .cta-preview{font-size:.78em;color:var(--muted);margin-top:6px}
 .post-card .time-slot{font-family:'JetBrains Mono',monospace;font-size:.75em;color:var(--emerald);font-weight:600}
 
+/* Source badge */
+.source-badge{display:inline-block;background:#EDF7F0;color:var(--emerald);font-size:.7em;padding:2px 8px;border-radius:10px;font-weight:600;margin-top:8px}
+
 /* Carousel Slides Preview */
 .slides-preview{display:flex;gap:8px;overflow-x:auto;padding:12px 0;margin:12px 0}
 .slide-thumb{min-width:160px;max-width:160px;background:var(--sand);border-radius:8px;font-size:.65em;line-height:1.3;border:1px solid var(--border);flex-shrink:0;overflow:hidden}
@@ -113,7 +117,6 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
 .check-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9em}
 .check-item:last-child{border-bottom:none}
 .check-item input[type="checkbox"]{width:18px;height:18px;accent-color:var(--emerald)}
-.check-item.checked{color:var(--muted);text-decoration:line-through}
 
 /* Strategy Section */
 .strategy{background:var(--card);border-radius:14px;padding:24px;margin-bottom:32px;box-shadow:0 2px 12px rgba(44,36,24,.06)}
@@ -165,6 +168,8 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
 <nav class="topnav">
   <span class="logo">Content Dashboard</span>
   <div class="nav-links">
+    <a href="http://88.218.248.114/dashboards/content.html" class="hub-link">Content Hub</a>
+    <a href="https://timmyzinin.github.io/smm-research-hub/smm_audits/s01_linkedin.html">S-01 Стратегия</a>
     <a href="#" class="active">LinkedIn</a>
     <a href="#" style="opacity:.4;pointer-events:none">Instagram</a>
     <a href="#" style="opacity:.4;pointer-events:none">Telegram</a>
@@ -180,7 +185,7 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
   <div class="sub">Русскоязычная аудитория | Multi-Agent Revenue Architect</div>
   <div class="meta-row">
     <div class="meta-card"><span class="num">7</span><span class="label">Постов</span></div>
-    <div class="meta-card"><span class="num">14</span><span class="label">Дней</span></div>
+    <div class="meta-card"><span class="num">13</span><span class="label">Дней</span></div>
     <div class="meta-card"><span class="num">4</span><span class="label">Столпа</span></div>
     <div class="meta-card"><span class="num">2</span><span class="label">Карусели</span></div>
     <div class="meta-card"><span class="num">1</span><span class="label">Опрос</span></div>
@@ -230,33 +235,23 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
 <h2 class="section-header">KPI на период</h2>
 <div class="kpi-grid">
   <div class="kpi-card">
-    <div class="kpi-val">+200</div>
+    <div class="kpi-val">+150</div>
     <div class="kpi-label">Новых подписчиков</div>
     <div class="kpi-current">Цель</div>
   </div>
   <div class="kpi-card">
-    <div class="kpi-val">2.5%</div>
+    <div class="kpi-val">2%+</div>
     <div class="kpi-label">Engagement Rate</div>
     <div class="kpi-current">Текущий ~1%</div>
   </div>
   <div class="kpi-card">
-    <div class="kpi-val">15+</div>
+    <div class="kpi-val">10+</div>
     <div class="kpi-label">Комментов / пост</div>
     <div class="kpi-current">Текущий ~5</div>
   </div>
   <div class="kpi-card">
     <div class="kpi-val">30+</div>
-    <div class="kpi-label">Keyword комментов</div>
-    <div class="kpi-current">АГЕНТЫ / КАРЬЕРА</div>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-val">50+</div>
     <div class="kpi-label">Переходов на sborka.work</div>
-    <div class="kpi-current">Цель</div>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-val">20+</div>
-    <div class="kpi-label">DM-конверсий</div>
     <div class="kpi-current">Цель</div>
   </div>
 </div>
@@ -291,45 +286,44 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
     <span class="format-tag text">Текст</span>
   </div>
   <div class="card-body">
-    <div class="hook">Ваше резюме больше не читает человек первым. <span class="hook-chars">(49 симв.)</span></div>
-    <div class="post-text" id="post1">В 2026 году 78% крупных компаний прогоняют резюме через AI ещё до того, как его увидит рекрутер.
+    <div class="hook">88% компаний в мире уже используют AI в найме. <span class="hook-chars">(49 симв.)</span></div>
+    <div class="post-text" id="post1">Это не прогноз — это данные за 2026 год (источник: DemandSage, Boterview).
 
-Но вот контр-интуитивная часть:
+Что делают эти системы:
+→ Парсят резюме с точностью 94%
+→ Сопоставляют навыки с вакансией — 89% accuracy
+→ Сокращают время на скрининг на 75%
 
-Решение — не в «оптимизации под AI».
-А в понимании того, что AI на самом деле ищет.
+Но вот что интересно.
 
-3 вещи, которые приоритизируют AI-скринеры (и которые большинство кандидатов игнорируют):
+Самый частый вопрос, который я слышу: «Как оптимизировать резюме под AI?»
 
-1. Метрики результата, а не обязанности
-→ «Увеличил выручку на 34%» побеждает «Отвечал за продажи» каждый раз
+А правильный вопрос другой: «Что AI-скринер реально оценивает?»
 
-2. Контекст навыков, а не набивание ключевых слов
-→ AI-модели понимают контекст. «Провёл миграцию на микросервисы» > перечисление «Docker, K8s, AWS»
+Три вещи:
 
-3. Логика карьерной траектории
-→ AI флагает необъяснимые пробелы и случайные повороты. Два предложения объяснения > молчание.
+1. Конкретные результаты, а не список обязанностей.
+«Сократил время деплоя на 40%» > «Отвечал за CI/CD»
 
-Ирония?
-Лучшее «оптимизированное под AI» резюме — это просто хорошо написанное резюме.
-Чёткая структура. Конкретные результаты. Честный нарратив.
+2. Контекст навыков, а не список ключевых слов.
+AI-модели понимают семантику. «Мигрировал монолит на микросервисы» > перечисление «Docker, K8s, AWS».
 
-Через СБОРКУ я помог 200+ специалистам переписать резюме по этому подходу.
+3. Логика карьерного пути.
+Необъяснимые пробелы и резкие повороты — красный флаг. Два предложения объяснения лучше, чем тишина.
 
-Средний результат: в 3 раза больше приглашений на собеседования за первые 2 недели.
+Ирония: лучшее «AI-оптимизированное» резюме — это просто хорошо написанное резюме. Чёткие результаты, понятная структура, честный нарратив.
 
-Сохрани этот пост. Пригодится, когда будешь обновлять резюме.
-
-А какую главную ошибку в резюме ты постоянно видишь?<div class="fade"></div></div>
+Интересно, кто-нибудь уже получал отказ, который явно выглядел как автоматический?<div class="fade"></div></div>
     <div class="expand-btn" onclick="togglePost('post1',this)">Показать полностью</div>
+    <span class="source-badge">Источники: DemandSage, Boterview, CoverSentry</span>
     <div class="first-comment">
       <div class="fc-label">Первый комментарий (CTA)</div>
-      Полный чек-лист аудита резюме (бесплатно, 15 пунктов):
+      Подробный чек-лист для резюме, которое проходит и AI-скринер, и живого рекрутера:
       sborka.work?utm_source=linkedin&utm_medium=social&utm_campaign=linkedin_w10&utm_content=post01_resume
     </div>
   </div>
   <div class="card-footer">
-    <div class="hashtags">#AIагенты #карьера #резюме #AI #работа</div>
+    <div class="hashtags">#AI #найм #резюме #карьера #рыноктруда</div>
   </div>
 </div>
 
@@ -339,43 +333,38 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
     <div class="post-num">2</div>
     <div class="card-meta">
       <div class="date">6 марта (Пт) <span class="time-slot">08:30 МСК</span></div>
-      <div class="pillar">Комьюнити / Identity-based</div>
+      <div class="pillar">Комьюнити / Реальные данные</div>
     </div>
     <span class="format-tag text">Текст</span>
   </div>
   <div class="card-body">
-    <div class="hook">Если ты строишь AI-агентов, пока все остальные только говорят про AI — этот пост для тебя. <span class="hook-chars">(89 симв.)</span></div>
-    <div class="post-text" id="post2">Большинство людей:
-→ Читают про тренды AI
-→ Репостят AI-новости
-→ Ждут «идеальный инструмент»
+    <div class="hook">За два года конкуренция в IT на hh.ru выросла на 500-700%. <span class="hook-chars">(60 симв.)</span></div>
+    <div class="post-text" id="post2">Индекс HH в IT-секторе был 1-1,5 в 2024. Сейчас — 8-10.
 
-Единицы:
-→ Деплоят несовершенных агентов в понедельник
-→ Чинят их к среде
-→ Генерируют выручку к пятнице
+Для контекста: это значит 8-10 резюме на одну вакансию. В junior-сегменте — до 2000+ откликов на одну позицию.
 
-Я управляю 6 AI-агентами в 8 проектах уже год.
+При этом:
+→ IT-вакансий стало на 20-25% меньше год к году
+→ Средняя зарплата в IT — 196 500 ₽ (+11,5% к прошлому году)
+→ Junior-позиции — всего 10-11% от всех IT-вакансий
 
-Ни один из них не идеален.
-Все они приносят деньги.
+Получается парадокс: зарплаты растут, а найти работу сложнее.
 
-Разрыв между «AI-энтузиастом» и «AI-оператором» — не в знаниях.
-А в готовности запустить 70%-решение.
+Данные: hh.ru, РБК Тренды, vc.ru
 
-Потому что в AI: 70% отгруженного > 100% запланированного.
+Я вижу, что многие в моей ленте поменяли подход к поиску за последний год. Кто-то ушёл в смежные области, кто-то начал строить личный бренд, кто-то переехал.
 
-Кто тут тоже строит, а не просто говорит?
-
-Кидайте в комменты, что вы сейчас делаете. Хочу увидеть ваши проекты.<div class="fade"></div></div>
+А у вас как? Заметили изменения в конкуренции в своей области?<div class="fade"></div></div>
     <div class="expand-btn" onclick="togglePost('post2',this)">Показать полностью</div>
+    <span class="source-badge">Источники: hh.ru, РБК Тренды, vc.ru, Habr</span>
     <div class="first-comment">
       <div class="fc-label">Первый комментарий (CTA)</div>
-      Каждую неделю я документирую свой мультиагентный стек: что работает, что ломается, реальные цифры по выручке. Подписывайся — тут нефильтрованная правда о том, как строить на AI в 2026.
+      Если интересно разобраться, как адаптироваться к текущему рынку — у нас в СБОРКЕ собрали данные по 29 платформам и нишам:
+      sborka.work?utm_source=linkedin&utm_medium=social&utm_campaign=linkedin_w10&utm_content=post02_market
     </div>
   </div>
   <div class="card-footer">
-    <div class="hashtags">#BuildInPublic #AIагенты #мультиагенты #автоматизация</div>
+    <div class="hashtags">#IT #рыноктруда #конкуренция #карьера #hh</div>
   </div>
 </div>
 
@@ -385,47 +374,40 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
     <div class="post-num">3</div>
     <div class="card-meta">
       <div class="date">10 марта (Вт) <span class="time-slot">08:00 МСК</span></div>
-      <div class="pillar">AI-агенты / Практический шаблон</div>
+      <div class="pillar">AI-агенты / Данные Gartner</div>
     </div>
     <span class="format-tag carousel">Карусель</span>
   </div>
   <div class="card-body">
-    <div class="hook">Я управляю 8 проектами с помощью 6 AI-агентов. Вот точный фреймворк. <span class="hook-chars">(71 симв.)</span></div>
-    <div class="post-text" id="post3">→ Листай карусель «Мультиагентный фреймворк выручки»
+    <div class="hook">Gartner прогнозирует: 40%+ проектов с AI-агентами будут закрыты к концу 2027. <span class="hook-chars">(77 симв.)</span></div>
+    <div class="post-text" id="post3">Причины: раздутые ожидания, непонятный ROI, отсутствие контроля рисков.
 
-Большинство предпринимателей используют AI как инструмент.
-Я использую его как команду.
+При этом из тысяч вендоров, которые называют себя «agentic AI», реально агентные решения есть только у ~130 компаний. Остальное — «agent washing»: старые чат-боты и RPA с новым лейблом.
 
-У каждого агента:
-• Чёткая роль
-• Определённые входы/выходы
-• Измеримые KPI
-• Правила автоматической эскалации
+Листай карусель — разобрал, что отличает проекты, которые выживут, от тех, которые закроют.
 
-Результат?
-Я трачу 2 часа в день на то, что раньше занимало 14.
+Данные: Gartner (июнь 2025), опрос 3 412 респондентов.
 
-Сохрани этот фреймворк. Работает для любого бизнеса с контентом, продажами или операционкой.
-
-Напиши АГЕНТЫ в комментариях, и я пришлю полный чек-лист внедрения.<div class="fade"></div></div>
+Если работаете с AI-агентами или планируете — интересно услышать ваш опыт. Что реально работает, а что оказалось хайпом?<div class="fade"></div></div>
     <div class="expand-btn" onclick="togglePost('post3',this)">Показать полностью</div>
+    <span class="source-badge">Источник: Gartner (июнь 2025), 3 412 респондентов</span>
     <div class="slides-preview">
       <div class="slide-thumb"><img src="slides/s3-1.png" alt="Slide 1"><div class="slide-num">1/7</div><div class="slide-caption">Обложка</div></div>
-      <div class="slide-thumb"><img src="slides/s3-2.png" alt="Slide 2"><div class="slide-num">2/7</div><div class="slide-caption">Проблема</div></div>
-      <div class="slide-thumb"><img src="slides/s3-3.png" alt="Slide 3"><div class="slide-num">3/7</div><div class="slide-caption">6 агентов</div></div>
-      <div class="slide-thumb"><img src="slides/s3-4.png" alt="Slide 4"><div class="slide-num">4/7</div><div class="slide-caption">Архитектура</div></div>
-      <div class="slide-thumb"><img src="slides/s3-5.png" alt="Slide 5"><div class="slide-num">5/7</div><div class="slide-caption">Цифры</div></div>
-      <div class="slide-thumb"><img src="slides/s3-6.png" alt="Slide 6"><div class="slide-num">6/7</div><div class="slide-caption">Как начать</div></div>
-      <div class="slide-thumb"><img src="slides/s3-7.png" alt="Slide 7"><div class="slide-num">7/7</div><div class="slide-caption">CTA</div></div>
+      <div class="slide-thumb"><img src="slides/s3-2.png" alt="Slide 2"><div class="slide-num">2/7</div><div class="slide-caption">40% закроют</div></div>
+      <div class="slide-thumb"><img src="slides/s3-3.png" alt="Slide 3"><div class="slide-num">3/7</div><div class="slide-caption">Agent washing</div></div>
+      <div class="slide-thumb"><img src="slides/s3-4.png" alt="Slide 4"><div class="slide-num">4/7</div><div class="slide-caption">Что выживает</div></div>
+      <div class="slide-thumb"><img src="slides/s3-5.png" alt="Slide 5"><div class="slide-num">5/7</div><div class="slide-caption">Цифры рынка</div></div>
+      <div class="slide-thumb"><img src="slides/s3-6.png" alt="Slide 6"><div class="slide-num">6/7</div><div class="slide-caption">Чеклист</div></div>
+      <div class="slide-thumb"><img src="slides/s3-7.png" alt="Slide 7"><div class="slide-num">7/7</div><div class="slide-caption">Итого</div></div>
     </div>
     <div class="first-comment">
       <div class="fc-label">Первый комментарий (CTA)</div>
-      Полный чек-лист внедрения + точные промпты для каждого агента:
-      sborka.work?utm_source=linkedin&utm_medium=social&utm_campaign=linkedin_w10&utm_content=post03_agents
+      Полный отчёт Gartner + примеры платформенных аудитов:
+      timmyzinin.github.io/smm-research-hub/
     </div>
   </div>
   <div class="card-footer">
-    <div class="hashtags">#AIагенты #мультиагенты #автоматизация #BuildInPublic #AI</div>
+    <div class="hashtags">#AI #агенты #Gartner #автоматизация #agenticAI</div>
   </div>
 </div>
 
@@ -440,38 +422,30 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
     <span class="format-tag story">Story</span>
   </div>
   <div class="card-body">
-    <div class="hook">На прошлой неделе я дал своему AI-агенту задачу... <span class="hook-chars">(52 симв.)</span></div>
-    <div class="post-text" id="post4">«Проведи аудит 29 социальных сетей. Для каждой: проанализируй алгоритм, найди конкурентов, напиши стратегию под платформу, создай HTML-отчёт.»
+    <div class="hook">На прошлой неделе попробовал интересный эксперимент. <span class="hook-chars">(53 симв.)</span></div>
+    <div class="post-text" id="post4">Задача: проанализировать 29 социальных сетей и платформ. Для каждой — алгоритм, конкуренты, стратегия, tone of voice, 30-дневный план.
 
-Заняло 48 часов.
+Отдал задачу AI-агенту. Получил 29 HTML-отчётов за 48 часов.
 
-Маркетинговое агентство запросило бы за это $15,000+.
-Фрилансер сделал бы за 3-4 недели.
+Что получилось хорошо:
+→ Структура отчётов — одинаковая и удобная
+→ Алгоритмические данные — в целом корректные
+→ 30-дневные планы — рабочие, с конкретными шагами
 
-Мой агент справился, пока я спал.
+Что было плохо:
+→ Конкурентный анализ — поверхностный, пришлось дополнять руками
+→ Tone of voice рекомендации — слишком generic, нужна ручная доработка
+→ Примерно 15% фактов оказались неточными или устаревшими
 
-Что меня удивило:
+В итоге: 3 часа на ревью и правки. Без AI это заняло бы недели работы.
 
-Агент нашёл, что на Deezer НОЛЬ русскоязычных карьерных подкастов.
-Обнаружил каскад реакций «Класс» в ОК — вирусную механику, которую никто в нашей нише не использует.
-Построил 30-дневный план действий для каждой платформы с конкретными KPI.
+Честный вывод: AI не заменяет ресерч. AI сжимает ресерч в черновик, который нужно проверять.
 
-29 отчётов. 29 стратегий. Ноль часов человеческого ресерча.
+Выложил все 29 аудитов в открытый доступ — ссылка в комментариях. Может кому-то пригодится как шаблон.
 
-Идеально? Нет.
-Точность примерно 85%. Я потратил 3 часа на ревью и правки.
-
-Но 3 часа редактуры бьют 3 недели ресерча.
-
-В этом реальное преимущество AI в 2026:
-
-Не заменять людей.
-Сжимать 3 недели в 3 часа.
-
-Все 29 аудитов в открытом доступе. Ссылка в комментариях.
-
-А какую самую амбициозную задачу вы делегировали AI?<div class="fade"></div></div>
+Если кто-то пробовал подобное — интересно сравнить результаты. Что давали AI, а что делали руками?<div class="fade"></div></div>
     <div class="expand-btn" onclick="togglePost('post4',this)">Показать полностью</div>
+    <span class="source-badge">Реальный проект: SMM Research Hub</span>
     <div class="first-comment">
       <div class="fc-label">Первый комментарий (CTA)</div>
       Все 29 аудитов платформ — в открытом доступе:
@@ -479,7 +453,7 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
     </div>
   </div>
   <div class="card-footer">
-    <div class="hashtags">#BuildInPublic #AI #SMM #мультиагенты #автоматизация</div>
+    <div class="hashtags">#BuildInPublic #AI #SMM #автоматизация #ресерч</div>
   </div>
 </div>
 
@@ -494,37 +468,35 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
     <span class="format-tag text-img">Текст+Img</span>
   </div>
   <div class="card-body">
-    <div class="hook">5 AI-промптов, которые помогли участникам СБОРКИ получить собеседования за 2 недели. <span class="hook-chars">(86 симв.)</span></div>
-    <div class="post-text" id="post5">Не теория. Реальные промпты, реальные результаты.
+    <div class="hook">5 AI-промптов для подготовки к собеседованиям и карьерных переходов. <span class="hook-chars">(69 симв.)</span></div>
+    <div class="post-text" id="post5">Не магия — просто инструменты, которые экономят время.
 
-Промпт 1: ДЕКОДЕР
+Промпт 1: ДЕКОДЕР ВАКАНСИИ
 «Проанализируй эту вакансию. Выдели 5 навыков, которые реально нужны, и 5, которые написаны для объёма. Объясни, как доказать каждый реальный навык на собеседовании.»
-→ Сокращает подготовку к собеседованию на 70%
+→ Помогает не тратить время на irrelevant требования
 
-Промпт 2: ЗЕРКАЛО
-«Перепиши саммари моего резюме, чтобы оно соответствовало языку и приоритетам этой вакансии. Сохрани мой реальный опыт, измени подачу.»
-→ В 3 раза больше откликов (проверено на 200+ участниках)
+Промпт 2: АДАПТЕР РЕЗЮМЕ
+«Перепиши summary моего резюме, чтобы оно соответствовало языку и приоритетам этой вакансии. Сохрани мой реальный опыт, измени подачу.»
+→ Персонализация вместо одного резюме на все отклики
 
-Промпт 3: РЕПЕТИТОР
-«Ты — нанимающий менеджер в [компании]. Проведи со мной собеседование на [позицию]. Задавай жёсткие вопросы, потом оцени мои ответы от 1 до 10 с конкретными улучшениями.»
-→ Превращает ChatGPT в интервью-коуча за $200/час
+Промпт 3: ИНТЕРВЬЮ-ТРЕНЕР
+«Ты — нанимающий менеджер в [компании]. Проведи со мной собеседование на [позицию]. Задавай сложные вопросы, потом оцени мои ответы от 1 до 10 с конкретными улучшениями.»
+→ Бесплатная тренировка перед реальным интервью
 
-Промпт 4: РАЗВЕДЧИК
-«Найди 10 компаний, которые нанимают на [позицию] в [городе/удалённо], о которых большинство кандидатов не знают. Исключи джоб-борды.»
-→ 40% участников нашли работу в компаниях, о которых раньше не слышали
+Промпт 4: РЕСЕРЧЕР
+«Найди 10 компаний, которые нанимают на [позицию], о которых большинство кандидатов не знают. Фокус на карьерных страницах компаний, не на джоб-бордах.»
+→ Скрытый рынок вакансий — до 70% позиций не публикуются на бордах
 
 Промпт 5: ПЕРЕГОВОРЩИК
-«Мне предложили [сумму]. На основе рыночных данных для [позиции] в [локации] предложи стратегию контроффера с конкретными аргументами.»
-→ Средний рост зарплаты: 12-18%
+«Мне предложили [сумму] за [позицию] в [городе]. Предложи стратегию контроффера с конкретными аргументами на основе рыночных данных.»
+→ Подготовка к salary negotiation за 10 минут
 
-Какой промпт попробуешь первым?
-
-Сохрани этот пост — будешь возвращаться не раз.<div class="fade"></div></div>
+Какой промпт попробуете первым?<div class="fade"></div></div>
     <div class="expand-btn" onclick="togglePost('post5',this)">Показать полностью</div>
     <img src="slides/p5-img.png" alt="5 AI-промптов для собеседований" class="post-image">
     <div class="first-comment">
       <div class="fc-label">Первый комментарий (CTA)</div>
-      Полный набор (15 промптов + шаблоны):
+      Все 5 промптов + ещё 10 дополнительных — в бесплатном наборе:
       sborka.work?utm_source=linkedin&utm_medium=social&utm_campaign=linkedin_w10&utm_content=post05_prompts
     </div>
   </div>
@@ -544,30 +516,29 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
     <span class="format-tag poll">Опрос</span>
   </div>
   <div class="card-body">
-    <div class="hook">Честный вопрос ко всем в IT и бизнесе: <span class="hook-chars">(42 симв.)</span></div>
-    <div class="post-text" id="post6">Что главное мешает вам использовать AI в поиске работы?
+    <div class="hook">67% компаний признают, что AI в найме может быть предвзятым. <span class="hook-chars">(62 симв.)</span></div>
+    <div class="post-text" id="post6">При этом 88% компаний уже его используют.
 
-Я поговорил с 200+ специалистами об этом. Ответы всегда удивляют.
+Одна из самых горячих тем в HR-tech прямо сейчас: нормально ли, что машина решает, пригласят тебя на собеседование или нет?
 
-Большинство думают, что барьер — технические навыки.
-Данные говорят иначе.
-
-Голосуйте ниже, а на следующей неделе я выложу полный разбор с конкретными решениями для каждого барьера.<div class="fade"></div></div>
+Как вы к этому относитесь?<div class="fade"></div></div>
     <div class="expand-btn" onclick="togglePost('post6',this)">Показать полностью</div>
+    <span class="source-badge">Источник: DemandSage, 2026</span>
     <div class="poll-options">
-      <div class="poll-opt"><span class="radio"></span> Не знаю, с чего начать</div>
-      <div class="poll-opt"><span class="radio"></span> Не доверяю качеству AI</div>
-      <div class="poll-opt"><span class="radio"></span> Нет времени учить новые инструменты</div>
-      <div class="poll-opt"><span class="radio"></span> Уже использую AI — барьеров нет</div>
+      <div class="poll-opt"><span class="radio"></span> Нормально — эффективность важнее</div>
+      <div class="poll-opt"><span class="radio"></span> Не нормально — нужен живой рекрутер</div>
+      <div class="poll-opt"><span class="radio"></span> Зависит от этапа: скрининг ок, решение — нет</div>
+      <div class="poll-opt"><span class="radio"></span> Мне всё равно, главное — результат</div>
     </div>
     <div class="first-comment">
       <div class="fc-label">Первый комментарий (CTA)</div>
-      5-минутный гайд для каждого барьера:
+      Данные: demandsage.com/ai-recruitment-statistics/
+      Инструменты для работы с AI-скринерами:
       sborka.work?utm_source=linkedin&utm_medium=social&utm_campaign=linkedin_w10&utm_content=post06_poll
     </div>
   </div>
   <div class="card-footer">
-    <div class="hashtags">#AI #карьера #работа #опрос</div>
+    <div class="hashtags">#IT #работа #найм #AI #рыноктруда</div>
   </div>
 </div>
 
@@ -577,43 +548,38 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
     <div class="post-num">7</div>
     <div class="card-meta">
       <div class="date">17 марта (Вт) <span class="time-slot">08:00 МСК</span></div>
-      <div class="pillar">Карьера и навыки / Практический шаблон</div>
+      <div class="pillar">Карьера и навыки / Данные</div>
     </div>
     <span class="format-tag carousel">Карусель</span>
   </div>
   <div class="card-body">
-    <div class="hook">Меняешь профессию в 2026? Вот фреймворк, который работает. <span class="hook-chars">(60 симв.)</span></div>
-    <div class="post-text" id="post7">Через СБОРКУ я провёл 200+ специалистов через карьерные транзишны.
+    <div class="hook">85% работодателей уже перешли на skills-based hiring. <span class="hook-chars">(55 симв.)</span></div>
+    <div class="post-text" id="post7">IBM, BCG, Google убрали требования к дипломам с большинства позиций.
 
-Те, кто добивается результата, проходят 3 фазы.
-Те, кто буксует, пропускают Фазу 1.
+Почему? Навыки в 5 раз лучше предсказывают эффективность на работе, чем образование.
 
-→ Листай карусель «Карьерный транзишн-стек 2026»
+Листай карусель — разобрал, что это значит для тех, кто ищет работу или меняет карьеру в 2026.
 
-Фаза 1 — та, которую никто не хочет делать.
-Но именно она делает Фазы 2 и 3 рабочими.
-
-Сохрани на тот момент, когда будешь готов к переходу.
-
-Напиши КАРЬЕРА в комментариях — пришлю полный воркшит.<div class="fade"></div></div>
+Данные: Kelly Services, Scion Staffing, TalentBusinessPartners.<div class="fade"></div></div>
     <div class="expand-btn" onclick="togglePost('post7',this)">Показать полностью</div>
+    <span class="source-badge">Источники: Kelly Services, Scion Staffing, TBP</span>
     <div class="slides-preview">
       <div class="slide-thumb"><img src="slides/s7-1.png" alt="Slide 1"><div class="slide-num">1/7</div><div class="slide-caption">Обложка</div></div>
-      <div class="slide-thumb"><img src="slides/s7-2.png" alt="Slide 2"><div class="slide-num">2/7</div><div class="slide-caption">68% бросают</div></div>
-      <div class="slide-thumb"><img src="slides/s7-3.png" alt="Slide 3"><div class="slide-num">3/7</div><div class="slide-caption">Фаза 1</div></div>
-      <div class="slide-thumb"><img src="slides/s7-4.png" alt="Slide 4"><div class="slide-num">4/7</div><div class="slide-caption">Фаза 2</div></div>
-      <div class="slide-thumb"><img src="slides/s7-5.png" alt="Slide 5"><div class="slide-num">5/7</div><div class="slide-caption">Фаза 3</div></div>
-      <div class="slide-thumb"><img src="slides/s7-6.png" alt="Slide 6"><div class="slide-num">6/7</div><div class="slide-caption">Результаты</div></div>
-      <div class="slide-thumb"><img src="slides/s7-7.png" alt="Slide 7"><div class="slide-num">7/7</div><div class="slide-caption">CTA</div></div>
+      <div class="slide-thumb"><img src="slides/s7-2.png" alt="Slide 2"><div class="slide-num">2/7</div><div class="slide-caption">85% перешли</div></div>
+      <div class="slide-thumb"><img src="slides/s7-3.png" alt="Slide 3"><div class="slide-num">3/7</div><div class="slide-caption">Почему</div></div>
+      <div class="slide-thumb"><img src="slides/s7-4.png" alt="Slide 4"><div class="slide-num">4/7</div><div class="slide-caption">Кто нанимает</div></div>
+      <div class="slide-thumb"><img src="slides/s7-5.png" alt="Slide 5"><div class="slide-num">5/7</div><div class="slide-caption">Для тебя</div></div>
+      <div class="slide-thumb"><img src="slides/s7-6.png" alt="Slide 6"><div class="slide-num">6/7</div><div class="slide-caption">3 шага</div></div>
+      <div class="slide-thumb"><img src="slides/s7-7.png" alt="Slide 7"><div class="slide-num">7/7</div><div class="slide-caption">Итого</div></div>
     </div>
     <div class="first-comment">
       <div class="fc-label">Первый комментарий (CTA)</div>
-      Полный воркшит карьерного транзишна (бесплатно):
-      sborka.work?utm_source=linkedin&utm_medium=social&utm_campaign=linkedin_w11&utm_content=post07_career
+      Инструменты для skills-based подготовки (бесплатно):
+      sborka.work?utm_source=linkedin&utm_medium=social&utm_campaign=linkedin_w11&utm_content=post07_skills
     </div>
   </div>
   <div class="card-footer">
-    <div class="hashtags">#карьера #AI #смена_профессии #работа #карьерныйрост</div>
+    <div class="hashtags">#карьера #навыки #найм #skillsbased #работа</div>
   </div>
 </div>
 
@@ -641,12 +607,12 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
   <div class="cal-day has-post" onclick="switchTab('posts')">
     <div class="date">5</div>
     <span class="type-badge educational">Educational</span>
-    <div class="title">#1 Резюме и AI-скринеры</div>
+    <div class="title">#1 AI в найме: 88%</div>
   </div>
   <div class="cal-day has-post" onclick="switchTab('posts')">
     <div class="date">6</div>
     <span class="type-badge community">Community</span>
-    <div class="title">#2 Identity: строители vs говорители</div>
+    <div class="title">#2 IT рынок: HH +500%</div>
   </div>
   <div class="cal-day commenting">
     <div class="date">7</div>
@@ -666,7 +632,7 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
   <div class="cal-day has-post" onclick="switchTab('posts')">
     <div class="date">10</div>
     <span class="type-badge carousel">Карусель</span>
-    <div class="title">#3 Мультиагентный фреймворк</div>
+    <div class="title">#3 Gartner: 40% провал</div>
   </div>
   <div class="cal-day has-post" onclick="switchTab('posts')">
     <div class="date">11</div>
@@ -676,12 +642,12 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
   <div class="cal-day has-post" onclick="switchTab('posts')">
     <div class="date">12</div>
     <span class="type-badge educational">Educational</span>
-    <div class="title">#5 5 AI-промптов для карьеры</div>
+    <div class="title">#5 5 AI-промптов</div>
   </div>
   <div class="cal-day has-post" onclick="switchTab('posts')">
     <div class="date">13</div>
     <span class="type-badge community">Опрос</span>
-    <div class="title">#6 Барьеры AI в поиске работы</div>
+    <div class="title">#6 AI bias в найме</div>
   </div>
   <div class="cal-day commenting">
     <div class="date">14</div>
@@ -701,7 +667,7 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
   <div class="cal-day has-post" onclick="switchTab('posts')">
     <div class="date">17</div>
     <span class="type-badge carousel">Карусель</span>
-    <div class="title">#7 Карьерный транзишн-стек</div>
+    <div class="title">#7 Skills > диплом</div>
   </div>
 </div>
 
@@ -731,7 +697,9 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
   <div class="check-item"><input type="checkbox"> Время: 08:00-09:00 МСК</div>
   <div class="check-item"><input type="checkbox"> Готов план ответов на комментарии</div>
   <div class="check-item"><input type="checkbox"> Нет engagement bait ("лайкни если согласен")</div>
-  <div class="check-item"><input type="checkbox"> Нет чисто вебинарного CTA</div>
+  <div class="check-item"><input type="checkbox"> Все статистики имеют реальный источник</div>
+  <div class="check-item"><input type="checkbox"> Нет выдуманных цифр и непроверенных фактов</div>
+  <div class="check-item"><input type="checkbox"> Тон: друг-эксперт, не мессианство</div>
   <div class="check-item"><input type="checkbox"> Контент на русском языке</div>
 </div>
 
@@ -746,8 +714,8 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
         <li>3-5 хэштегов в конце</li>
         <li>Отвечать на комменты &lt; 1 часа</li>
         <li>Карусели для фреймворков</li>
-        <li>Comment KEYWORD для CTA</li>
         <li>Публиковать 08:00-09:00 МСК</li>
+        <li>Только реальные данные с источниками</li>
         <li>Писать на русском языке</li>
       </ul>
     </div>
@@ -756,11 +724,11 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
       <ul style="margin-left:16px;font-size:.88em">
         <li>Ссылки в тело поста (-50% охват)</li>
         <li>Engagement bait</li>
-        <li>&gt;1 поста/день</li>
-        <li>Редактировать &lt;10 мин после публикации</li>
+        <li>Мессианство и поучения</li>
+        <li>Выдуманные цифры и статистики</li>
+        <li>Us-vs-them нарративы</li>
         <li>&gt;5 хэштегов</li>
         <li>Группы взаимных лайков</li>
-        <li>Чисто вебинарные CTA</li>
         <li>Публиковать на английском</li>
       </ul>
     </div>
@@ -770,6 +738,7 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
 <div class="strategy">
   <h2>Связанные документы</h2>
   <ul style="list-style:none;font-size:.9em">
+    <li style="padding:8px 0;border-bottom:1px solid var(--border)"><a href="http://88.218.248.114/dashboards/content.html" style="color:var(--terra);text-decoration:none;font-weight:600">Content Hub — общий пайплайн контента</a></li>
     <li style="padding:8px 0;border-bottom:1px solid var(--border)"><a href="https://timmyzinin.github.io/smm-research-hub/smm_audits/s01_linkedin.html" style="color:var(--linkedin);text-decoration:none;font-weight:600">S-01 LinkedIn — полное исследование</a></li>
     <li style="padding:8px 0;border-bottom:1px solid var(--border)"><a href="https://timmyzinin.github.io/smm-research-hub/" style="color:var(--linkedin);text-decoration:none;font-weight:600">SMM Research Hub — все 29 аудитов</a></li>
     <li style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="color:var(--muted)">MD-файл:</span> content_plans/linkedin/2026-03-05_to_2026-03-18.md</li>
@@ -782,7 +751,7 @@ header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
 </div><!-- container -->
 
 <footer style="text-align:center;padding:24px;color:var(--muted);font-size:.82em">
-  LinkedIn Content Dashboard | Тим Зинин | Период: 5–17 марта 2026 | Язык: RU
+  LinkedIn Content Dashboard | Тим Зинин | Период: 5–17 марта 2026 | Язык: RU | <a href="http://88.218.248.114/dashboards/content.html" style="color:var(--linkedin)">Content Hub</a>
 </footer>
 
 <script>
@@ -790,10 +759,6 @@ function switchTab(name){
   document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById('tab-'+name).classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>{
-    if(t.textContent.toLowerCase().includes(name==='overview'?'обзор':name==='posts'?'посты':name==='calendar'?'календарь':'чеклист'))t.classList.add('active');
-  });
-  // Simpler approach - match by onclick
   document.querySelectorAll('.tab').forEach(t=>{
     const onclick=t.getAttribute('onclick');
     if(onclick&&onclick.includes("'"+name+"'"))t.classList.add('active');
