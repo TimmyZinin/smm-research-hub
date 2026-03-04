@@ -36,10 +36,10 @@ header .meta span{background:rgba(255,255,255,.15);padding:4px 12px;border-radiu
 .tactic li{margin-bottom:3px}
 
 .insight{background:linear-gradient(135deg,#FFF5F2,#FFE8E2);border:1px solid #FFB8A8;border-radius:10px;padding:16px 20px;margin-bottom:12px}
-.insight::before{content:'INSIGHT';font-size:.65em;font-weight:700;letter-spacing:1px;color:var(--vcru);display:block;margin-bottom:6px}
+.insight::before{content:'ИНСАЙТ';font-size:.65em;font-weight:700;letter-spacing:1px;color:var(--vcru);display:block;margin-bottom:6px}
 
 .warning{background:#FFF8ED;border:1px solid #F0D9A8;border-radius:10px;padding:16px 20px;margin-bottom:12px}
-.warning::before{content:'WARNING';font-size:.65em;font-weight:700;letter-spacing:1px;color:#C2573A;display:block;margin-bottom:6px}
+.warning::before{content:'ВНИМАНИЕ: ';font-size:.65em;font-weight:700;letter-spacing:1px;color:#C2573A;display:block;margin-bottom:6px}
 
 .formula{background:var(--dark);color:var(--white);border-radius:10px;padding:16px 20px;margin-bottom:12px;font-family:'JetBrains Mono',monospace;font-size:.85em;line-height:1.8}
 
@@ -59,7 +59,7 @@ tr:hover td{background:var(--white)}
 
 .action-plan{counter-reset:week}
 .week{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;counter-increment:week;position:relative}
-.week::before{content:'Week ' counter(week);position:absolute;top:-10px;left:16px;background:var(--vcru);color:#fff;padding:2px 12px;border-radius:12px;font-size:.75em;font-weight:700}
+.week::before{content:'Неделя ' counter(week);position:absolute;top:-10px;left:16px;background:var(--vcru);color:#fff;padding:2px 12px;border-radius:12px;font-size:.75em;font-weight:700}
 .week h4{margin-top:8px;margin-bottom:10px;color:var(--dark)}
 .week ul{margin-left:20px;font-size:.9em}
 .week li{margin-bottom:4px}
@@ -98,13 +98,13 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
 <nav class="topnav">
   <span class="logo">SMM Hub</span>
-  <a href="../index.html">Dashboard</a>
+  <a href="../index.html">Дашборд</a>
   <span class="sep">|</span>
   <a href="s01_linkedin.html">LinkedIn</a>
   <a href="s02_instagram.html">Instagram</a>
   <a href="s03_youtube.html">YouTube</a>
-  <a href="s04_telegram_personal.html">TG Personal</a>
-  <a href="s05_telegram_sborka.html">TG Sborka</a>
+  <a href="s04_telegram_personal.html">TG Личный</a>
+  <a href="s05_telegram_sborka.html">TG СБОРКА</a>
   <a href="s06_threads.html">Threads</a>
   <a href="s07_facebook.html">Facebook</a>
   <a href="s08_tiktok.html">TikTok</a>
@@ -124,7 +124,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     <span>1 подписчик</span>
     <span>Рейтинг +7</span>
     <span>40-60M визитов/мес</span>
-    <span>Tier 2 — P1 Important</span>
+    <span>Уровень 2 — Приоритет 1 Важный</span>
   </div>
 </header>
 
@@ -135,21 +135,21 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
   <h4 style="color:var(--vcru);margin-bottom:10px">5 стадий дистрибуции статьи</h4>
   <div class="formula">
-Stage 1 (0-30 мин):   ~200-500 юзеров (подписчики + подсайт)
-Stage 2 (30м-2ч):     3+ upvotes, 2+ comments → ~2,000-5,000 в ленте
-Stage 3 (2-6ч):       10+ upvotes, 5+ comments → "Популярное" → 10K-50K
-Stage 4 (6-24ч):      Топ → "Trending" карусель (100,000+ views)
-Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-500K+ views
+Стадия 1 (0-30 мин):   ~200-500 юзеров (подписчики + подсайт)
+Стадия 2 (30м-2ч):     3+ плюсов, 2+ комментов → ~2,000-5,000 в ленте
+Стадия 3 (2-6ч):       10+ плюсов, 5+ комментов → "Популярное" → 10K-50K
+Стадия 4 (6-24ч):      Топ → Карусель "В тренде" (100,000+ просмотров)
+Стадия 5 (Выбор ред.): Закреплена на главной 24-72ч → 50K-500K+ просмотров
   </div>
 
   <table>
     <tr><th>Фактор</th><th>Вес</th><th>Описание</th></tr>
-    <tr><td>Engagement velocity</td><td><span class="badge badge-boost">HIGH</span></td><td>Upvotes, комменты, закладки в первые 1-2 часа</td></tr>
-    <tr><td>Comment count</td><td><span class="badge badge-boost">HIGH</span></td><td>10+ комментов за 2ч = серьёзный алгоритмический лифт</td></tr>
-    <tr><td>Read depth</td><td><span class="badge badge-boost">MED-HIGH</span></td><td>Scroll depth + time-on-page. Прочитали &gt;60% = преференция</td></tr>
-    <tr><td>Author karma</td><td><span class="badge badge-neutral">MEDIUM</span></td><td>Выше карма = шире начальный пул показа</td></tr>
-    <tr><td>Subsite relevance</td><td><span class="badge badge-neutral">MEDIUM</span></td><td>Правильный подсайт = лучшая тематическая дистрибуция</td></tr>
-    <tr><td>Editorial pick</td><td><span class="badge badge-boost">MAX</span></td><td>Ручной выбор редакции → гарантированная главная</td></tr>
+    <tr><td>Скорость вовлечённости</td><td><span class="badge badge-boost">ВЫСОКИЙ</span></td><td>Плюсы, комменты, закладки в первые 1-2 часа</td></tr>
+    <tr><td>Количество комментариев</td><td><span class="badge badge-boost">ВЫСОКИЙ</span></td><td>10+ комментов за 2ч = серьёзный алгоритмический подъём</td></tr>
+    <tr><td>Глубина прочтения</td><td><span class="badge badge-boost">СРЕДНЕ-ВЫСОКИЙ</span></td><td>Глубина прокрутки + время на странице. Прочитали &gt;60% = преференция</td></tr>
+    <tr><td>Карма автора</td><td><span class="badge badge-neutral">СРЕДНИЙ</span></td><td>Выше карма = шире начальный пул показа</td></tr>
+    <tr><td>Релевантность подсайта</td><td><span class="badge badge-neutral">СРЕДНИЙ</span></td><td>Правильный подсайт = лучшая тематическая дистрибуция</td></tr>
+    <tr><td>Выбор редакции</td><td><span class="badge badge-boost">МАКС</span></td><td>Ручной выбор редакции &rarr; гарантированная главная</td></tr>
   </table>
 
   <h4 style="color:var(--vcru);margin:16px 0 10px">Карма/Рейтинг</h4>
@@ -158,9 +158,9 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
       <h4>Уровни рейтинга</h4>
       <ul>
         <li><strong>0-50:</strong> Стандарт, ограниченная дистрибуция</li>
-        <li><strong>50-200:</strong> Established author, шире начальная аудитория</li>
-        <li><strong>200+:</strong> Authority, контент приоритизируется в ленте</li>
-        <li><strong>1000+:</strong> Top-tier, почти гарантированная широкая дистрибуция</li>
+        <li><strong>50-200:</strong> Признанный автор, шире начальная аудитория</li>
+        <li><strong>200+:</strong> Авторитет, контент приоритизируется в ленте</li>
+        <li><strong>1000+:</strong> Топ-уровень, почти гарантированная широкая дистрибуция</li>
       </ul>
       <p style="margin-top:8px;color:var(--vcru);font-weight:600">Тим сейчас: +7. Первая цель: +50.</p>
     </div>
@@ -176,7 +176,7 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
   </div>
 
   <div class="insight">
-    <strong>Comment-First Growth.</strong> Самый быстрый путь от +7 до +50-100: экспертное комментирование 5-10 раз/день в течение 30 дней. Комменты строят узнаваемость имени И поднимают карму одновременно. Статьи = вторичный рычаг на старте.
+    <strong>Рост через комментарии.</strong> Самый быстрый путь от +7 до +50-100: экспертное комментирование 5-10 раз/день в течение 30 дней. Комменты строят узнаваемость имени И поднимают карму одновременно. Статьи = вторичный рычаг на старте.
   </div>
 
   <div class="grid-2">
@@ -187,12 +187,12 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
         <p>Больше engagement чем короткие посты. Оригинальные данные и исследования = editorial picks.</p>
       </div>
       <div class="tactic">
-        <h4>Timely reactions</h4>
-        <p>Реакция на индустриальные новости в течение 24ч = freshness boost.</p>
+        <h4>Своевременная реакция</h4>
+        <p>Реакция на индустриальные новости в течение 24ч = буст свежести.</p>
       </div>
       <div class="tactic">
         <h4>Публикация 9:00-11:00 MSK (Пн-Чт)</h4>
-        <p>Peak engagement window. Профессионалы проверяют ленту в начале дня.</p>
+        <p>Пиковое окно вовлечённости. Профессионалы проверяют ленту в начале дня.</p>
       </div>
     </div>
     <div>
@@ -219,13 +219,13 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
   <h4 style="color:var(--vcru);margin-bottom:10px">Целевые подсайты для AI/Career ниши</h4>
   <table>
     <tr><th>Подсайт</th><th>Подписчиков</th><th>Релевантность</th><th>Стратегия</th></tr>
-    <tr><td><strong>Карьера</strong> (vc.ru/career)</td><td>~150K</td><td><span class="badge badge-boost">PRIMARY</span></td><td>2x/нед. Career advice, СБОРКА, job search</td></tr>
-    <tr><td><strong>AI</strong> (vc.ru/ai)</td><td>~200K+</td><td><span class="badge badge-boost">PRIMARY</span></td><td>1-2x/нед. AI tools, agents, автоматизация</td></tr>
-    <tr><td><strong>Технологии</strong> (vc.ru/tech)</td><td>~300K+</td><td><span class="badge badge-neutral">HIGH</span></td><td>Technical deep-dives, мульти-агентные системы</td></tr>
-    <tr><td><strong>Маркетинг</strong> (vc.ru/marketing)</td><td>~1.05M</td><td><span class="badge badge-neutral">MEDIUM</span></td><td>AI в маркетинге, контент-автоматизация (огромный reach)</td></tr>
-    <tr><td><strong>Мнения</strong> (vc.ru/opinions)</td><td>~100K</td><td><span class="badge badge-neutral">MEDIUM</span></td><td>Controversial takes, hot takes</td></tr>
-    <tr><td><strong>Личный опыт</strong> (vc.ru/life)</td><td>~400K</td><td><span class="badge badge-neutral">MEDIUM</span></td><td>Build in public, failure stories, уязвимость</td></tr>
-    <tr><td><strong>Образование</strong> (vc.ru/education)</td><td>~60K</td><td><span class="badge badge-neutral">MEDIUM</span></td><td>Upskilling, карьерные курсы</td></tr>
+    <tr><td><strong>Карьера</strong> (vc.ru/career)</td><td>~150K</td><td><span class="badge badge-boost">ОСНОВНОЙ</span></td><td>2x/нед. Карьерные советы, СБОРКА, поиск работы</td></tr>
+    <tr><td><strong>AI</strong> (vc.ru/ai)</td><td>~200K+</td><td><span class="badge badge-boost">ОСНОВНОЙ</span></td><td>1-2x/нед. AI-инструменты, агенты, автоматизация</td></tr>
+    <tr><td><strong>Технологии</strong> (vc.ru/tech)</td><td>~300K+</td><td><span class="badge badge-neutral">ВЫСОКИЙ</span></td><td>Глубокие технические разборы, мульти-агентные системы</td></tr>
+    <tr><td><strong>Маркетинг</strong> (vc.ru/marketing)</td><td>~1.05M</td><td><span class="badge badge-neutral">СРЕДНИЙ</span></td><td>AI в маркетинге, контент-автоматизация (огромный охват)</td></tr>
+    <tr><td><strong>Мнения</strong> (vc.ru/opinions)</td><td>~100K</td><td><span class="badge badge-neutral">СРЕДНИЙ</span></td><td>Спорные мнения, острые высказывания</td></tr>
+    <tr><td><strong>Личный опыт</strong> (vc.ru/life)</td><td>~400K</td><td><span class="badge badge-neutral">СРЕДНИЙ</span></td><td>Строительство на публике, истории провалов, уязвимость</td></tr>
+    <tr><td><strong>Образование</strong> (vc.ru/education)</td><td>~60K</td><td><span class="badge badge-neutral">СРЕДНИЙ</span></td><td>Повышение квалификации, карьерные курсы</td></tr>
   </table>
 
   <div class="insight">
@@ -235,23 +235,23 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
   <h4 style="color:var(--vcru);margin:16px 0 10px">Статьи vs Короткие посты (Трибуна)</h4>
   <div class="grid-2">
     <div class="tactic">
-      <h4>Статьи — PRIMARY формат (80%)</h4>
+      <h4>Статьи — ОСНОВНОЙ формат (80%)</h4>
       <ul>
         <li>Полный редактор: изображения, code blocks, embeds, галереи</li>
         <li>Идеальная длина: 4,000-8,000 символов (6-10 мин чтения)</li>
         <li>Индексируются поисковиками (Яндекс, Google)</li>
-        <li>Eligible для editorial picks</li>
+        <li>Могут попасть в выбор редакции</li>
         <li>Опросы, галереи, встроенное видео</li>
       </ul>
     </div>
     <div class="tactic">
-      <h4>Короткие посты — Engagement farming (20%)</h4>
+      <h4>Короткие посты — Сбор вовлечённости (20%)</h4>
       <ul>
         <li>280-1,000 символов, быстрые мысли</li>
         <li>Показываются в ленте, но менее заметны</li>
         <li>Отлично для опросов и вопросов</li>
         <li>НЕ индексируются хорошо поисковиками</li>
-        <li>НЕ eligible для editorial picks</li>
+        <li>НЕ попадают в выбор редакции</li>
       </ul>
     </div>
   </div>
@@ -281,12 +281,12 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
   <h4 style="color:var(--vcru);margin:16px 0 10px">Ключевые кластеры (Яндекс.Вордстат)</h4>
   <table>
     <tr><th>Кластер</th><th>Запросов/мес</th><th>Конкуренция</th><th>Приоритет</th></tr>
-    <tr><td>"поиск работы"</td><td>180,000+</td><td>HIGH</td><td>Уникальный угол</td></tr>
-    <tr><td>"AI в работе" / "ИИ на работе"</td><td>35,000+</td><td>MEDIUM</td><td>Primary content pillar</td></tr>
-    <tr><td>"нейросети для работы"</td><td>25,000+</td><td>LOW-MEDIUM</td><td><strong>Сильная возможность</strong></td></tr>
-    <tr><td>"AI агенты"</td><td>15,000+</td><td>LOW</td><td><strong>Ниша Тима, быстрый рост</strong></td></tr>
-    <tr><td>"карьерный рост"</td><td>45,000+</td><td>MEDIUM</td><td>Secondary pillar</td></tr>
-    <tr><td>"автоматизация бизнеса AI"</td><td>20,000+</td><td>LOW-MEDIUM</td><td>Multi-agent angle</td></tr>
+    <tr><td>"поиск работы"</td><td>180,000+</td><td>ВЫСОКАЯ</td><td>Уникальный угол</td></tr>
+    <tr><td>"AI в работе" / "ИИ на работе"</td><td>35,000+</td><td>СРЕДНЯЯ</td><td>Основной контент-столп</td></tr>
+    <tr><td>"нейросети для работы"</td><td>25,000+</td><td>НИЗКО-СРЕДНЯЯ</td><td><strong>Сильная возможность</strong></td></tr>
+    <tr><td>"AI агенты"</td><td>15,000+</td><td>НИЗКАЯ</td><td><strong>Ниша Тима, быстрый рост</strong></td></tr>
+    <tr><td>"карьерный рост"</td><td>45,000+</td><td>СРЕДНЯЯ</td><td>Вторичный столп</td></tr>
+    <tr><td>"автоматизация бизнеса AI"</td><td>20,000+</td><td>НИЗКО-СРЕДНЯЯ</td><td>Мульти-агентный угол</td></tr>
   </table>
 
   <div class="tactic">
@@ -307,7 +307,7 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
   <h2>4. Конкурентный анализ</h2>
 
   <div class="insight">
-    <strong>Blue Ocean:</strong> Пересечение "AI agents + карьера + build in public" практически не занято на VC.ru. "One Brain, Many Agents" как карьерный фреймворк — уникальный угол, который работает через все подсайты.
+    <strong>Голубой океан:</strong> Пересечение "AI-агенты + карьера + строительство на публике" практически не занято на VC.ru. "One Brain, Many Agents" как карьерный фреймворк — уникальный угол, который работает через все подсайты.
   </div>
 
   <div class="competitor">
@@ -315,77 +315,77 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
     <div class="stats">
       <span class="stat-chip">3-5x/неделю</span>
       <span class="stat-chip">1.5K-8.8K views/статья</span>
-      <span class="stat-chip">AI + product launches</span>
+      <span class="stat-chip">AI + запуски продуктов</span>
     </div>
-    <p style="font-size:.9em"><strong>Стратегия:</strong> News-driven + practical tool reviews. Комбинирует агрегацию новостей с "как вы можете использовать это". <strong>Слабость:</strong> Нет personal brand storytelling, нет career angle.</p>
+    <p style="font-size:.9em"><strong>Стратегия:</strong> Новостная + практические обзоры инструментов. Комбинирует агрегацию новостей с "как вы можете использовать это". <strong>Слабость:</strong> Нет личного брендового сторителлинга, нет карьерного угла.</p>
   </div>
 
   <div class="competitor">
     <h4>Makar Trapeznikov (@makar_trapeznikov)</h4>
     <div class="stats">
       <span class="stat-chip">236+ комментов на flagship</span>
-      <span class="stat-chip">Marketing cases</span>
-      <span class="stat-chip">Сильный comment engagement</span>
+      <span class="stat-chip">Маркетинговые кейсы</span>
+      <span class="stat-chip">Сильная вовлечённость в комментах</span>
     </div>
-    <p style="font-size:.9em"><strong>Стратегия:</strong> Long-form case studies с бизнес-метриками. Blend культурных инсайтов с цифрами. <strong>Тактика для заимствования:</strong> Консистентность + глубокие комменты → рост с 500 до 3K за 12 мес.</p>
+    <p style="font-size:.9em"><strong>Стратегия:</strong> Длинные кейс-стади с бизнес-метриками. Сочетание культурных инсайтов с цифрами. <strong>Тактика для заимствования:</strong> Стабильность + глубокие комменты → рост с 500 до 3K за 12 мес.</p>
   </div>
 
   <div class="competitor">
     <h4>Лещенко ВКЛЮЧИ ИИ</h4>
     <div class="stats">
-      <span class="stat-chip">AI automation</span>
+      <span class="stat-chip">AI-автоматизация</span>
       <span class="stat-chip">0→2K за 6 мес</span>
-      <span class="stat-chip">Templates + workflows</span>
+      <span class="stat-chip">Шаблоны + рабочие процессы</span>
     </div>
-    <p style="font-size:.9em"><strong>Стратегия:</strong> Практические AI workflows для solo-предпринимателей. "Как делать больше с меньшим" через AI. <strong>Ближайший конкурент</strong>, но без career-угла и без personal brand масштаба Тима.</p>
+    <p style="font-size:.9em"><strong>Стратегия:</strong> Практические AI-рабочие процессы для solo-предпринимателей. "Как делать больше с меньшим" через AI. <strong>Ближайший конкурент</strong>, но без карьерного угла и без личного бренда масштаба Тима.</p>
   </div>
 
   <div class="competitor">
     <h4>Alexey Dianov (@alexey_dianov)</h4>
     <div class="stats">
       <span class="stat-chip">774+ лайков</span>
-      <span class="stat-chip">Conversion optimization</span>
-      <span class="stat-chip">Frameworks + examples</span>
+      <span class="stat-chip">Оптимизация конверсии</span>
+      <span class="stat-chip">Фреймворки + примеры</span>
     </div>
-    <p style="font-size:.9em"><strong>Стратегия:</strong> Техническая глубина без жаргона, actionable чеклисты. <strong>Тактика:</strong> Фреймворки = bookmarkable контент = шеринг.</p>
+    <p style="font-size:.9em"><strong>Стратегия:</strong> Техническая глубина без жаргона, практичные чеклисты. <strong>Тактика:</strong> Фреймворки = контент для закладок = шеринг.</p>
   </div>
 
   <div class="competitor">
     <h4>Kirill Gusarov (@kirill_gusarov)</h4>
     <div class="stats">
       <span class="stat-chip">349+ лайков</span>
-      <span class="stat-chip">Regulatory/compliance</span>
-      <span class="stat-chip">Niche expertise</span>
+      <span class="stat-chip">Регуляторика/комплаенс</span>
+      <span class="stat-chip">Нишевая экспертиза</span>
     </div>
-    <p style="font-size:.9em"><strong>Урок:</strong> Узкая экспертиза = меньше конкуренции, высокая ценность. Нишевые темы = loyal audience.</p>
+    <p style="font-size:.9em"><strong>Вывод:</strong> Узкая экспертиза = меньше конкуренции, высокая ценность. Нишевые темы = лояльная аудитория.</p>
   </div>
 
   <h4 style="margin:16px 0 10px;color:var(--vcru)">Общие черты успешных авторов</h4>
   <div class="grid-3">
     <div class="tactic"><h4>Уникальная экспертиза</h4><p>Не generic контент, а глубокая специализация</p></div>
-    <div class="tactic"><h4>Минимум 2x/неделю</h4><p>Consistency = visibility в ленте</p></div>
-    <div class="tactic"><h4>Hot takes + deep dives</h4><p>Mix коротких мнений и лонгридов</p></div>
+    <div class="tactic"><h4>Минимум 2x/неделю</h4><p>Стабильность = видимость в ленте</p></div>
+    <div class="tactic"><h4>Острые мнения + глубокие разборы</h4><p>Микс коротких мнений и лонгридов</p></div>
     <div class="tactic"><h4>Искренние комменты</h4><p>Ответы другим авторам, участие в community</p></div>
-    <div class="tactic"><h4>Failure stories</h4><p>Ошибки строят credibility больше чем успехи</p></div>
+    <div class="tactic"><h4>Истории провалов</h4><p>Ошибки строят доверие больше чем успехи</p></div>
     <div class="tactic"><h4>Фреймворки</h4><p>Структурированный контент = saves + shares</p></div>
   </div>
 </div>
 
 <!-- ===== 5. COMMENT STRATEGY ===== -->
 <div class="section">
-  <h2>5. Comment-First Growth Strategy</h2>
+  <h2>5. Стратегия роста через комментарии</h2>
 
   <div class="insight">
-    <strong>Главная стратегия для VC.ru:</strong> Комментарии = #1 рычаг роста. VC.ru — comment-heavy платформа. Экспертные комменты строят узнаваемость имени, поднимают карму, и привлекают подписчиков быстрее, чем статьи на старте.
+    <strong>Главная стратегия для VC.ru:</strong> Комментарии = рычаг роста #1. VC.ru — платформа с акцентом на комментарии. Экспертные комменты строят узнаваемость имени, поднимают карму и привлекают подписчиков быстрее, чем статьи на старте.
   </div>
 
   <div class="tactic">
-    <h4>Алгоритм Comment-First Growth</h4>
+    <h4>Алгоритм роста через комментарии</h4>
     <ol>
       <li><strong>Первые 30 дней:</strong> 5-10 экспертных комментариев/день в трендовых статьях</li>
       <li>Фокус на подсайтах: AI, Карьера, Технологии</li>
-      <li>Каждый коммент = substantive (50-200 слов), с данными или личным опытом</li>
-      <li>НЕ "отличная статья", а добавление value: контрпример, дополнительные данные, practical tip</li>
+      <li>Каждый коммент = содержательный (50-200 слов), с данными или личным опытом</li>
+      <li>НЕ "отличная статья", а добавление ценности: контрпример, дополнительные данные, практический совет</li>
       <li>Ответы на чужие комменты (threads = visibility)</li>
       <li>Закреплять reputation: "тот парень, который знает про AI-агенты"</li>
     </ol>
@@ -420,19 +420,19 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
     <div>
       <h4 style="color:var(--emerald);margin-bottom:10px">Что работает</h4>
       <div class="tactic">
-        <h4>Data-driven case studies</h4>
+        <h4>Кейсы на основе данных</h4>
         <p>"Мы протестировали 14 AI-моделей для видео. Вот бенчмарки: [таблица с ценами, скоростью, качеством]."</p>
       </div>
       <div class="tactic">
-        <h4>Honest failures</h4>
+        <h4>Честные провалы</h4>
         <p>"Я потратил 3 месяца на [X] и это не сработало. Вот почему, и что я сделал вместо этого."</p>
       </div>
       <div class="tactic">
-        <h4>Controversial but substantiated</h4>
-        <p>"90% AI-пилотов провалятся. Вот 5 причин и как этого избежать." Данные + мнение = engagement.</p>
+        <h4>Спорное, но обоснованное</h4>
+        <p>"90% AI-пилотов провалятся. Вот 5 причин и как этого избежать." Данные + мнение = вовлечённость.</p>
       </div>
       <div class="tactic">
-        <h4>Build in Public</h4>
+        <h4>Строительство на публике</h4>
         <p>"Месяц 1 СБОРКИ: 55 юзеров, $165 MRR, 3 вебинара. Подробный разбор с цифрами."</p>
       </div>
     </div>
@@ -463,26 +463,26 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
   <h2>7. CTA-стратегия: VC.ru → sborka.work</h2>
 
   <div class="warning">
-    <strong>VC.ru anti-promo culture:</strong> Явный self-promotion получает downvotes и может убить карму. Soft CTA = единственный рабочий подход. Правило: 80%+ value content, &lt;20% с любым упоминанием продукта.
+    <strong>Антирекламная культура VC.ru:</strong> Явная самореклама получает минусы и может убить карму. Мягкий CTA = единственный рабочий подход. Правило: 80%+ полезного контента, &lt;20% с любым упоминанием продукта.
   </div>
 
   <div class="tactic">
-    <h4>1. "Author Bio" CTA (всегда активен)</h4>
-    <p>В профиле автора: ссылка на sborka.work + описание "Founder СБОРКА | Multi-Agent Revenue Architect". Каждый коммент = видна ваша bio.</p>
+    <h4>1. CTA в профиле автора (всегда активен)</h4>
+    <p>В профиле автора: ссылка на sborka.work + описание "Основатель СБОРКИ | Мульти-агентный архитектор". Каждый коммент = видна ваша bio.</p>
   </div>
 
   <div class="tactic">
-    <h4>2. "Contextual Mention" (в статьях)</h4>
-    <p>"...we tested this with our SBORKA career club members and saw [result]." Упоминание продукта как ИСТОЧНИКА ДАННЫХ, не как рекламы. VC.ru аудитория уважает это.</p>
+    <h4>2. "Контекстное упоминание" (в статьях)</h4>
+    <p>"...мы проверили это с участниками карьерного клуба СБОРКА и увидели [результат]." Упоминание продукта как ИСТОЧНИКА ДАННЫХ, не как рекламы. VC.ru аудитория уважает это.</p>
   </div>
 
   <div class="tactic">
-    <h4>3. "End-of-Article Soft CTA" (1 из 3 статей)</h4>
-    <p>В конце статьи: "Если интересна тема AI+карьера, подписывайтесь на мой TG-канал [ссылка] или заходите в СБОРКУ [ссылка]." Мягко, после полной порции value.</p>
+    <h4>3. "Мягкий CTA в конце статьи" (1 из 3 статей)</h4>
+    <p>В конце статьи: "Если интересна тема AI+карьера, подписывайтесь на мой TG-канал [ссылка] или заходите в СБОРКУ [ссылка]." Мягко, после полной порции ценного контента.</p>
   </div>
 
   <div class="tactic">
-    <h4>4. "Comment CTA" (осторожно)</h4>
+    <h4>4. "CTA в комментариях" (осторожно)</h4>
     <p>В ответе на комментарий: "Подробно разбирал это в [ссылка на другую статью на VC.ru]." Ссылки на СВОЙ контент на VC.ru — ОК. Ссылки на внешний сайт в комментах — рискованно.</p>
   </div>
 
@@ -493,7 +493,7 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
   </div>
 
   <div class="insight">
-    <strong>Лучший CTA паттерн для VC.ru:</strong> Статья с реальными данными → заканчивается "если хотите больше таких данных, у нас есть [TG-канал / СБОРКА]." CTR soft CTA: 3-8% vs &lt;1% для hard promotion.
+    <strong>Лучший CTA-паттерн для VC.ru:</strong> Статья с реальными данными → заканчивается "если хотите больше таких данных, у нас есть [TG-канал / СБОРКА]." CTR мягкого CTA: 3-8% vs &lt;1% для жёсткой рекламы.
   </div>
 </div>
 
@@ -505,20 +505,20 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
 
   <div class="grid-2">
     <div class="tactic">
-      <h4>AI disruption + career impact</h4>
-      <p>"Вы потеряете работу из-за AI" fear factor + "но вот как выжить" solution. Пример: "Почему AI-агенты заменят 40% junior-позиций (и как остаться relevant)".</p>
+      <h4>AI-угроза + влияние на карьеру</h4>
+      <p>"Вы потеряете работу из-за AI" фактор страха + "но вот как выжить" решение. Пример: "Почему AI-агенты заменят 40% junior-позиций (и как остаться востребованным)".</p>
     </div>
     <div class="tactic">
-      <h4>Практические AI tools с личным тестом</h4>
-      <p>Не список инструментов, а "я протестировал X месяц и вот результаты с цифрами". Личный опыт + бенчмарки = gold.</p>
+      <h4>Практические AI-инструменты с личным тестом</h4>
+      <p>Не список инструментов, а "я протестировал X месяц и вот результаты с цифрами". Личный опыт + бенчмарки = золото.</p>
     </div>
     <div class="tactic">
-      <h4>Startup failures + lessons</h4>
+      <h4>Провалы стартапов + уроки</h4>
       <p>"Мы заплатили $50K за [сервис], сэкономили $30K используя AI." ROI + конкретные цифры = вирус.</p>
     </div>
     <div class="tactic">
-      <h4>Salary data + career transitions</h4>
-      <p>"Реальные зарплаты в AI: от $3K до $30K." Данные по зарплатам = engagement machine на VC.ru.</p>
+      <h4>Данные по зарплатам + карьерные переходы</h4>
+      <p>"Реальные зарплаты в AI: от $3K до $30K." Данные по зарплатам = машина вовлечённости на VC.ru.</p>
     </div>
   </div>
 
@@ -544,9 +544,9 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
     <h4>Оптимальное время публикации</h4>
     <ul>
       <li><strong>Вторник 10:00-12:00:</strong> Проверка ленты в начале рабочего дня</li>
-      <li><strong>Среда 14:00-16:00:</strong> Afternoon lull, высокий engagement potential</li>
-      <li><strong>Четверг 9:00-11:00:</strong> Планирование weekend-чтения</li>
-      <li><strong>Пятница 15:00-17:00:</strong> End-of-week reflection</li>
+      <li><strong>Среда 14:00-16:00:</strong> Послеобеденное затишье, высокий потенциал вовлечённости</li>
+      <li><strong>Четверг 9:00-11:00:</strong> Планирование чтения на выходные</li>
+      <li><strong>Пятница 15:00-17:00:</strong> Рефлексия в конце недели</li>
       <li><strong>Избегать:</strong> Понедельник утро, выходные (5x ниже трафик)</li>
     </ul>
   </div>
@@ -554,34 +554,34 @@ Stage 5 (Editor Pick): Закреплена на главной 24-72ч → 50K-
 
 <!-- ===== 9. CROSS-PLATFORM ===== -->
 <div class="section">
-  <h2>9. Cross-platform синергия</h2>
+  <h2>9. Кросс-платформенная синергия</h2>
 
   <div class="formula">
-VC.ru статья → (2 часа) → LinkedIn пост с кратким summary
+VC.ru статья → (2 часа) → LinkedIn пост с кратким саммари
                         → Telegram пост с ключевым инсайтом
-                        → Threads hot take из статьи
+                        → Threads острое мнение из статьи
 
-Telegram подписчик → читает VC.ru статью → upvote = карма
-LinkedIn audience → кросс-трафик → подписка на VC.ru
+Telegram подписчик → читает VC.ru статью → плюс = карма
+LinkedIn аудитория → кросс-трафик → подписка на VC.ru
   </div>
 
   <div class="grid-2">
     <div class="tactic">
-      <h4>VC.ru → Telegram pipeline</h4>
+      <h4>VC.ru → Telegram воронка</h4>
       <ul>
-        <li>Каждая VC.ru статья = пост в TG с key takeaway</li>
+        <li>Каждая VC.ru статья = пост в TG с ключевым выводом</li>
         <li>"Написал подробный разбор на VC.ru: [ссылка]"</li>
-        <li>TG-подписчики → initial upvotes на VC.ru → boost алгоритма</li>
-        <li>Win-win: TG получает контент, VC.ru получает engagement</li>
+        <li>TG-подписчики → начальные плюсы на VC.ru → буст алгоритма</li>
+        <li>Выигрывают все: TG получает контент, VC.ru получает вовлечённость</li>
       </ul>
     </div>
     <div class="tactic">
-      <h4>VC.ru → LinkedIn pipeline</h4>
+      <h4>VC.ru → LinkedIn воронка</h4>
       <ul>
-        <li>LinkedIn пост: 200-300 слов summary + "полная версия на VC.ru"</li>
+        <li>LinkedIn пост: 200-300 слов саммари + "полная версия на VC.ru"</li>
         <li>НЕ copy-paste (VC.ru штрафует дубликаты)</li>
-        <li>LinkedIn аудитория = quality readers для VC.ru</li>
-        <li>Timing: публикация на LinkedIn через 2 часа после VC.ru</li>
+        <li>LinkedIn аудитория = качественные читатели для VC.ru</li>
+        <li>Тайминг: публикация на LinkedIn через 2 часа после VC.ru</li>
       </ul>
     </div>
   </div>
@@ -594,8 +594,8 @@ LinkedIn audience → кросс-трафик → подписка на VC.ru
   <div class="timeline" style="margin-bottom:20px">
     <div class="t-item" style="background:#FFF5F2">
       <span class="t-label">Week 1</span>
-      <span class="t-num">Comments</span>
-      Comment-only фаза
+      <span class="t-num">Комменты</span>
+      Фаза только комментариев
     </div>
     <div class="t-item" style="background:#FFE8E2">
       <span class="t-label">Week 2</span>
@@ -605,18 +605,18 @@ LinkedIn audience → кросс-трафик → подписка на VC.ru
     <div class="t-item" style="background:#FFD8CE">
       <span class="t-label">Week 3</span>
       <span class="t-num">→60</span>
-      Build in Public
+      На публике
     </div>
     <div class="t-item" style="background:#FFC8B8">
       <span class="t-label">Week 4</span>
       <span class="t-num">→100</span>
-      Scale + Viral attempt
+      Масштаб + попытка виральности
     </div>
   </div>
 
   <div class="action-plan">
     <div class="week">
-      <h4>Comment-Only Phase (Day 1-7)</h4>
+      <h4>Фаза только комментариев (День 1-7)</h4>
       <ul>
         <li><strong>5-8 экспертных комментариев/день</strong> в AI/Career/Tech подсайтах</li>
         <li>Фокус: добавление value, не самореклама</li>
@@ -628,31 +628,31 @@ LinkedIn audience → кросс-трафик → подписка на VC.ru
     </div>
 
     <div class="week">
-      <h4>First Articles (Day 8-14)</h4>
+      <h4>Первые статьи (День 8-14)</h4>
       <ul>
-        <li>2 статьи: AI career tools benchmark + controversial take на устаревший job search</li>
+        <li>2 статьи: бенчмарк AI-карьерных инструментов + спорное мнение об устаревшем поиске работы</li>
         <li>Продолжить 5-8 комментов/день</li>
         <li>1 опрос: "Какой AI-инструмент изменил вашу работу?"</li>
-        <li>Cross-promote в Telegram + LinkedIn (через 2ч после публикации)</li>
+        <li>Кросс-промо в Telegram + LinkedIn (через 2ч после публикации)</li>
         <li><strong>Цель:</strong> Карма +50-80. Subscribers: 20-40.</li>
       </ul>
     </div>
 
     <div class="week">
-      <h4>Build in Public (Day 15-21)</h4>
+      <h4>Строительство на публике (День 15-21)</h4>
       <ul>
-        <li>2 статьи + 1 опрос: "Как я построил бота на мульти-агентной системе" (build in public), "AI vs человек: кто лучше пишет контент" (controversial)</li>
-        <li>Article series tease: "AI Career Toolkit — Part 1"</li>
-        <li>Outreach к 3-5 авторам для mutual engagement</li>
+        <li>2 статьи + 1 опрос: "Как я построил бота на мульти-агентной системе" (строительство на публике), "AI vs человек: кто лучше пишет контент" (спорное)</li>
+        <li>Тизер серии статей: "AI Career Toolkit — Часть 1"</li>
+        <li>Аутрич к 3-5 авторам для взаимного вовлечения</li>
         <li><strong>Цель:</strong> Карма +80-120. Subscribers: 40-70.</li>
       </ul>
     </div>
 
     <div class="week">
-      <h4>Scale + Viral Attempt (Day 22-30)</h4>
+      <h4>Масштабирование + попытка виральности (День 22-30)</h4>
       <ul>
         <li>2 статьи + 1 опрос: Video benchmark (14 моделей тестировано), мета-статья "Что я узнал за 30 дней на VC.ru"</li>
-        <li>Viral attempt: максимально data-driven + controversial take</li>
+        <li>Попытка вирусности: максимально на данных + спорное мнение</li>
         <li>Полный анализ метрик → план на месяц 2</li>
         <li><strong>Цель:</strong> Карма +100-200. Subscribers: 50-100. Total views: 25K-50K.</li>
       </ul>
@@ -670,7 +670,7 @@ LinkedIn audience → кросс-трафик → подписка на VC.ru
   </table>
 
   <div class="insight">
-    <strong>90-дневная цель:</strong> 1 подписчик → 1,000+ (подтверждено case studies). 23 статьи за 90 дней (2-3/неделю). Primary driver: Career subsite consistency + AI niche expertise + aggressive comment strategy.
+    <strong>90-дневная цель:</strong> 1 подписчик &rarr; 1,000+ (подтверждено кейсами). 23 статьи за 90 дней (2-3/неделю). Основной драйвер: стабильность в подсайте Карьера + экспертиза в AI-нише + агрессивная стратегия комментариев.
   </div>
 
   <h4 style="margin:16px 0 10px;color:var(--vcru)">Первые 5 статей (темы)</h4>
@@ -699,7 +699,7 @@ LinkedIn audience → кросс-трафик → подписка на VC.ru
 </div>
 
 <footer>
-  SMM Research Hub &copy; 2026 &middot; Sprint S-10 VC.ru &middot; <a href="../index.html" style="color:var(--vcru)">Вернуться на Dashboard</a>
+  SMM Research Hub &copy; 2026 &middot; Спринт S-10 VC.ru &middot; <a href="../index.html" style="color:var(--vcru)">Вернуться на дашборд</a>
 </footer>
 
 </div>

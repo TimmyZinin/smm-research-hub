@@ -73,13 +73,13 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 <body>
 <nav class="topnav">
   <span class="logo">SMM Hub</span>
-  <a href="../index.html">Dashboard</a>
+  <a href="../index.html">Дашборд</a>
   <span class="sep">|</span>
   <a href="s01_linkedin.html">LinkedIn</a>
   <a href="s02_instagram.html">Instagram</a>
   <a href="s03_youtube.html">YouTube</a>
-  <a href="s04_telegram_personal.html">TG Personal</a>
-  <a href="s05_telegram_sborka.html">TG Sborka</a>
+  <a href="s04_telegram_personal.html">TG Личный</a>
+  <a href="s05_telegram_sborka.html">TG Сборка</a>
   <a href="s06_threads.html">Threads</a>
   <a href="s07_facebook.html">Facebook</a>
   <a href="s08_tiktok.html">TikTok</a>
@@ -96,65 +96,65 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 <div class="container">
 <header>
   <h1>S-13: Hashnode</h1>
-  <div class="sub">Developer-first blogging &middot; Custom Domain &middot; Built-in Newsletter &middot; GitHub Backup &middot; GraphQL API</div>
+  <div class="sub">Блогинг для разработчиков &middot; Свой домен &middot; Встроенная рассылка &middot; Бэкап на GitHub &middot; GraphQL API</div>
   <div class="stats-row">
-    <div class="stat"><span class="stat-num">DR 78</span><span class="stat-label">Domain Rating</span></div>
-    <div class="stat"><span class="stat-num">40K+</span><span class="stat-label">Blogs</span></div>
-    <div class="stat"><span class="stat-num">1M+</span><span class="stat-label">Monthly readers</span></div>
-    <div class="stat"><span class="stat-num">300K</span><span class="stat-label">Weekly digest</span></div>
-    <div class="stat"><span class="stat-num">API</span><span class="stat-label">PAT ready</span></div>
+    <div class="stat"><span class="stat-num">DR 78</span><span class="stat-label">Рейтинг домена</span></div>
+    <div class="stat"><span class="stat-num">40K+</span><span class="stat-label">Блогов</span></div>
+    <div class="stat"><span class="stat-num">1M+</span><span class="stat-label">Читателей/мес</span></div>
+    <div class="stat"><span class="stat-num">300K</span><span class="stat-label">Еженед. дайджест</span></div>
+    <div class="stat"><span class="stat-num">API</span><span class="stat-label">PAT готов</span></div>
   </div>
 </header>
 
-<!-- ===== 1. ALGORITHM ===== -->
+<!-- ===== 1. АЛГОРИТМ ===== -->
 <div class="section">
-  <h2>1. Алгоритм и Feed Hashnode (2026)</h2>
+  <h2>1. Алгоритм и механика ленты Hashnode (2026)</h2>
   <h3>Каналы дистрибуции</h3>
   <table>
     <tr><th>Канал</th><th>Потенциал</th><th>Механика</th></tr>
-    <tr><td><strong>Community Feed</strong></td><td>Medium</td><td>Recent &rarr; Trending &rarr; Best. Персонализация по тегам + reading history</td></tr>
-    <tr><td><strong>Weekly Digest (email)</strong></td><td>HIGH (5-20K views)</td><td>Отправляется ВСЕМ юзерам. Curated + algorithmic. Главный growth lever</td></tr>
-    <tr><td><strong>Featured Section</strong></td><td>MASSIVE (10-50K+ views)</td><td>Manually curated Hashnode team. Редко, но massive traffic</td></tr>
-    <tr><td><strong>Tag Feeds</strong></td><td>Medium</td><td>hashnode.com/n/ai, /n/machine-learning. Можно доминировать в нише</td></tr>
-    <tr><td><strong>Custom Domain SEO</strong></td><td>HIGH (long-term)</td><td>Custom domain = собственный SEO juice. Ключевое преимущество</td></tr>
+    <tr><td><strong>Лента сообщества</strong></td><td>СРЕДНИЙ</td><td>Новое &rarr; Популярное &rarr; Лучшее. Персонализация по тегам + история чтения</td></tr>
+    <tr><td><strong>Еженедельный дайджест (email)</strong></td><td>ВЫСОКИЙ (5-20K просмотров)</td><td>Отправляется ВСЕМ пользователям. Курированный + алгоритмический. Главный рычаг роста</td></tr>
+    <tr><td><strong>Раздел избранного</strong></td><td>ОГРОМНЫЙ (10-50K+ просмотров)</td><td>Ручная курация команды Hashnode. Редко, но массивный трафик</td></tr>
+    <tr><td><strong>Ленты тегов</strong></td><td>СРЕДНИЙ</td><td>hashnode.com/n/ai, /n/machine-learning. Можно доминировать в нише</td></tr>
+    <tr><td><strong>SEO своего домена</strong></td><td>ВЫСОКИЙ (долгосрочно)</td><td>Свой домен = собственный SEO juice. Ключевое преимущество</td></tr>
   </table>
-  <h3>Сигналы Trending</h3>
+  <h3>Сигналы попадания в тренды</h3>
   <table>
     <tr><th>Сигнал</th><th>Вес</th><th>Примечание</th></tr>
-    <tr><td>Read time / completion rate</td><td><strong>HIGH</strong></td><td>Long reads с высоким completion = лучший ранжинг</td></tr>
-    <tr><td>Reactions за первые 6ч</td><td><strong>HIGH</strong></td><td>Early velocity критична</td></tr>
-    <tr><td>Comments</td><td><strong>HIGH</strong></td><td>Discussion = quality signal</td></tr>
-    <tr><td>Bookmarks</td><td>MEDIUM</td><td>"Save for later" = ценный контент</td></tr>
-    <tr><td>External shares</td><td>MEDIUM</td><td>Social proof извне</td></tr>
-    <tr><td>Tag relevance</td><td>MEDIUM</td><td>Well-tagged = больше feeds</td></tr>
-    <tr><td>Author followers</td><td>LOW-MED</td><td>Slight boost для established</td></tr>
+    <tr><td>Время чтения / процент дочитывания</td><td><strong>ВЫСОКИЙ</strong></td><td>Длинные статьи с высоким дочитыванием = лучшее ранжирование</td></tr>
+    <tr><td>Реакции за первые 6ч</td><td><strong>ВЫСОКИЙ</strong></td><td>Ранняя скорость набора критична</td></tr>
+    <tr><td>Комментарии</td><td><strong>ВЫСОКИЙ</strong></td><td>Дискуссия = сигнал качества</td></tr>
+    <tr><td>Закладки</td><td>СРЕДНИЙ</td><td>"Сохранить на потом" = ценный контент</td></tr>
+    <tr><td>Внешние расшаривания</td><td>СРЕДНИЙ</td><td>Социальное доказательство извне</td></tr>
+    <tr><td>Релевантность тегов</td><td>СРЕДНИЙ</td><td>Хорошие теги = больше лент</td></tr>
+    <tr><td>Подписчики автора</td><td>НИЗКИЙ-СРЕДНИЙ</td><td>Небольшой буст для состоявшихся авторов</td></tr>
   </table>
   <div class="insight">
-    <strong>AI Content Detection (2025+):</strong> Hashnode deprioritizes purely AI-generated articles. Real builder experience + personal code examples + benchmarks = сильно лучше. Это ПРЕИМУЩЕСТВО для Тима.
+    <strong>Детекция AI-контента (2025+):</strong> Hashnode понижает чисто AI-сгенерированные статьи. Реальный опыт + личные примеры кода + бенчмарки = значительно лучше. Это ПРЕИМУЩЕСТВО для Тима.
   </div>
   <div class="formula">
-Publish: 08:00-10:00 UTC (US morning + EU afternoon)<br>
-First 200 слов = определяют stay/leave<br>
-Engage в комментах в первый час после публикации<br>
-Share в соцсети СРАЗУ после публикации
+Публикация: 08:00-10:00 UTC (утро в США + день в Европе)<br>
+Первые 200 слов = определяют останется/уйдёт<br>
+Отвечать в комментах в первый час после публикации<br>
+Шерить в соцсети СРАЗУ после публикации
   </div>
 </div>
 
-<!-- ===== 2. CUSTOM DOMAIN ===== -->
+<!-- ===== 2. СВОЙ ДОМЕН ===== -->
 <div class="section">
-  <h2>2. Custom Domain &amp; Blog Setup</h2>
+  <h2>2. Свой домен и настройка блога</h2>
   <h3>3 варианта домена</h3>
   <table>
     <tr><th>Вариант</th><th>Домен</th><th>SEO</th><th>Рекомендация</th></tr>
-    <tr><td><strong>A (РЕКОМЕНДУЕТСЯ)</strong></td><td>blog.sborka.work</td><td>Consolidates DA под sborka.work</td><td>Весь SEO juice идёт на целевой домен</td></tr>
-    <tr><td>B</td><td>timzinin.dev</td><td>Personal brand DA</td><td>Лучше если personal brand &gt; SBORKA</td></tr>
-    <tr><td>C</td><td>timzinin.hashnode.dev</td><td>SEO juice уходит к hashnode.dev</td><td>OK для старта, мигрировать за 60 дней</td></tr>
+    <tr><td><strong>A (РЕКОМЕНДУЕТСЯ)</strong></td><td>blog.sborka.work</td><td>Консолидирует DA под sborka.work</td><td>Весь SEO juice идёт на целевой домен</td></tr>
+    <tr><td>B</td><td>timzinin.dev</td><td>DA личного бренда</td><td>Лучше если личный бренд &gt; СБОРКА</td></tr>
+    <tr><td>C</td><td>timzinin.hashnode.dev</td><td>SEO juice уходит к hashnode.dev</td><td>Подходит для старта, мигрировать за 60 дней</td></tr>
   </table>
   <div class="tactic">
-    <h4>Setup blog.sborka.work</h4>
+    <h4>Настройка blog.sborka.work</h4>
     <ol>
       <li>DNS: добавить CNAME <code>blog.sborka.work</code> &rarr; <code>hashnode.network</code></li>
-      <li>Hashnode Dashboard &rarr; Domain &rarr; ввести blog.sborka.work</li>
+      <li>Панель Hashnode &rarr; Домен &rarr; ввести blog.sborka.work</li>
       <li>SSL автоматически через Let's Encrypt</li>
       <li>Стоимость: $0</li>
     </ol>
@@ -163,10 +163,10 @@ Share в соцсети СРАЗУ после публикации
   <table>
     <tr><th>Фича</th><th>Что это</th><th>Ценность для Тима</th></tr>
     <tr><td><strong>GraphQL API + PAT</strong></td><td>Программная публикация, аналитика</td><td>Автоматизация через auto_publisher</td></tr>
-    <tr><td><strong>GitHub Backup</strong></td><td>Каждая статья = коммит в TimmyZinin/hashnode-backup</td><td>Zero vendor lock-in</td></tr>
-    <tr><td><strong>Built-in Newsletter</strong></td><td>Подписчики получают каждый пост по email</td><td>Email list = owned audience</td></tr>
-    <tr><td><strong>Series</strong></td><td>Мульти-часть с navigation</td><td>Multi-Agent tutorial series</td></tr>
-    <tr><td><strong>Headless CMS</strong></td><td>Custom frontend, API-driven</td><td>Можно подключить sborka.work/blog</td></tr>
+    <tr><td><strong>Бэкап на GitHub</strong></td><td>Каждая статья = коммит в TimmyZinin/hashnode-backup</td><td>Нулевая привязка к платформе</td></tr>
+    <tr><td><strong>Встроенная рассылка</strong></td><td>Подписчики получают каждый пост по email</td><td>Email-база = собственная аудитория</td></tr>
+    <tr><td><strong>Серии</strong></td><td>Многочастевые статьи с навигацией</td><td>Серия туториалов по мульти-агентам</td></tr>
+    <tr><td><strong>Headless CMS</strong></td><td>Кастомный фронтенд, управление через API</td><td>Можно подключить sborka.work/blog</td></tr>
   </table>
 </div>
 
@@ -176,288 +176,288 @@ Share в соцсети СРАЗУ после публикации
   <div class="vs-table">
     <div class="vs-card">
       <div class="platform" style="color:var(--hash)">Hashnode</div>
-      <h4>Deep Technical Authority</h4>
+      <h4>Глубокая техническая экспертиза</h4>
       <ul>
-        <li>Senior devs, AI/ML builders</li>
-        <li>Custom domain = own SEO</li>
-        <li>Built-in newsletter (300K)</li>
-        <li>GitHub backup</li>
+        <li>Опытные разработчики, AI/ML билдеры</li>
+        <li>Свой домен = собственный SEO</li>
+        <li>Встроенная рассылка (300K)</li>
+        <li>Бэкап на GitHub</li>
         <li>GraphQL API</li>
         <li>DR ~78</li>
       </ul>
     </div>
     <div class="vs-card">
       <h4 style="color:#3B49DF">Dev.to</h4>
-      <h4>Quick Wins + Career</h4>
+      <h4>Быстрые результаты + карьера</h4>
       <ul>
-        <li>All levels (beginner-friendly)</li>
-        <li>No custom domain</li>
-        <li>Tags + community reactions</li>
-        <li>Open-source Forem</li>
+        <li>Все уровни (дружелюбно к новичкам)</li>
+        <li>Нет своего домена</li>
+        <li>Теги + реакции сообщества</li>
+        <li>Открытый код Forem</li>
         <li>REST API</li>
         <li>DR ~90</li>
       </ul>
     </div>
     <div class="vs-card">
       <h4 style="color:#1A8917">Medium</h4>
-      <h4>Broad Audience + Revenue</h4>
+      <h4>Широкая аудитория + монетизация</h4>
       <ul>
-        <li>General tech + non-tech</li>
-        <li>No custom domain (2026)</li>
-        <li>Boost Program</li>
-        <li>Partner Program ($)</li>
-        <li>Paywall mechanism</li>
+        <li>Общая техническая + нетехническая</li>
+        <li>Нет своего домена (2026)</li>
+        <li>Программа Boost</li>
+        <li>Партнёрская программа ($)</li>
+        <li>Механизм пейвола</li>
         <li>DR ~95</li>
       </ul>
     </div>
   </div>
   <div class="insight">
-    <strong>Стратегия трёх платформ:</strong> Hashnode = SEO authority (custom domain) + newsletter. Dev.to = broad reach + community. Medium = monetization + DA95 SEO. Canonical: Hashnode first &rarr; Dev.to (48h) &rarr; Medium (72h).
+    <strong>Стратегия трёх платформ:</strong> Hashnode = SEO-авторитет (свой домен) + рассылка. Dev.to = широкий охват + сообщество. Medium = монетизация + DA95 SEO. Канонический: Hashnode первый &rarr; Dev.to (48ч) &rarr; Medium (72ч).
   </div>
-  <h3>SEO сравнение</h3>
+  <h3>SEO-сравнение</h3>
   <table>
-    <tr><th>Метрика</th><th>Hashnode (custom domain)</th><th>Dev.to</th><th>Medium</th></tr>
-    <tr><td>Domain Authority owner</td><td><strong>YOU (sborka.work)</strong></td><td>dev.to (platform)</td><td>medium.com (platform)</td></tr>
-    <tr><td>Canonical URL control</td><td>Full control</td><td>Supported</td><td>Import tool</td></tr>
-    <tr><td>Indexing speed</td><td>24-72ч</td><td>24-72ч</td><td>1-48ч</td></tr>
-    <tr><td>Long-term SEO value</td><td><strong>Accumulates to your domain</strong></td><td>Stays on dev.to</td><td>Stays on medium.com</td></tr>
+    <tr><th>Метрика</th><th>Hashnode (свой домен)</th><th>Dev.to</th><th>Medium</th></tr>
+    <tr><td>Владелец авторитета домена</td><td><strong>ВЫ (sborka.work)</strong></td><td>dev.to (платформа)</td><td>medium.com (платформа)</td></tr>
+    <tr><td>Контроль канонического URL</td><td>Полный контроль</td><td>Поддерживается</td><td>Инструмент импорта</td></tr>
+    <tr><td>Скорость индексации</td><td>24-72ч</td><td>24-72ч</td><td>1-48ч</td></tr>
+    <tr><td>Долгосрочная SEO-ценность</td><td><strong>Накапливается на вашем домене</strong></td><td>Остаётся на dev.to</td><td>Остаётся на medium.com</td></tr>
   </table>
   <div class="warning">
-    <strong>Key insight:</strong> Hashnode = единственная из трёх платформ, где SEO value идёт на ТВОЙ домен (blog.sborka.work). Dev.to и Medium строят SEO для себя, не для тебя.
+    <strong>Ключевой инсайт:</strong> Hashnode = единственная из трёх платформ, где SEO-ценность идёт на ТВОЙ домен (blog.sborka.work). Dev.to и Medium строят SEO для себя, не для тебя.
   </div>
 </div>
 
-<!-- ===== 4. COMPETITORS ===== -->
+<!-- ===== 4. КОНКУРЕНТЫ ===== -->
 <div class="section">
   <h2>4. Анализ конкурентов</h2>
   <div class="competitor">
     <div class="comp-header">
       <span class="comp-name">Victoria Lo</span>
-      <span class="comp-badge">Developer Tools</span>
+      <span class="comp-badge">Инструменты разработчика</span>
     </div>
-    <div class="comp-stats">Technical tutorials, Web dev, Hashnode top author | Consistent posting</div>
-    <div class="comp-lesson">Consistency + quality cover images + series format = predictable growth. Cover images give 40% more views on Hashnode.</div>
+    <div class="comp-stats">Технические туториалы, веб-разработка, топ-автор Hashnode | Регулярные публикации</div>
+    <div class="comp-lesson">Урок: Регулярность + качественные обложки + формат серий = предсказуемый рост. Обложки дают на 40% больше просмотров на Hashnode.</div>
   </div>
   <div class="competitor">
     <div class="comp-header">
       <span class="comp-name">Ivan Davidov</span>
-      <span class="comp-badge">Agentic AI</span>
+      <span class="comp-badge">Агентный AI</span>
     </div>
-    <div class="comp-stats">Agentic QA, AI Testing | KEY overlap с Тимом</div>
-    <div class="comp-lesson">Agentic AI expert на Hashnode. Ближайший конкурент. Tim может differentiate через multi-agent PRODUCTION experience vs. QA testing focus.</div>
+    <div class="comp-stats">Агентный QA, AI-тестирование | КЛЮЧЕВОЕ пересечение с Тимом</div>
+    <div class="comp-lesson">Урок: Эксперт по агентному AI на Hashnode. Ближайший конкурент. Тим может отличиться через ПРОДАКШН-опыт с мульти-агентами vs. фокус на QA-тестировании.</div>
   </div>
   <div class="competitor">
     <div class="comp-header">
       <span class="comp-name">Catalin Pit</span>
-      <span class="comp-badge">Career + Dev</span>
+      <span class="comp-badge">Карьера + разработка</span>
     </div>
-    <div class="comp-stats">Developer career growth, Hashnode advocate | Newsletter growth expert</div>
-    <div class="comp-lesson">Catalin grew massive following through Hashnode newsletter + cross-promotion. Доказательство что Hashnode newsletter = реальный growth channel.</div>
+    <div class="comp-stats">Карьерный рост разработчиков, адвокат Hashnode | Эксперт по росту рассылки</div>
+    <div class="comp-lesson">Урок: Catalin вырастил огромную аудиторию через рассылку Hashnode + кросс-продвижение. Доказательство что рассылка Hashnode = реальный канал роста.</div>
   </div>
   <div class="competitor">
     <div class="comp-header">
       <span class="comp-name">Ankur Tyagi</span>
       <span class="comp-badge">AI/ML</span>
     </div>
-    <div class="comp-stats">AI, Machine Learning, technical deep-dives | Regular posting</div>
-    <div class="comp-lesson">Technical depth + actionable code = high bookmark rate. Readers save для reference. Tim's multi-agent code examples = natural fit.</div>
+    <div class="comp-stats">AI, машинное обучение, технические глубокие разборы | Регулярные публикации</div>
+    <div class="comp-lesson">Урок: Техническая глубина + работающий код = высокий процент сохранений. Читатели сохраняют для справки. Примеры кода мульти-агентов Тима = идеально подходят.</div>
   </div>
   <div class="competitor">
     <div class="comp-header">
       <span class="comp-name">Fazle Rahman</span>
-      <span class="comp-badge">Hashnode Co-founder</span>
+      <span class="comp-badge">Сооснователь Hashnode</span>
     </div>
-    <div class="comp-stats">Platform thought leadership, developer community</div>
-    <div class="comp-lesson">Hashnode co-founder actively engages с авторами. Tim может build direct relationship через quality content + community participation.</div>
+    <div class="comp-stats">Мысли о платформе, сообщество разработчиков</div>
+    <div class="comp-lesson">Урок: Сооснователь Hashnode активно взаимодействует с авторами. Тим может наладить прямой контакт через качественный контент + участие в сообществе.</div>
   </div>
-  <h3>Gap Analysis</h3>
+  <h3>Анализ пробелов</h3>
   <div class="insight">
-    <strong>Blue ocean:</strong> "Production multi-agent systems + career tools" = не занято на Hashnode. Ivan Davidov ближе всех (Agentic QA), но фокусируется на testing, не на full production orchestration.
+    <strong>Голубой океан:</strong> "Продакшн мульти-агентные системы + карьерные инструменты" = не занято на Hashnode. Ivan Davidov ближе всех (Агентный QA), но фокусируется на тестировании, не на полной продакшн-оркестрации.
   </div>
 </div>
 
-<!-- ===== 5. NEWSLETTER ===== -->
+<!-- ===== 5. РАССЫЛКА ===== -->
 <div class="section">
-  <h2>5. Newsletter Integration</h2>
-  <p>Built-in newsletter — уникальное преимущество Hashnode. Каждый subscriber получает каждый новый пост по email.</p>
-  <h3>Growth тактики</h3>
+  <h2>5. Интеграция рассылки</h2>
+  <p>Встроенная рассылка -- уникальное преимущество Hashnode. Каждый подписчик получает каждый новый пост по email.</p>
+  <h3>Тактики роста</h3>
   <div class="tactic">
     <ol>
-      <li><strong>Lead magnet:</strong> "Multi-Agent Architecture Cheatsheet" — бесплатный PDF за подписку</li>
-      <li><strong>Cross-platform funnel:</strong> LinkedIn/Dev.to post &rarr; "Full article + code on my blog" &rarr; blog.sborka.work &rarr; newsletter signup</li>
-      <li><strong>Exclusive content:</strong> 1 из 4 постов/месяц = newsletter-only (не публикуется на other platforms)</li>
-      <li><strong>Welcome email:</strong> Автоматический onboarding с ссылкой на best articles + sborka.work</li>
-      <li><strong>Series announcement:</strong> "Subscribe to get Part 2-5 прямо в inbox"</li>
+      <li><strong>Лид-магнит:</strong> "Шпаргалка по архитектуре мульти-агентов" -- бесплатный PDF за подписку</li>
+      <li><strong>Кросс-платформенная воронка:</strong> пост LinkedIn/Dev.to &rarr; "Полная статья + код в блоге" &rarr; blog.sborka.work &rarr; подписка на рассылку</li>
+      <li><strong>Эксклюзивный контент:</strong> 1 из 4 постов/месяц = только для подписчиков (не публикуется на других платформах)</li>
+      <li><strong>Приветственное письмо:</strong> Автоматический онбординг со ссылками на лучшие статьи + sborka.work</li>
+      <li><strong>Анонс серии:</strong> "Подпишитесь, чтобы получить Части 2-5 прямо в почту"</li>
     </ol>
   </div>
-  <h3>Прогноз роста subscribers</h3>
+  <h3>Прогноз роста подписчиков</h3>
   <table>
-    <tr><th>Период</th><th>Conservative</th><th>Target</th><th>Optimistic</th></tr>
+    <tr><th>Период</th><th>Консервативный</th><th>Цель</th><th>Оптимистичный</th></tr>
     <tr><td>Месяц 1</td><td>20</td><td>50</td><td>100</td></tr>
     <tr><td>Месяц 3</td><td>100</td><td>250</td><td>500</td></tr>
-    <tr><td>Месяц 6</td><td>300</td><td>700</td><td>1,500</td></tr>
-    <tr><td>Месяц 12</td><td>700</td><td>2,000</td><td>5,000</td></tr>
+    <tr><td>Месяц 6</td><td>300</td><td>700</td><td>1 500</td></tr>
+    <tr><td>Месяц 12</td><td>700</td><td>2 000</td><td>5 000</td></tr>
   </table>
 </div>
 
-<!-- ===== 6. CONTENT & TAGS ===== -->
+<!-- ===== 6. КОНТЕНТ И ТЕГИ ===== -->
 <div class="section">
   <h2>6. Контент и стратегия тегов</h2>
   <h3>Лучшие форматы для Hashnode</h3>
   <table>
-    <tr><th>Формат</th><th>Performance</th><th>Bookmark Rate</th></tr>
-    <tr><td><strong>"How I Built X" case studies</strong></td><td>EXCELLENT</td><td>HIGH</td></tr>
-    <tr><td><strong>Multi-part Series</strong></td><td>EXCELLENT (series bonus)</td><td>HIGH</td></tr>
-    <tr><td><strong>Benchmark / Comparison</strong></td><td>EXCELLENT</td><td>VERY HIGH</td></tr>
-    <tr><td>Architecture Decision Records</td><td>GOOD</td><td>HIGH</td></tr>
-    <tr><td>Code-heavy tutorials с GitHub links</td><td>GOOD</td><td>HIGH</td></tr>
-    <tr><td>Discussion / opinion</td><td>MEDIUM</td><td>LOW</td></tr>
+    <tr><th>Формат</th><th>Эффективность</th><th>Процент сохранений</th></tr>
+    <tr><td><strong>Кейсы "Как я сделал X"</strong></td><td>ОТЛИЧНО</td><td>ВЫСОКИЙ</td></tr>
+    <tr><td><strong>Многосерийные статьи</strong></td><td>ОТЛИЧНО (бонус серий)</td><td>ВЫСОКИЙ</td></tr>
+    <tr><td><strong>Бенчмарки / сравнения</strong></td><td>ОТЛИЧНО</td><td>ОЧЕНЬ ВЫСОКИЙ</td></tr>
+    <tr><td>Записи архитектурных решений</td><td>ХОРОШО</td><td>ВЫСОКИЙ</td></tr>
+    <tr><td>Туториалы с кодом и ссылками на GitHub</td><td>ХОРОШО</td><td>ВЫСОКИЙ</td></tr>
+    <tr><td>Дискуссии / мнения</td><td>СРЕДНЕ</td><td>НИЗКИЙ</td></tr>
   </table>
   <div class="insight">
-    <strong>Hashnode readers = senior devs.</strong> Они ожидают code, architecture diagrams, real benchmarks. "How to" без кода = низкий engagement. Mermaid diagrams поддерживаются нативно.
+    <strong>Читатели Hashnode = опытные разработчики.</strong> Они ожидают код, архитектурные диаграммы, реальные бенчмарки. "Как сделать" без кода = низкая вовлечённость. Диаграммы Mermaid поддерживаются нативно.
   </div>
   <h3>Стратегия тегов (5 тегов/статью)</h3>
   <table>
     <tr><th>Тип</th><th>Теги</th></tr>
-    <tr><td>Primary (always)</td><td><code>ai</code>, <code>artificial-intelligence</code></td></tr>
-    <tr><td>Secondary (rotate)</td><td><code>python</code>, <code>machine-learning</code>, <code>automation</code>, <code>devops</code></td></tr>
-    <tr><td>Niche (growing)</td><td><code>agents</code>, <code>crewai</code>, <code>langchain</code>, <code>multi-agent</code></td></tr>
-    <tr><td>Career</td><td><code>career</code>, <code>developer-tools</code>, <code>productivity</code></td></tr>
+    <tr><td>Основные (всегда)</td><td><code>ai</code>, <code>artificial-intelligence</code></td></tr>
+    <tr><td>Вторичные (ротация)</td><td><code>python</code>, <code>machine-learning</code>, <code>automation</code>, <code>devops</code></td></tr>
+    <tr><td>Нишевые (растущие)</td><td><code>agents</code>, <code>crewai</code>, <code>langchain</code>, <code>multi-agent</code></td></tr>
+    <tr><td>Карьера</td><td><code>career</code>, <code>developer-tools</code>, <code>productivity</code></td></tr>
   </table>
 </div>
 
-<!-- ===== 7. TONE OF VOICE ===== -->
+<!-- ===== 7. ТОН КОММУНИКАЦИИ ===== -->
 <div class="section">
-  <h2>7. Tone of Voice для Hashnode</h2>
+  <h2>7. Тон коммуникации для Hashnode</h2>
   <div class="formula">
-Hashnode = Technical Depth + Builder Credibility + Actionable Code + Real Data
+Hashnode = Техническая глубина + Авторитет билдера + Рабочий код + Реальные данные
   </div>
-  <h3>Что ожидают Hashnode readers</h3>
+  <h3>Что ожидают читатели Hashnode</h3>
   <div class="tactic">
     <ul>
-      <li><strong>Production-grade code examples</strong> (не pseudocode, не screenshots)</li>
-      <li><strong>Architecture decisions</strong> с trade-offs (why THIS approach, not alternatives)</li>
-      <li><strong>Real benchmarks</strong> с числами (latency, cost, throughput)</li>
-      <li><strong>GitHub repo links</strong> (reproducible results)</li>
-      <li><strong>Mermaid diagrams</strong> (Hashnode supports нативно)</li>
-      <li><strong>Honest failures</strong> (что не сработало = most bookmarked секция)</li>
+      <li><strong>Продакшн-примеры кода</strong> (не псевдокод, не скриншоты)</li>
+      <li><strong>Архитектурные решения</strong> с компромиссами (почему ЭТОТ подход, а не альтернативы)</li>
+      <li><strong>Реальные бенчмарки</strong> с числами (задержки, стоимость, пропускная способность)</li>
+      <li><strong>Ссылки на GitHub-репозитории</strong> (воспроизводимые результаты)</li>
+      <li><strong>Диаграммы Mermaid</strong> (Hashnode поддерживает нативно)</li>
+      <li><strong>Честные провалы</strong> (что не сработало = самая сохраняемая секция)</li>
     </ul>
   </div>
   <h3>Адаптация vs другие платформы</h3>
   <table>
-    <tr><th>Platform</th><th>Глубина</th><th>Стиль</th></tr>
-    <tr><td><strong>Hashnode</strong></td><td>Maximum technical depth</td><td>"How should we build this?"</td></tr>
-    <tr><td>Dev.to</td><td>Medium depth</td><td>"Can I learn this today?"</td></tr>
-    <tr><td>Medium</td><td>Narrative + data</td><td>"What should I know?"</td></tr>
-    <tr><td>LinkedIn</td><td>Insights only</td><td>"What's the takeaway?"</td></tr>
+    <tr><th>Платформа</th><th>Глубина</th><th>Стиль</th></tr>
+    <tr><td><strong>Hashnode</strong></td><td>Максимальная техническая глубина</td><td>"Как нам это построить?"</td></tr>
+    <tr><td>Dev.to</td><td>Средняя глубина</td><td>"Смогу ли я это освоить сегодня?"</td></tr>
+    <tr><td>Medium</td><td>Нарратив + данные</td><td>"Что мне нужно знать?"</td></tr>
+    <tr><td>LinkedIn</td><td>Только инсайты</td><td>"Какой главный вывод?"</td></tr>
   </table>
   <div class="warning">
-    <strong>Язык: English.</strong> Hashnode = global developer audience. RU контент = Telegram, VK, VC.ru.
+    <strong>Язык: английский.</strong> Hashnode = глобальная аудитория разработчиков. Контент на русском = Telegram, VK, VC.ru.
   </div>
 </div>
 
-<!-- ===== 8. CTA STRATEGY ===== -->
+<!-- ===== 8. СТРАТЕГИЯ CTA ===== -->
 <div class="section">
-  <h2>8. CTA-стратегия: Hashnode &rarr; sborka.work</h2>
-  <h3>Graduated Funnel</h3>
+  <h2>8. Стратегия CTA: Hashnode &rarr; sborka.work</h2>
+  <h3>Ступенчатая воронка</h3>
   <div class="formula">
-Follow on Hashnode → Subscribe to newsletter → Visit sborka.work → Join СБОРКА
+Подписка на Hashnode &rarr; Подписка на рассылку &rarr; Визит sborka.work &rarr; Присоединение к СБОРКЕ
   </div>
   <h3>3 типа CTA</h3>
   <div class="tactic">
-    <h4>1. Bio + About Page</h4>
-    <p>Blog bio + About page с ссылкой на sborka.work. Zero risk, always visible.</p>
+    <h4>1. Био + Страница "Обо мне"</h4>
+    <p>Био блога + страница "Обо мне" со ссылкой на sborka.work. Нулевой риск, всегда видна.</p>
   </div>
   <div class="tactic">
-    <h4>2. End-of-Article Bio Block</h4>
-    <p style="font-style:italic;color:var(--muted);border-left:3px solid var(--hash);padding:8px 12px">"I build multi-agent AI systems running 8 businesses. Subscribe for production AI insights, or explore career tools at <strong>SBORKA</strong>."</p>
+    <h4>2. Блок автора в конце статьи</h4>
+    <p style="font-style:italic;color:var(--muted);border-left:3px solid var(--hash);padding:8px 12px">"Я строю мульти-агентные AI-системы, управляющие 8 бизнесами. Подпишитесь на инсайты по продакшн AI или исследуйте карьерные инструменты на <strong>СБОРКЕ</strong>."</p>
   </div>
   <div class="tactic">
-    <h4>3. Series Funnel (primary strategy)</h4>
-    <p>5-part "Multi-Agent Architecture Masterclass" series. Parts 1-4 = pure value. Part 5 = CTA to sborka.work для "complete production playbook".</p>
+    <h4>3. Воронка серии (основная стратегия)</h4>
+    <p>Серия из 5 частей "Мастеркласс по архитектуре мульти-агентов". Части 1-4 = чистая ценность. Часть 5 = CTA на sborka.work для "полного продакшн-плейбука".</p>
   </div>
-  <h3>UTM шаблон</h3>
+  <h3>Шаблон UTM</h3>
   <div class="formula">
 sborka.work?utm_source=hashnode&amp;utm_medium=blog&amp;utm_campaign=s13_hashnode&amp;utm_content={slug}
   </div>
 </div>
 
-<!-- ===== 9. CROSS-PLATFORM ===== -->
+<!-- ===== 9. КРОСС-ПЛАТФОРМЕННОСТЬ ===== -->
 <div class="section">
-  <h2>9. Cross-Platform Pipeline</h2>
+  <h2>9. Кросс-платформенный пайплайн</h2>
   <div class="formula">
-Hashnode (Day 1, primary, canonical owner)<br>
-&nbsp;&nbsp;├── Dev.to cross-post (Day 3, canonical &rarr; Hashnode)<br>
-&nbsp;&nbsp;├── Medium cross-post (Day 5, canonical &rarr; Hashnode)<br>
-&nbsp;&nbsp;├── LinkedIn summary (Day 1, link to blog.sborka.work)<br>
-&nbsp;&nbsp;├── Telegram RU перевод (Day 1)<br>
-&nbsp;&nbsp;└── GitHub code repo (Day 2)
+Hashnode (День 1, основной, владелец канонического URL)<br>
+&nbsp;&nbsp;├── Dev.to кросс-пост (День 3, канонический &rarr; Hashnode)<br>
+&nbsp;&nbsp;├── Medium кросс-пост (День 5, канонический &rarr; Hashnode)<br>
+&nbsp;&nbsp;├── LinkedIn саммари (День 1, ссылка на blog.sborka.work)<br>
+&nbsp;&nbsp;├── Telegram RU перевод (День 1)<br>
+&nbsp;&nbsp;└── GitHub репо с кодом (День 2)
   </div>
   <div class="insight">
-    <strong>Почему Hashnode first:</strong> Единственная платформа где SEO value идёт на blog.sborka.work. Dev.to/Medium cross-posts с canonical URL → все backlinks и Google ranking идут на ваш домен.
+    <strong>Почему Hashnode первый:</strong> Единственная платформа, где SEO-ценность идёт на blog.sborka.work. Кросс-посты Dev.to/Medium с каноническим URL &rarr; все бэклинки и ранжирование Google идут на ваш домен.
   </div>
 </div>
 
-<!-- ===== 10. 30-DAY ACTION PLAN ===== -->
+<!-- ===== 10. 30-ДНЕВНЫЙ ПЛАН ===== -->
 <div class="section">
-  <h2>10. 30-дневный Action Plan</h2>
-  <h3>Pre-Launch (Day 0)</h3>
+  <h2>10. 30-дневный план действий</h2>
+  <h3>Предзапуск (День 0)</h3>
   <div class="action-plan">
-    <div class="day">Day 0</div>
-    <div class="task"><strong>Setup:</strong> Custom domain blog.sborka.work (DNS CNAME) | Update bio | Cover image template | GitHub backup repo | Follow 30 authors в AI/ML тегах</div>
+    <div class="day">День 0</div>
+    <div class="task"><strong>Настройка:</strong> Свой домен blog.sborka.work (DNS CNAME) | Обновить био | Шаблон обложки | Репо для бэкапа на GitHub | Подписаться на 30 авторов в тегах AI/ML</div>
   </div>
-  <h3>Неделя 1 (Days 1-7): Foundation</h3>
+  <h3>Неделя 1 (Дни 1-7): Фундамент</h3>
   <div class="action-plan">
-    <div class="day">Day 1</div>
-    <div class="task"><strong>Article 1 (SERIES START):</strong> "Multi-Agent AI Architecture Masterclass — Part 1: Why Multi-Agent?" | Tags: ai, python, automation, architecture, tutorial</div>
-    <div class="day">Day 3</div>
-    <div class="task"><strong>Article 2:</strong> "I Run 8 Businesses with 6 AI Agents: Full Stack Breakdown" | Showcase article. Cross-post Article 1 → Dev.to (canonical)</div>
-    <div class="day">Day 5</div>
-    <div class="task"><strong>Article 3 (SERIES Part 2):</strong> "Multi-Agent Masterclass Part 2: Agent Design Patterns" | Code examples + Mermaid diagrams</div>
-    <div class="day">Daily</div>
-    <div class="task">Comment на 3 статей в AI tags | React 10+ | Reply ALL comments &lt;24ч | Cross-post prev article → Medium (canonical)</div>
+    <div class="day">День 1</div>
+    <div class="task"><strong>Статья 1 (НАЧАЛО СЕРИИ):</strong> "Multi-Agent AI Architecture Masterclass -- Part 1: Why Multi-Agent?" | Теги: ai, python, automation, architecture, tutorial</div>
+    <div class="day">День 3</div>
+    <div class="task"><strong>Статья 2:</strong> "I Run 8 Businesses with 6 AI Agents: Full Stack Breakdown" | Витринная статья. Кросс-пост Статьи 1 &rarr; Dev.to (канонический)</div>
+    <div class="day">День 5</div>
+    <div class="task"><strong>Статья 3 (СЕРИЯ Часть 2):</strong> "Multi-Agent Masterclass Part 2: Agent Design Patterns" | Примеры кода + диаграммы Mermaid</div>
+    <div class="day">Ежедневно</div>
+    <div class="task">Комментировать 3 статьи в тегах AI | Ставить 10+ реакций | Отвечать на ВСЕ комментарии &lt;24ч | Кросс-пост предыдущей статьи &rarr; Medium (канонический)</div>
   </div>
-  <p style="font-size:.85em;color:var(--muted)">Цель: 500-1,500 views, 20-50 newsletter subscribers</p>
+  <p style="font-size:.85em;color:var(--muted)">Цель: 500-1 500 просмотров, 20-50 подписчиков рассылки</p>
 
-  <h3>Неделя 2 (Days 8-14): Series + Newsletter</h3>
+  <h3>Неделя 2 (Дни 8-14): Серия + рассылка</h3>
   <div class="action-plan">
-    <div class="day">Day 8</div>
-    <div class="task"><strong>Article 4:</strong> "CrewAI vs LangGraph: Production Battle-Test Results" | Benchmark article = high bookmarks + SEO</div>
-    <div class="day">Day 11</div>
-    <div class="task"><strong>Article 5 (SERIES Part 3):</strong> "Multi-Agent Masterclass Part 3: Orchestration" | GitHub repo update</div>
-    <div class="day">Day 13</div>
-    <div class="task"><strong>Newsletter exclusive:</strong> "3 Lessons from Running AI Agents for 12 Months" | Only for subscribers = growth incentive</div>
+    <div class="day">День 8</div>
+    <div class="task"><strong>Статья 4:</strong> "CrewAI vs LangGraph: Production Battle-Test Results" | Бенчмарк-статья = много сохранений + SEO</div>
+    <div class="day">День 11</div>
+    <div class="task"><strong>Статья 5 (СЕРИЯ Часть 3):</strong> "Multi-Agent Masterclass Part 3: Orchestration" | Обновление GitHub-репо</div>
+    <div class="day">День 13</div>
+    <div class="task"><strong>Эксклюзив рассылки:</strong> "3 урока из 12 месяцев работы с AI-агентами" | Только для подписчиков = стимул к росту</div>
   </div>
-  <p style="font-size:.85em;color:var(--muted)">Цель: 2,000-5,000 cumulative views, 50-150 subscribers</p>
+  <p style="font-size:.85em;color:var(--muted)">Цель: 2 000-5 000 накопленных просмотров, 50-150 подписчиков</p>
 
-  <h3>Неделя 3-4 (Days 15-30): Authority + Traffic Push</h3>
+  <h3>Неделя 3-4 (Дни 15-30): Авторитет + рост трафика</h3>
   <div class="action-plan">
-    <div class="day">Day 15</div>
-    <div class="task"><strong>Article 6:</strong> "The Real Cost of Multi-Agent AI: 12-Month Data" | Data-driven, high SEO value</div>
-    <div class="day">Day 19</div>
-    <div class="task"><strong>Article 7 (SERIES Part 4):</strong> "Multi-Agent Masterclass Part 4: Monitoring &amp; Failures"</div>
-    <div class="day">Day 23</div>
-    <div class="task"><strong>Article 8 (SERIES FINALE):</strong> "Multi-Agent Masterclass Part 5: Career Implications" | CTA to sborka.work for complete playbook</div>
-    <div class="day">Day 27</div>
-    <div class="task"><strong>Article 9 (META):</strong> "30 Days on Hashnode: Real Numbers and Lessons" | Transparency piece</div>
+    <div class="day">День 15</div>
+    <div class="task"><strong>Статья 6:</strong> "The Real Cost of Multi-Agent AI: 12-Month Data" | На основе данных, высокая SEO-ценность</div>
+    <div class="day">День 19</div>
+    <div class="task"><strong>Статья 7 (СЕРИЯ Часть 4):</strong> "Multi-Agent Masterclass Part 4: Monitoring &amp; Failures"</div>
+    <div class="day">День 23</div>
+    <div class="task"><strong>Статья 8 (ФИНАЛ СЕРИИ):</strong> "Multi-Agent Masterclass Part 5: Career Implications" | CTA на sborka.work для полного плейбука</div>
+    <div class="day">День 27</div>
+    <div class="task"><strong>Статья 9 (МЕТА):</strong> "30 Days on Hashnode: Real Numbers and Lessons" | Статья о прозрачности</div>
   </div>
 
   <h3>Сводные цели за 30 дней</h3>
   <table>
-    <tr><th>Метрика</th><th>Minimum</th><th>Target</th><th>Stretch</th></tr>
-    <tr><td>Articles published</td><td>6</td><td>8-9</td><td>12</td></tr>
-    <tr><td>Total views</td><td>2,000</td><td>5,000</td><td>15,000</td></tr>
-    <tr><td>Newsletter subscribers</td><td>50</td><td>150</td><td>500</td></tr>
-    <tr><td>Followers</td><td>50</td><td>150</td><td>400</td></tr>
-    <tr><td>sborka.work referrals</td><td>50</td><td>200</td><td>500</td></tr>
-    <tr><td>Featured in Weekly Digest</td><td>0</td><td>1</td><td>3</td></tr>
-    <tr><td>Google indexed articles</td><td>3</td><td>6</td><td>9</td></tr>
+    <tr><th>Метрика</th><th>Минимум</th><th>Цель</th><th>Амбициозная</th></tr>
+    <tr><td>Опубликовано статей</td><td>6</td><td>8-9</td><td>12</td></tr>
+    <tr><td>Всего просмотров</td><td>2 000</td><td>5 000</td><td>15 000</td></tr>
+    <tr><td>Подписчиков рассылки</td><td>50</td><td>150</td><td>500</td></tr>
+    <tr><td>Подписчиков</td><td>50</td><td>150</td><td>400</td></tr>
+    <tr><td>Переходов на sborka.work</td><td>50</td><td>200</td><td>500</td></tr>
+    <tr><td>Попадание в еженедельный дайджест</td><td>0</td><td>1</td><td>3</td></tr>
+    <tr><td>Проиндексированных статей в Google</td><td>3</td><td>6</td><td>9</td></tr>
   </table>
 </div>
 
 <footer>
-  <p>S-13 Hashnode Research — SMM Research Hub &middot; Тим Зинин &middot; Март 2026</p>
-  <p style="margin-top:4px;font-size:.8em">Powered by research-orchestrator + content-marketer agents</p>
+  <p>S-13 Исследование Hashnode — SMM Research Hub &middot; Тим Зинин &middot; Март 2026</p>
+  <p style="margin-top:4px;font-size:.8em">На основе агентов research-orchestrator + content-marketer</p>
 </footer>
 </div>
 </body>

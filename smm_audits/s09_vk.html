@@ -36,10 +36,10 @@ header .meta span{background:rgba(255,255,255,.15);padding:4px 12px;border-radiu
 .tactic li{margin-bottom:3px}
 
 .insight{background:linear-gradient(135deg,#F0F6FF,#E0EDFF);border:1px solid #B8D4FF;border-radius:10px;padding:16px 20px;margin-bottom:12px}
-.insight::before{content:'INSIGHT';font-size:.65em;font-weight:700;letter-spacing:1px;color:var(--vk);display:block;margin-bottom:6px}
+.insight::before{content:'ИНСАЙТ';font-size:.65em;font-weight:700;letter-spacing:1px;color:var(--vk);display:block;margin-bottom:6px}
 
 .warning{background:#FFF8ED;border:1px solid #F0D9A8;border-radius:10px;padding:16px 20px;margin-bottom:12px}
-.warning::before{content:'WARNING';font-size:.65em;font-weight:700;letter-spacing:1px;color:#C2573A;display:block;margin-bottom:6px}
+.warning::before{content:'ВНИМАНИЕ: ';font-size:.65em;font-weight:700;letter-spacing:1px;color:#C2573A;display:block;margin-bottom:6px}
 
 .formula{background:var(--dark);color:var(--white);border-radius:10px;padding:16px 20px;margin-bottom:12px;font-family:'JetBrains Mono',monospace;font-size:.85em;line-height:1.8}
 
@@ -59,7 +59,7 @@ tr:hover td{background:var(--white)}
 
 .action-plan{counter-reset:week}
 .week{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;counter-increment:week;position:relative}
-.week::before{content:'Week ' counter(week);position:absolute;top:-10px;left:16px;background:var(--vk);color:#fff;padding:2px 12px;border-radius:12px;font-size:.75em;font-weight:700}
+.week::before{content:'Неделя ' counter(week);position:absolute;top:-10px;left:16px;background:var(--vk);color:#fff;padding:2px 12px;border-radius:12px;font-size:.75em;font-weight:700}
 .week h4{margin-top:8px;margin-bottom:10px;color:var(--dark)}
 .week ul{margin-left:20px;font-size:.9em}
 .week li{margin-bottom:4px}
@@ -98,13 +98,13 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
 <nav class="topnav">
   <span class="logo">SMM Hub</span>
-  <a href="../index.html">Dashboard</a>
+  <a href="../index.html">Дашборд</a>
   <span class="sep">|</span>
   <a href="s01_linkedin.html">LinkedIn</a>
   <a href="s02_instagram.html">Instagram</a>
   <a href="s03_youtube.html">YouTube</a>
-  <a href="s04_telegram_personal.html">TG Personal</a>
-  <a href="s05_telegram_sborka.html">TG Sborka</a>
+  <a href="s04_telegram_personal.html">TG Личный</a>
+  <a href="s05_telegram_sborka.html">TG СБОРКА</a>
   <a href="s06_threads.html">Threads</a>
   <a href="s07_facebook.html">Facebook</a>
   <a href="s08_tiktok.html">TikTok</a>
@@ -118,12 +118,12 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
 <header>
   <h1>S-09 — VK (ВКонтакте)</h1>
-  <div class="sub">Крупнейшая русскоязычная платформа: Clips, Articles, Community Growth</div>
+  <div class="sub">Крупнейшая русскоязычная платформа: Клипы, Статьи, Рост сообщества</div>
   <div class="meta">
     <span>17 подписчиков</span>
     <span>61 просмотр</span>
     <span>92.5M MAU</span>
-    <span>Tier 2 — P1 Important</span>
+    <span>Уровень 2 — Приоритет 1 Важный</span>
   </div>
 </header>
 
@@ -134,29 +134,29 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
   <table>
     <tr><th>Сигнал</th><th>Вес</th><th>Описание</th></tr>
-    <tr><td>User-content affinity</td><td><strong>~30%</strong></td><td>Как часто юзер взаимодействует с автором</td></tr>
-    <tr><td>Early engagement velocity</td><td><strong>~20%</strong></td><td>Лайки/комменты/репосты в первые 30-60 мин</td></tr>
-    <tr><td>Content freshness</td><td>~15%</td><td>Свежесть (half-life 4-6 ч для текста, дольше для видео)</td></tr>
-    <tr><td>Content type preference</td><td>~10%</td><td>Предпочтение юзером видео/текста/картинок</td></tr>
-    <tr><td>Social proof</td><td>~10%</td><td>Общее кол-во реакций / размер аудитории</td></tr>
-    <tr><td>Author authority</td><td>~10%</td><td>Возраст аккаунта, стабильность, ER</td></tr>
-    <tr><td>Negative signals</td><td>~5%</td><td>"Скрыть", отписки, жалобы</td></tr>
+    <tr><td>Близость пользователь-контент</td><td><strong>~30%</strong></td><td>Как часто юзер взаимодействует с автором</td></tr>
+    <tr><td>Скорость ранней вовлечённости</td><td><strong>~20%</strong></td><td>Лайки/комменты/репосты в первые 30-60 мин</td></tr>
+    <tr><td>Свежесть контента</td><td>~15%</td><td>Свежесть (полураспад 4-6 ч для текста, дольше для видео)</td></tr>
+    <tr><td>Предпочтение типа контента</td><td>~10%</td><td>Предпочтение юзером видео/текста/картинок</td></tr>
+    <tr><td>Социальное доказательство</td><td>~10%</td><td>Общее кол-во реакций / размер аудитории</td></tr>
+    <tr><td>Авторитет автора</td><td>~10%</td><td>Возраст аккаунта, стабильность, ER</td></tr>
+    <tr><td>Негативные сигналы</td><td>~5%</td><td>"Скрыть", отписки, жалобы</td></tr>
   </table>
 
   <div class="grid-2" style="margin-top:16px">
     <div>
-      <h4 style="color:var(--emerald);margin-bottom:8px">Что БУУСТИТ охват</h4>
+      <h4 style="color:var(--emerald);margin-bottom:8px">Что БУСТИТ охват</h4>
       <div class="tactic">
-        <h4>Engagement в первый час</h4>
+        <h4>Вовлечённость в первый час</h4>
         <p>VK тестирует контент на 10-20% подписчиков. Если ER превышает порог — расширяет показ. <strong>Самый важный фактор.</strong></p>
       </div>
       <div class="tactic">
         <h4>VK Clips (стратегический приоритет VK)</h4>
-        <p>Видео-посты получают 2-3x больше показов. Clips — абсолютный приоритет 2025-2026.</p>
+        <p>Видео-посты получают 2-3x больше показов. Клипы — абсолютный приоритет 2025-2026.</p>
       </div>
       <div class="tactic">
         <h4>Нативный контент + экосистема</h4>
-        <p>Использование Clips, Articles, Stories, Music, Podcasts получает алгоритмический бонус.</p>
+        <p>Использование Клипов, Статей, Историй, Музыки, Подкастов получает алгоритмический бонус.</p>
       </div>
       <div class="tactic">
         <h4>Консистентность</h4>
@@ -166,10 +166,10 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     <div>
       <h4 style="color:#C2573A;margin-bottom:8px">Что ШТРАФУЕТ охват</h4>
       <div class="warning">
-        <strong>Внешние ссылки в теле поста</strong> — VK снижает охват на <strong>30-50%</strong>. Критично для CTA стратегии!
+        <strong>Внешние ссылки в теле поста</strong> — VK снижает охват на <strong>30-50%</strong>. Критично для CTA-стратегии!
       </div>
       <div class="tactic" style="border-left-color:#C2573A">
-        <h4>Engagement bait / Clickbait</h4>
+        <h4>Приманка для вовлечённости / Кликбейт</h4>
         <p>"Поставь лайк если согласен" — фильтруется с 2024. Кликбейт заголовки снижают показы.</p>
       </div>
       <div class="tactic" style="border-left-color:#C2573A">
@@ -178,22 +178,22 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
       </div>
       <div class="tactic" style="border-left-color:#C2573A">
         <h4>Перепостинг (5+ постов/день)</h4>
-        <p>Вызывает "усталость" подписчиков → рост скрытий → suppress.</p>
+        <p>Вызывает "усталость" подписчиков &rarr; рост скрытий &rarr; подавление.</p>
       </div>
     </div>
   </div>
 
   <div class="insight">
-    <strong>"Прометей"</strong> — знак VK за fire-контент. Контент с меткой "Прометей" показывается НЕ-подписчикам в ленте "Рекомендации". Критерии: оригинальность, высокий ER, стабильное качество. Это главный рычаг органического роста.
+    <strong>"Прометей"</strong> — знак VK за огненный контент. Контент с меткой "Прометей" показывается НЕ-подписчикам в ленте "Рекомендации". Критерии: оригинальность, высокий ER, стабильное качество. Это главный рычаг органического роста.
   </div>
 
   <h4 style="margin:16px 0 8px;color:var(--vk)">Приоритет контента по формату</h4>
   <div class="formula">
-1. VK Clips      → наивысший алгоритмический пуш (стратегия VK)
-2. Нативное видео → загруженное напрямую (не ссылки на YouTube!)
-3. Картинки+текст → карусели/мульти-фото работают хорошо
-4. Текст         → длинные посты с форматированием
-5. Внешние ссылки → НАИМЕНЬШИЙ приоритет, активно подавляются
+1. VK Clips      &rarr; наивысший алгоритмический пуш (стратегия VK)
+2. Нативное видео &rarr; загруженное напрямую (не ссылки на YouTube!)
+3. Картинки+текст &rarr; карусели/мульти-фото работают хорошо
+4. Текст         &rarr; длинные посты с форматированием
+5. Внешние ссылки &rarr; НАИМЕНЬШИЙ приоритет, активно подавляются
   </div>
 </div>
 
@@ -202,64 +202,64 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
   <h2>2. VK Clips — главный рычаг роста</h2>
   <p style="margin-bottom:16px">VK Clips — короткие видео (аналог TikTok). ~700-900M ежедневных просмотров на платформе. Стратегический приоритет VK 2025-2026. Отдельный алгоритм от основной ленты.</p>
 
-  <h4 style="color:var(--vk);margin-bottom:10px">Алгоритм Clips Discovery</h4>
+  <h4 style="color:var(--vk);margin-bottom:10px">Алгоритм обнаружения Clips</h4>
   <div class="formula">
-1. Новый Clip → тест на ~200-500 юзеров
-2. Completion rate + engagement > порога → расширение до ~2,000-5,000
-3. Каждый раунд оценивает: completion, лайки, комменты, репосты, визиты профиля
-4. Топ-Clips → 100K-1M+ просмотров НЕЗАВИСИМО от числа подписчиков
-5. Shelf life: недели (vs часы для постов ленты)
+1. Новый Clip &rarr; тест на ~200-500 юзеров
+2. Процент досмотра + вовлечённость > порога &rarr; расширение до ~2,000-5,000
+3. Каждый раунд оценивает: досмотр, лайки, комменты, репосты, визиты профиля
+4. Топ-Clips &rarr; 100K-1M+ просмотров НЕЗАВИСИМО от числа подписчиков
+5. Срок жизни: недели (vs часы для постов ленты)
   </div>
 
   <table>
     <tr><th>Параметр</th><th>Рекомендация</th></tr>
-    <tr><td>Длина</td><td><strong>15-45 сек</strong> оптимально. Макс 180 сек. До 60 сек — лучший completion rate</td></tr>
-    <tr><td>Формат</td><td><strong>9:16</strong> вертикальный (mobile-first)</td></tr>
+    <tr><td>Длина</td><td><strong>15-45 сек</strong> оптимально. Макс 180 сек. До 60 сек — лучший процент досмотра</td></tr>
+    <tr><td>Формат</td><td><strong>9:16</strong> вертикальный (мобильный приоритет)</td></tr>
     <tr><td>Разрешение</td><td>1080x1920 минимум</td></tr>
     <tr><td>Хук</td><td>Первые 1-3 секунды ОБЯЗАН захватить внимание</td></tr>
-    <tr><td>Субтитры</td><td>ВСЕГДА добавлять — +15-25% к completion rate</td></tr>
+    <tr><td>Субтитры</td><td>ВСЕГДА добавлять — +15-25% к проценту досмотра</td></tr>
     <tr><td>Музыка</td><td>VK музыка (без проблем с авторскими правами). Трендовые звуки = буст</td></tr>
-    <tr><td>Хэштеги</td><td>3-5: mix из широких (#карьера #работа) и нишевых (#AI #нейросети)</td></tr>
+    <tr><td>Хэштеги</td><td>3-5: микс из широких (#карьера #работа) и нишевых (#AI #нейросети)</td></tr>
   </table>
 
-  <h4 style="color:var(--vk);margin:16px 0 10px">Форматы Clips для AI/Career ниши</h4>
+  <h4 style="color:var(--vk);margin:16px 0 10px">Форматы Clips для AI/Карьера ниши</h4>
   <div class="grid-2">
     <div class="tactic">
       <h4>1. "А вы знали?" факты</h4>
-      <p>15-30 сек. "ChatGPT экономит 3 часа в неделю. Вот как." Высокий completion (curiosity loop).</p>
+      <p>15-30 сек. "ChatGPT экономит 3 часа в неделю. Вот как." Высокий досмотр (цикл любопытства).</p>
     </div>
     <div class="tactic">
-      <h4>2. Before/After трансформации</h4>
-      <p>"Резюме до AI vs после AI-оптимизации." Визуально, satisfying, shareable.</p>
+      <h4>2. Трансформации До/После</h4>
+      <p>"Резюме до AI vs после AI-оптимизации." Визуально, удовлетворяющий, расшариваемый.</p>
     </div>
     <div class="tactic">
-      <h4>3. Quick tips/hacks (списки)</h4>
+      <h4>3. Быстрые советы/лайфхаки (списки)</h4>
       <p>"3 промпта которые изменят ваше сопроводительное." Нумерованные списки отлично работают.</p>
     </div>
     <div class="tactic">
       <h4>4. Реакция на новости</h4>
-      <p>Комментарий к трендовым карьерным/AI новостям. Использует тренды для discovery.</p>
+      <p>Комментарий к трендовым карьерным/AI новостям. Использует тренды для обнаружения.</p>
     </div>
     <div class="tactic">
-      <h4>5. Day-in-the-life</h4>
-      <p>"Что делает AI-консультант за день." Aspirational контент, builds personal brand.</p>
+      <h4>5. День из жизни</h4>
+      <p>"Что делает AI-консультант за день." Вдохновляющий контент, строит личный бренд.</p>
     </div>
     <div class="tactic">
       <h4>6. Разрушение мифов</h4>
-      <p>"Нет, AI не заменит вас. Но тот, кто использует AI — заменит." Controversy drives engagement.</p>
+      <p>"Нет, AI не заменит вас. Но тот, кто использует AI — заменит." Противоречие стимулирует вовлечённость.</p>
     </div>
     <div class="tactic">
-      <h4>7. Мини-туториал (screen recording)</h4>
+      <h4>7. Мини-туториал (запись экрана)</h4>
       <p>Запись экрана с демо AI инструмента. Образовательный + практический формат.</p>
     </div>
     <div class="tactic">
-      <h4>8. Salary Reality Check</h4>
-      <p>"Реальные зарплаты [роль] в Москве/СПб/Remote." Данные = вовлечённость.</p>
+      <h4>8. Проверка реальных зарплат</h4>
+      <p>"Реальные зарплаты [роль] в Москве/СПб/Удалённо." Данные = вовлечённость.</p>
     </div>
   </div>
 
   <div class="insight">
-    <strong>Clips = Growth Machine для 17 подписчиков.</strong> Охват Clips = 200-1000%+ от базы подписчиков. С 17 подписчиков один Clip может набрать тысячи просмотров через ленту Discovery. Рекомендация: 1-2 Clips/день первые 30 дней.
+    <strong>Clips = Машина роста для 17 подписчиков.</strong> Охват Clips = 200-1000%+ от базы подписчиков. С 17 подписчиков один Clip может набрать тысячи просмотров через ленту обнаружения. Рекомендация: 1-2 Clips/день первые 30 дней.
   </div>
 
   <h4 style="color:var(--vk);margin:16px 0 8px">Хук-формулы для VK Clips</h4>
@@ -278,31 +278,31 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
 <!-- ===== 3. VK ARTICLES ===== -->
 <div class="section">
-  <h2>3. VK Articles — SEO + авторитетность</h2>
-  <p style="margin-bottom:16px">VK Статьи — лонг-форм контент (аналог Medium). Поддержка rich formatting, индексация Яндексом, долгосрочный трафик.</p>
+  <h2>3. VK Статьи — SEO + авторитетность</h2>
+  <p style="margin-bottom:16px">VK Статьи — лонг-форм контент (аналог Medium). Поддержка форматирования, индексация Яндексом, долгосрочный трафик.</p>
 
   <div class="grid-2">
     <div>
       <h4 style="color:var(--vk);margin-bottom:10px">SEO-преимущества</h4>
       <div class="tactic">
         <h4>Индексация Яндексом</h4>
-        <p>VK Articles индексируются за 24-48 часов. VK.com = один из топ-5 доменов в Яндексе. Ваша статья "как использовать AI для поиска работы" может ранжироваться ВЫШЕ, чем блог на новом домене.</p>
+        <p>VK Статьи индексируются за 24-48 часов. VK.com = один из топ-5 доменов в Яндексе. Ваша статья "как использовать AI для поиска работы" может ранжироваться ВЫШЕ, чем блог на новом домене.</p>
       </div>
       <div class="tactic">
         <h4>Внутренний поиск VK</h4>
-        <p>Articles появляются в поиске VK. Ранжируются по: ключевым словам, engagement, авторитетности автора.</p>
+        <p>Статьи появляются в поиске VK. Ранжируются по: ключевым словам, вовлечённости, авторитетности автора.</p>
       </div>
       <div class="tactic">
-        <h4>Ссылки внутри Articles НЕ штрафуются</h4>
-        <p>CTA на sborka.work внутри Article не получает тот же штраф, что ссылка в посте ленты. Article уже открыт — это ключевое преимущество!</p>
+        <h4>Ссылки внутри статей НЕ штрафуются</h4>
+        <p>CTA на sborka.work внутри Статьи не получает тот же штраф, что ссылка в посте ленты. Статья уже открыта — это ключевое преимущество!</p>
       </div>
     </div>
     <div>
-      <h4 style="color:var(--vk);margin-bottom:10px">Best Practices</h4>
+      <h4 style="color:var(--vk);margin-bottom:10px">Лучшие практики</h4>
       <div class="tactic">
         <h4>Формат и длина</h4>
         <ul>
-          <li>1,500-3,000 слов для лучшего engagement</li>
+          <li>1,500-3,000 слов для лучшей вовлечённости</li>
           <li>H2/H3 заголовки с ключевыми словами</li>
           <li>Изображения каждые 300-500 слов</li>
           <li>Встроенные VK Clips/видео внутри</li>
@@ -311,16 +311,16 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
       </div>
       <div class="tactic">
         <h4>Частота</h4>
-        <p>1-2 Articles/неделя — sustainable + effective. Каждый Article = отдельный промо-пост в ленте + шеринг в группах.</p>
+        <p>1-2 Статьи/неделю — устойчиво + эффективно. Каждая Статья = отдельный промо-пост в ленте + шеринг в группах.</p>
       </div>
     </div>
   </div>
 
-  <h4 style="color:var(--vk);margin:16px 0 8px">Контент-стратегия для Articles</h4>
+  <h4 style="color:var(--vk);margin:16px 0 8px">Контент-стратегия для Статей</h4>
   <div class="grid-3">
     <div class="tactic">
-      <h4>"Ultimate guides"</h4>
-      <p>"Полный гайд по AI-инструментам для поиска работы в 2026." Evergreen, высокий поисковый объём.</p>
+      <h4>"Исчерпывающие гайды"</h4>
+      <p>"Полный гайд по AI-инструментам для поиска работы в 2026." Вечнозелёный, высокий поисковый объём.</p>
     </div>
     <div class="tactic">
       <h4>Исследования и отчёты</h4>
@@ -332,22 +332,22 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     </div>
     <div class="tactic">
       <h4>Обзоры инструментов</h4>
-      <p>"Топ-10 AI-конструкторов резюме." Высокий search intent.</p>
+      <p>"Топ-10 AI-конструкторов резюме." Высокий поисковый интент.</p>
     </div>
     <div class="tactic">
       <h4>Кейсы</h4>
-      <p>"Как я помог 50 людям найти работу через AI." Social proof + storytelling.</p>
+      <p>"Как я помог 50 людям найти работу через AI." Социальное доказательство + сторителлинг.</p>
     </div>
     <div class="tactic">
-      <h4>Keyword-стратегия</h4>
+      <h4>Стратегия ключевых слов</h4>
       <p>Яндекс.Вордстат: "работа с нейросетями", "AI для карьеры", "резюме с помощью ИИ", "карьерный рост 2026"</p>
     </div>
   </div>
 
   <div class="cta-box">
-    <h4>UTM для Articles</h4>
+    <h4>UTM для Статей</h4>
     <code>sborka.work?utm_source=vk&utm_medium=article&utm_campaign=s09_vk&utm_content={article_slug}</code>
-    <p style="font-size:.85em;margin-top:8px">Мягкий CTA в середине статьи + сильный CTA в конце. Articles — лучший формат для ссылок на sborka.work!</p>
+    <p style="font-size:.85em;margin-top:8px">Мягкий CTA в середине статьи + сильный CTA в конце. Статьи — лучший формат для ссылок на sborka.work!</p>
   </div>
 </div>
 
@@ -360,14 +360,14 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
   </div>
 
   <div class="competitor">
-    <h4>Хабр Карьера (Habr Career)</h4>
+    <h4>Хабр Карьера</h4>
     <div class="stats">
       <span class="stat-chip">~85K+ подп.</span>
       <span class="stat-chip">3-5 постов/день</span>
       <span class="stat-chip">ER ~0.1-0.2%</span>
       <span class="stat-chip">20-80 лайков/пост</span>
     </div>
-    <p style="font-size:.9em"><strong>Сила:</strong> Data-driven контент (зарплатные опросы, рыночные отчёты) — наивысший engagement. <strong>Слабость:</strong> Не используют Clips. Много внешних ссылок (штраф алгоритма). Низкий ER для своего размера.</p>
+    <p style="font-size:.9em"><strong>Сила:</strong> Контент на основе данных (зарплатные опросы, рыночные отчёты) — наивысшая вовлечённость. <strong>Слабость:</strong> Не используют Clips. Много внешних ссылок (штраф алгоритма). Низкий ER для своего размера.</p>
   </div>
 
   <div class="competitor">
@@ -387,9 +387,9 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
       <span class="stat-chip">10-50K подп.</span>
       <span class="stat-chip">2-4 поста/день</span>
       <span class="stat-chip">ER ~0.3-1%</span>
-      <span class="stat-chip">Screen recording Clips</span>
+      <span class="stat-chip">Clips с записью экрана</span>
     </div>
-    <p style="font-size:.9em"><strong>Сила:</strong> AI контент = ВЫШЕ ER чем карьерный. Практические "как сделать X" с скриншотами — лучший формат. AI мемы вирусятся. <strong>Слабость:</strong> Агрегация новостей, нет личного бренда, не пересекается с карьерой.</p>
+    <p style="font-size:.9em"><strong>Сила:</strong> AI-контент = ВЫШЕ ER чем карьерный. Практические "как сделать X" со скриншотами — лучший формат. AI-мемы вирусятся. <strong>Слабость:</strong> Агрегация новостей, нет личного бренда, не пересекается с карьерой.</p>
   </div>
 
   <div class="competitor">
@@ -400,7 +400,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
       <span class="stat-chip">ER ~0.1-0.2%</span>
       <span class="stat-chip">Карусели с данными</span>
     </div>
-    <p style="font-size:.9em"><strong>Сила:</strong> Карусели с данными/статистикой = 2-3x больше сохранений. "1 минута совет" Clips формат. Зарплатный контент = всегда engagement. <strong>Слабость:</strong> Институциональный тон, нет AI-угла, одностороннее вещание.</p>
+    <p style="font-size:.9em"><strong>Сила:</strong> Карусели с данными/статистикой = 2-3x больше сохранений. Формат "1 минута совет" в Clips. Зарплатный контент = всегда вовлечённость. <strong>Слабость:</strong> Институциональный тон, нет AI-угла, одностороннее вещание.</p>
   </div>
 
   <div class="competitor">
@@ -408,21 +408,21 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     <div class="stats">
       <span class="stat-chip">ER ~2-5%</span>
       <span class="stat-chip">1-2 поста/день</span>
-      <span class="stat-chip">Face-to-camera</span>
+      <span class="stat-chip">Лицо в камеру</span>
       <span class="stat-chip">10-50 лайков/пост</span>
     </div>
-    <p style="font-size:.9em"><strong>Сила:</strong> Личные бренды = 10-50x выше ER чем корпоративные страницы. Face-to-camera = доверие. Конкретные цифры (результаты клиентов) = engagement. <strong>Слабость:</strong> НЕ используют AI-тему (возможность!). Не задействуют Clips. Нет системной CTA стратегии.</p>
+    <p style="font-size:.9em"><strong>Сила:</strong> Личные бренды = 10-50x выше ER чем корпоративные страницы. Лицо в камеру = доверие. Конкретные цифры (результаты клиентов) = вовлечённость. <strong>Слабость:</strong> НЕ используют AI-тему (возможность!). Не задействуют Clips. Нет системной CTA-стратегии.</p>
   </div>
 
   <h4 style="margin:16px 0 10px;color:var(--vk)">Конкурентная матрица: ваше уникальное позиционирование</h4>
   <table>
-    <tr><th>Конкурент</th><th>Personal Brand</th><th>AI Focus</th><th>Career Focus</th><th>VK Clips</th><th>Articles</th></tr>
+    <tr><th>Конкурент</th><th>Личный бренд</th><th>Фокус на AI</th><th>Фокус на карьере</th><th>VK Clips</th><th>Статьи</th></tr>
     <tr><td>Хабр Карьера</td><td>Нет</td><td>Частично</td><td>Да</td><td>Нет</td><td>Да</td></tr>
     <tr><td>HeadHunter</td><td>Нет</td><td>Нет</td><td>Да</td><td>Да</td><td>Нет</td></tr>
-    <tr><td>AI News</td><td>Нет</td><td>Да</td><td>Нет</td><td>Частично</td><td>Нет</td></tr>
+    <tr><td>AI-новости</td><td>Нет</td><td>Да</td><td>Нет</td><td>Частично</td><td>Нет</td></tr>
     <tr><td>Работа.ру</td><td>Нет</td><td>Нет</td><td>Да</td><td>Частично</td><td>Нет</td></tr>
     <tr><td>Коучи</td><td>Да</td><td>Нет</td><td>Да</td><td>Редко</td><td>Редко</td></tr>
-    <tr style="background:#F0F6FF;font-weight:600"><td>СБОРКА (вы)</td><td style="color:var(--emerald)">Да</td><td style="color:var(--emerald)">Да</td><td style="color:var(--emerald)">Да</td><td style="color:var(--emerald)">Target</td><td style="color:var(--emerald)">Target</td></tr>
+    <tr style="background:#F0F6FF;font-weight:600"><td>СБОРКА (вы)</td><td style="color:var(--emerald)">Да</td><td style="color:var(--emerald)">Да</td><td style="color:var(--emerald)">Да</td><td style="color:var(--emerald)">Цель</td><td style="color:var(--emerald)">Цель</td></tr>
   </table>
 </div>
 
@@ -432,30 +432,30 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
   <table>
     <tr><th>#</th><th>Формат</th><th>Охват (% подписчиков)</th><th>ER</th><th>Лучшее для</th></tr>
-    <tr><td>1</td><td><strong>VK Clips</strong></td><td>200-1000%+ <span class="badge badge-boost">top</span></td><td>3-8%</td><td>Discovery, рост, виральность</td></tr>
-    <tr><td>2</td><td>Нативное видео (1-5 мин)</td><td>30-60%</td><td>2-5%</td><td>Туториалы, thought leadership</td></tr>
+    <tr><td>1</td><td><strong>VK Clips</strong></td><td>200-1000%+ <span class="badge badge-boost">топ</span></td><td>3-8%</td><td>Обнаружение, рост, виральность</td></tr>
+    <tr><td>2</td><td>Нативное видео (1-5 мин)</td><td>30-60%</td><td>2-5%</td><td>Туториалы, экспертный контент</td></tr>
     <tr><td>3</td><td>Карусели/мульти-фото</td><td>25-45%</td><td>2-4%</td><td>Советы, инфографика, данные</td></tr>
-    <tr><td>4</td><td>Опросы</td><td>30-50%</td><td>3-6%</td><td>Engagement, community building</td></tr>
-    <tr><td>5</td><td>VK Articles</td><td>15-25% + long tail SEO</td><td>1-3%</td><td>SEO, evergreen, глубина</td></tr>
+    <tr><td>4</td><td>Опросы</td><td>30-50%</td><td>3-6%</td><td>Вовлечённость, развитие сообщества</td></tr>
+    <tr><td>5</td><td>VK Статьи</td><td>15-25% + долгосрочный SEO</td><td>1-3%</td><td>SEO, вечнозелёный контент, глубина</td></tr>
     <tr><td>6</td><td>Картинка + текст</td><td>20-35%</td><td>1.5-3%</td><td>Стандартные апдейты, советы</td></tr>
     <tr><td>7</td><td>Текст (длинный)</td><td>15-30%</td><td>1-2.5%</td><td>Истории, мнения</td></tr>
-    <tr><td>8</td><td>Stories</td><td>10-15%</td><td>1-2%</td><td>Behind-the-scenes, daily</td></tr>
-    <tr><td>9</td><td>Подкасты (VK Music)</td><td>5-10%</td><td>0.5-1%</td><td>Нишевая аудитория, лояльность</td></tr>
-    <tr><td>10</td><td>Посты с внешними ссылками</td><td>5-15% <span class="badge badge-penalty">penalty</span></td><td>0.3-0.8%</td><td>Избегать как основной формат</td></tr>
+    <tr><td>8</td><td>Истории</td><td>10-15%</td><td>1-2%</td><td>Закулисье, ежедневный контент</td></tr>
+    <tr><td>9</td><td>Подкасты (VK Музыка)</td><td>5-10%</td><td>0.5-1%</td><td>Нишевая аудитория, лояльность</td></tr>
+    <tr><td>10</td><td>Посты с внешними ссылками</td><td>5-15% <span class="badge badge-penalty">штраф</span></td><td>0.3-0.8%</td><td>Избегать как основной формат</td></tr>
   </table>
 
   <div class="insight">
-    <strong>Опросы недооценены!</strong> В карьерной нише опросы про зарплатные ожидания, карьерный выбор, workplace opinions = massive engagement. Пример: "Честно, AI изменил вашу работу? (а) Полностью (б) Частично (в) Совсем нет (г) Не использую AI." Высокий comment rate = буст алгоритма.
+    <strong>Опросы недооценены!</strong> В карьерной нише опросы про зарплатные ожидания, карьерный выбор, мнения о работе = огромная вовлечённость. Пример: "Честно, AI изменил вашу работу? (а) Полностью (б) Частично (в) Совсем нет (г) Не использую AI." Высокий рейт комментариев = буст алгоритма.
   </div>
 
   <h4 style="margin:16px 0 10px;color:var(--vk)">Рекомендуемый контент-микс для роста с 17 подписчиков</h4>
   <table>
     <tr><th>Формат</th><th>Частота</th><th>% от постов</th></tr>
-    <tr><td>VK Clips</td><td>7-14/неделю</td><td>Primary (отдельно от ленты)</td></tr>
+    <tr><td>VK Clips</td><td>7-14/неделю</td><td>Основной (отдельно от ленты)</td></tr>
     <tr><td>Карусели/инфографика</td><td>3-4/неделю</td><td>25%</td></tr>
     <tr><td>Опросы/интерактив</td><td>2-3/неделю</td><td>15%</td></tr>
     <tr><td>Длинные текстовые посты</td><td>2-3/неделю</td><td>15%</td></tr>
-    <tr><td>VK Articles</td><td>1-2/неделю</td><td>10%</td></tr>
+    <tr><td>VK Статьи</td><td>1-2/неделю</td><td>10%</td></tr>
     <tr><td>Картинка + текст</td><td>2-3/неделю</td><td>15%</td></tr>
     <tr><td>Нативное видео (1-5 мин)</td><td>1-2/неделю</td><td>10%</td></tr>
     <tr><td>Посты со ссылками (CTA)</td><td>1-2/неделю макс</td><td>10% (осторожно)</td></tr>
@@ -464,22 +464,22 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
 <!-- ===== 6. COMMUNITY GROWTH ===== -->
 <div class="section">
-  <h2>6. Community Growth: от 17 до 1,000+</h2>
+  <h2>6. Рост сообщества: от 17 до 1,000+</h2>
 
   <h4 style="color:var(--vk);margin-bottom:10px">Фазы роста</h4>
   <div class="timeline">
     <div class="t-item" style="background:#F0F6FF">
-      <span class="t-label">Фаза 1: Foundation</span>
+      <span class="t-label">Фаза 1: Фундамент</span>
       <span class="t-num">0-100</span>
       2-4 недели<br>2-5 подп./день
     </div>
     <div class="t-item" style="background:#E8F0FF">
-      <span class="t-label">Фаза 2: Traction</span>
+      <span class="t-label">Фаза 2: Набор тяги</span>
       <span class="t-num">100-500</span>
       1-3 месяца<br>5-15 подп./день
     </div>
     <div class="t-item" style="background:#E0EDFF">
-      <span class="t-label">Фаза 3: Growth</span>
+      <span class="t-label">Фаза 3: Рост</span>
       <span class="t-num">500-1,000+</span>
       2-4 месяца<br>10-30 подп./день
     </div>
@@ -497,15 +497,15 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     </div>
     <div class="tactic">
       <h4>Обложка: 1590x400px, брендированная</h4>
-      <p>Профессиональная, с value proposition и названием.</p>
+      <p>Профессиональная, с ценностным предложением и названием.</p>
     </div>
     <div class="tactic">
       <h4>Закреплённый пост</h4>
-      <p>Welcome-пост: о чём сообщество, что ожидать, CTA подписаться.</p>
+      <p>Приветственный пост: о чём сообщество, что ожидать, CTA подписаться.</p>
     </div>
     <div class="tactic">
       <h4>Меню/секции</h4>
-      <p>Ссылки на ключевой контент: Articles, Clips, sborka.work.</p>
+      <p>Ссылки на ключевой контент: Статьи, Clips, sborka.work.</p>
     </div>
     <div class="tactic">
       <h4>10-15 постов до промо</h4>
@@ -513,17 +513,17 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     </div>
   </div>
 
-  <h4 style="color:var(--vk);margin:16px 0 10px">Тактики engagement</h4>
+  <h4 style="color:var(--vk);margin:16px 0 10px">Тактики вовлечённости</h4>
   <div class="tactic">
     <h4>Каждый пост = конкретный вопрос</h4>
     <p>НЕ "Что думаете?", а "Какой AI-инструмент вы используете чаще всего на работе? Пишите в комментах." Ответить на КАЖДЫЙ коммент в течение 2 часов — это удваивает вовлечённость.</p>
   </div>
   <div class="tactic">
-    <h4>Cross-promotion в группах</h4>
+    <h4>Кросс-промо в группах</h4>
     <p>Найти 10-20 VK-групп в карьерной/AI нише. Стать активным комментатором ДО промо своего контента. Потом — шеринг контента (с разрешения админов).</p>
   </div>
   <div class="tactic">
-    <h4>"Первые 100" стратегия</h4>
+    <h4>Стратегия "Первые 100"</h4>
     <p>Лично пригласить VK-друзей из целевой аудитории. Расшарить в личной ленте. Кросс-промо из Telegram и LinkedIn.</p>
   </div>
 </div>
@@ -534,38 +534,38 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
   <table>
     <tr><th>Фича</th><th>Приоритет</th><th>Когда запускать</th><th>Ожидаемый эффект</th></tr>
-    <tr><td><strong>VK Clips</strong></td><td><span class="badge badge-boost">Critical</span></td><td>Сразу</td><td>Главный рычаг роста</td></tr>
-    <tr><td><strong>VK Articles</strong></td><td><span class="badge badge-boost">High</span></td><td>Сразу</td><td>SEO + глубина</td></tr>
-    <tr><td>Community chatbot</td><td><span class="badge badge-neutral">Medium</span></td><td>Месяц 1</td><td>Автоматизация + UX</td></tr>
-    <tr><td>VK Live</td><td><span class="badge badge-neutral">Medium</span></td><td>После 100 подп.</td><td>Community building</td></tr>
-    <tr><td>VK Podcasts (VK Music)</td><td><span class="badge badge-neutral">Medium</span></td><td>Месяц 2-3</td><td>Лояльность + глубина</td></tr>
-    <tr><td>VK Donut (подписки)</td><td><span class="badge badge-neutral">Low</span></td><td>После 500 подп.</td><td>Монетизация</td></tr>
-    <tr><td>VK Mini Apps</td><td><span class="badge badge-neutral">Low</span></td><td>После 1,000 подп.</td><td>Продвинутая воронка</td></tr>
+    <tr><td><strong>VK Clips</strong></td><td><span class="badge badge-boost">Критический</span></td><td>Сразу</td><td>Главный рычаг роста</td></tr>
+    <tr><td><strong>VK Статьи</strong></td><td><span class="badge badge-boost">Высокий</span></td><td>Сразу</td><td>SEO + глубина</td></tr>
+    <tr><td>Чат-бот сообщества</td><td><span class="badge badge-neutral">Средний</span></td><td>Месяц 1</td><td>Автоматизация + UX</td></tr>
+    <tr><td>VK Live</td><td><span class="badge badge-neutral">Средний</span></td><td>После 100 подп.</td><td>Развитие сообщества</td></tr>
+    <tr><td>VK Подкасты (VK Музыка)</td><td><span class="badge badge-neutral">Средний</span></td><td>Месяц 2-3</td><td>Лояльность + глубина</td></tr>
+    <tr><td>VK Donut (подписки)</td><td><span class="badge badge-neutral">Низкий</span></td><td>После 500 подп.</td><td>Монетизация</td></tr>
+    <tr><td>Мини-приложения VK</td><td><span class="badge badge-neutral">Низкий</span></td><td>После 1,000 подп.</td><td>Продвинутая воронка</td></tr>
   </table>
 
   <div class="grid-2" style="margin-top:16px">
     <div class="tactic">
-      <h4>VK Messenger для community</h4>
-      <p>Авто-ответ на новые сообщения: welcome + ссылка на лучший контент. Массовые рассылки (с opt-in) = 90%+ open rate vs 20-30% для постов ленты. Чат-бот на VK Bot API + LLM для FAQ.</p>
+      <h4>VK Мессенджер для сообщества</h4>
+      <p>Авто-ответ на новые сообщения: приветствие + ссылка на лучший контент. Массовые рассылки (с согласия) = 90%+ открываемость vs 20-30% для постов ленты. Чат-бот на VK Bot API + LLM для FAQ.</p>
     </div>
     <div class="tactic">
-      <h4>VK Donut (Patreon-аналог)</h4>
-      <p>Запустить после 500+ подп. VK берёт 0% комиссии (2025). Тарифы: 199-499 руб/мес. Эксклюзив: AI-карьерные инструменты, шаблоны, разборы резюме, еженедельные insider tips.</p>
+      <h4>VK Donut (аналог Patreon)</h4>
+      <p>Запустить после 500+ подп. VK берёт 0% комиссии (2025). Тарифы: 199-499 руб/мес. Эксклюзив: AI-карьерные инструменты, шаблоны, разборы резюме, еженедельные инсайдерские советы.</p>
     </div>
     <div class="tactic">
-      <h4>VK Mini App: "AI Resume Checker"</h4>
-      <p>Мини-приложение внутри VK. Пользователь загружает резюме → AI даёт фидбек. Без штрафа за внешние ссылки (Mini App = "внутри" VK). Авторизация через VK. Воронка в sborka.work для детального анализа.</p>
+      <h4>Мини-приложение VK: "AI-проверка резюме"</h4>
+      <p>Мини-приложение внутри VK. Пользователь загружает резюме &rarr; AI даёт фидбек. Без штрафа за внешние ссылки (мини-приложение = "внутри" VK). Авторизация через VK. Воронка в sborka.work для детального анализа.</p>
     </div>
     <div class="tactic">
       <h4>VK Live</h4>
-      <p>Еженедельные/двухнедельные стримы: "AI Career Q&A" или "Resume Review Live". Push-нотификации подписчикам. Контент = нарезка в Clips + видео. Запустить после 100+ подписчиков.</p>
+      <p>Еженедельные/двухнедельные стримы: "AI-карьера: вопросы и ответы" или "Разбор резюме в прямом эфире". Пуш-уведомления подписчикам. Контент = нарезка в Clips + видео. Запустить после 100+ подписчиков.</p>
     </div>
   </div>
 </div>
 
 <!-- ===== 8. CTA STRATEGY ===== -->
 <div class="section">
-  <h2>8. CTA-стратегия: VK → sborka.work</h2>
+  <h2>8. CTA-стратегия: VK &rarr; sborka.work</h2>
 
   <div class="warning">
     <strong>Главная проблема:</strong> VK активно подавляет посты с внешними ссылками. Оценочное снижение охвата: <strong>30-50% меньше показов</strong> для постов со ссылками vs идентичных постов без ссылок.
@@ -576,7 +576,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
   <div class="tactic">
     <h4>1. "Ссылка в комментариях" — САМАЯ ЭФФЕКТИВНАЯ</h4>
     <p>Пост БЕЗ ссылки в тексте. Ссылка = ПЕРВЫЙ коммент (закрепить). Пост получает полный алгоритмический охват; ссылка доступна заинтересованным.</p>
-    <p style="font-size:.85em;color:var(--muted);margin-top:4px">Пример: пост про "5 AI-инструментов для поиска работы" → первый коммент: "Полный toolkit с шаблонами: sborka.work?utm_source=vk&..."</p>
+    <p style="font-size:.85em;color:var(--muted);margin-top:4px">Пример: пост про "5 AI-инструментов для поиска работы" &rarr; первый коммент: "Полный набор с шаблонами: sborka.work?utm_source=vk&..."</p>
   </div>
 
   <div class="tactic">
@@ -585,23 +585,23 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
   </div>
 
   <div class="tactic">
-    <h4>3. "Ссылка в VK Article" — ЛУЧШИЙ ДЛЯ SEO + ТРАФИКА</h4>
-    <p>VK Article с ценным контентом + CTA внутри статьи. Пост в ленте ссылается на VK Article (нет штрафа). Article содержит ссылку на sborka.work. Двойная выгода: SEO + трафик + полный охват.</p>
+    <h4>3. "Ссылка в VK Статье" — ЛУЧШИЙ ДЛЯ SEO + ТРАФИКА</h4>
+    <p>VK Статья с ценным контентом + CTA внутри статьи. Пост в ленте ссылается на VK Статью (нет штрафа). Статья содержит ссылку на sborka.work. Двойная выгода: SEO + трафик + полный охват.</p>
   </div>
 
   <div class="tactic">
-    <h4>4. "Ссылка через chatbot/сообщения"</h4>
-    <p>Авто-ответ на сообщения сообщества = ссылка на sborka.work. CTA в постах: "Напишите нам 'TOOLKIT' и получите ссылку." Сообщения = 90%+ open rate.</p>
+    <h4>4. "Ссылка через чат-бот/сообщения"</h4>
+    <p>Авто-ответ на сообщения сообщества = ссылка на sborka.work. CTA в постах: "Напишите нам 'НАБОР' и получите ссылку." Сообщения = 90%+ открываемость.</p>
   </div>
 
   <div class="tactic">
     <h4>5. "Ссылка в описании Clip"</h4>
-    <p>VK Clips позволяют ссылки в описании. Меньший штраф чем посты ленты (Clips = отдельный алгоритм discovery).</p>
+    <p>VK Clips позволяют ссылки в описании. Меньший штраф чем посты ленты (Clips = отдельный алгоритм обнаружения).</p>
   </div>
 
   <div class="tactic">
-    <h4>6. "VK Mini App bridge"</h4>
-    <p>Простой Mini App → показывает контент / редирект на sborka.work. Ноль штрафа (Mini App = "внутри" VK). Сложнее в реализации, но нулевой penalty.</p>
+    <h4>6. "Мост через мини-приложение VK"</h4>
+    <p>Простое мини-приложение &rarr; показывает контент / редирект на sborka.work. Ноль штрафа (мини-приложение = "внутри" VK). Сложнее в реализации, но нулевой штраф.</p>
   </div>
 
   <h4 style="color:var(--vk);margin:16px 0 10px">UTM-структура</h4>
@@ -611,10 +611,10 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     <table style="margin-top:12px">
       <tr><th>Medium</th><th>Когда</th></tr>
       <tr><td><code>social</code></td><td>Посты ленты, комментарии</td></tr>
-      <tr><td><code>article</code></td><td>VK Articles</td></tr>
+      <tr><td><code>article</code></td><td>VK Статьи</td></tr>
       <tr><td><code>clips</code></td><td>Описания VK Clips</td></tr>
-      <tr><td><code>message</code></td><td>Community chatbot/сообщения</td></tr>
-      <tr><td><code>ads</code></td><td>VK Ads кампании</td></tr>
+      <tr><td><code>message</code></td><td>Чат-бот/сообщения сообщества</td></tr>
+      <tr><td><code>ads</code></td><td>Рекламные кампании VK</td></tr>
       <tr><td><code>profile</code></td><td>Описание/меню сообщества</td></tr>
     </table>
   </div>
@@ -623,21 +623,21 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
   <div class="formula">
 Максимум 1 из 5 постов = прямой CTA со ссылкой (правило 20%)
 Мягкий CTA (упоминание СБОРКА без ссылки) = 40-50% постов
-Чистый value-контент БЕЗ CTA = 50%+ постов
+Чистый ценностный контент БЕЗ CTA = 50%+ постов
   </div>
 
   <div class="insight">
-    <strong>Конверсионная оптимизация:</strong> 70-80% VK-трафика = мобильный. sborka.work ОБЯЗАН быть mobile-optimized. Рассмотреть VK-специфический лендинг: <code>sborka.work/vk</code> для VK-аудитории.
+    <strong>Оптимизация конверсии:</strong> 70-80% VK-трафика = мобильный. sborka.work ОБЯЗАН быть оптимизирован для мобильных. Рассмотреть VK-специфический лендинг: <code>sborka.work/vk</code> для VK-аудитории.
   </div>
 </div>
 
 <!-- ===== 9. VK ADS ===== -->
 <div class="section">
   <h2>9. VK Ads — таргетированная реклама</h2>
-  <p style="margin-bottom:16px">VK Ads (ads.vk.com) — консолидированная платформа. Дистрибуция: VK.com, Одноклассники, VK Music, Mail.ru, партнёрская сеть.</p>
+  <p style="margin-bottom:16px">VK Ads (ads.vk.com) — консолидированная платформа. Дистрибуция: VK.com, Одноклассники, VK Музыка, Mail.ru, партнёрская сеть.</p>
 
   <div class="warning">
-    <strong>Не запускать рекламу с 17 подписчиков!</strong> Органический рост через Clips и контент = PRIMARY стратегия. Платная реклама наиболее эффективна после 100+ органических подписчиков и доказанного контента (знаете что работает).
+    <strong>Не запускать рекламу с 17 подписчиков!</strong> Органический рост через Clips и контент = ОСНОВНАЯ стратегия. Платная реклама наиболее эффективна после 100+ органических подписчиков и доказанного контента (знаете что работает).
   </div>
 
   <h4 style="color:var(--vk);margin:12px 0 10px">Бенчмарки для карьерной ниши (2025-2026)</h4>
@@ -645,25 +645,25 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     <tr><th>Метрика</th><th>Диапазон</th><th>Примечание</th></tr>
     <tr><td>CPM</td><td>80-250 руб</td><td>Ниже для широкого, выше для узкого таргетинга</td></tr>
     <tr><td>CPC</td><td>5-25 руб</td><td>Карьерная ниша = средняя конкуренция</td></tr>
-    <tr><td>Cost per subscriber</td><td>15-60 руб</td><td>Подписки на сообщество</td></tr>
-    <tr><td>Cost per lead</td><td>50-200 руб</td><td>Карьерные лид-формы</td></tr>
+    <tr><td>Стоимость подписчика</td><td>15-60 руб</td><td>Подписки на сообщество</td></tr>
+    <tr><td>Стоимость лида</td><td>50-200 руб</td><td>Карьерные лид-формы</td></tr>
     <tr><td>CTR (лента)</td><td>0.5-1.5%</td><td>Карьерный контент ~0.8-1.2%</td></tr>
-    <tr><td>CTR (Clips промо)</td><td>1-3%</td><td>Выше для видео</td></tr>
+    <tr><td>CTR (промо Clips)</td><td>1-3%</td><td>Выше для видео</td></tr>
   </table>
 
   <h4 style="color:var(--vk);margin:16px 0 10px">Бюджет на первый месяц (когда готовы)</h4>
   <table>
     <tr><th>Кампания</th><th>Бюджет</th><th>Цель</th></tr>
-    <tr><td>Community promotion (рост подп.)</td><td>40%</td><td>Рост базы</td></tr>
-    <tr><td>Clips promotion (лучшие органические)</td><td>30%</td><td>Усиление того что работает</td></tr>
-    <tr><td>Article promotion (evergreen)</td><td>20%</td><td>SEO + engagement long-term</td></tr>
-    <tr><td>Website traffic (sborka.work)</td><td>10%</td><td>Прямой CTA (тест)</td></tr>
+    <tr><td>Продвижение сообщества (рост подп.)</td><td>40%</td><td>Рост базы</td></tr>
+    <tr><td>Промо Clips (лучшие органические)</td><td>30%</td><td>Усиление того что работает</td></tr>
+    <tr><td>Промо статей (вечнозелёный контент)</td><td>20%</td><td>SEO + вовлечённость в долгосрочной перспективе</td></tr>
+    <tr><td>Трафик на сайт (sborka.work)</td><td>10%</td><td>Прямой CTA (тест)</td></tr>
   </table>
   <p style="font-size:.85em;color:var(--muted);margin-top:8px">Рекомендуемый тестовый бюджет: 500-1,000 руб/день (~$5.5-$11). Месяц: 15,000-30,000 руб ($165-$330).</p>
 
   <div class="tactic">
     <h4>VK Pixel — установить ДО запуска рекламы</h4>
-    <p>Установить VK Pixel на sborka.work (все страницы). Создать ретаргетинг аудитории: посетители сайта, посетители конкретных страниц. Look-alike после 100+ подписчиков.</p>
+    <p>Установить VK Pixel на sborka.work (все страницы). Создать ретаргетинг аудитории: посетители сайта, посетители конкретных страниц. Похожие аудитории после 100+ подписчиков.</p>
   </div>
 </div>
 
@@ -673,108 +673,108 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
   <div class="timeline" style="margin-bottom:20px">
     <div class="t-item" style="background:#F0F6FF">
-      <span class="t-label">Week 0</span>
-      <span class="t-num">Setup</span>
+      <span class="t-label">Нед. 0</span>
+      <span class="t-num">Настройка</span>
       Настройка сообщества
     </div>
     <div class="t-item" style="background:#E8F0FF">
-      <span class="t-label">Week 1</span>
-      <span class="t-num">→50</span>
-      Foundation
+      <span class="t-label">Нед. 1</span>
+      <span class="t-num">&rarr;50</span>
+      Фундамент
     </div>
     <div class="t-item" style="background:#E0EDFF">
-      <span class="t-label">Week 2</span>
-      <span class="t-num">→100</span>
-      Acceleration
+      <span class="t-label">Нед. 2</span>
+      <span class="t-num">&rarr;100</span>
+      Ускорение
     </div>
     <div class="t-item" style="background:#D8E8FF">
-      <span class="t-label">Week 3</span>
-      <span class="t-num">→160</span>
-      Scale
+      <span class="t-label">Нед. 3</span>
+      <span class="t-num">&rarr;160</span>
+      Масштабирование
     </div>
     <div class="t-item" style="background:#D0E0FF">
-      <span class="t-label">Week 4</span>
-      <span class="t-num">→250</span>
-      Push to 200+
+      <span class="t-label">Нед. 4</span>
+      <span class="t-num">&rarr;250</span>
+      Пуш до 200+
     </div>
   </div>
 
   <div class="action-plan">
     <div class="week">
-      <h4>Setup (Day 0-1)</h4>
+      <h4>Настройка (День 0-1)</h4>
       <ul>
         <li>Оптимизировать название: "SBORKA | AI и Карьера" (с ключевыми словами)</li>
         <li>Обновить описание + обложку (1590x400px, брендированная)</li>
-        <li>Настроить меню сообщества: Articles, Clips, sborka.work</li>
-        <li>Создать закреплённый welcome-пост</li>
+        <li>Настроить меню сообщества: Статьи, Clips, sborka.work</li>
+        <li>Создать закреплённый приветственный пост</li>
         <li>Установить VK Pixel на sborka.work</li>
-        <li>Настроить авто-ответ для сообщений (welcome + полезная ссылка)</li>
+        <li>Настроить авто-ответ для сообщений (приветствие + полезная ссылка)</li>
         <li>Подготовить 10 стартовых постов для наполнения ленты</li>
         <li>Определить 20 релевантных VK-сообществ для кросс-промо</li>
-        <li>Batch-создать первые 5 VK Clips</li>
-        <li>Написать первый VK Article (pillar content)</li>
+        <li>Пакетно создать первые 5 VK Clips</li>
+        <li>Написать первую VK Статью (основной контент)</li>
       </ul>
     </div>
 
     <div class="week">
-      <h4>Foundation (Day 2-8) — Target: 30-50 подписчиков</h4>
+      <h4>Фундамент (День 2-8) — Цель: 30-50 подписчиков</h4>
       <ul>
-        <li><strong>Ежедневно:</strong> 3 поста (утро: совет/Clip, обед: Article/карусель, вечер: опрос/дискуссия)</li>
+        <li><strong>Ежедневно:</strong> 3 поста (утро: совет/Clip, обед: Статья/карусель, вечер: опрос/дискуссия)</li>
         <li><strong>Clips:</strong> 1-2 в день (30 сек, AI/карьера, хук в первые 3 секунды)</li>
-        <li><strong>Engagement:</strong> 30 мин/день комментирование в 10-15 постах конкурентов (искренне, не спам)</li>
+        <li><strong>Вовлечённость:</strong> 30 мин/день комментирование в 10-15 постах конкурентов (искренне, не спам)</li>
         <li>Ответить на ВСЕ комменты к своим постам в течение 2 часов</li>
         <li>Метрики: 18-21 постов, 7-10 Clips, 70-100 комментариев в чужих сообществах</li>
       </ul>
     </div>
 
     <div class="week">
-      <h4>Acceleration (Day 9-15) — Target: 60-100 подписчиков</h4>
+      <h4>Ускорение (День 9-15) — Цель: 60-100 подписчиков</h4>
       <ul>
-        <li>Кросс-постинг лучших Articles в 3-5 карьерных сообществах (с разрешения)</li>
-        <li>Лично пригласить VK-друзей из целевой аудитории (direct message)</li>
-        <li>Удвоить усилия на формат с лучшим результатом Week 1</li>
+        <li>Кросс-постинг лучших Статей в 3-5 карьерных сообществах (с разрешения)</li>
+        <li>Лично пригласить VK-друзей из целевой аудитории (личное сообщение)</li>
+        <li>Удвоить усилия на формат с лучшим результатом Недели 1</li>
         <li>Эксперименты с VK Clips трендами (трендовые звуки, форматы)</li>
-        <li>Интерактив: "Как AI-ready ваша карьера?" (квиз/тест)</li>
-        <li>Outreach к 5 мелким VK-создателям для взаимного промо</li>
+        <li>Интерактив: "Насколько ваша карьера готова к AI?" (квиз/тест)</li>
+        <li>Обращение к 5 мелким VK-создателям для взаимного промо</li>
       </ul>
     </div>
 
     <div class="week">
-      <h4>Scale (Day 16-22) — Target: 120-160 подписчиков</h4>
+      <h4>Масштабирование (День 16-22) — Цель: 120-160 подписчиков</h4>
       <ul>
         <li>Увеличить Clips до 2/день (если возможно)</li>
-        <li>Запуск серии: "AI Career Toolkit" Part 1-5 (Article series)</li>
-        <li>Провокационный/дебатный Clip (viral attempt)</li>
-        <li>Guest post exchange с другим создателем</li>
-        <li>"Resume roast" интерактивный пост</li>
-        <li>Первый VK Live (если 80+ подп.) или Q&A в комментариях</li>
+        <li>Запуск серии: "AI-набор для карьеры" Части 1-5 (серия Статей)</li>
+        <li>Провокационный/дебатный Clip (попытка виральности)</li>
+        <li>Обмен гостевыми постами с другим создателем</li>
+        <li>"Разбор резюме" — интерактивный пост</li>
+        <li>Первый VK Live (если 80+ подп.) или вопросы-ответы в комментариях</li>
       </ul>
     </div>
 
     <div class="week">
-      <h4>Push to 200+ (Day 23-30) — Target: 180-250+ подписчиков</h4>
+      <h4>Пуш до 200+ (День 23-30) — Цель: 180-250+ подписчиков</h4>
       <ul>
-        <li>Pillar Article: "Полный гайд AI-карьера 2026"</li>
+        <li>Основная Статья: "Полный гайд AI-карьера 2026"</li>
         <li>3 Clips в один день (лучшие хуки)</li>
-        <li>Кросс-платформенный blast: расшарить VK-контент везде</li>
-        <li>Engagement marathon: 30+ сообществ/день</li>
+        <li>Кросс-платформенный рывок: расшарить VK-контент везде</li>
+        <li>Марафон вовлечённости: 30+ сообществ/день</li>
         <li>Опциональный платный тест: 500 руб на лучший Clip</li>
-        <li>Второй VK Live или крупный Q&A</li>
+        <li>Второй VK Live или крупный сеанс вопросов-ответов</li>
         <li>Мета-контент: "Что я узнал за 30 дней VK-контента"</li>
-        <li>Полный анализ метрик → план на месяц 2</li>
+        <li>Полный анализ метрик &rarr; план на месяц 2</li>
       </ul>
     </div>
   </div>
 
   <h4 style="color:var(--vk);margin:16px 0 10px">KPI по неделям</h4>
   <table>
-    <tr><th>Метрика</th><th>Week 1</th><th>Week 2</th><th>Week 3</th><th>Week 4</th></tr>
+    <tr><th>Метрика</th><th>Нед. 1</th><th>Нед. 2</th><th>Нед. 3</th><th>Нед. 4</th></tr>
     <tr><td>Всего подписчиков</td><td>30-50</td><td>60-100</td><td>120-160</td><td>180-250</td></tr>
     <tr><td>Ср. охват поста</td><td>50-100</td><td>100-300</td><td>200-500</td><td>300-800</td></tr>
     <tr><td>Ср. просмотры Clip</td><td>200-500</td><td>500-2,000</td><td>1K-5K</td><td>2K-10K</td></tr>
     <tr><td>ER</td><td>5-10%</td><td>4-8%</td><td>3-6%</td><td>3-5%</td></tr>
     <tr><td>Комменты/пост</td><td>2-5</td><td>5-10</td><td>5-15</td><td>10-20</td></tr>
-    <tr><td>sborka.work visits из VK</td><td>5-10</td><td>10-30</td><td>20-50</td><td>30-80</td></tr>
+    <tr><td>Визиты sborka.work из VK</td><td>5-10</td><td>10-30</td><td>20-50</td><td>30-80</td></tr>
   </table>
 
   <h4 style="color:var(--vk);margin:16px 0 10px">90-дневная цель</h4>
@@ -802,12 +802,12 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
   </div>
 
   <div class="insight">
-    <strong>Эффективность продакшена:</strong> Batch Clips (2 часа → 5-7 Clips на неделю). Каждый Article = 3-5 Clips (ключевые моменты) + 2-3 поста. Шаблоны в Canva/Figma для VK-картинок. AI для первых драфтов (LLM) + личный голос. Screen recording для AI-демо (самый быстрый тип Clip).
+    <strong>Эффективность продакшена:</strong> Пакетная запись Clips (2 часа &rarr; 5-7 Clips на неделю). Каждая Статья = 3-5 Clips (ключевые моменты) + 2-3 поста. Шаблоны в Canva/Figma для VK-картинок. AI для первых черновиков (LLM) + личный голос. Запись экрана для AI-демо (самый быстрый тип Clip).
   </div>
 </div>
 
 <footer>
-  SMM Research Hub &copy; 2026 &middot; Sprint S-09 VK &middot; <a href="../index.html" style="color:var(--vk)">Вернуться на Dashboard</a>
+  SMM Research Hub &copy; 2026 &middot; Спринт S-09 VK &middot; <a href="../index.html" style="color:var(--vk)">Вернуться на дашборд</a>
 </footer>
 
 </div>

@@ -99,13 +99,13 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
 <nav class="topnav">
   <span class="logo">SMM Hub</span>
-  <a href="../index.html">Dashboard</a>
+  <a href="../index.html">Дашборд</a>
   <span class="sep">|</span>
   <a href="s01_linkedin.html">LinkedIn</a>
   <a href="s02_instagram.html">Instagram</a>
   <a href="s03_youtube.html">YouTube</a>
-  <a href="s04_telegram_personal.html">TG Personal</a>
-  <a href="s05_telegram_sborka.html">TG Sborka</a>
+  <a href="s04_telegram_personal.html">TG Личный</a>
+  <a href="s05_telegram_sborka.html">TG СБОРКА</a>
   <a href="s06_threads.html">Threads</a>
   <a href="s07_facebook.html">Facebook</a>
   <a href="s08_tiktok.html">TikTok</a>
@@ -125,26 +125,26 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
   <h1>S-11: Dev.to</h1>
   <div class="sub">Forem-платформа для разработчиков &middot; DA90+ &middot; 15-20M органических визитов/месяц из Google</div>
   <div class="stats-row">
-    <div class="stat"><span class="stat-num">35</span><span class="stat-label">Views</span></div>
+    <div class="stat"><span class="stat-num">35</span><span class="stat-label">Просмотры</span></div>
     <div class="stat"><span class="stat-num">5</span><span class="stat-label">Статей</span></div>
-    <div class="stat"><span class="stat-num">~10</span><span class="stat-label">Followers</span></div>
-    <div class="stat"><span class="stat-num">3K+</span><span class="stat-label">Target views/мес</span></div>
+    <div class="stat"><span class="stat-num">~10</span><span class="stat-label">Подписчики</span></div>
+    <div class="stat"><span class="stat-num">3K+</span><span class="stat-label">Цель просм./мес</span></div>
     <div class="stat"><span class="stat-num">EN</span><span class="stat-label">Язык</span></div>
   </div>
 </header>
 
 <!-- ===== 1. ALGORITHM ===== -->
 <div class="section">
-  <h2>1. Алгоритм и Feed Dev.to (2026)</h2>
+  <h2>1. Алгоритм и лента Dev.to (2026)</h2>
 
   <p>Dev.to построен на open-source платформе <strong>Forem</strong>. Алгоритм ранжирования доступен в коде: <code>app/services/articles/feeds/weighted_query_strategy.rb</code>.</p>
 
   <h3>Три режима ленты</h3>
   <table>
     <tr><th>Лента</th><th>Механика</th><th>Значение</th></tr>
-    <tr><td><strong>Relevant</strong> (default)</td><td>Персонализация по тегам + авторам + свежесть</td><td>Основной источник трафика для залогиненных</td></tr>
+    <tr><td><strong>Relevant</strong> (по умолч.)</td><td>Персонализация по тегам + авторам + свежесть</td><td>Основной источник трафика для залогиненных</td></tr>
     <tr><td><strong>Latest</strong></td><td>Чистая хронология</td><td>15-30 минут видимости, окно для новых авторов</td></tr>
-    <tr><td><strong>Top</strong></td><td>Reactions + comments за период</td><td>Вечнозелёный трафик, цель для серий</td></tr>
+    <tr><td><strong>Top</strong></td><td>Реакции + комментарии за период</td><td>Вечнозелёный трафик, цель для серий</td></tr>
   </table>
 
   <h3>Формула ранжирования (упрощённая)</h3>
@@ -160,46 +160,46 @@ score = (positive_reactions_count &times; 1.0)<br>
   <h3>Сигналы ранжирования</h3>
   <table>
     <tr><th>Сигнал</th><th>Вес</th><th>Как работает</th></tr>
-    <tr><td>Reactions (hearts/unicorns/bookmarks)</td><td><strong>HIGH</strong></td><td>Основной сигнал. Unicorns и bookmarks весят чуть больше hearts</td></tr>
-    <tr><td>Comments</td><td><strong>HIGH</strong></td><td>Уникальные комментаторы &gt; множество комментов от одного человека</td></tr>
-    <tr><td>Reading time / completion</td><td>MEDIUM</td><td>5-10 мин оптимально. &lt;2 мин — мало. &gt;15 мин — низкий completion</td></tr>
-    <tr><td>Recency</td><td>MEDIUM</td><td>Half-life ~48 часов. Пик день 1-2, затем затухание</td></tr>
-    <tr><td>Author credibility</td><td>MEDIUM</td><td>Больше фолловеров + постоянная активность = бонус в Relevant</td></tr>
-    <tr><td>Tag popularity</td><td>LOW-MED</td><td>Статьи в популярных тегах (javascript 150K+, ai 50K+) = больше impressions</td></tr>
+    <tr><td>Реакции (сердечки/единороги/закладки)</td><td><strong>ВЫСОКИЙ</strong></td><td>Основной сигнал. Единороги и закладки весят чуть больше сердечек</td></tr>
+    <tr><td>Комментарии</td><td><strong>ВЫСОКИЙ</strong></td><td>Уникальные комментаторы &gt; множество комментов от одного человека</td></tr>
+    <tr><td>Время чтения / дочитывание</td><td>СРЕДНИЙ</td><td>5-10 мин оптимально. &lt;2 мин — мало. &gt;15 мин — низкое дочитывание</td></tr>
+    <tr><td>Свежесть</td><td>СРЕДНИЙ</td><td>Период полураспада ~48 часов. Пик день 1-2, затем затухание</td></tr>
+    <tr><td>Авторитет автора</td><td>СРЕДНИЙ</td><td>Больше подписчиков + постоянная активность = бонус в Relevant</td></tr>
+    <tr><td>Популярность тега</td><td>НИЗКО-СРЕДНИЙ</td><td>Статьи в популярных тегах (javascript 150K+, ai 50K+) = больше показов</td></tr>
   </table>
 
   <div class="insight">
-    <strong>Ключевой инсайт:</strong> Engagement velocity решает. 5+ реакций за первые 2 часа значительно важнее 50 реакций за неделю. Алгоритм награждает быстрый старт.
+    <strong>Ключевой инсайт:</strong> Скорость вовлечённости решает. 5+ реакций за первые 2 часа значительно важнее 50 реакций за неделю. Алгоритм награждает быстрый старт.
   </div>
 
   <h3>Бенчмарки для AI/Career ниши</h3>
   <table>
-    <tr><th>Метрика</th><th>Below Avg</th><th>Average</th><th>Good</th><th>Excellent</th></tr>
-    <tr><td>Views (48ч)</td><td>&lt;50</td><td>50-200</td><td>200-1,000</td><td>1,000-10,000</td></tr>
-    <tr><td>Reactions</td><td>&lt;5</td><td>5-20</td><td>20-100</td><td>100-500</td></tr>
-    <tr><td>Comments</td><td>0-1</td><td>2-5</td><td>5-20</td><td>20-100</td></tr>
-    <tr><td>Bookmarks</td><td>0</td><td>1-5</td><td>5-25</td><td>25-100</td></tr>
-    <tr><td>Read time</td><td>&lt;2 мин</td><td>3-5 мин</td><td>5-10 мин</td><td>10-15 мин</td></tr>
+    <tr><th>Метрика</th><th>Ниже среднего</th><th>Среднее</th><th>Хорошо</th><th>Отлично</th></tr>
+    <tr><td>Просмотры (48ч)</td><td>&lt;50</td><td>50-200</td><td>200-1,000</td><td>1,000-10,000</td></tr>
+    <tr><td>Реакции</td><td>&lt;5</td><td>5-20</td><td>20-100</td><td>100-500</td></tr>
+    <tr><td>Комментарии</td><td>0-1</td><td>2-5</td><td>5-20</td><td>20-100</td></tr>
+    <tr><td>Закладки</td><td>0</td><td>1-5</td><td>5-25</td><td>25-100</td></tr>
+    <tr><td>Время чтения</td><td>&lt;2 мин</td><td>3-5 мин</td><td>5-10 мин</td><td>10-15 мин</td></tr>
   </table>
 
   <div class="warning">
-    <strong>Текущая позиция Тима (35 views, 5 статей):</strong> Below average. Но Dev.to награждает улучшение быстро — одна вирусная статья может 10x аккаунт за ночь.
+    <strong>Текущая позиция Тима (35 просмотров, 5 статей):</strong> Ниже среднего. Но Dev.to награждает улучшение быстро — одна вирусная статья может увеличить аккаунт в 10 раз за ночь.
   </div>
 
   <h3>Что убивает видимость</h3>
   <div class="tactic">
     <ul>
       <li><strong>Больше 1 статьи в день</strong> — самоконкуренция</li>
-      <li><strong>Кликбейт без содержания</strong> — высокий bounce = негативный сигнал</li>
-      <li><strong>Без cover image</strong> — теряется в ленте среди текстового шума</li>
-      <li><strong>Ноль engagement за первые 6 часов</strong> — статья умирает в Latest</li>
-      <li><strong>Промо-тон без обучающей ценности</strong> — сообщество наказывает</li>
+      <li><strong>Кликбейт без содержания</strong> — высокий показатель отказов = негативный сигнал</li>
+      <li><strong>Без обложки</strong> — теряется в ленте среди текстового шума</li>
+      <li><strong>Ноль вовлечённости за первые 6 часов</strong> — статья умирает в Latest</li>
+      <li><strong>Рекламный тон без обучающей ценности</strong> — сообщество наказывает</li>
     </ul>
   </div>
 
   <h3>Оптимальное время публикации</h3>
   <div class="insight">
-    <strong>Вторник-Четверг, 14:00-16:00 UTC</strong> — пересечение US morning + EU afternoon. Понедельник — конкуренция с выходным бэклогом. Пятница — статьи умирают на выходных.
+    <strong>Вторник-Четверг, 14:00-16:00 UTC</strong> — пересечение утра в США + дня в Европе. Понедельник — конкуренция с выходным бэклогом. Пятница — статьи умирают на выходных.
   </div>
 </div>
 
@@ -209,27 +209,27 @@ score = (positive_reactions_count &times; 1.0)<br>
 
   <h3>Рейтинг форматов для AI/Career ниши</h3>
   <table>
-    <tr><th>Формат</th><th>Эффективность</th><th>Усилия</th><th>Ожидаемые views</th></tr>
-    <tr><td><strong>Build-in-Public туториалы</strong></td><td>EXCELLENT</td><td>Medium</td><td>500-2,000</td></tr>
-    <tr><td><strong>Series (мульти-часть)</strong></td><td>EXCELLENT</td><td>High</td><td>200-500/часть, рост</td></tr>
-    <tr><td><strong>Benchmark / Comparison</strong></td><td>EXCELLENT</td><td>Medium</td><td>1,000-5,000 (evergreen)</td></tr>
-    <tr><td>Career + AI Intersection</td><td>GOOD</td><td>Low-Med</td><td>300-1,000</td></tr>
-    <tr><td>Tool/Stack Showcases</td><td>GOOD</td><td>Low</td><td>500-2,000</td></tr>
-    <tr><td>Listicles</td><td>GOOD</td><td>Low</td><td>500-2,000+</td></tr>
-    <tr><td>Discussion posts</td><td>GOOD</td><td>Very Low</td><td>Low, но высокий engagement</td></tr>
-    <tr><td>Videos (embedded)</td><td>MEDIUM</td><td>High</td><td>Dev.to = text-first</td></tr>
+    <tr><th>Формат</th><th>Эффективность</th><th>Усилия</th><th>Ожидаемые просмотры</th></tr>
+    <tr><td><strong>Туториалы «строительство на публике»</strong></td><td>ОТЛИЧНО</td><td>Средние</td><td>500-2,000</td></tr>
+    <tr><td><strong>Серии (мульти-часть)</strong></td><td>ОТЛИЧНО</td><td>Высокие</td><td>200-500/часть, рост</td></tr>
+    <tr><td><strong>Бенчмарк / Сравнение</strong></td><td>ОТЛИЧНО</td><td>Средние</td><td>1,000-5,000 (вечнозелёный)</td></tr>
+    <tr><td>Карьера + AI пересечение</td><td>ХОРОШО</td><td>Низко-средние</td><td>300-1,000</td></tr>
+    <tr><td>Обзоры инструментов/стека</td><td>ХОРОШО</td><td>Низкие</td><td>500-2,000</td></tr>
+    <tr><td>Листиклы</td><td>ХОРОШО</td><td>Низкие</td><td>500-2,000+</td></tr>
+    <tr><td>Дискуссионные посты</td><td>ХОРОШО</td><td>Очень низкие</td><td>Мало, но высокая вовлечённость</td></tr>
+    <tr><td>Видео (встроенные)</td><td>СРЕДНЕ</td><td>Высокие</td><td>Dev.to = платформа для текста</td></tr>
   </table>
 
   <div class="insight">
-    <strong>Рекомендуемый микс:</strong> 60% технические туториалы + 20% benchmarks/comparisons + 10% career+AI + 10% discussion posts
+    <strong>Рекомендуемый микс:</strong> 60% технические туториалы + 20% бенчмарки/сравнения + 10% карьера+AI + 10% дискуссионные посты
   </div>
 
   <h3>Стратегия тегов (4 тега на статью)</h3>
-  <p>Каждая статья = до 4 тегов. Первый тег — главный для категоризации. Статья видна ВСЕм фолловерам ЛЮБОГО из тегов.</p>
+  <p>Каждая статья = до 4 тегов. Первый тег — главный для категоризации. Статья видна ВСЕМ подписчикам ЛЮБОГО из тегов.</p>
 
-  <h4>Топ-теги для ниши Tim</h4>
+  <h4>Топ-теги для ниши Тима</h4>
   <div class="tags-grid">
-    <span class="tag-chip high">#ai — 45-55K followers</span>
+    <span class="tag-chip high">#ai — 45-55K подписчиков</span>
     <span class="tag-chip high">#python — 150K+</span>
     <span class="tag-chip high">#tutorial — 80K+</span>
     <span class="tag-chip high">#discuss — 60K+</span>
@@ -245,16 +245,16 @@ score = (positive_reactions_count &times; 1.0)<br>
 
   <h4>Рекомендуемые комбинации</h4>
   <table>
-    <tr><th>Тип контента</th><th>Комбинация тегов</th><th>Совокупный reach</th></tr>
-    <tr><td>AI Agent туториалы</td><td><code>#ai + #python + #tutorial + #automation</code></td><td>~250K+</td></tr>
-    <tr><td>Build in Public</td><td><code>#ai + #programming + #productivity + #career</code></td><td>~280K+</td></tr>
-    <tr><td>Benchmark/Comparison</td><td><code>#ai + #machinelearning + #llm + #devops</code></td><td>~120K+ (меньше конкуренции)</td></tr>
-    <tr><td>Career + AI</td><td><code>#career + #ai + #discuss + #productivity</code></td><td>~160K+</td></tr>
-    <tr><td>Technical Deep-Dive</td><td><code>#python + #ai + #docker + #tutorial</code></td><td>~250K+</td></tr>
+    <tr><th>Тип контента</th><th>Комбинация тегов</th><th>Совокупный охват</th></tr>
+    <tr><td>Туториалы по AI-агентам</td><td><code>#ai + #python + #tutorial + #automation</code></td><td>~250K+</td></tr>
+    <tr><td>Строительство на публике</td><td><code>#ai + #programming + #productivity + #career</code></td><td>~280K+</td></tr>
+    <tr><td>Бенчмарк/Сравнение</td><td><code>#ai + #machinelearning + #llm + #devops</code></td><td>~120K+ (меньше конкуренции)</td></tr>
+    <tr><td>Карьера + AI</td><td><code>#career + #ai + #discuss + #productivity</code></td><td>~160K+</td></tr>
+    <tr><td>Технический глубокий разбор</td><td><code>#python + #ai + #docker + #tutorial</code></td><td>~250K+</td></tr>
   </table>
 
   <div class="warning">
-    <strong>Правило:</strong> Всегда <code>#ai</code> первым тегом. Не использовать <code>#beginners</code> без реально beginner-friendly контента. <code>#discuss</code> — только для вопросов, не для туториалов.
+    <strong>Правило:</strong> Всегда <code>#ai</code> первым тегом. Не использовать <code>#beginners</code> без реально дружественного к новичкам контента. <code>#discuss</code> — только для вопросов, не для туториалов.
   </div>
 </div>
 
@@ -265,70 +265,70 @@ score = (positive_reactions_count &times; 1.0)<br>
   <div class="competitor">
     <div class="comp-header">
       <span class="comp-name">Nader Dabit (@dabit3)</span>
-      <span class="comp-badge">30-40K followers</span>
+      <span class="comp-badge">30-40K подписчиков</span>
     </div>
-    <div class="comp-stats">AI, Web3, Developer Tools | 2-3 статьи/месяц | 200-1,000 reactions</div>
-    <div class="comp-lesson">Deep technical tutorials с working code repos получают максимум bookmarks. "Full Stack" серийный формат работает отлично. Позиционирование "builder who writes" — ближайший аналог Тима.</div>
+    <div class="comp-stats">AI, Web3, инструменты для разработчиков | 2-3 статьи/месяц | 200-1,000 реакций</div>
+    <div class="comp-lesson">Глубокие технические туториалы с рабочими репозиториями получают максимум закладок. Серийный формат "Full Stack" работает отлично. Позиционирование "строитель, который пишет" — ближайший аналог Тима.</div>
   </div>
 
   <div class="competitor">
     <div class="comp-header">
       <span class="comp-name">Anmol Baranwal (@anmolbaranwal)</span>
-      <span class="comp-badge">15-20K followers</span>
+      <span class="comp-badge">15-20K подписчиков</span>
     </div>
-    <div class="comp-stats">AI Tools, Open-Source, Productivity | 3-5/мес | 100-800 reactions</div>
-    <div class="comp-lesson">"X AI Tools You Should Know" листиклы стабильно набирают 5,000-20,000 views. Формат работает предсказуемо. Минимальные усилия, максимальный reach.</div>
+    <div class="comp-stats">AI-инструменты, Open-Source, продуктивность | 3-5/мес | 100-800 реакций</div>
+    <div class="comp-lesson">Листиклы "X AI-инструментов, которые стоит знать" стабильно набирают 5,000-20,000 просмотров. Формат работает предсказуемо. Минимальные усилия, максимальный охват.</div>
   </div>
 
   <div class="competitor">
     <div class="comp-header">
       <span class="comp-name">Madza (@madza)</span>
-      <span class="comp-badge">20-25K followers</span>
+      <span class="comp-badge">20-25K подписчиков</span>
     </div>
-    <div class="comp-stats">Developer Tools, Productivity, Career | 4-6/мес | 100-500 reactions</div>
-    <div class="comp-lesson">Стабильный posting schedule + cover images + actionable lists = предсказуемый рост. Вырос с 0 до 20K+ за ~2 года через consistency.</div>
+    <div class="comp-stats">Инструменты для разработчиков, продуктивность, карьера | 4-6/мес | 100-500 реакций</div>
+    <div class="comp-lesson">Стабильное расписание публикаций + обложки + практичные списки = предсказуемый рост. Вырос с 0 до 20K+ за ~2 года через стабильность.</div>
   </div>
 
   <div class="competitor">
     <div class="comp-header">
       <span class="comp-name">Arindam Majumder (@arindam_1729)</span>
-      <span class="comp-badge">10-15K followers</span>
+      <span class="comp-badge">10-15K подписчиков</span>
     </div>
-    <div class="comp-stats">AI Tools, DevEx, Open-Source | 4-8/мес | 100-500 reactions</div>
-    <div class="comp-lesson">Высокая частота + consistent quality = быстрый рост фолловеров. Брендированные cover image templates создают визуальное узнавание в ленте.</div>
+    <div class="comp-stats">AI-инструменты, DevEx, Open-Source | 4-8/мес | 100-500 реакций</div>
+    <div class="comp-lesson">Высокая частота + стабильное качество = быстрый рост подписчиков. Брендированные шаблоны обложек создают визуальное узнавание в ленте.</div>
   </div>
 
   <div class="competitor">
     <div class="comp-header">
       <span class="comp-name">Nathan Tarbert (@nathan_tarbert)</span>
-      <span class="comp-badge">5-10K followers</span>
+      <span class="comp-badge">5-10K подписчиков</span>
     </div>
-    <div class="comp-stats">Open-Source, AI, Startup Building | 2-4/мес | 50-300 reactions</div>
-    <div class="comp-lesson">GitHub star campaigns работают на Dev.to. Статьи об open-source проектах с CTA "star on GitHub" реально гонят трафик.</div>
+    <div class="comp-stats">Open-Source, AI, строительство стартапов | 2-4/мес | 50-300 реакций</div>
+    <div class="comp-lesson">Кампании по сбору GitHub-звёзд работают на Dev.to. Статьи об open-source проектах с CTA "поставьте звезду на GitHub" реально гонят трафик.</div>
   </div>
 
   <div class="competitor">
     <div class="comp-header">
       <span class="comp-name">Luca Rossi (@lucabiresdev)</span>
-      <span class="comp-badge">10-15K followers</span>
+      <span class="comp-badge">10-15K подписчиков</span>
     </div>
-    <div class="comp-stats">Engineering Management, Career, Productivity | 1-2/мес | 50-200 reactions</div>
-    <div class="comp-lesson">Cross-posting из newsletter с canonical URL строит обе платформы одновременно. Качество &gt; количество для career-контента.</div>
+    <div class="comp-stats">Управление разработкой, карьера, продуктивность | 1-2/мес | 50-200 реакций</div>
+    <div class="comp-lesson">Кросс-постинг из рассылки с canonical URL строит обе платформы одновременно. Качество &gt; количество для карьерного контента.</div>
   </div>
 
-  <h3>Gap Analysis: голубой океан для Тима</h3>
+  <h3>Анализ пробелов: голубой океан для Тима</h3>
   <table>
     <tr><th>Что делают конкуренты</th><th>Что может Тим (уникально)</th></tr>
     <tr><td>Пишут об AI-инструментах обобщённо</td><td><strong>PRODUCTION мульти-агентный опыт</strong> (реальный, не теоретический)</td></tr>
-    <tr><td>Мало кто покрывает Career + AI</td><td>"AI agents для карьеры" — голубой океан на Dev.to</td></tr>
-    <tr><td>Большинство — solo developers</td><td>Управляет 8 бизнесами с агентами (история масштаба)</td></tr>
-    <tr><td>Мало кто делится real cost/revenue</td><td>"Build in public" с реальными цифрами выделяется</td></tr>
-    <tr><td>English-only аудитория</td><td>Мост EN + RU аудиторий (билингвальный контент)</td></tr>
-    <tr><td>Большинство из US/EU</td><td>MENA/Gulf угол полностью не занят</td></tr>
+    <tr><td>Мало кто покрывает Карьера + AI</td><td>"AI-агенты для карьеры" — голубой океан на Dev.to</td></tr>
+    <tr><td>Большинство — solo-разработчики</td><td>Управляет 8 бизнесами с агентами (история масштаба)</td></tr>
+    <tr><td>Мало кто делится реальными затратами/доходами</td><td>"Строительство на публике" с реальными цифрами выделяется</td></tr>
+    <tr><td>Англоязычная аудитория</td><td>Мост EN + RU аудиторий (билингвальный контент)</td></tr>
+    <tr><td>Большинство из США/ЕС</td><td>Угол MENA/Залив полностью не занят</td></tr>
   </table>
 
   <div class="insight">
-    <strong>Уникальное позиционирование:</strong> "Единственный автор на Dev.to, который управляет production multi-agent AI системами в 8 бизнесах и делится реальными цифрами."
+    <strong>Уникальное позиционирование:</strong> "Единственный автор на Dev.to, который управляет production мульти-агентными AI-системами в 8 бизнесах и делится реальными цифрами."
   </div>
 </div>
 
@@ -336,20 +336,20 @@ score = (positive_reactions_count &times; 1.0)<br>
 <div class="section">
   <h2>4. SEO-мощность Dev.to</h2>
 
-  <h3>Domain Authority</h3>
+  <h3>Авторитет домена</h3>
   <table>
     <tr><th>Метрика</th><th>Значение</th><th>Что это значит</th></tr>
-    <tr><td>Domain Rating (Ahrefs)</td><td><strong>90+</strong></td><td>Один из самых высоких в tech-blog пространстве</td></tr>
-    <tr><td>Органический трафик</td><td><strong>15-20M визитов/мес</strong></td><td>Из Google — массивный поисковый footprint</td></tr>
+    <tr><td>Domain Rating (Ahrefs)</td><td><strong>90+</strong></td><td>Один из самых высоких в пространстве технических блогов</td></tr>
+    <tr><td>Органический трафик</td><td><strong>15-20M визитов/мес</strong></td><td>Из Google — массивный поисковый след</td></tr>
     <tr><td>Скорость индексации</td><td><strong>24-72 часа</strong></td><td>Новые статьи попадают в Google быстро</td></tr>
-    <tr><td>SERP присутствие</td><td>Page 1</td><td>"How to [task]", "[Tool] tutorial", "[A] vs [B]"</td></tr>
+    <tr><td>Присутствие в SERP</td><td>Страница 1</td><td>"How to [задача]", "[Инструмент] tutorial", "[A] vs [B]"</td></tr>
   </table>
 
   <div class="insight">
-    <strong>Ключевой инсайт:</strong> Хорошо оптимизированная Dev.to статья "CrewAI multi-agent tutorial" может попасть на Page 1 Google за дни. На sborka.work (минимальный DA) это заняло бы месяцы.
+    <strong>Ключевой инсайт:</strong> Хорошо оптимизированная Dev.to статья "CrewAI multi-agent tutorial" может попасть на страницу 1 Google за дни. На sborka.work (минимальный DA) это заняло бы месяцы.
   </div>
 
-  <h3>Canonical URL стратегия</h3>
+  <h3>Стратегия Canonical URL</h3>
   <div class="code-block">
 <span class="comment">---</span><br>
 <span class="keyword">title:</span> <span class="string">"How I Built a 6-Agent AI System"</span><br>
@@ -360,19 +360,19 @@ score = (positive_reactions_count &times; 1.0)<br>
 <span class="comment">---</span>
   </div>
 
-  <h4>Стратегия A: Dev.to как Primary (РЕКОМЕНДУЕТСЯ сейчас)</h4>
+  <h4>Стратегия A: Dev.to как основная (РЕКОМЕНДУЕТСЯ сейчас)</h4>
   <div class="tactic">
     <ul>
       <li>Публиковать оригинальный контент на Dev.to первым</li>
       <li>Использовать DA90+ Dev.to для ранжирования</li>
-      <li>Гнать трафик на sborka.work через in-article CTAs</li>
-      <li>Когда blog на sborka.work устоится (50+ статей) — переключиться на Strategy B</li>
+      <li>Гнать трафик на sborka.work через CTA внутри статей</li>
+      <li>Когда блог на sborka.work устоится (50+ статей) — переключиться на Стратегию B</li>
     </ul>
   </div>
 
   <h4>SEO-оптимизированные заголовки</h4>
   <table>
-    <tr><th>Target Keyword</th><th>Volume/мес</th><th>Заголовок</th></tr>
+    <tr><th>Целевой запрос</th><th>Объём/мес</th><th>Заголовок</th></tr>
     <tr><td>"crewai tutorial"</td><td>2,000-5,000</td><td>CrewAI Tutorial: Building Production Multi-Agent Systems (2026)</td></tr>
     <tr><td>"ai agents python"</td><td>3,000-8,000</td><td>Build AI Agents in Python: A Production-Ready Guide</td></tr>
     <tr><td>"multi agent ai"</td><td>2,000-5,000</td><td>Multi-Agent AI Architecture: How I Run 8 Businesses with 6 Agents</td></tr>
@@ -382,22 +382,22 @@ score = (positive_reactions_count &times; 1.0)<br>
   </table>
 
   <div class="warning">
-    <strong>Правило cross-posting:</strong> Никогда не дублировать статью на Dev.to + Hashnode/Medium без canonical_url. Google штрафует дупликаты. Ждать 24-48 часов перед cross-post на другие платформы.
+    <strong>Правило кросс-постинга:</strong> Никогда не дублировать статью на Dev.to + Hashnode/Medium без canonical_url. Google штрафует дубликаты. Ждать 24-48 часов перед кросс-постом на другие платформы.
   </div>
 </div>
 
 <!-- ===== 5. COMMUNITY ENGAGEMENT ===== -->
 <div class="section">
-  <h2>5. Community Engagement</h2>
+  <h2>5. Вовлечённость сообщества</h2>
 
   <h3>Культура комментариев Dev.to</h3>
   <div class="tactic">
     <h4>Что уникально в Dev.to</h4>
     <ul>
-      <li><strong>Нет downvotes</strong> — только позитивные реакции (hearts, unicorns, bookmarks)</li>
-      <li><strong>Модерация по Code of Conduct</strong> — community-enforced</li>
-      <li><strong>Ответ на комменты = бонус</strong> — значительно буст видимость</li>
-      <li><strong>Discussion posts</strong> — лёгкий формат для вопросов сообществу</li>
+      <li><strong>Нет минусов</strong> — только позитивные реакции (сердечки, единороги, закладки)</li>
+      <li><strong>Модерация по Кодексу поведения</strong> — поддерживается сообществом</li>
+      <li><strong>Ответ на комменты = бонус</strong> — значительно буст видимости</li>
+      <li><strong>Дискуссионные посты</strong> — лёгкий формат для вопросов сообществу</li>
     </ul>
   </div>
 
@@ -405,42 +405,42 @@ score = (positive_reactions_count &times; 1.0)<br>
   <table>
     <tr><th style="color:var(--emerald)">Ценят</th><th style="color:var(--terra)">Не любят</th></tr>
     <tr><td>Честные истории про провалы</td><td>Открытая самореклама без пользы</td></tr>
-    <tr><td>Реальный код (copy-paste, не скриншоты)</td><td>Кликбейт без содержания</td></tr>
-    <tr><td>Уважительные альтернативные мнения</td><td>AI-сгенерированный generic контент</td></tr>
-    <tr><td>Помощь новичкам без снобизма</td><td>"Top 10 Tools" = аффилиатные ссылки</td></tr>
+    <tr><td>Реальный код (копируемый, не скриншоты)</td><td>Кликбейт без содержания</td></tr>
+    <tr><td>Уважительные альтернативные мнения</td><td>AI-сгенерированный шаблонный контент</td></tr>
+    <tr><td>Помощь новичкам без снобизма</td><td>"Топ-10 инструментов" = партнёрские ссылки</td></tr>
     <tr><td>Указание источников и вдохновения</td><td>Элитистский тон</td></tr>
   </table>
 
-  <h3>Playbook engagement по неделям</h3>
+  <h3>Плейбук вовлечённости по неделям</h3>
   <div class="timeline">
     <div class="week">
       <div class="week-title">Неделя 1-2: Фундамент</div>
       <div class="week-content">
-        Follow 50-100 авторов в AI/Python/career тегах. Комментировать 3-5 статей/день (не "Great post!" — добавлять инсайт, код, альтернативу). React на 10-20 статей/день.
+        Подписаться на 50-100 авторов в тегах AI/Python/career. Комментировать 3-5 статей/день (не "Отличный пост!" — добавлять инсайт, код, альтернативу). Реагировать на 10-20 статей/день.
       </div>
     </div>
     <div class="week">
       <div class="week-title">Неделя 3-4: Отношения</div>
       <div class="week-content">
-        Отвечать на ВСЕ комменты к своим статьям за &lt;24ч. Упоминать других авторов в статьях. 1 Discussion post/неделю. Предложить co-authored статью.
+        Отвечать на ВСЕ комменты к своим статьям за &lt;24ч. Упоминать других авторов в статьях. 1 дискуссионный пост/неделю. Предложить совместную статью.
       </div>
     </div>
     <div class="week">
-      <div class="week-title">Ongoing: Масштабирование</div>
+      <div class="week-title">Далее: Масштабирование</div>
       <div class="week-content">
-        Создать организацию "SBORKA" на Dev.to. Dev.to Connect для networking. Listings для вебинаров.
+        Создать организацию "SBORKA" на Dev.to. Dev.to Connect для нетворкинга. Listings для вебинаров.
       </div>
     </div>
   </div>
 
-  <h3>Фичи Forem для leverage</h3>
+  <h3>Фичи Forem для использования</h3>
   <table>
     <tr><th>Фича</th><th>Как использовать</th></tr>
-    <tr><td><strong>Organizations</strong></td><td>Создать "SБОРКА" org — публиковать часть статей от имени организации</td></tr>
-    <tr><td><strong>Series</strong></td><td>Мульти-часть с sidebar навигацией на каждой статье</td></tr>
-    <tr><td><strong>Badges</strong></td><td>Зарабатывать через milestones (1 year streak), показывать в профиле</td></tr>
+    <tr><td><strong>Организации</strong></td><td>Создать "СБОРКА" org — публиковать часть статей от имени организации</td></tr>
+    <tr><td><strong>Серии</strong></td><td>Мульти-часть с боковой навигацией на каждой статье</td></tr>
+    <tr><td><strong>Бейджи</strong></td><td>Зарабатывать через вехи (1 year streak), показывать в профиле</td></tr>
     <tr><td><strong>Connect</strong></td><td>Личные сообщения потенциальным коллабам</td></tr>
-    <tr><td><strong>Listings</strong></td><td>Бесплатные: Events для вебинаров, Products для инструментов</td></tr>
+    <tr><td><strong>Listings</strong></td><td>Бесплатные: События для вебинаров, Продукты для инструментов</td></tr>
   </table>
 </div>
 
@@ -448,18 +448,18 @@ score = (positive_reactions_count &times; 1.0)<br>
 <div class="section">
   <h2>6. Tone of Voice для Dev.to</h2>
 
-  <h3>Sweet Spot Dev.to</h3>
+  <h3>Идеальный баланс Dev.to</h3>
   <div class="formula">
-Technical Depth + Conversational Tone + Honest Storytelling + Actionable Takeaways
+Техническая глубина + Разговорный тон + Честный сторителлинг + Практические выводы
   </div>
 
-  <h3>Что ожидают Dev.to читатели</h3>
+  <h3>Что ожидают читатели Dev.to</h3>
   <div class="tactic">
     <ul>
-      <li><strong>Code examples</strong> — реальные copy-paste блоки, не скриншоты</li>
-      <li><strong>Real numbers</strong> — не "it was faster", а "latency dropped from 2.3s to 0.8s"</li>
-      <li><strong>Honest failures</strong> — что НЕ сработало интереснее, чем что сработало</li>
-      <li><strong>Reproducible results</strong> — GitHub repo links, Docker commands, environment setup</li>
+      <li><strong>Примеры кода</strong> — реальные копируемые блоки, не скриншоты</li>
+      <li><strong>Реальные числа</strong> — не "стало быстрее", а "задержка снизилась с 2.3с до 0.8с"</li>
+      <li><strong>Честные провалы</strong> — что НЕ сработало интереснее, чем что сработало</li>
+      <li><strong>Воспроизводимые результаты</strong> — ссылки на GitHub-репо, Docker-команды, настройка окружения</li>
     </ul>
   </div>
 
@@ -469,33 +469,33 @@ Technical Depth + Conversational Tone + Honest Storytelling + Actionable Takeawa
     <tr><td>Начинай с проблемы, не с себя</td><td>Идеально подходит — оставить как есть</td></tr>
     <tr><td>Разговорный, дружелюбный тон</td><td>Хорошо, но добавить больше технической глубины</td></tr>
     <tr><td>Компактные параграфы</td><td>Dev.to терпит длиннее, если есть код/детали</td></tr>
-    <tr><td>"Вы/ваш", не "я/мой"</td><td>Баланс: Dev.to ожидает first-person build stories</td></tr>
-    <tr><td>Всегда ссылки с UTM</td><td>Да, но макс. 1-2 CTA/статью (сообщество не любит over-linking)</td></tr>
-    <tr><td>Без негативных сравнений</td><td>Оставить — описывать что что-то IS, не что NOT</td></tr>
+    <tr><td>"Вы/ваш", не "я/мой"</td><td>Баланс: Dev.to ожидает истории от первого лица</td></tr>
+    <tr><td>Всегда ссылки с UTM</td><td>Да, но макс. 1-2 CTA/статью (сообщество не любит много ссылок)</td></tr>
+    <tr><td>Без негативных сравнений</td><td>Оставить — описывать что что-то ЕСТЬ, а не чего НЕТ</td></tr>
   </table>
 
   <h4>Шаблон структуры статьи</h4>
   <div class="code-block">
-<span class="comment"># [Keyword-Rich Title]: [Outcome or Hook]</span><br><br>
-<span class="keyword">## The Problem</span><br>
-[2-3 предложения. Какую боль решаем? Почему читатель должен care?]<br><br>
-<span class="keyword">## What I Built / Tried / Learned</span><br>
+<span class="comment"># [Заголовок с ключевым словом]: [Результат или крючок]</span><br><br>
+<span class="keyword">## Проблема</span><br>
+[2-3 предложения. Какую боль решаем? Почему читатель должен обратить внимание?]<br><br>
+<span class="keyword">## Что я построил / попробовал / узнал</span><br>
 [Основной контент. Технические детали, код, архитектура. 60% статьи.]<br><br>
-<span class="keyword">## Results</span><br>
-[Реальные цифры. Before/after. Costs. Performance.]<br><br>
-<span class="keyword">## What Didn't Work</span><br>
-[Честные провалы. Эта секция получает больше всего комментов и bookmarks.]<br><br>
-<span class="keyword">## Key Takeaways</span><br>
-[3 actionable инсайта]<br><br>
-<span class="keyword">## What's Next</span><br>
+<span class="keyword">## Результаты</span><br>
+[Реальные цифры. До/после. Затраты. Производительность.]<br><br>
+<span class="keyword">## Что не сработало</span><br>
+[Честные провалы. Эта секция получает больше всего комментов и закладок.]<br><br>
+<span class="keyword">## Ключевые выводы</span><br>
+[3 практичных инсайта]<br><br>
+<span class="keyword">## Что дальше</span><br>
 [Тизер следующей статьи + ссылка на sborka.work]<br><br>
 <span class="comment">---</span><br>
-<span class="string">*I build multi-agent AI systems... Follow me for production AI insights,<br>
-or check out SBORКА (sborka.work?utm...) for AI-era career tools.*</span>
+<span class="string">*Я строю мульти-агентные AI-системы... Подписывайтесь для инсайтов о production AI,<br>
+или загляните в СБОРКУ (sborka.work?utm...) — карьерные инструменты для эры AI.*</span>
   </div>
 
   <div class="warning">
-    <strong>Язык: только English.</strong> Dev.to — 85%+ англоязычная аудитория. Русскоязычные статьи получают &lt;10% engagement. Для RU-аудитории — Telegram, VK, VC.ru.
+    <strong>Язык: только English.</strong> Dev.to — 85%+ англоязычная аудитория. Русскоязычные статьи получают &lt;10% вовлечённости. Для RU-аудитории — Telegram, VK, VC.ru.
   </div>
 </div>
 
@@ -504,7 +504,7 @@ or check out SBORКА (sborka.work?utm...) for AI-era career tools.*</span>
   <h2>7. CTA-стратегия: Dev.to &rarr; sborka.work</h2>
 
   <h3>Парадокс CTA на Dev.to</h3>
-  <p>Dev.to имеет сильную анти-промо культуру, но награждает genuine builders. Ключ:</p>
+  <p>Dev.to имеет сильную антирекламную культуру, но награждает настоящих строителей. Ключ:</p>
   <div class="insight">
     <strong>CTA = приглашение углубиться, НЕ продажа</strong>
   </div>
@@ -512,94 +512,94 @@ or check out SBORКА (sborka.work?utm...) for AI-era career tools.*</span>
   <h3>3 типа CTA</h3>
 
   <div class="tactic">
-    <h4>Тип 1: Contextual Link (mid-article)</h4>
+    <h4>Тип 1: Контекстная ссылка (в середине статьи)</h4>
     <p>Естественно внутри контента, где sborka.work добавляет ценность:</p>
     <p style="font-style:italic;color:var(--muted);padding:8px 12px;border-left:3px solid var(--devto)">"We published a detailed analysis of AI hiring trends on the SBORKA research page: <a style="color:var(--devto)">AI Career Trends 2026</a>"</p>
   </div>
 
   <div class="tactic">
-    <h4>Тип 2: Author Bio (end of article)</h4>
-    <p>Консистентный footer на каждой статье:</p>
+    <h4>Тип 2: Биография автора (в конце статьи)</h4>
+    <p>Стабильный футер на каждой статье:</p>
     <p style="font-style:italic;color:var(--muted);padding:8px 12px;border-left:3px solid var(--devto)">"I build multi-agent AI systems that run businesses autonomously. Currently working on <strong>SBORKA</strong> — a career club where we help developers navigate AI-era job markets with real tools and data."</p>
   </div>
 
   <div class="tactic">
-    <h4>Тип 3: Series Funnel (главная стратегия)</h4>
+    <h4>Тип 3: Воронка серий (главная стратегия)</h4>
     <p>Каждая статья в серии ведёт к следующей, финальная — к sborka.work:</p>
   </div>
 
-  <h3>Series Funnel — самая эффективная стратегия</h3>
+  <h3>Воронка серий — самая эффективная стратегия</h3>
   <div class="formula">
-Article 1: "Why Multi-Agent AI" (awareness) &rarr; Follow me for Part 2<br>
-Article 2: "My 6-Agent Architecture" (interest) &rarr; Part 3 + GitHub repo<br>
-Article 3: "Building Agent #1" (desire) &rarr; Part 4 + code repo<br>
-Article 4: "Monitoring, Costs, Failures" (trust) &rarr; Part 5 + sborka link<br>
-Article 5: "Career Implications" (action) &rarr; sborka.work + follow + GitHub
+Статья 1: "Why Multi-Agent AI" (осведомлённость) &rarr; Подпишитесь для Части 2<br>
+Статья 2: "My 6-Agent Architecture" (интерес) &rarr; Часть 3 + GitHub-репо<br>
+Статья 3: "Building Agent #1" (желание) &rarr; Часть 4 + репо с кодом<br>
+Статья 4: "Monitoring, Costs, Failures" (доверие) &rarr; Часть 5 + ссылка на СБОРКУ<br>
+Статья 5: "Career Implications" (действие) &rarr; sborka.work + подписка + GitHub
   </div>
-  <p style="font-size:.88em;color:var(--muted);margin-top:8px">К Article 5 читатель получил genuine value из 4 предыдущих. CTA на sborka.work заслужен, не навязан.</p>
+  <p style="font-size:.88em;color:var(--muted);margin-top:8px">К Статье 5 читатель получил настоящую ценность из 4 предыдущих. CTA на sborka.work заслужен, не навязан.</p>
 
-  <h3>Что НЕ делать</h3>
+  <h3>Чего НЕ делать</h3>
   <div class="warning">
     <ul style="font-size:.88em">
-      <li>НЕ начинать/заканчивать каждую статью с "Check out SБОРКА!"</li>
+      <li>НЕ начинать/заканчивать каждую статью с "Загляните в СБОРКУ!"</li>
       <li>НЕ ставить CTA в первый параграф — читатели отвалятся</li>
-      <li>НЕ использовать urgency ("Limited spots!", "Sign up NOW!")</li>
+      <li>НЕ использовать срочность ("Мест мало!", "Подпишитесь СЕЙЧАС!")</li>
       <li>НЕ ставить ссылку на sborka.work чаще 2-3 раз за статью</li>
-      <li>НЕ делать CTA целью статьи — value first</li>
+      <li>НЕ делать CTA целью статьи — сначала ценность</li>
     </ul>
   </div>
 
-  <h3>UTM шаблон</h3>
+  <h3>Шаблон UTM</h3>
   <div class="code-block">
 sborka.work?<span class="keyword">utm_source</span>=<span class="string">devto</span>&amp;<span class="keyword">utm_medium</span>=<span class="string">social</span>&amp;<span class="keyword">utm_campaign</span>=<span class="string">s11_devto</span>&amp;<span class="keyword">utm_content</span>=<span class="string">{post_slug}</span>
   </div>
 
   <h3>Ожидаемая конверсия</h3>
   <table>
-    <tr><th>Метрика</th><th>Conservative</th><th>Target</th><th>Optimistic</th></tr>
+    <tr><th>Метрика</th><th>Консервативно</th><th>Цель</th><th>Оптимистично</th></tr>
     <tr><td>CTR из статьи → sborka.work</td><td>0.5-1%</td><td>1-2%</td><td>2-5%</td></tr>
-    <tr><td>CTR из bio link</td><td>0.1-0.3%</td><td>0.3-0.5%</td><td>0.5-1%</td></tr>
-    <tr><td>Клики на 1,000 views</td><td>5-10</td><td>10-20</td><td>20-50</td></tr>
-    <tr><td>Новые followers/статья</td><td>2-5</td><td>5-15</td><td>15-30</td></tr>
+    <tr><td>CTR из ссылки в bio</td><td>0.1-0.3%</td><td>0.3-0.5%</td><td>0.5-1%</td></tr>
+    <tr><td>Кликов на 1,000 просмотров</td><td>5-10</td><td>10-20</td><td>20-50</td></tr>
+    <tr><td>Новые подписчики/статья</td><td>2-5</td><td>5-15</td><td>15-30</td></tr>
   </table>
 </div>
 
 <!-- ===== 8. CROSS-PLATFORM ===== -->
 <div class="section">
-  <h2>8. Cross-Platform Pipeline</h2>
+  <h2>8. Кросс-платформенная воронка</h2>
 
-  <h3>Dev.to как content hub</h3>
+  <h3>Dev.to как контентный хаб</h3>
   <div class="formula">
-Dev.to Article (primary, long-form)<br>
-&nbsp;&nbsp;├── LinkedIn Post (summary + "Read full article" link) → 7K audience<br>
-&nbsp;&nbsp;├── Telegram (RU summary + key insights) → @timofeyzinin<br>
-&nbsp;&nbsp;├── GitHub Repository (code from article) → stars + credibility<br>
-&nbsp;&nbsp;├── Hashnode cross-post (canonical → Dev.to, 48h delay)<br>
-&nbsp;&nbsp;└── sborka.work (deep-dive / research version)
+Dev.to статья (основная, длинный формат)<br>
+&nbsp;&nbsp;├── LinkedIn пост (саммари + "Читать полную статью") → 7K аудитория<br>
+&nbsp;&nbsp;├── Telegram (RU саммари + ключевые инсайты) → @timofeyzinin<br>
+&nbsp;&nbsp;├── GitHub-репозиторий (код из статьи) → звёзды + авторитет<br>
+&nbsp;&nbsp;├── Hashnode кросс-пост (canonical → Dev.to, задержка 48ч)<br>
+&nbsp;&nbsp;└── sborka.work (углублённая / исследовательская версия)
   </div>
 
-  <h3>Специфичные plays</h3>
+  <h3>Специфические тактики</h3>
   <div class="tactic">
-    <h4>Dev.to &rarr; GitHub Stars</h4>
-    <p>Каждый туториал = companion GitHub repo. CTA в статье: "Star the repo if this was helpful." Текущий GitHub: 2 followers, 15 repos — Dev.to может 10x.</p>
+    <h4>Dev.to → Звёзды GitHub</h4>
+    <p>Каждый туториал = сопутствующий GitHub-репо. CTA в статье: "Поставьте звезду репо, если было полезно." Текущий GitHub: 2 подписчика, 15 репо — Dev.to может увеличить в 10 раз.</p>
   </div>
   <div class="tactic">
-    <h4>Dev.to &rarr; LinkedIn Authority</h4>
-    <p>Каждую Dev.to статью переформатировать как LinkedIn пост (короткая версия). "I wrote a deep-dive on this. Full technical walkthrough on Dev.to: [link]." У Тима 7K+ LinkedIn followers — это главный amplifier.</p>
+    <h4>Dev.to → Авторитет в LinkedIn</h4>
+    <p>Каждую Dev.to статью переформатировать как LinkedIn пост (короткая версия). "Я написал глубокий разбор этого. Полный технический разбор на Dev.to: [ссылка]." У Тима 7K+ подписчиков в LinkedIn — это главный усилитель.</p>
   </div>
   <div class="tactic">
-    <h4>Dev.to &rarr; Telegram Growth</h4>
-    <p>Перевести ключевые инсайты на русский для @timofeyzinin. "Опубликовал [title] на Dev.to. Вот ключевые takeaways по-русски + ссылка на полный текст."</p>
+    <h4>Dev.to → Рост Telegram</h4>
+    <p>Перевести ключевые инсайты на русский для @timofeyzinin. "Опубликовал [заголовок] на Dev.to. Вот ключевые выводы по-русски + ссылка на полный текст."</p>
   </div>
 
-  <h3>Content Repurposing Calendar</h3>
+  <h3>Календарь перепрофилирования контента</h3>
   <table>
     <tr><th>День</th><th>Платформа</th><th>Что</th></tr>
     <tr><td>Понедельник</td><td>Dev.to</td><td>Публикация оригинальной статьи</td></tr>
-    <tr><td>Вторник</td><td>LinkedIn + Telegram</td><td>Summary + RU перевод key insights</td></tr>
-    <tr><td>Среда</td><td>GitHub</td><td>Push code repo из статьи</td></tr>
-    <tr><td>Четверг</td><td>Hashnode</td><td>Cross-post с canonical URL</td></tr>
-    <tr><td>Пятница</td><td>Dev.to</td><td>Discussion post по теме статьи</td></tr>
+    <tr><td>Вторник</td><td>LinkedIn + Telegram</td><td>Саммари + RU перевод ключевых инсайтов</td></tr>
+    <tr><td>Среда</td><td>GitHub</td><td>Push репо с кодом из статьи</td></tr>
+    <tr><td>Четверг</td><td>Hashnode</td><td>Кросс-пост с canonical URL</td></tr>
+    <tr><td>Пятница</td><td>Dev.to</td><td>Дискуссионный пост по теме статьи</td></tr>
   </table>
 </div>
 
@@ -618,15 +618,15 @@ tools for the AI era. Production AI insights weekly.</span><br>
 <span class="keyword">Location:</span> <span class="string">Remote</span>
   </div>
 
-  <h3>Checklist оптимизации (Day 0)</h3>
+  <h3>Чеклист оптимизации (День 0)</h3>
   <div class="tactic">
     <ol>
       <li>Обновить bio (как выше)</li>
-      <li>Добавить cover images ко всем 5 существующим статьям</li>
+      <li>Добавить обложки ко всем 5 существующим статьям</li>
       <li>Оптимизировать теги (по стратегии выше)</li>
-      <li>Добавить author bio footer с sborka.work CTA</li>
-      <li>Объединить связанные статьи в Series</li>
-      <li>Follow 50 аккаунтов в AI/Python/career тегах</li>
+      <li>Добавить футер с биографией автора и CTA на sborka.work</li>
+      <li>Объединить связанные статьи в серию</li>
+      <li>Подписаться на 50 аккаунтов в тегах AI/Python/career</li>
       <li>Создать организацию "SBORKA" на Dev.to</li>
     </ol>
   </div>
@@ -652,85 +652,85 @@ curl -X POST https://dev.to/api/articles \<br>
 
 <!-- ===== 10. 30-DAY ACTION PLAN ===== -->
 <div class="section">
-  <h2>10. 30-дневный Action Plan</h2>
+  <h2>10. 30-дневный план действий</h2>
 
   <h3>Неделя 1 (Дни 1-7): Фундамент + первая вирусная попытка</h3>
   <div class="action-plan">
-    <div class="day">Day 0</div>
-    <div class="task"><strong>Profile optimization</strong> — bio, cover images на 5 статей, теги, follow 50 аккаунтов, создать org "SBORKA"</div>
-    <div class="day">Day 1</div>
-    <div class="task"><strong>Article 1:</strong> "I Run 8 Businesses with 6 AI Agents — Here's My Exact Architecture" | Tags: #ai #python #automation #productivity | Target: 200-500 views</div>
-    <div class="day">Day 3</div>
-    <div class="task"><strong>Article 2:</strong> "The Real Cost of Running AI Agents in Production: 12-Month Breakdown" | Tags: #ai #devops #programming #career | Target: 300-800 views</div>
-    <div class="day">Day 6</div>
-    <div class="task"><strong>Article 3:</strong> "7 AI Tools Every Developer Should Know in 2026 (That I Actually Use)" | Tags: #ai #tutorial #productivity #beginners | Target: 500-2,000 views</div>
-    <div class="day">Daily</div>
-    <div class="task">Comment 3-5 статей (substantive, не "Great post!") + React 10-15 статей + Reply ALL comments &lt;12ч | 15-20 мин/день</div>
+    <div class="day">День 0</div>
+    <div class="task"><strong>Оптимизация профиля</strong> — bio, обложки на 5 статей, теги, подписка на 50 аккаунтов, создать org "SBORKA"</div>
+    <div class="day">День 1</div>
+    <div class="task"><strong>Статья 1:</strong> "I Run 8 Businesses with 6 AI Agents — Here's My Exact Architecture" | Теги: #ai #python #automation #productivity | Цель: 200-500 просмотров</div>
+    <div class="day">День 3</div>
+    <div class="task"><strong>Статья 2:</strong> "The Real Cost of Running AI Agents in Production: 12-Month Breakdown" | Теги: #ai #devops #programming #career | Цель: 300-800 просмотров</div>
+    <div class="day">День 6</div>
+    <div class="task"><strong>Статья 3:</strong> "7 AI Tools Every Developer Should Know in 2026 (That I Actually Use)" | Теги: #ai #tutorial #productivity #beginners | Цель: 500-2,000 просмотров</div>
+    <div class="day">Ежедн.</div>
+    <div class="task">Комментировать 3-5 статей (содержательно, не "Отличный пост!") + Реагировать на 10-15 статей + Отвечать на ВСЕ комменты &lt;12ч | 15-20 мин/день</div>
   </div>
-  <p style="font-size:.85em;color:var(--muted);margin-top:6px">Цель Недели 1: 500-1,500 views, 10-30 followers</p>
+  <p style="font-size:.85em;color:var(--muted);margin-top:6px">Цель Недели 1: 500-1,500 просмотров, 10-30 подписчиков</p>
 
-  <h3>Неделя 2 (Дни 8-14): Серия + Community Building</h3>
+  <h3>Неделя 2 (Дни 8-14): Серия + Строительство сообщества</h3>
   <div class="action-plan">
-    <div class="day">Day 8</div>
-    <div class="task"><strong>Article 4 (SERIES START):</strong> "Building a Multi-Agent AI System from Scratch — Part 1: Architecture" | Создать GitHub repo multi-agent-tutorial | Tags: #ai #python #tutorial #automation</div>
-    <div class="day">Day 10</div>
-    <div class="task"><strong>Discussion:</strong> "What's your experience running AI agents in production?" | Tags: #ai #discuss #career #automation | Target: 10-30 comments</div>
-    <div class="day">Day 13</div>
-    <div class="task"><strong>Article 5:</strong> "CrewAI vs LangGraph vs AutoGen: I Tested All Three in Production" | Comparison article с таблицами | Target: 500-2,000 views (evergreen)</div>
+    <div class="day">День 8</div>
+    <div class="task"><strong>Статья 4 (НАЧАЛО СЕРИИ):</strong> "Building a Multi-Agent AI System from Scratch — Part 1: Architecture" | Создать GitHub-репо multi-agent-tutorial | Теги: #ai #python #tutorial #automation</div>
+    <div class="day">День 10</div>
+    <div class="task"><strong>Дискуссия:</strong> "What's your experience running AI agents in production?" | Теги: #ai #discuss #career #automation | Цель: 10-30 комментариев</div>
+    <div class="day">День 13</div>
+    <div class="task"><strong>Статья 5:</strong> "CrewAI vs LangGraph vs AutoGen: I Tested All Three in Production" | Сравнительная статья с таблицами | Цель: 500-2,000 просмотров (вечнозелёная)</div>
   </div>
-  <p style="font-size:.85em;color:var(--muted);margin-top:6px">Цель Недели 2: cumulative 1,500-4,000 views, 20-50 followers</p>
+  <p style="font-size:.85em;color:var(--muted);margin-top:6px">Цель Недели 2: совокупно 1,500-4,000 просмотров, 20-50 подписчиков</p>
 
-  <h3>Неделя 3 (Дни 15-21): Authority Building + Career</h3>
+  <h3>Неделя 3 (Дни 15-21): Строительство авторитета + Карьера</h3>
   <div class="action-plan">
-    <div class="day">Day 15</div>
-    <div class="task"><strong>Article 6 (SERIES Part 2):</strong> "Building a Multi-Agent AI System — Part 2: Your First Agent" | Обновить GitHub repo | Hands-on код</div>
-    <div class="day">Day 18</div>
-    <div class="task"><strong>Article 7:</strong> "5 Developer Skills That AI Agents Can't Replace (Yet)" | Tags: #career #ai #discuss #productivity | Career-focused = широкая аудитория</div>
-    <div class="day">Day 20</div>
-    <div class="task"><strong>Discussion:</strong> "How is AI changing your job search / hiring process?" | Directly relevant to СБОРКА</div>
+    <div class="day">День 15</div>
+    <div class="task"><strong>Статья 6 (СЕРИЯ Часть 2):</strong> "Building a Multi-Agent AI System — Part 2: Your First Agent" | Обновить GitHub-репо | Практический код</div>
+    <div class="day">День 18</div>
+    <div class="task"><strong>Статья 7:</strong> "5 Developer Skills That AI Agents Can't Replace (Yet)" | Теги: #career #ai #discuss #productivity | Карьерный фокус = широкая аудитория</div>
+    <div class="day">День 20</div>
+    <div class="task"><strong>Дискуссия:</strong> "How is AI changing your job search / hiring process?" | Напрямую связано с миссией СБОРКИ</div>
   </div>
-  <p style="font-size:.85em;color:var(--muted);margin-top:6px">Цель Недели 3: cumulative 3,000-7,000 views, 40-80 followers</p>
+  <p style="font-size:.85em;color:var(--muted);margin-top:6px">Цель Недели 3: совокупно 3,000-7,000 просмотров, 40-80 подписчиков</p>
 
-  <h3>Неделя 4 (Дни 22-30): Консолидация + Traffic Push</h3>
+  <h3>Неделя 4 (Дни 22-30): Консолидация + Трафик</h3>
   <div class="action-plan">
-    <div class="day">Day 22</div>
-    <div class="task"><strong>Article 8 (MONEY ARTICLE):</strong> "My AI Blogger Factory: How I Create Virtual Influencers for $0.09/minute" | Showcase Lisa Solovyova | Hero product angle</div>
-    <div class="day">Day 25</div>
-    <div class="task"><strong>Article 9 (SERIES Part 3):</strong> "Building a Multi-Agent AI System — Part 3: Orchestration and Monitoring" | Technical deep-dive</div>
-    <div class="day">Day 28</div>
-    <div class="task"><strong>Article 10 (META):</strong> "What I Learned Publishing on Dev.to for 30 Days (With Real Numbers)" | Share exact stats | Рефлексия часто идёт viral</div>
+    <div class="day">День 22</div>
+    <div class="task"><strong>Статья 8 (ДЕНЕЖНАЯ СТАТЬЯ):</strong> "My AI Blogger Factory: How I Create Virtual Influencers for $0.09/minute" | Демонстрация Лизы Соловьёвой | Угол главного продукта</div>
+    <div class="day">День 25</div>
+    <div class="task"><strong>Статья 9 (СЕРИЯ Часть 3):</strong> "Building a Multi-Agent AI System — Part 3: Orchestration and Monitoring" | Технический глубокий разбор</div>
+    <div class="day">День 28</div>
+    <div class="task"><strong>Статья 10 (МЕТА):</strong> "What I Learned Publishing on Dev.to for 30 Days (With Real Numbers)" | Поделиться точной статистикой | Рефлексия часто становится вирусной</div>
   </div>
-  <p style="font-size:.85em;color:var(--muted);margin-top:6px">Цель Недели 4: cumulative 5,000-12,000 views, 70-150 followers</p>
+  <p style="font-size:.85em;color:var(--muted);margin-top:6px">Цель Недели 4: совокупно 5,000-12,000 просмотров, 70-150 подписчиков</p>
 
   <h3>Сводные цели за 30 дней</h3>
   <table>
-    <tr><th>Метрика</th><th>Minimum</th><th>Target</th><th>Stretch</th></tr>
+    <tr><th>Метрика</th><th>Минимум</th><th>Цель</th><th>Амбициозно</th></tr>
     <tr><td>Опубликовано статей</td><td>10</td><td>10</td><td>12</td></tr>
-    <tr><td>Discussion posts</td><td>2</td><td>3</td><td>4</td></tr>
-    <tr><td>Cumulative views</td><td>1,000</td><td>3,000</td><td>10,000</td></tr>
-    <tr><td>Gained followers</td><td>30</td><td>80</td><td>200</td></tr>
-    <tr><td>Comments received</td><td>20</td><td>50</td><td>150</td></tr>
-    <tr><td>Bookmarks</td><td>15</td><td>40</td><td>100</td></tr>
-    <tr><td>sborka.work clicks</td><td>10</td><td>30</td><td>100</td></tr>
-    <tr><td>GitHub stars на tutorial repo</td><td>5</td><td>20</td><td>50</td></tr>
-    <tr><td>Статей на Page 1 Google</td><td>0-1</td><td>2-3</td><td>5+</td></tr>
+    <tr><td>Дискуссионные посты</td><td>2</td><td>3</td><td>4</td></tr>
+    <tr><td>Совокупные просмотры</td><td>1,000</td><td>3,000</td><td>10,000</td></tr>
+    <tr><td>Прирост подписчиков</td><td>30</td><td>80</td><td>200</td></tr>
+    <tr><td>Получено комментариев</td><td>20</td><td>50</td><td>150</td></tr>
+    <tr><td>Закладки</td><td>15</td><td>40</td><td>100</td></tr>
+    <tr><td>Клики на sborka.work</td><td>10</td><td>30</td><td>100</td></tr>
+    <tr><td>Звёзды GitHub на репо туториала</td><td>5</td><td>20</td><td>50</td></tr>
+    <tr><td>Статей на странице 1 Google</td><td>0-1</td><td>2-3</td><td>5+</td></tr>
   </table>
 
-  <h3>Daily Habits Checklist</h3>
+  <h3>Ежедневный чеклист привычек</h3>
   <div class="tactic">
     <ul>
-      <li>Comment 3+ статей в AI/career тегах (10 мин)</li>
-      <li>React 10+ статей (5 мин)</li>
-      <li>Reply на все новые комменты к своим статьям (5 мин)</li>
-      <li>Check article analytics в Dev.to dashboard (2 мин)</li>
-      <li>В дни публикации: publish + cross-post LinkedIn + Telegram (30 мин)</li>
+      <li>Комментировать 3+ статей в тегах AI/career (10 мин)</li>
+      <li>Реагировать на 10+ статей (5 мин)</li>
+      <li>Ответить на все новые комменты к своим статьям (5 мин)</li>
+      <li>Проверить аналитику статей в дашборде Dev.to (2 мин)</li>
+      <li>В дни публикации: опубликовать + кросс-пост LinkedIn + Telegram (30 мин)</li>
     </ul>
   </div>
 </div>
 
 <footer>
-  <p>S-11 Dev.to Research — SMM Research Hub &middot; Тим Зинин &middot; Март 2026</p>
-  <p style="margin-top:4px;font-size:.8em">Powered by research-orchestrator + content-marketer agents</p>
+  <p>S-11 Dev.to исследование — SMM Research Hub &middot; Тим Зинин &middot; Март 2026</p>
+  <p style="margin-top:4px;font-size:.8em">Создано агентами research-orchestrator + content-marketer</p>
 </footer>
 
 </div>

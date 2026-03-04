@@ -41,10 +41,10 @@ tr:hover td{background:var(--nostr-light)}
 .tactic strong{color:var(--nostr-dark)}
 
 .insight{background:linear-gradient(135deg,#F3EEFE,#F8F5FF);border:1px solid var(--nostr);border-radius:10px;padding:16px 20px;margin:14px 0}
-.insight::before{content:'INSIGHT';font-family:'JetBrains Mono',monospace;font-size:.7em;font-weight:700;color:var(--nostr);letter-spacing:2px;display:block;margin-bottom:6px}
+.insight::before{content:'ИНСАЙТ';font-family:'JetBrains Mono',monospace;font-size:.7em;font-weight:700;color:var(--nostr);letter-spacing:2px;display:block;margin-bottom:6px}
 
 .warning{background:#FFF0E6;border-left:4px solid var(--terra);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-size:.93em}
-.warning::before{content:'WARNING: ';font-weight:700;color:var(--terra)}
+.warning::before{content:'ВНИМАНИЕ: ';font-weight:700;color:var(--terra)}
 
 .formula{background:var(--dark);color:var(--white);padding:16px 24px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:.95em;margin:14px 0;text-align:center}
 .formula .highlight{color:var(--nostr);font-weight:700}
@@ -86,7 +86,7 @@ section{padding:20px}
 
 <nav class="topnav">
 <span class="logo">SMM Hub</span>
-<a href="../index.html">Dashboard</a>
+<a href="../index.html">Дашборд</a>
 <span class="sep">|</span>
 <a href="s01_linkedin.html">LinkedIn</a>
 <a href="s02_instagram.html">IG</a>
@@ -112,362 +112,362 @@ section{padding:20px}
 <div class="container">
 
 <header>
-<h1>S-18: Nostr Protocol</h1>
-<p class="sub">Decentralized Social via Relays &mdash; Zap Micropayments, NIP-05 Identity, Bitcoin-Native Audience, Self-Hosted Relay</p>
+<h1>S-18: Протокол Nostr</h1>
+<p class="sub">Децентрализованная соцсеть через реле &mdash; Zap-микроплатежи, NIP-05 идентификация, Bitcoin-нативная аудитория, свой реле-сервер</p>
 <div class="hero-stats">
-<div class="hero-stat"><strong>~2M</strong><span>Active Accounts</span></div>
-<div class="hero-stat"><strong>0</strong><span>AI/Agent Creators</span></div>
-<div class="hero-stat"><strong>Zaps</strong><span>Bitcoin Micropayments</span></div>
+<div class="hero-stat"><strong>~2M</strong><span>Активных аккаунтов</span></div>
+<div class="hero-stat"><strong>0</strong><span>AI/агентных авторов</span></div>
+<div class="hero-stat"><strong>Zaps</strong><span>Bitcoin-микроплатежи</span></div>
 <div class="hero-stat"><strong>NIP-05</strong><span>tim@sborka.work</span></div>
-<div class="hero-stat"><strong>200+</strong><span>30-Day Target</span></div>
+<div class="hero-stat"><strong>200+</strong><span>Цель за 30 дней</span></div>
 </div>
 </header>
 
-<!-- SECTION 1: Protocol Mechanics -->
+<!-- РАЗДЕЛ 1: Механика протокола -->
 <section id="protocol">
-<h2>1. Nostr Protocol Mechanics</h2>
-<p>Nostr (Notes and Other Stuff Transmitted by Relays) is a decentralized protocol built on three primitives: <strong>Clients</strong> (apps), <strong>Relays</strong> (WebSocket servers), and <strong>Keypairs</strong> (secp256k1 cryptographic identity, same curve as Bitcoin). No blockchain, no token, no central authority.</p>
+<h2>1. Механика протокола Nostr</h2>
+<p>Nostr (Notes and Other Stuff Transmitted by Relays) — децентрализованный протокол, построенный на трёх примитивах: <strong>Клиенты</strong> (приложения), <strong>Реле</strong> (WebSocket-серверы) и <strong>Ключевые пары</strong> (криптографическая идентичность secp256k1, та же кривая что у Bitcoin). Без блокчейна, без токена, без центральной власти.</p>
 
-<h3>Core Architecture</h3>
+<h3>Основная архитектура</h3>
 <div class="formula">
-Private key (nsec) &rarr; <span class="highlight">signs events</span> &rarr; Public key (npub) = your identity &rarr; <span class="highlight">NIP-05</span> = human-readable (tim@sborka.work)
+Приватный ключ (nsec) &rarr; <span class="highlight">подписывает события</span> &rarr; Публичный ключ (npub) = ваша идентичность &rarr; <span class="highlight">NIP-05</span> = человекочитаемый (tim@sborka.work)
 </div>
 
-<h3>Key Event Kinds</h3>
+<h3>Основные типы событий</h3>
 <table>
-<tr><th>Kind</th><th>Name</th><th>Relevance</th></tr>
-<tr><td><strong>0</strong></td><td>Profile Metadata</td><td>HIGH &mdash; first impression, name, bio, NIP-05, Lightning address</td></tr>
-<tr><td><strong>1</strong></td><td>Short Text Note</td><td>HIGH &mdash; daily posts (like tweets, up to ~65KB)</td></tr>
-<tr><td><strong>6</strong></td><td>Repost</td><td>HIGH &mdash; sharing others' notes (engagement)</td></tr>
-<tr><td><strong>7</strong></td><td>Reaction</td><td>HIGH &mdash; likes, emoji reactions</td></tr>
-<tr><td><strong>9734/9735</strong></td><td>Zap Request/Receipt</td><td>HIGH &mdash; Lightning micropayments on notes</td></tr>
-<tr><td><strong>10002</strong></td><td>Relay List (NIP-65)</td><td>HIGH &mdash; tells network where to find your content</td></tr>
-<tr><td><strong>30023</strong></td><td>Long-form Content</td><td>HIGH &mdash; full Markdown articles (blog posts)</td></tr>
+<tr><th>Тип</th><th>Название</th><th>Релевантность</th></tr>
+<tr><td><strong>0</strong></td><td>Метаданные профиля</td><td>ВЫСОКАЯ &mdash; первое впечатление, имя, био, NIP-05, Lightning-адрес</td></tr>
+<tr><td><strong>1</strong></td><td>Короткая текстовая заметка</td><td>ВЫСОКАЯ &mdash; ежедневные посты (как твиты, до ~65KB)</td></tr>
+<tr><td><strong>6</strong></td><td>Репост</td><td>ВЫСОКАЯ &mdash; расшаривание чужих заметок (вовлечение)</td></tr>
+<tr><td><strong>7</strong></td><td>Реакция</td><td>ВЫСОКАЯ &mdash; лайки, эмодзи-реакции</td></tr>
+<tr><td><strong>9734/9735</strong></td><td>Запрос/Квитанция Zap</td><td>ВЫСОКАЯ &mdash; Lightning-микроплатежи на заметки</td></tr>
+<tr><td><strong>10002</strong></td><td>Список реле (NIP-65)</td><td>ВЫСОКАЯ &mdash; указывает сети где искать ваш контент</td></tr>
+<tr><td><strong>30023</strong></td><td>Лонг-форм контент</td><td>ВЫСОКАЯ &mdash; полноценные Markdown-статьи (блог-посты)</td></tr>
 </table>
 
-<h3>Content Propagation Model</h3>
-<div class="insight">Unlike centralized platforms, there is NO single algorithm. Each client implements its own feed logic. Primal has trending feeds, Damus is more chronological. Your <strong>relay selection</strong> and <strong>network effects</strong> matter more than "gaming the algorithm." Getting reposted (kind 6) by someone with wider relay coverage is the primary viral mechanic.</div>
+<h3>Модель распространения контента</h3>
+<div class="insight">В отличие от централизованных платформ, ЕДИНОГО алгоритма нет. Каждый клиент реализует свою логику ленты. Primal имеет трендовые ленты, Damus более хронологический. Ваш <strong>выбор реле</strong> и <strong>сетевые эффекты</strong> важнее, чем "обыгрывание алгоритма". Получить репост (kind 6) от кого-то с более широким покрытием реле — основной вирусный механизм.</div>
 
-<div class="warning">Events are immutable once published (no edit). No guaranteed delivery if relays go down. No global search (relay-dependent). Images need external hosting (nostr.build, void.cat). These are protocol tradeoffs for censorship resistance.</div>
+<div class="warning">События неизменяемы после публикации (без редактирования). Нет гарантированной доставки если реле упадут. Нет глобального поиска (зависит от реле). Картинки нужно хостить внешне (nostr.build, void.cat). Это компромиссы протокола ради цензуро-устойчивости.</div>
 </section>
 
-<!-- SECTION 2: Client Apps -->
+<!-- РАЗДЕЛ 2: Клиентские приложения -->
 <section id="clients">
-<h2>2. Client Apps &amp; Posting Workflow</h2>
+<h2>2. Клиентские приложения и процесс публикации</h2>
 
-<h3>Client Comparison</h3>
+<h3>Сравнение клиентов</h3>
 <table>
-<tr><th>Client</th><th>Platform</th><th>Discovery</th><th>Long-form</th><th>Zaps</th><th>Automation</th></tr>
-<tr><td><strong>Primal</strong></td><td>Web + iOS + Android</td><td>Excellent</td><td>Good</td><td>Native + wallet</td><td>REST API</td></tr>
-<tr><td><strong>Damus</strong></td><td>iOS only</td><td>Basic</td><td>Basic</td><td>Native</td><td>No</td></tr>
-<tr><td><strong>Amethyst</strong></td><td>Android only</td><td>Tag-based</td><td>Good</td><td>Native</td><td>No</td></tr>
-<tr><td><strong>Snort</strong></td><td>Web</td><td>Trending tab</td><td>Good</td><td>Native</td><td>No</td></tr>
-<tr><td><strong>Habla.news</strong></td><td>Web</td><td>NIP-23 focused</td><td>Excellent</td><td>Native</td><td>No</td></tr>
+<tr><th>Клиент</th><th>Платформа</th><th>Обнаружение</th><th>Лонг-форм</th><th>Zaps</th><th>Автоматизация</th></tr>
+<tr><td><strong>Primal</strong></td><td>Веб + iOS + Android</td><td>Отличное</td><td>Хорошо</td><td>Нативно + кошелёк</td><td>REST API</td></tr>
+<tr><td><strong>Damus</strong></td><td>Только iOS</td><td>Базовое</td><td>Базовое</td><td>Нативно</td><td>Нет</td></tr>
+<tr><td><strong>Amethyst</strong></td><td>Только Android</td><td>По тегам</td><td>Хорошо</td><td>Нативно</td><td>Нет</td></tr>
+<tr><td><strong>Snort</strong></td><td>Веб</td><td>Вкладка трендов</td><td>Хорошо</td><td>Нативно</td><td>Нет</td></tr>
+<tr><td><strong>Habla.news</strong></td><td>Веб</td><td>Фокус на NIP-23</td><td>Отличное</td><td>Нативно</td><td>Нет</td></tr>
 </table>
 
-<div class="tactic"><strong>Recommended: Primal as primary client.</strong> Cross-platform, best discovery (curated trending feeds), built-in wallet for zaps, REST API for automation. Use Habla.news specifically for long-form articles (NIP-23).</div>
+<div class="tactic"><strong>Рекомендация: Primal как основной клиент.</strong> Кросс-платформенный, лучшее обнаружение (курированные трендовые ленты), встроенный кошелёк для zaps, REST API для автоматизации. Использовать Habla.news специально для лонг-форм статей (NIP-23).</div>
 
-<h3>Publishing Pipeline Integration</h3>
+<h3>Интеграция пайплайна публикации</h3>
 <div class="formula">
-auto_publisher.py &rarr; sign event with nsec &rarr; <span class="highlight">publish to 5+ relays via WebSocket</span> &rarr; visible on ALL clients simultaneously
+auto_publisher.py &rarr; подписать событие nsec &rarr; <span class="highlight">опубликовать на 5+ реле через WebSocket</span> &rarr; видно на ВСЕХ клиентах одновременно
 </div>
-<p>Use <code>nostr-sdk</code> (Python, based on rust-nostr) to programmatically publish events. No OAuth, no API keys, no rate limits from a central authority. Just sign JSON and send over WebSocket.</p>
+<p>Использовать <code>nostr-sdk</code> (Python, на основе rust-nostr) для программной публикации событий. Без OAuth, без API-ключей, без лимитов от центральной власти. Просто подписать JSON и отправить через WebSocket.</p>
 </section>
 
-<!-- SECTION 3: Content Strategy -->
+<!-- РАЗДЕЛ 3: Стратегия контента -->
 <section id="content">
-<h2>3. Content Strategy &mdash; What Works on Nostr</h2>
+<h2>3. Стратегия контента &mdash; что работает на Nostr</h2>
 
-<h3>Formats Ranked by Engagement</h3>
+<h3>Форматы по уровню вовлечённости</h3>
 <table>
-<tr><th>Format</th><th>Engagement</th><th>Best For</th></tr>
-<tr><td><strong>Hot takes / opinions</strong></td><td>HIGHEST</td><td>Visibility, reposts, conversation starters</td></tr>
-<tr><td><strong>Build-in-public threads</strong></td><td>HIGH</td><td>Showing real work, attracting builders</td></tr>
-<tr><td><strong>Zap-worthy insights</strong></td><td>HIGH</td><td>Earning sats, social proof</td></tr>
-<tr><td><strong>Long-form articles (NIP-23)</strong></td><td>MEDIUM-HIGH</td><td>Deep authority, SEO via Habla.news</td></tr>
-<tr><td><strong>Reposts with commentary</strong></td><td>MEDIUM</td><td>Network building, being seen</td></tr>
-<tr><td><strong>Images / infographics</strong></td><td>MEDIUM</td><td>Visual differentiation (rare on Nostr)</td></tr>
+<tr><th>Формат</th><th>Вовлечённость</th><th>Лучше для</th></tr>
+<tr><td><strong>Острые мнения / позиции</strong></td><td>НАИВЫСШАЯ</td><td>Видимость, репосты, затравка разговора</td></tr>
+<tr><td><strong>Треды "сборка на публику"</strong></td><td>ВЫСОКАЯ</td><td>Показ реальной работы, привлечение билдеров</td></tr>
+<tr><td><strong>Инсайты, достойные zap</strong></td><td>ВЫСОКАЯ</td><td>Заработок сатоши, социальное доказательство</td></tr>
+<tr><td><strong>Лонг-форм статьи (NIP-23)</strong></td><td>СРЕДНЕ-ВЫСОКАЯ</td><td>Глубокий авторитет, SEO через Habla.news</td></tr>
+<tr><td><strong>Репосты с комментарием</strong></td><td>СРЕДНЯЯ</td><td>Нетворкинг, быть замеченным</td></tr>
+<tr><td><strong>Картинки / инфографика</strong></td><td>СРЕДНЯЯ</td><td>Визуальное отличие (редко на Nostr)</td></tr>
 </table>
 
-<h3>What Works for AI/Tech Content</h3>
+<h3>Что работает для AI/Tech контента</h3>
 <div class="pillar">
 <div class="pillar-item">
 <div class="pct">1</div>
-<h4>"Show, Don't Tell"</h4>
-<p>Screenshots of dashboards, agent outputs, real metrics. "6 AI agents published 47 posts today. Cost: $0.83."</p>
+<h4>"Показывай, а не рассказывай"</h4>
+<p>Скриншоты дашбордов, выводы агентов, реальные метрики. "6 AI-агентов опубликовали 47 постов сегодня. Стоимость: $0.83."</p>
 </div>
 <div class="pillar-item">
 <div class="pct">2</div>
-<h4>Bitcoin-Angle AI</h4>
-<p>AI + Bitcoin intersection. "AI agents that YOU control, not OpenAI." Sovereignty narrative.</p>
+<h4>Bitcoin-ракурс AI</h4>
+<p>Пересечение AI + Bitcoin. "AI-агенты, которыми управляете ВЫ, а не OpenAI." Нарратив суверенитета.</p>
 </div>
 <div class="pillar-item">
 <div class="pct">3</div>
-<h4>Anti-Establishment Tech</h4>
-<p>"Why I build on open protocols." "My AI agents post to Nostr because no one can ban them."</p>
+<h4>Анти-истеблишмент tech</h4>
+<p>"Почему я строю на открытых протоколах." "Мои AI-агенты публикуют в Nostr, потому что никто не может их забанить."</p>
 </div>
 <div class="pillar-item">
 <div class="pct">4</div>
-<h4>Educational Explainers</h4>
-<p>Teach the community. "Building an AI auto-poster for Nostr (open-source)." Deep technical dives.</p>
+<h4>Образовательные объяснения</h4>
+<p>Обучать сообщество. "Создание AI-автопостера для Nostr (open source)." Глубокие технические разборы.</p>
 </div>
 </div>
 
-<h3>Optimal Posting Frequency</h3>
+<h3>Оптимальная частота публикаций</h3>
 <table>
-<tr><th>Type</th><th>Frequency</th></tr>
-<tr><td>Short notes (kind 1)</td><td>2-4/day (mix of original + replies + reposts)</td></tr>
-<tr><td>Long-form (NIP-23)</td><td>1-2/week</td></tr>
-<tr><td>Engagement replies</td><td>5-10/day (primary growth driver)</td></tr>
-<tr><td>Zapping others</td><td>10-20/day (builds reciprocity)</td></tr>
+<tr><th>Тип</th><th>Частота</th></tr>
+<tr><td>Короткие заметки (kind 1)</td><td>2-4/день (микс оригинального + ответов + репостов)</td></tr>
+<tr><td>Лонг-форм (NIP-23)</td><td>1-2/неделю</td></tr>
+<tr><td>Ответы-вовлечение</td><td>5-10/день (основной драйвер роста)</td></tr>
+<tr><td>Zap другим</td><td>10-20/день (строит взаимность)</td></tr>
 </table>
 
-<div class="warning">What does NOT work: self-promotional spam, LinkedIn corporate-speak, AI hype without substance, mentioning altcoins/Ethereum (Bitcoin-only community), cross-posted generic content without Nostr-native formatting.</div>
+<div class="warning">Что НЕ работает: спамный самопиар, корпоративный LinkedIn-стиль, AI-хайп без содержания, упоминание альткоинов/Ethereum (Bitcoin-only сообщество), кросс-постнутый дженерик контент без нативного форматирования Nostr.</div>
 </section>
 
-<!-- SECTION 4: Competitors -->
+<!-- РАЗДЕЛ 4: Конкуренты -->
 <section id="competitors">
-<h2>4. Competitor Analysis &mdash; AI/Tech on Nostr</h2>
+<h2>4. Анализ конкурентов &mdash; AI/Tech на Nostr</h2>
 
-<div class="insight">The AI/multi-agent niche on Nostr is <strong>essentially unoccupied</strong>. Dominant topics are Bitcoin, Lightning, privacy, and open-source development. Tim entering with genuine AI-agent expertise + Bitcoin awareness would be a <strong>category-defining first-mover</strong>. No direct competitor does "Multi-Agent Revenue Architect" content.</div>
+<div class="insight">Ниша AI/мульти-агентов на Nostr <strong>по сути свободна</strong>. Доминирующие темы — Bitcoin, Lightning, приватность и open source разработка. Тим, пришедший с искренней AI-агентной экспертизой + знанием Bitcoin, стал бы <strong>первопроходцем, определяющим категорию</strong>. Ни один прямой конкурент не делает контент "Multi-Agent Revenue Architect".</div>
 
 <div class="competitor">
-<div class="name">@jb55 (William Casarin) &mdash; Damus Creator</div>
-<div class="meta">50,000+ followers &middot; 100+ zaps/post &middot; Nostr dev, iOS, open source</div>
-<div class="takeaway">Shows that deep technical builder content with real code gets massive engagement. <strong>Lesson:</strong> Be a builder, show output.</div>
+<div class="name">@jb55 (William Casarin) &mdash; Создатель Damus</div>
+<div class="meta">50 000+ подписчиков &middot; 100+ zaps/пост &middot; Разработка Nostr, iOS, open source</div>
+<div class="takeaway">Показывает, что глубокий технический контент билдера с реальным кодом получает массовую вовлечённость. <strong>Урок:</strong> будь билдером, показывай результат.</div>
 </div>
 
 <div class="competitor">
 <div class="name">@ODELL (Matt Odell) &mdash; Citadel Dispatch</div>
-<div class="meta">80,000+ followers &middot; Hundreds of zaps/post &middot; Bitcoin + privacy + freedom tech</div>
-<div class="takeaway">Podcast cross-posted to Nostr performs very well. Media + tech authority. <strong>Lesson:</strong> Cross-post SBORKA podcast content here.</div>
+<div class="meta">80 000+ подписчиков &middot; Сотни zaps/пост &middot; Bitcoin + приватность + свободные технологии</div>
+<div class="takeaway">Подкаст, кросс-постнутый в Nostr, работает очень хорошо. Медиа + технический авторитет. <strong>Урок:</strong> кросс-постить подкаст СБОРКИ сюда.</div>
 </div>
 
 <div class="competitor">
-<div class="name">@fiatjaf &mdash; Nostr Protocol Creator</div>
-<div class="meta">40,000+ followers &middot; Shapes protocol direction &middot; Philosophy + decentralization</div>
-<div class="takeaway">Thought leadership on protocol design gets amplified. <strong>Lesson:</strong> "How Nostr could be backbone for AI agent communication" = viral potential.</div>
+<div class="name">@fiatjaf &mdash; Создатель протокола Nostr</div>
+<div class="meta">40 000+ подписчиков &middot; Определяет направление протокола &middot; Философия + децентрализация</div>
+<div class="takeaway">Мысленное лидерство по дизайну протокола усиливается. <strong>Урок:</strong> "Как Nostr мог бы стать основой для коммуникации AI-агентов" = вирусный потенциал.</div>
 </div>
 
 <div class="competitor">
-<div class="name">@Gigi &mdash; "21 Lessons" Author</div>
-<div class="meta">35,000+ followers &middot; Philosophical threads get massive zaps</div>
-<div class="takeaway">Long-form thoughtful content on technology philosophy does very well. <strong>Lesson:</strong> Deep-think pieces on AI + sovereignty earn respect.</div>
+<div class="name">@Gigi &mdash; Автор "21 Lessons"</div>
+<div class="meta">35 000+ подписчиков &middot; Философские треды получают массу zaps</div>
+<div class="takeaway">Лонг-форм вдумчивый контент о философии технологий работает очень хорошо. <strong>Урок:</strong> глубокие размышления о AI + суверенитете заслуживают уважение.</div>
 </div>
 
 <div class="competitor">
-<div class="name">@MartyBent &mdash; TFTC Podcast</div>
-<div class="meta">25,000+ followers &middot; Bitcoin mining, energy, AI-related takes</div>
-<div class="takeaway">AI x Bitcoin content is underserved niche that gets attention. <strong>Lesson:</strong> This intersection is Tim's sweet spot.</div>
+<div class="name">@MartyBent &mdash; Подкаст TFTC</div>
+<div class="meta">25 000+ подписчиков &middot; Bitcoin-майнинг, энергетика, AI-мнения</div>
+<div class="takeaway">Контент на пересечении AI x Bitcoin — недостаточно охваченная ниша, привлекающая внимание. <strong>Урок:</strong> это пересечение — главная зона Тима.</div>
 </div>
 
-<h3>Gap Analysis</h3>
+<h3>Анализ пробелов</h3>
 <table>
-<tr><th>Niche</th><th>Current Coverage</th><th>Tim's Opportunity</th></tr>
-<tr><td>AI agents / multi-agent systems</td><td>Almost ZERO</td><td><strong>WIDE OPEN &mdash; Tim could be THE voice</strong></td></tr>
-<tr><td>AI + Bitcoin intersection</td><td>Sparse, surface-level</td><td>Tim has genuine depth</td></tr>
-<tr><td>Build-in-public (AI systems)</td><td>Very few</td><td>High novelty, community loves it</td></tr>
-<tr><td>AI video / content generation</td><td>Nearly nonexistent</td><td>Lisa pipeline is unique</td></tr>
-<tr><td>Career / hiring in tech</td><td>Almost nothing</td><td>SBORKA = no competition</td></tr>
+<tr><th>Ниша</th><th>Текущее покрытие</th><th>Возможность Тима</th></tr>
+<tr><td>AI-агенты / мульти-агентные системы</td><td>Почти НОЛЬ</td><td><strong>ШИРОКО ОТКРЫТО &mdash; Тим может стать ГЛАВНЫМ голосом</strong></td></tr>
+<tr><td>Пересечение AI + Bitcoin</td><td>Редко, поверхностно</td><td>У Тима подлинная глубина</td></tr>
+<tr><td>Сборка на публику (AI-системы)</td><td>Очень мало</td><td>Высокая новизна, сообщество любит</td></tr>
+<tr><td>AI-видео / генерация контента</td><td>Почти нет</td><td>Пайплайн Лизы уникален</td></tr>
+<tr><td>Карьера / найм в tech</td><td>Почти ничего</td><td>СБОРКА = без конкуренции</td></tr>
 </table>
 </section>
 
-<!-- SECTION 5: Lightning & Zaps -->
+<!-- РАЗДЕЛ 5: Lightning и Zaps -->
 <section id="lightning">
-<h2>5. Lightning Network &amp; Zap Strategy</h2>
+<h2>5. Lightning Network и стратегия Zap</h2>
 
-<p>Zaps are instant Bitcoin micropayments attached to specific notes &mdash; the killer feature differentiating Nostr from every other social platform.</p>
+<p>Zaps — мгновенные Bitcoin-микроплатежи, привязанные к конкретным заметкам &mdash; убойная фича, отличающая Nostr от любой другой соцсети.</p>
 
-<h3>Zap Economics</h3>
+<h3>Экономика Zap</h3>
 <table>
-<tr><th>Level</th><th>Sats</th><th>USD Equiv</th><th>Triggered By</th></tr>
-<tr><td>Casual appreciation</td><td>21-100</td><td>$0.02-0.10</td><td>Basic good post</td></tr>
-<tr><td>Good post</td><td>500-1,000</td><td>$0.50-1.00</td><td>Useful insight</td></tr>
-<tr><td>Excellent content</td><td>2,100-10,000</td><td>$2-10</td><td>Deep technical post</td></tr>
-<tr><td>Exceptional / viral</td><td>21,000-100,000</td><td>$20-100</td><td>Category-defining content</td></tr>
-<tr><td>"Zap storms"</td><td>500,000+</td><td>$500+</td><td>Community pile-ons on viral posts</td></tr>
+<tr><th>Уровень</th><th>Сатоши</th><th>Эквивалент USD</th><th>Вызывается</th></tr>
+<tr><td>Простая благодарность</td><td>21-100</td><td>$0.02-0.10</td><td>Базовый хороший пост</td></tr>
+<tr><td>Хороший пост</td><td>500-1 000</td><td>$0.50-1.00</td><td>Полезный инсайт</td></tr>
+<tr><td>Отличный контент</td><td>2 100-10 000</td><td>$2-10</td><td>Глубокий технический пост</td></tr>
+<tr><td>Исключительный / вирусный</td><td>21 000-100 000</td><td>$20-100</td><td>Контент, определяющий категорию</td></tr>
+<tr><td>"Zap-шторм"</td><td>500 000+</td><td>$500+</td><td>Коллективная волна на вирусных постах</td></tr>
 </table>
 
-<h3>Lightning Address Setup</h3>
-<div class="tactic"><strong>Phase 1: Start with Alby</strong> (getalby.com) &mdash; free hosted wallet, easy setup.<br>
-<strong>Phase 2: Migrate to LNbits on RUVDS</strong> &mdash; full sovereignty, custom Lightning address <code>tim@sborka.work</code>.<br>
-Set <code>lud16</code> in Nostr profile metadata to enable receiving zaps.</div>
+<h3>Настройка Lightning-адреса</h3>
+<div class="tactic"><strong>Фаза 1: Начать с Alby</strong> (getalby.com) &mdash; бесплатный хостед кошелёк, простая настройка.<br>
+<strong>Фаза 2: Мигрировать на LNbits на RUVDS</strong> &mdash; полный суверенитет, кастомный Lightning-адрес <code>tim@sborka.work</code>.<br>
+Установить <code>lud16</code> в метаданных профиля Nostr для получения zaps.</div>
 
-<h3>Strategic Value of Zaps</h3>
+<h3>Стратегическая ценность Zaps</h3>
 <ol>
-<li><strong>Social proof:</strong> Zap counts visible on posts signal quality (like likes but with real money)</li>
-<li><strong>Community building:</strong> Zapping others builds relationships and visibility</li>
-<li><strong>Demand validation:</strong> If AI content earns meaningful zaps, it confirms market</li>
-<li><strong>Gateway to services:</strong> "If you like what my agents do, imagine them working for YOUR business"</li>
+<li><strong>Социальное доказательство:</strong> Счётчики zap видны на постах и сигнализируют качество (как лайки, но с реальными деньгами)</li>
+<li><strong>Строительство сообщества:</strong> Zap другим строит отношения и видимость</li>
+<li><strong>Валидация спроса:</strong> Если AI-контент получает значимые zaps, это подтверждает рынок</li>
+<li><strong>Мост к сервисам:</strong> "Если вам нравится что делают мои агенты, представьте их работающими на ВАШ бизнес"</li>
 </ol>
 
-<div class="warning">CRITICAL cultural rules: Say "sats" not "dollars." Say "Bitcoin" not "crypto." NEVER mention altcoins (Ethereum, Solana). Zap first, engage second. Round numbers (21, 210, 2100) are culturally meaningful (Bitcoin references).</div>
+<div class="warning">КРИТИЧЕСКИЕ культурные правила: говорить "сатоши" не "доллары". Говорить "Bitcoin" не "крипто". НИКОГДА не упоминать альткоины (Ethereum, Solana). Сначала zap, потом вовлечение. Круглые числа (21, 210, 2100) культурно значимы (Bitcoin-отсылки).</div>
 </section>
 
-<!-- SECTION 6: Relay Strategy -->
+<!-- РАЗДЕЛ 6: Стратегия реле -->
 <section id="relays">
-<h2>6. Relay Strategy &amp; Self-Hosted Relay</h2>
+<h2>6. Стратегия реле и свой реле-сервер</h2>
 
-<h3>Recommended 10-Relay Configuration</h3>
+<h3>Рекомендованная конфигурация из 10 реле</h3>
 <table>
-<tr><th>Tier</th><th>Relay</th><th>Purpose</th><th>Cost</th></tr>
-<tr><td rowspan="5"><strong>Tier 1: Public</strong></td><td><code>wss://relay.damus.io</code></td><td>Largest, most clients default</td><td>Free</td></tr>
-<tr><td><code>wss://relay.primal.net</code></td><td>Powers Primal trending</td><td>Free</td></tr>
-<tr><td><code>wss://nos.lol</code></td><td>Major public relay</td><td>Free</td></tr>
-<tr><td><code>wss://relay.nostr.band</code></td><td>Search/analytics discovery</td><td>Free</td></tr>
-<tr><td><code>wss://relay.snort.social</code></td><td>Snort client's default</td><td>Free</td></tr>
-<tr><td><strong>Tier 2: Quality</strong></td><td><code>wss://nostr.wine</code></td><td>Paid, high signal-to-noise</td><td>~$10/year</td></tr>
-<tr><td><strong>Tier 3: Self-hosted</strong></td><td><code>wss://relay.sborka.work</code></td><td>Brand cohesion + data sovereignty</td><td>$0 (RUVDS)</td></tr>
+<tr><th>Уровень</th><th>Реле</th><th>Назначение</th><th>Стоимость</th></tr>
+<tr><td rowspan="5"><strong>Уровень 1: Публичные</strong></td><td><code>wss://relay.damus.io</code></td><td>Крупнейший, по умолчанию для большинства клиентов</td><td>Бесплатно</td></tr>
+<tr><td><code>wss://relay.primal.net</code></td><td>Питает тренды Primal</td><td>Бесплатно</td></tr>
+<tr><td><code>wss://nos.lol</code></td><td>Крупный публичный реле</td><td>Бесплатно</td></tr>
+<tr><td><code>wss://relay.nostr.band</code></td><td>Обнаружение через поиск/аналитику</td><td>Бесплатно</td></tr>
+<tr><td><code>wss://relay.snort.social</code></td><td>По умолчанию для клиента Snort</td><td>Бесплатно</td></tr>
+<tr><td><strong>Уровень 2: Качественный</strong></td><td><code>wss://nostr.wine</code></td><td>Платный, высокий сигнал-шум</td><td>~$10/год</td></tr>
+<tr><td><strong>Уровень 3: Свой</strong></td><td><code>wss://relay.sborka.work</code></td><td>Целостность бренда + суверенитет данных</td><td>$0 (RUVDS)</td></tr>
 </table>
 
-<div class="tactic"><strong>Self-hosted relay on RUVDS:</strong> Run <code>strfry</code> via Docker on existing infrastructure. Custom domain <code>wss://relay.sborka.work</code> = professional branding. NIP-05 + relay on same domain = maximum brand cohesion. Your content is ALWAYS available regardless of third-party relay uptime.</div>
+<div class="tactic"><strong>Свой реле на RUVDS:</strong> Запустить <code>strfry</code> через Docker на существующей инфраструктуре. Кастомный домен <code>wss://relay.sborka.work</code> = профессиональный брендинг. NIP-05 + реле на одном домене = максимальная целостность бренда. Ваш контент ВСЕГДА доступен вне зависимости от аптайма сторонних реле.</div>
 
 <div class="formula">
-NIP-65 publish: tell the network <span class="highlight">WHERE</span> to find your content &rarr; kind 10002 event listing all write relays
+Публикация NIP-65: указать сети <span class="highlight">ГДЕ</span> искать ваш контент &rarr; событие kind 10002 со списком всех записывающих реле
 </div>
 </section>
 
-<!-- SECTION 7: Tone of Voice -->
+<!-- РАЗДЕЛ 7: Тон коммуникации -->
 <section id="tone">
-<h2>7. Tone of Voice &amp; Nostr Culture</h2>
+<h2>7. Тон коммуникации и культура Nostr</h2>
 
-<h3>Cultural Landscape</h3>
+<h3>Культурный ландшафт</h3>
 <table>
-<tr><th>Value</th><th>Implication for Content</th></tr>
-<tr><td><strong>Bitcoin maximalism</strong></td><td>Most users Bitcoin-only. Frame costs in sats. No altcoin mentions</td></tr>
-<tr><td><strong>Cypherpunk ethos</strong></td><td>Privacy, cryptography, personal sovereignty, anti-surveillance</td></tr>
-<tr><td><strong>Builder culture</strong></td><td>Respect earned by SHIPPING, not talking. Show output</td></tr>
-<tr><td><strong>Anti-corporate sentiment</strong></td><td>Distrust of Big Tech, VC, corporate AI. Individual > institution</td></tr>
-<tr><td><strong>Open-source ideology</strong></td><td>Code should be public. Protocols should be open</td></tr>
-<tr><td><strong>Generosity (V4V)</strong></td><td>Value for Value = content is free, voluntarily supported via zaps</td></tr>
+<tr><th>Ценность</th><th>Значение для контента</th></tr>
+<tr><td><strong>Bitcoin-максимализм</strong></td><td>Большинство пользователей — только Bitcoin. Выражать стоимость в сатоши. Без альткоинов</td></tr>
+<tr><td><strong>Шифропанк-этос</strong></td><td>Приватность, криптография, персональный суверенитет, анти-слежка</td></tr>
+<tr><td><strong>Культура билдеров</strong></td><td>Уважение заслуживается ОТПРАВКОЙ КОДА, а не разговорами. Показывай результат</td></tr>
+<tr><td><strong>Анти-корпоративные настроения</strong></td><td>Недоверие к Big Tech, венчурным фондам, корпоративному AI. Личность > институция</td></tr>
+<tr><td><strong>Open source идеология</strong></td><td>Код должен быть публичным. Протоколы должны быть открытыми</td></tr>
+<tr><td><strong>Щедрость (V4V)</strong></td><td>Value for Value = контент бесплатный, добровольно поддерживается через zaps</td></tr>
 </table>
 
-<h3>Tone Examples</h3>
+<h3>Примеры тона</h3>
 <div class="warning" style="border-left-color:var(--terra)">
-<strong style="color:var(--terra)">BAD (LinkedIn tone):</strong> "Excited to share our latest AI agent deployment! Our multi-agent system has achieved a 340% increase in content output. Looking forward to continuing this journey! #AITransformation"
+<strong style="color:var(--terra)">ПЛОХО (тон LinkedIn):</strong> "Рад поделиться нашим новейшим деплоем AI-агентов! Наша мульти-агентная система достигла увеличения объёма контента на 340%. С нетерпением жду продолжения этого пути! #AITransformation"
 </div>
 <div class="tactic" style="border-left-color:var(--emerald)">
-<strong style="color:var(--emerald)">GOOD (Nostr-native):</strong> "My 6 AI agents published 47 posts across 12 platforms today while I was asleep. Total cost: $0.83. Here's the actual dashboard screenshot. The LinkedIn agent still writes like a corporate drone though, working on that."
+<strong style="color:var(--emerald)">ХОРОШО (нативный Nostr):</strong> "Мои 6 AI-агентов опубликовали 47 постов на 12 платформах сегодня пока я спал. Общая стоимость: $0.83. Вот реальный скриншот дашборда. LinkedIn-агент всё ещё пишет как корпоративный робот, работаю над этим."
 </div>
 <div class="tactic" style="border-left-color:var(--nostr)">
-<strong style="color:var(--nostr)">GREAT (Full alignment):</strong> "Hot take: 90% of 'AI companies' are just API wrappers with a sales team. I run 8 businesses with 6 agents from a laptop. Total infra cost: $50/month on a VPS. The moat isn't the AI, it's the system design. Here's my actual architecture:"
+<strong style="color:var(--nostr)">ОТЛИЧНО (полное соответствие):</strong> "Горячая позиция: 90% 'AI-компаний' — это просто обёртки API с отделом продаж. Я управляю 8 бизнесами с 6 агентами с ноутбука. Общая стоимость инфры: $50/мес на VPS. Рвы — не в AI, а в проектировании систем. Вот моя реальная архитектура:"
 </div>
 
-<h3>Cultural Signals to Embed</h3>
+<h3>Культурные сигналы для встраивания</h3>
 <ul>
-<li><strong>"Sats"</strong> instead of dollars when discussing costs</li>
-<li><strong>"FOSS"</strong> mentions when applicable</li>
-<li><strong>"Sovereignty"</strong> &mdash; frame AI agents as tools for individual sovereignty</li>
-<li><strong>"V4V"</strong> (Value for Value) &mdash; content is free, voluntarily supported</li>
-<li><strong>#grownostr</strong> &mdash; community hashtag for boosting adoption</li>
+<li><strong>"Сатоши"</strong> вместо долларов при обсуждении стоимости</li>
+<li><strong>"FOSS"</strong> упоминания когда применимо</li>
+<li><strong>"Суверенитет"</strong> &mdash; подавать AI-агентов как инструменты индивидуального суверенитета</li>
+<li><strong>"V4V"</strong> (Value for Value) &mdash; контент бесплатный, добровольно поддерживается</li>
+<li><strong>#grownostr</strong> &mdash; хештег сообщества для продвижения adoption</li>
 </ul>
 </section>
 
-<!-- SECTION 8: CTA Strategy -->
+<!-- РАЗДЕЛ 8: Стратегия CTA -->
 <section id="cta">
-<h2>8. CTA Strategy &amp; NIP-05 Branding</h2>
+<h2>8. Стратегия CTA и NIP-05 брендинг</h2>
 
-<h3>NIP-05 Verification (HIGHEST PRIORITY)</h3>
+<h3>NIP-05 верификация (НАИВЫСШИЙ ПРИОРИТЕТ)</h3>
 <div class="formula">
-<span class="highlight">tim@sborka.work</span> = verified identity across ALL clients + passive brand impression + SEO for domain
+<span class="highlight">tim@sborka.work</span> = верифицированная идентичность во ВСЕХ клиентах + пассивное впечатление бренда + SEO для домена
 </div>
 
-<div class="tactic"><strong>Implementation:</strong> Create <code>/.well-known/nostr.json</code> on sborka.work with CORS headers (<code>Access-Control-Allow-Origin: *</code>). Add Nginx config on RUVDS. Every time Tim's profile appears = passive <code>sborka.work</code> brand impression without any explicit CTA.</div>
+<div class="tactic"><strong>Реализация:</strong> Создать <code>/.well-known/nostr.json</code> на sborka.work с CORS-заголовками (<code>Access-Control-Allow-Origin: *</code>). Добавить конфиг Nginx на RUVDS. Каждый раз когда профиль Тима появляется = пассивное впечатление бренда <code>sborka.work</code> без какого-либо явного CTA.</div>
 
-<h3>CTA Patterns That Work</h3>
+<h3>Паттерны CTA, которые работают</h3>
 <div class="pillar">
 <div class="pillar-item">
 <div class="pct">1</div>
-<h4>Value-First CTA</h4>
-<p>[Valuable content] ... "Built this as part of sborka.work. DM me if you want agents working for your business."</p>
+<h4>CTA с ценностью первым</h4>
+<p>[Ценный контент] ... "Сделал это как часть sborka.work. Напишите мне если хотите агентов, работающих на ваш бизнес."</p>
 </div>
 <div class="pillar-item">
 <div class="pct">2</div>
-<h4>Zap-Gated Content</h4>
-<p>"I wrote a 3K-word guide on multi-agent systems. Zap this note and I'll send you the companion code repo."</p>
+<h4>Zap-гейтнутый контент</h4>
+<p>"Я написал гайд на 3K слов по мульти-агентным системам. Zap эту заметку и я пришлю вам репозиторий с кодом."</p>
 </div>
 <div class="pillar-item">
 <div class="pct">3</div>
-<h4>Thread with Natural CTA</h4>
-<p>"Thread: How I built an AI agent for 12 platforms... 7/7: Full system at sborka.work. Source: github.com/TimmyZinin"</p>
+<h4>Тред с натуральным CTA</h4>
+<p>"Тред: Как я построил AI-агента для 12 платформ... 7/7: Полная система на sborka.work. Исходный код: github.com/TimmyZinin"</p>
 </div>
 <div class="pillar-item">
 <div class="pct">4</div>
-<h4>Lightning-Native CTA</h4>
-<p>"Zap 1000 sats + reply with your LinkedIn URL. My AI agent will analyze your profile in 5 min."</p>
+<h4>Lightning-нативный CTA</h4>
+<p>"Zap 1000 сатоши + ответьте со своим LinkedIn URL. Мой AI-агент проанализирует ваш профиль за 5 мин."</p>
 </div>
 </div>
 
-<h3>UTM Format</h3>
+<h3>Формат UTM</h3>
 <div class="formula">
 sborka.work?<span class="highlight">utm_source=nostr</span>&amp;utm_medium=social&amp;utm_campaign=s18_nostr&amp;utm_content={post_topic}
 </div>
 </section>
 
-<!-- SECTION 9: Cross-Platform -->
+<!-- РАЗДЕЛ 9: Кросс-платформенность -->
 <section id="cross-platform">
-<h2>9. Cross-Platform Bridges &amp; Syndication</h2>
+<h2>9. Кросс-платформенные мосты и синдикация</h2>
 
-<h3>Bridge Status</h3>
+<h3>Статус мостов</h3>
 <table>
-<tr><th>Bridge</th><th>Status</th><th>Recommendation</th></tr>
-<tr><td>Nostr &harr; Mastodon</td><td><strong>ACTIVE (Mostr.pub)</strong></td><td>Enable &mdash; free amplification to Fediverse followers</td></tr>
-<tr><td>Nostr &harr; Bluesky</td><td>No bridge exists</td><td>Cross-post via auto_publisher pipeline</td></tr>
-<tr><td>Nostr &harr; Twitter/X</td><td>Blocked ($200/mo API)</td><td>Skip unless Twitter re-activated</td></tr>
+<tr><th>Мост</th><th>Статус</th><th>Рекомендация</th></tr>
+<tr><td>Nostr &harr; Mastodon</td><td><strong>АКТИВЕН (Mostr.pub)</strong></td><td>Включить &mdash; бесплатное усиление на подписчиков Fediverse</td></tr>
+<tr><td>Nostr &harr; Bluesky</td><td>Моста нет</td><td>Кросс-постить через пайплайн auto_publisher</td></tr>
+<tr><td>Nostr &harr; Twitter/X</td><td>Заблокирован ($200/мес API)</td><td>Пропустить, если Twitter не реактивирован</td></tr>
 </table>
 
-<h3>Content Adaptation</h3>
+<h3>Адаптация контента</h3>
 <table>
-<tr><th>Target Platform</th><th>Adaptation from Nostr</th></tr>
-<tr><td><strong>LinkedIn</strong></td><td>Remove Bitcoin references, add corporate framing, expand on business outcomes</td></tr>
-<tr><td><strong>Telegram</strong></td><td>Russian translation, more casual, channel-specific context</td></tr>
-<tr><td><strong>Dev.to / Hashnode</strong></td><td>Expand into tutorial format, more code blocks, structured</td></tr>
-<tr><td><strong>Mastodon</strong></td><td>Minimal adaptation via Mostr bridge</td></tr>
-<tr><td><strong>Bluesky</strong></td><td>Shorter, remove zap references, keep technical tone</td></tr>
+<tr><th>Целевая платформа</th><th>Адаптация из Nostr</th></tr>
+<tr><td><strong>LinkedIn</strong></td><td>Убрать Bitcoin-отсылки, добавить корпоративный фрейминг, расширить бизнес-результаты</td></tr>
+<tr><td><strong>Telegram</strong></td><td>Русский перевод, более неформально, контекст канала</td></tr>
+<tr><td><strong>Dev.to / Hashnode</strong></td><td>Расширить в формат туториала, больше блоков кода, структурировать</td></tr>
+<tr><td><strong>Mastodon</strong></td><td>Минимальная адаптация через мост Mostr</td></tr>
+<tr><td><strong>Bluesky</strong></td><td>Короче, убрать zap-отсылки, сохранить технический тон</td></tr>
 </table>
 
-<div class="tactic"><strong>What to cross-post:</strong> Long-form NIP-23 articles &rarr; Dev.to, Hashnode, LinkedIn. Build-in-public updates &rarr; adapted versions everywhere.<br>
-<strong>What NOT to cross-post:</strong> Zap references, relay discussions, Bitcoin-heavy takes (alienate LinkedIn audience).</div>
+<div class="tactic"><strong>Что кросс-постить:</strong> Лонг-форм NIP-23 статьи &rarr; Dev.to, Hashnode, LinkedIn. Обновления "сборки на публику" &rarr; адаптированные версии везде.<br>
+<strong>Что НЕ кросс-постить:</strong> Zap-отсылки, обсуждения реле, Bitcoin-тяжёлые мнения (оттолкнёт LinkedIn-аудиторию).</div>
 </section>
 
-<!-- SECTION 10: 30-Day Plan -->
+<!-- РАЗДЕЛ 10: 30-дневный план -->
 <section id="plan">
-<h2>10. 30-Day Action Plan: 0 &rarr; 200+ Followers</h2>
+<h2>10. 30-дневный план действий: 0 &rarr; 200+ подписчиков</h2>
 
 <div class="action-plan">
-<div class="step"><strong>Day 1 &mdash; Infrastructure.</strong> NIP-05 verification (<code>tim@sborka.work</code>): create <code>/.well-known/nostr.json</code>, add CORS to Nginx. Update profile metadata (kind 0): name, bio, NIP-05, Lightning address, website with UTM. Set up Lightning via Alby. Expand to 8-10 relays. Publish NIP-65 relay list.</div>
+<div class="step"><strong>День 1 &mdash; Инфраструктура.</strong> NIP-05 верификация (<code>tim@sborka.work</code>): создать <code>/.well-known/nostr.json</code>, добавить CORS в Nginx. Обновить метаданные профиля (kind 0): имя, био, NIP-05, Lightning-адрес, сайт с UTM. Настроить Lightning через Alby. Расширить до 8-10 реле. Опубликовать NIP-65 список реле.</div>
 
-<div class="step"><strong>Day 2 &mdash; First Content.</strong> Introduction note: "I run 8 businesses with 6 AI agents. Here's what they did today: [real metrics]." Hot take: "90% of AI companies are just API wrappers. The real moat is system architecture." Follow 50 Bitcoin/tech/builder accounts. Zap 20 interesting posts (21-100 sats each).</div>
+<div class="step"><strong>День 2 &mdash; Первый контент.</strong> Вводная заметка: "Я управляю 8 бизнесами с 6 AI-агентами. Вот что они сделали сегодня: [реальные метрики]." Острое мнение: "90% AI-компаний — это просто обёртки API. Настоящий ров — в архитектуре систем." Подписаться на 50 Bitcoin/tech/билдер аккаунтов. Zap 20 интересных постов (21-100 сатоши каждый).</div>
 
-<div class="step"><strong>Days 3-4 &mdash; Engagement Sprint.</strong> Reply meaningfully to 10+ posts from large accounts. Repost 3-5 with commentary. Post 1 build-in-public update with dashboard screenshot. Publish first NIP-23 long-form: "How I Built a 6-Agent AI System That Runs 8 Businesses" on Habla.news. Continue 15-20 zaps/day.</div>
+<div class="step"><strong>Дни 3-4 &mdash; Спринт вовлечения.</strong> Содержательно ответить на 10+ постов крупных аккаунтов. Репостнуть 3-5 с комментарием. Опубликовать 1 обновление "сборки на публику" со скриншотом дашборда. Опубликовать первый лонг-форм NIP-23: "Как я построил систему из 6 AI-агентов, управляющую 8 бизнесами" на Habla.news. Продолжить 15-20 zaps/день.</div>
 
-<div class="step"><strong>Days 5-7 &mdash; Rhythm.</strong> Daily cadence: 2-3 short notes + 5-10 replies + 15-20 zaps. Post technical content: code snippets, architecture diagrams, real metrics. Engage with Nostr developers. Set up Nostr publishing in auto_publisher pipeline (nostr-sdk).</div>
+<div class="step"><strong>Дни 5-7 &mdash; Ритм.</strong> Ежедневная каденция: 2-3 короткие заметки + 5-10 ответов + 15-20 zaps. Публиковать технический контент: фрагменты кода, диаграммы архитектуры, реальные метрики. Взаимодействовать с разработчиками Nostr. Настроить публикацию в Nostr в пайплайне auto_publisher (nostr-sdk).</div>
 
-<div class="step"><strong>Week 2 &mdash; Content Depth.</strong> Daily themed posts: agent cost breakdowns in sats, multi-agent architecture threads, "How Nostr could be backbone for AI agent communication" long-form, build-in-public reflections. Follow 100+ total. Target: first 50 followers, first organic zaps, 5+ meaningful conversations.</div>
+<div class="step"><strong>Неделя 2 &mdash; Глубина контента.</strong> Ежедневные тематические посты: разбор стоимости агентов в сатоши, треды по мульти-агентной архитектуре, лонг-форм "Как Nostr мог бы стать основой для коммуникации AI-агентов", рефлексии "сборки на публику". Подписаться на 100+ всего. Цель: первые 50 подписчиков, первые органические zaps, 5+ содержательных разговоров.</div>
 
-<div class="step"><strong>Week 3 &mdash; Authority.</strong> Publish "The AI Agents Playbook" as NIP-23. Create Nostr-native AI demo ("Zap 1000 sats + reply with your LinkedIn URL, my agent analyzes in 5 min"). Start weekly "Agent Report" thread. Create NIP-51 list of "AI builders on Nostr." Target: 100+ followers.</div>
+<div class="step"><strong>Неделя 3 &mdash; Авторитет.</strong> Опубликовать "Плейбук AI-агентов" как NIP-23. Создать нативное Nostr AI-демо ("Zap 1000 сатоши + ответьте с вашим LinkedIn URL, мой агент проанализирует за 5 мин"). Начать еженедельный тред "Отчёт агентов". Создать NIP-51 список "AI-билдеры на Nostr." Цель: 100+ подписчиков.</div>
 
-<div class="step"><strong>Week 4 &mdash; Scale.</strong> Automate daily posting via pipeline (1-2 auto-posts/day, manual engagement stays). Set up self-hosted relay <code>wss://relay.sborka.work</code> on RUVDS (strfry Docker). Reach out to Nostr podcast hosts (Citadel Dispatch, TFTC). A/B test content types by zap/repost rates.<br>
-<strong>Target: 200+ followers, automated pipeline, self-hosted relay, first inbound inquiry</strong></div>
+<div class="step"><strong>Неделя 4 &mdash; Масштаб.</strong> Автоматизировать ежедневный постинг через пайплайн (1-2 авто-поста/день, ручная вовлечённость остаётся). Настроить свой реле <code>wss://relay.sborka.work</code> на RUVDS (strfry Docker). Обратиться к хостам подкастов Nostr (Citadel Dispatch, TFTC). A/B тест типов контента по zap/репост показателям.<br>
+<strong>Цель: 200+ подписчиков, автоматизированный пайплайн, свой реле, первый входящий запрос</strong></div>
 </div>
 
-<h3>Monthly KPIs</h3>
+<h3>Месячные KPI</h3>
 <div style="margin-top:14px">
-<div class="kpi-card"><span class="val">200+</span><span class="label">Followers</span></div>
-<div class="kpi-card"><span class="val">5-10</span><span class="label">Zaps/Post</span></div>
-<div class="kpi-card"><span class="val">50+</span><span class="label">Reactions on Best Post</span></div>
-<div class="kpi-card"><span class="val">1+</span><span class="label">Inbound Inquiry</span></div>
-<div class="kpi-card"><span class="val">NIP-05</span><span class="label">Verified</span></div>
-<div class="kpi-card"><span class="val">relay</span><span class="label">Self-Hosted Running</span></div>
+<div class="kpi-card"><span class="val">200+</span><span class="label">Подписчиков</span></div>
+<div class="kpi-card"><span class="val">5-10</span><span class="label">Zaps/пост</span></div>
+<div class="kpi-card"><span class="val">50+</span><span class="label">Реакций лучшего поста</span></div>
+<div class="kpi-card"><span class="val">1+</span><span class="label">Входящий запрос</span></div>
+<div class="kpi-card"><span class="val">NIP-05</span><span class="label">Верифицирован</span></div>
+<div class="kpi-card"><span class="val">relay</span><span class="label">Свой работает</span></div>
 </div>
 
-<div class="insight"><strong>Key advantage:</strong> Nostr publishing requires NO OAuth, NO API keys, NO rate limits. Just sign JSON events with nsec and send via WebSocket. Integration into auto_publisher.py is trivial compared to any centralized platform.</div>
+<div class="insight"><strong>Ключевое преимущество:</strong> Публикация в Nostr не требует OAuth, API-ключей, лимитов. Просто подписать JSON-события nsec и отправить через WebSocket. Интеграция в auto_publisher.py тривиальна по сравнению с любой централизованной платформой.</div>
 </section>
 
 </div>
 
 <footer style="text-align:center;padding:30px;color:var(--muted);font-size:.85em">
-SMM Research Hub &mdash; S-18 Nostr &middot; Generated 2026-03-04 &middot; For Tim Zinin / SBORKA
+SMM Research Hub &mdash; S-18 Nostr &middot; Сгенерировано 2026-03-04 &middot; Для Тима Зинина / СБОРКА
 </footer>
 
 </body>

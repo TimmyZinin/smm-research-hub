@@ -55,7 +55,7 @@ li{margin-bottom:6px}
 <body>
 
 <nav class="topnav">
-  <a href="../index.html">&larr; Dashboard</a>
+  <a href="../index.html">&larr; Дашборд</a>
   <span class="sep">|</span>
   <a href="s01_telegram.html">TG</a>
   <a href="s02_linkedin.html">LI</a>
@@ -89,7 +89,7 @@ li{margin-bottom:6px}
   <h1>Lemmy</h1>
   <div class="sub">S-21 — Федеративный Reddit на ActivityPub</div>
   <div class="meta">Регистрация: tchncs.de + slrpnk.net (pending) &middot; lemmy.world (target)</div>
-  <div class="platform-badge">&#128028; Federation &middot; Anti-Corporate &middot; FOSS Culture</div>
+  <div class="platform-badge">&#128028; Федерация &middot; Анти-корпоративность &middot; Культура FOSS</div>
 </header>
 
 <!-- ===== 1. ALGORITHM ===== -->
@@ -99,17 +99,17 @@ li{margin-bottom:6px}
   <h3>Как работает федерация Lemmy</h3>
   <p>Lemmy — федеративный link aggregator на ActivityPub (тот же протокол что Mastodon, Pixelfed, PeerTube). Каждый инстанс — независимый сервер, инстансы обмениваются контентом через ActivityPub. Пользователь на <code>programming.dev</code> может подписываться, голосовать и комментировать в community на <code>lemmy.world</code>.</p>
 
-  <h3>Sorting алгоритмы</h3>
+  <h3>Алгоритмы сортировки</h3>
   <table>
     <tr><th>Алгоритм</th><th>Формула/Логика</th><th>Стратегия</th></tr>
-    <tr><td><strong>Hot</strong> (дефолт)</td><td><code>log10(score) + (time / 45000)</code> — heavy time-decay</td><td>Первые 1-2 часа критичны. Engagement в начале решает</td></tr>
+    <tr><td><strong>Hot</strong> (по умолчанию)</td><td><code>log10(score) + (time / 45000)</code> — сильное затухание по времени</td><td>Первые 1-2 часа критичны. Вовлечённость в начале решает</td></tr>
     <tr><td><strong>Active</strong></td><td>Учитывает комментарии, не только голоса</td><td>Посты-дискуссии. Вопросы. Тезисы, приглашающие к спору</td></tr>
-    <tr><td><strong>Scaled</strong></td><td>Нормализация по размеру community</td><td>Маленькие нишевые community могут попасть на All feed</td></tr>
-    <tr><td><strong>New</strong></td><td>Чистая хронология</td><td>Power users browse New</td></tr>
-    <tr><td><strong>Top</strong></td><td>Чистое количество голосов за период</td><td>Цель: Top Week / Top Month для sustained visibility</td></tr>
+    <tr><td><strong>Scaled</strong></td><td>Нормализация по размеру сообщества</td><td>Маленькие нишевые сообщества могут попасть в ленту All</td></tr>
+    <tr><td><strong>New</strong></td><td>Чистая хронология</td><td>Опытные пользователи просматривают New</td></tr>
+    <tr><td><strong>Top</strong></td><td>Чистое количество голосов за период</td><td>Цель: Top Week / Top Month для устойчивой видимости</td></tr>
   </table>
 
-  <h3>Cross-Instance видимость</h3>
+  <h3>Межинстансная видимость</h3>
   <div class="tactic">
     <strong>"All" Feed:</strong> Контент из всех федерированных инстансов. Максимальный охват.<br>
     <strong>"Local" Feed:</strong> Только контент с домашнего инстанса. Некоторые users browse только Local.<br>
@@ -151,30 +151,30 @@ li{margin-bottom:6px}
 <div class="section">
   <h2>3. Анализ конкурентов и communities</h2>
 
-  <h3>Tier 1 — High Activity, Directly Relevant</h3>
+  <h3>Уровень 1 — Высокая активность, прямая релевантность</h3>
   <table>
-    <tr><th>Community</th><th>Instance</th><th>Subscribers</th><th>Relevance</th></tr>
-    <tr><td>!technology</td><td>lemmy.world</td><td>60,000+</td><td>General tech, AI news часто</td></tr>
-    <tr><td>!selfhosted</td><td>lemmy.world</td><td>40,000+</td><td>Docker, homelab — идеально для Tim's infra</td></tr>
-    <tr><td>!linux</td><td>lemmy.ml</td><td>50,000+</td><td>FOSS audience, core демография</td></tr>
-    <tr><td>!opensource</td><td>lemmy.ml</td><td>15,000+</td><td>FOSS projects, tools</td></tr>
-    <tr><td>!programming</td><td>programming.dev</td><td>10,000+</td><td>Code-focused, OSS</td></tr>
-    <tr><td>!artificial_intelligence</td><td>lemmy.world</td><td>5,000+</td><td>AI news, tools, ethics</td></tr>
-    <tr><td>!machinelearning</td><td>lemmy.world</td><td>3,000+</td><td>ML papers, tools</td></tr>
-    <tr><td>!python</td><td>programming.dev</td><td>5,000+</td><td>Tim's stack</td></tr>
+    <tr><th>Сообщество</th><th>Инстанс</th><th>Подписчики</th><th>Релевантность</th></tr>
+    <tr><td>!technology</td><td>lemmy.world</td><td>60,000+</td><td>Общий tech, часто AI-новости</td></tr>
+    <tr><td>!selfhosted</td><td>lemmy.world</td><td>40,000+</td><td>Docker, homelab — идеально для инфры Тима</td></tr>
+    <tr><td>!linux</td><td>lemmy.ml</td><td>50,000+</td><td>FOSS-аудитория, ядро демографии</td></tr>
+    <tr><td>!opensource</td><td>lemmy.ml</td><td>15,000+</td><td>FOSS-проекты, инструменты</td></tr>
+    <tr><td>!programming</td><td>programming.dev</td><td>10,000+</td><td>Фокус на коде, OSS</td></tr>
+    <tr><td>!artificial_intelligence</td><td>lemmy.world</td><td>5,000+</td><td>AI-новости, инструменты, этика</td></tr>
+    <tr><td>!machinelearning</td><td>lemmy.world</td><td>3,000+</td><td>ML-статьи, инструменты</td></tr>
+    <tr><td>!python</td><td>programming.dev</td><td>5,000+</td><td>Стек Тима</td></tr>
   </table>
 
-  <h3>Tier 2 — Medium Activity, Niche</h3>
+  <h3>Уровень 2 — Средняя активность, нишевые</h3>
   <table>
-    <tr><th>Community</th><th>Instance</th><th>Subscribers</th><th>Angle для Tim</th></tr>
-    <tr><td>!privacy</td><td>lemmy.ml</td><td>20,000+</td><td>Self-hosted AI</td></tr>
-    <tr><td>!fediverse</td><td>lemmy.world</td><td>15,000+</td><td>ActivityPub, federation</td></tr>
-    <tr><td>!homelab</td><td>lemmy.world</td><td>8,000+</td><td>Hardware/software lab</td></tr>
+    <tr><th>Сообщество</th><th>Инстанс</th><th>Подписчики</th><th>Угол для Тима</th></tr>
+    <tr><td>!privacy</td><td>lemmy.ml</td><td>20,000+</td><td>Самохостинг AI</td></tr>
+    <tr><td>!fediverse</td><td>lemmy.world</td><td>15,000+</td><td>ActivityPub, федерация</td></tr>
+    <tr><td>!homelab</td><td>lemmy.world</td><td>8,000+</td><td>Хард/софт лаборатория</td></tr>
     <tr><td>!devops</td><td>lemmy.world</td><td>3,000+</td><td>Docker, CI/CD</td></tr>
-    <tr><td>!cybersecurity</td><td>lemmy.world</td><td>5,000+</td><td>Security audit angle</td></tr>
+    <tr><td>!cybersecurity</td><td>lemmy.world</td><td>5,000+</td><td>Угол безопасности</td></tr>
   </table>
 
-  <h3>Архетипы power users</h3>
+  <h3>Архетипы активных пользователей</h3>
   <div class="competitor">
     <div class="num">1</div>
     <div class="det">
@@ -209,7 +209,7 @@ li{margin-bottom:6px}
   </div>
 
   <div class="insight">
-    <strong>Что работает:</strong> "I built X" posts (top), comparison/benchmark posts, FOSS alternative announcements, infrastructure showcases. <strong>Что НЕ работает:</strong> corporate PR, low-effort link drops, paywalled content, promotional disguised as discussion.
+    <strong>Что работает:</strong> Посты «Я построил X» (топ), сравнения/бенчмарки, анонсы FOSS-альтернатив, витрины инфраструктуры. <strong>Что НЕ работает:</strong> корпоративный PR, ленивые вбросы ссылок, контент за платной стеной, промо замаскированное под дискуссию.
   </div>
 </div>
 
@@ -218,12 +218,12 @@ li{margin-bottom:6px}
   <h2>4. Стратегия выбора инстансов</h2>
 
   <table>
-    <tr><th>Инстанс</th><th>Users</th><th>Focus</th><th>Рекомендация</th></tr>
-    <tr><td><strong>lemmy.world</strong></td><td>150,000+</td><td>Largest, general</td><td><strong>PRIMARY</strong> — макс. reach</td></tr>
-    <tr><td><strong>programming.dev</strong></td><td>15,000+</td><td>Programming/tech</td><td><strong>SECONDARY</strong> — dev контент</td></tr>
-    <tr><td>tchncs.de</td><td>10,000+</td><td>Privacy-focused</td><td>Уже зарег. — backup</td></tr>
-    <tr><td>slrpnk.net</td><td>5,000+</td><td>Solarpunk</td><td>Уже зарег. — niche angle</td></tr>
-    <tr><td>lemmy.ml</td><td>40,000+</td><td>Original/FOSS</td><td>Consider, lower priority</td></tr>
+    <tr><th>Инстанс</th><th>Пользователи</th><th>Фокус</th><th>Рекомендация</th></tr>
+    <tr><td><strong>lemmy.world</strong></td><td>150,000+</td><td>Крупнейший, общий</td><td><strong>ОСНОВНОЙ</strong> — макс. охват</td></tr>
+    <tr><td><strong>programming.dev</strong></td><td>15,000+</td><td>Программирование/tech</td><td><strong>ВТОРИЧНЫЙ</strong> — dev-контент</td></tr>
+    <tr><td>tchncs.de</td><td>10,000+</td><td>Фокус на приватности</td><td>Уже зарег. — резерв</td></tr>
+    <tr><td>slrpnk.net</td><td>5,000+</td><td>Solarpunk</td><td>Уже зарег. — нишевый угол</td></tr>
+    <tr><td>lemmy.ml</td><td>40,000+</td><td>Оригинальный/FOSS</td><td>Рассмотреть, низкий приоритет</td></tr>
   </table>
 
   <div class="insight">
@@ -235,14 +235,14 @@ li{margin-bottom:6px}
 <div class="section">
   <h2>5. Культура сообщества</h2>
 
-  <h3>Anti-Reddit Sentiment — #1 культурный фактор</h3>
+  <h3>Анти-Reddit настроение — культурный фактор #1</h3>
   <p>Большинство пользователей пришли во время Reddit API pricing changes (2023). Exodus был эмоциональным. Корпоративное поведение платформ (ads, algorithm manipulation) — extremely negative.</p>
 
   <div class="warning">
     <strong>НЕ ДЕЛАТЬ:</strong> Сравнивать Lemmy с Reddit негативно. Не приносить Reddit-паттерны (karma farming, reposts, reaction GIFs в серьёзных дискуссиях).
   </div>
 
-  <h3>FOSS Values — идеологический commitment</h3>
+  <h3>Ценности FOSS — идеологическая приверженность</h3>
   <ul>
     <li>Рекомендация proprietary tools без FOSS альтернатив → pushback</li>
     <li>"Docker + свой VPS" >> "AWS/GCP/Azure"</li>
@@ -257,10 +257,10 @@ li{margin-bottom:6px}
   <h3>Политический/социальный климат</h3>
   <table>
     <tr><th>Аспект</th><th>Позиция Lemmy</th><th>Как навигировать</th></tr>
-    <tr><td>Политика</td><td>Left-leaning (особенно lemmy.ml)</td><td>Neutral, focus on tech</td></tr>
-    <tr><td>AI discourse</td><td>Skeptical of hype, interested in tech</td><td>"AI augmenting humans" не "AI replacing jobs"</td></tr>
-    <tr><td>Privacy</td><td>Pro-privacy, pro-encryption</td><td>Self-hosted, transparent</td></tr>
-    <tr><td>Growth</td><td>"Growth hacking" = toxic</td><td>Organic, genuine growth</td></tr>
+    <tr><td>Политика</td><td>Левый уклон (особенно lemmy.ml)</td><td>Нейтрально, фокус на технологиях</td></tr>
+    <tr><td>Дискурс об AI</td><td>Скептичен к хайпу, интересуется технологиями</td><td>«AI дополняет людей», не «AI заменяет работу»</td></tr>
+    <tr><td>Приватность</td><td>За приватность, за шифрование</td><td>Самохостинг, прозрачность</td></tr>
+    <tr><td>Рост</td><td>«Growth hacking» = токсичность</td><td>Органический, искренний рост</td></tr>
   </table>
 
   <div class="insight">
@@ -272,20 +272,20 @@ li{margin-bottom:6px}
 <div class="section">
   <h2>6. Tone of Voice</h2>
 
-  <h3>The Transparent Builder — primary voice</h3>
+  <h3>Прозрачный строитель — основной голос</h3>
   <ul>
     <li>"I am building AI agent systems and documenting the process. Here is what Week 3 looked like."</li>
     <li>"Real talk: 4 out of 6 agents failed this week. Here is why."</li>
     <li>"Open question for people running LLMs locally: how do you handle X?"</li>
   </ul>
 
-  <h3>The Practical Educator — secondary voice</h3>
+  <h3>Практический педагог — вторичный голос</h3>
   <ul>
     <li>"I tested 5 approaches to multi-agent coordination. Detailed results inside."</li>
     <li>"A beginner's guide to running AI agents on a $20/month VPS (with Docker Compose configs)"</li>
   </ul>
 
-  <h3>Framing examples</h3>
+  <h3>Примеры подачи</h3>
   <table>
     <tr><th>❌ ПЛОХО</th><th>✅ ХОРОШО</th></tr>
     <tr><td>"I built a revolutionary AI system that runs 8 businesses autonomously!"</td><td>"Running 7 AI agents on a single VPS: architecture, costs, and honest failure analysis"</td></tr>
@@ -294,7 +294,7 @@ li{margin-bottom:6px}
   </table>
 
   <div class="warning">
-    <strong>Anti-Patterns (downvote/report):</strong> Marketing/PR speak, clickbait titles, self-promo без substance, condescending tone, engagement farming, кросс-пост одного контента в 10 community одновременно.
+    <strong>Анти-паттерны (минус/жалоба):</strong> Маркетинговый/PR-язык, кликбейтные заголовки, самопродвижение без содержания, снисходительный тон, фарминг вовлечённости, кросс-пост одного контента в 10 сообществ одновременно.
   </div>
 </div>
 
@@ -302,29 +302,29 @@ li{margin-bottom:6px}
 <div class="section">
   <h2>7. CTA стратегии для sborka.work</h2>
 
-  <h3>Правило 10:1</h3>
+  <h3>Правило 10 к 1</h3>
   <p>На каждый 1 self-promotional пост — 10+ non-promotional комментариев/постов. Ключевой тест: <em>"Был бы этот пост заплюсован даже БЕЗ ссылки?"</em></p>
 
-  <h3>UTM формат</h3>
+  <h3>Формат UTM</h3>
   <div class="formula">sborka.work?utm_source=lemmy&utm_medium=social&utm_campaign=s21_lemmy&utm_content={community}_{date}_{topic}</div>
 
   <div class="tactic">
-    <strong>Strategy A: Direct Link Posts (HIGH CTR, HIGH risk)</strong>
+    <strong>Стратегия A: Прямые ссылочные посты (ВЫСОКИЙ CTR, ВЫСОКИЙ риск)</strong>
     <p>Ссылка прямо на sborka.work контент. Title описывает value, не сайт. Body добавляет context. Только для genuinely valuable content. <strong>Max 1/неделю.</strong></p>
   </div>
 
   <div class="tactic">
-    <strong>Strategy B: Text Post + Contextual Link (MEDIUM CTR, LOW risk) ← PRIMARY</strong>
+    <strong>Стратегия B: Текстовый пост + контекстная ссылка (СРЕДНИЙ CTR, НИЗКИЙ риск) ← ОСНОВНАЯ</strong>
     <p>Substantive text post (3-10 абзацев genuine value) + ссылка в контексте: "I wrote a more detailed breakdown here: [link]". Пост должен стоять сам по себе БЕЗ ссылки.</p>
   </div>
 
   <div class="tactic">
-    <strong>Strategy C: Profile + Comment Links (LOW CTR, ZERO risk)</strong>
+    <strong>Стратегия C: Профиль + ссылки в комментариях (НИЗКИЙ CTR, НУЛЕВОЙ риск)</strong>
     <p>sborka.work в bio. Occasional mentions в комментариях с context. Long-term brand awareness.</p>
   </div>
 
   <div class="tactic">
-    <strong>Strategy D: Research Report Sharing (HIGH CTR, MEDIUM risk)</strong>
+    <strong>Стратегия D: Публикация исследований (ВЫСОКИЙ CTR, СРЕДНИЙ риск)</strong>
     <p>Шаринг research findings с sborka.work/knowledge/research/ — "We published our research on [topic]. Key findings: [summary]. Full report: [link]". Работает в !machinelearning, !technology.</p>
   </div>
 
@@ -335,35 +335,35 @@ li{margin-bottom:6px}
 
 <!-- ===== 8. COMMUNITY CREATION ===== -->
 <div class="section">
-  <h2>8. Стратегия создания Community</h2>
+  <h2>8. Стратегия создания сообщества</h2>
 
   <div class="warning">
-    <strong>НЕ создавать community сейчас.</strong> Community с 1 subscriber (создатель) — мёртвый на старте. Сначала — reputation в существующих communities.
+    <strong>НЕ создавать сообщество сейчас.</strong> Сообщество с 1 подписчиком (создатель) — мёртвое на старте. Сначала — репутация в существующих сообществах.
   </div>
 
-  <h3>Timeline</h3>
+  <h3>Таймлайн</h3>
   <table>
     <tr><th>Период</th><th>Действие</th></tr>
-    <tr><td>Неделя 1-4</td><td>Zero creation. Только participation в существующих</td></tr>
-    <tr><td>Месяц 2-3</td><td>Assess: есть ли gap? "AI agents in production" не покрыт?</td></tr>
-    <tr><td>Месяц 3-4</td><td>Если 200+ karma + recognition → создать community</td></tr>
-    <tr><td>Месяц 4+</td><td>Seed с high-quality контентом, invite engaged users</td></tr>
+    <tr><td>Неделя 1-4</td><td>Ноль создания. Только участие в существующих</td></tr>
+    <tr><td>Месяц 2-3</td><td>Оценить: есть ли пробел? «AI-агенты в продакшне» не покрыт?</td></tr>
+    <tr><td>Месяц 3-4</td><td>Если 200+ кармы + узнаваемость → создать сообщество</td></tr>
+    <tr><td>Месяц 4+</td><td>Наполнить качественным контентом, пригласить вовлечённых пользователей</td></tr>
   </table>
 
-  <h3>Лучшие кандидаты для community (future)</h3>
+  <h3>Лучшие кандидаты для сообщества (в будущем)</h3>
   <table>
-    <tr><th>Community</th><th>Instance</th><th>Viability</th></tr>
+    <tr><th>Сообщество</th><th>Инстанс</th><th>Жизнеспособность</th></tr>
     <tr><td><code>!ai_agents</code></td><td>programming.dev</td><td>MEDIUM — между !ml (academic) и !chatgpt (consumer)</td></tr>
     <tr><td><code>!build_with_ai</code></td><td>lemmy.world</td><td>MEDIUM-HIGH — show-and-tell + learning</td></tr>
     <tr><td><code>!local_llm</code></td><td>programming.dev</td><td>HIGH — strong demand, !selfhosted adjacent</td></tr>
   </table>
 
-  <div class="insight">Community НЕ должно быть о СБОРКЕ. <code>!ai_agents</code> not <code>!sborka_ai</code>. Бренд benefit = organic от founder + most active contributor.</div>
+  <div class="insight">Сообщество НЕ должно быть о СБОРКЕ. <code>!ai_agents</code>, не <code>!sborka_ai</code>. Польза для бренда = органическая от основателя + самого активного участника.</div>
 </div>
 
 <!-- ===== 9. CROSS-PLATFORM ===== -->
 <div class="section">
-  <h2>9. Cross-Platform Integration</h2>
+  <h2>9. Кросс-платформенная интеграция</h2>
 
   <h3>ActivityPub ↔ Mastodon</h3>
   <p>Lemmy communities = Mastodon accounts. <code>!technology@lemmy.world</code> → followable из Mastodon как <code>@technology@lemmy.world</code>. Replies из Mastodon = comments на Lemmy. Mastodon favorites ≠ Lemmy upvotes.</p>
@@ -372,27 +372,27 @@ li{margin-bottom:6px}
     <strong>Strategy:</strong> Follow Lemmy communities из mastodon.social/@timzinin → boost Lemmy posts → cross-pollination. Mastodon comments увеличивают Active ranking.
   </div>
 
-  <h3>RSS Feeds</h3>
+  <h3>RSS-ленты</h3>
   <div class="formula">Community: lemmy.world/feeds/c/technology.xml?sort=Active
 User:      lemmy.world/feeds/u/timzinin.xml?sort=New
 All:       lemmy.world/feeds/all.xml?sort=Active</div>
 
   <h3>Lemmy API — интеграция с auto_publisher</h3>
-  <div class="formula">POST /api/v3/user/login → JWT token
+  <div class="formula">POST /api/v3/user/login → JWT-токен
 POST /api/v3/post → {name, body, community_id, url}
-# Rate limit: max 2-3 posts/day (community norms, not API)
-# Auto-posting supplementary — majority engagement MANUAL</div>
+# Лимит: макс 2-3 поста/день (нормы сообщества, не API)
+# Авто-постинг дополнительный — основная вовлечённость ВРУЧНУЮ</div>
 
-  <h3>Cross-Platform Content Map</h3>
+  <h3>Карта кросс-платформенного контента</h3>
   <table>
-    <tr><th>Source</th><th>→ Lemmy?</th><th>How</th></tr>
-    <tr><td>sborka.work blog</td><td>YES</td><td>Link post + summary</td></tr>
-    <tr><td>Dev.to article</td><td>YES</td><td>Link или expanded text repost</td></tr>
-    <tr><td>YouTube video</td><td>YES</td><td>Link + text summary/timestamps</td></tr>
-    <tr><td>GitHub repo</td><td>YES</td><td>Link + technical writeup</td></tr>
-    <tr><td>LinkedIn post</td><td>SOMETIMES</td><td>Rewrite без corporate tone</td></tr>
-    <tr><td>Telegram</td><td>NO</td><td>Too short/casual</td></tr>
-    <tr><td>Mastodon</td><td>NO</td><td>Auto-federation handles it</td></tr>
+    <tr><th>Источник</th><th>→ Lemmy?</th><th>Как</th></tr>
+    <tr><td>Блог sborka.work</td><td>ДА</td><td>Ссылочный пост + аннотация</td></tr>
+    <tr><td>Статья Dev.to</td><td>ДА</td><td>Ссылка или расширенный текстовый репост</td></tr>
+    <tr><td>Видео YouTube</td><td>ДА</td><td>Ссылка + текстовая аннотация/таймкоды</td></tr>
+    <tr><td>Репозиторий GitHub</td><td>ДА</td><td>Ссылка + техническое описание</td></tr>
+    <tr><td>Пост LinkedIn</td><td>ИНОГДА</td><td>Переписать без корпоративного тона</td></tr>
+    <tr><td>Telegram</td><td>НЕТ</td><td>Слишком коротко/неформально</td></tr>
+    <tr><td>Mastodon</td><td>НЕТ</td><td>Авто-федерация справляется</td></tr>
   </table>
 </div>
 
@@ -409,7 +409,7 @@ POST /api/v3/post → {name, body, community_id, url}
 
   <div class="action-plan">
     <div class="week">
-      <div class="week-label">Pre-Launch: Account Setup</div>
+      <div class="week-label">Предзапуск: Настройка аккаунтов</div>
       <ul>
         <li>Register <code>timzinin</code> на lemmy.world (primary) + programming.dev (secondary)</li>
         <li>Profiles: "Multi-Agent AI Architect. Running 7 AI agents from a single VPS." + sborka.work + GitHub</li>
@@ -418,7 +418,7 @@ POST /api/v3/post → {name, body, community_id, url}
     </div>
 
     <div class="week">
-      <div class="week-label">Неделя 1: Lurk, Learn, Comment</div>
+      <div class="week-label">Неделя 1: Читать, учиться, комментировать</div>
       <ul>
         <li>Read top 10 posts daily (30 min). 3-5 substantive comments/day</li>
         <li>Add value: share experience, correct misconceptions, provide context</li>
@@ -428,7 +428,7 @@ POST /api/v3/post → {name, body, community_id, url}
     </div>
 
     <div class="week">
-      <div class="week-label">Неделя 2: First Posts, Zero Promotion</div>
+      <div class="week-label">Неделя 2: Первые посты, ноль промо</div>
       <ul>
         <li><strong>Post 1 (День 8-9):</strong> !selfhosted — "Running 7 AI Agents on a $20/month VPS: 6-Month Architecture Review" (NO sborka links)</li>
         <li><strong>Post 2 (День 10-11):</strong> !machinelearning — "I Benchmarked Groq vs OpenRouter vs Gemini for Agent Tasks: Honest Results"</li>
@@ -439,7 +439,7 @@ POST /api/v3/post → {name, body, community_id, url}
     </div>
 
     <div class="week">
-      <div class="week-label">Неделя 3: Introduce Value Links</div>
+      <div class="week-label">Неделя 3: Введение ценных ссылок</div>
       <ul>
         <li><strong>Post 4 (День 15):</strong> !programming — "How I Coordinate 7 AI Agents Without a Framework (Plain Python + Docker)" + link: "detailed version on our blog: sborka.work/..."</li>
         <li><strong>Post 5 (День 18):</strong> !machinelearning — "AI Career Market Analysis: Data from 500+ Job Postings" + research report link</li>
@@ -449,7 +449,7 @@ POST /api/v3/post → {name, body, community_id, url}
     </div>
 
     <div class="week">
-      <div class="week-label">Неделя 4: Establish Rhythm</div>
+      <div class="week-label">Неделя 4: Установить ритм</div>
       <ul>
         <li><strong>Post 7 (День 22):</strong> "Week in AI Agents: What I Built, What Broke, What I Learned [Build Log #1]" — recurring series</li>
         <li><strong>Post 8 (День 25):</strong> "Why 'AI Agents' in 2026 Are Mostly Glorified Cron Jobs (And What Real Agent Architecture Looks Like)" — contrarian provocative</li>
@@ -461,11 +461,11 @@ POST /api/v3/post → {name, body, community_id, url}
   </div>
 
   <div class="insight">
-    <strong>Post-30-Day:</strong> Month 2: increase to 4-5x/week, launch recurring series. Month 3: create own community if criteria met (200+ karma, 20+ unique interacted users, clear gap). Target: 500+ total karma, 100+ sborka.work clicks.
+    <strong>После 30 дней:</strong> Месяц 2: увеличить до 4-5 раз/неделю, запустить повторяющиеся серии. Месяц 3: создать своё сообщество если критерии выполнены (200+ кармы, 20+ уникальных собеседников, явный пробел). Цель: 500+ общей кармы, 100+ кликов на sborka.work.
   </div>
 </div>
 
-<a href="../index.html" class="back-link">&larr; Вернуться к Dashboard</a>
+<a href="../index.html" class="back-link">&larr; Вернуться к дашборду</a>
 
 </div>
 </body>

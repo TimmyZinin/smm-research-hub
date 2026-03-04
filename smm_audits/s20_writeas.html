@@ -55,7 +55,7 @@ li{margin-bottom:6px}
 <body>
 
 <nav class="topnav">
-  <a href="../index.html">&larr; Dashboard</a>
+  <a href="../index.html">&larr; Дашборд</a>
   <span class="sep">|</span>
   <a href="s01_telegram.html">TG</a>
   <a href="s02_linkedin.html">LI</a>
@@ -88,8 +88,8 @@ li{margin-bottom:6px}
 <header>
   <h1>Write.as / WriteFreely</h1>
   <div class="sub">S-20 — Минималистичный блоггинг с ActivityPub федерацией</div>
-  <div class="meta">Аккаунт: write.as/timzinin &middot; REST API confirmed &middot; Fediverse Native</div>
-  <div class="platform-badge">&#9997; No Algorithm &middot; Federation &middot; POSSE Hub</div>
+  <div class="meta">Аккаунт: write.as/timzinin &middot; REST API подтверждён &middot; Fediverse Native</div>
+  <div class="platform-badge">&#9997; Без алгоритма &middot; Федерация &middot; POSSE-хаб</div>
 </header>
 
 <!-- ===== 1. ALGORITHM ===== -->
@@ -98,12 +98,12 @@ li{margin-bottom:6px}
   <p>Write.as — фундаментально другая платформа. <strong>Нет алгоритмической ленты, нет рекомендательной системы, нет ранжирования по вовлечённости.</strong> Контент распространяется через 4 канала:</p>
 
   <div class="tactic">
-    <strong>1. ActivityPub Federation (ГЛАВНЫЙ канал)</strong>
+    <strong>1. Федерация ActivityPub (ГЛАВНЫЙ канал)</strong>
     <p>Блог write.as/timzinin имеет Fediverse-хендл <code>@timzinin@write.as</code>. Каждый пост автоматически рассылается подписчикам на любой ActivityPub-совместимой платформе (Mastodon, Pleroma, Misskey). Пользователь mastodon.social может подписаться и видеть посты прямо в своей ленте.</p>
   </div>
 
   <div class="tactic">
-    <strong>2. Страница Read (read.write.as)</strong>
+    <strong>2. Страница «Читать» (read.write.as)</strong>
     <p>Хронологическая лента всех публичных постов. Нет персонализации — каждый пост получает равную начальную видимость. Частота публикации напрямую влияет на присутствие.</p>
   </div>
 
@@ -119,15 +119,15 @@ li{margin-bottom:6px}
 
   <table>
     <tr><th>Канал</th><th>Потенциальный охват</th><th>Усилия</th><th>Релевантность</th></tr>
-    <tr><td>ActivityPub (Fediverse)</td><td>5K-50K на вирусный пост</td><td>Low (авто)</td><td><strong>HIGH</strong></td></tr>
-    <tr><td>Прямой шаринг (HN, Reddit)</td><td>1K-100K на вирусный пост</td><td>Medium</td><td><strong>HIGH</strong></td></tr>
-    <tr><td>RSS подписчики</td><td>10-500 (органический рост)</td><td>None</td><td>MEDIUM</td></tr>
-    <tr><td>read.write.as</td><td>100-1K просмотров</td><td>None</td><td>LOW</td></tr>
-    <tr><td>SEO (поисковики)</td><td>Варьируется, медленный рост</td><td>Medium</td><td>MEDIUM</td></tr>
+    <tr><td>ActivityPub (Fediverse)</td><td>5K-50K на вирусный пост</td><td>Низкие (авто)</td><td><strong>ВЫСОКИЙ</strong></td></tr>
+    <tr><td>Прямой шаринг (HN, Reddit)</td><td>1K-100K на вирусный пост</td><td>Средние</td><td><strong>ВЫСОКИЙ</strong></td></tr>
+    <tr><td>RSS подписчики</td><td>10-500 (органический рост)</td><td>Нулевые</td><td>СРЕДНИЙ</td></tr>
+    <tr><td>read.write.as</td><td>100-1K просмотров</td><td>Нулевые</td><td>НИЗКИЙ</td></tr>
+    <tr><td>SEO (поисковики)</td><td>Варьируется, медленный рост</td><td>Средние</td><td>СРЕДНИЙ</td></tr>
   </table>
 
   <div class="insight">
-    <strong>Ключевой инсайт:</strong> Write.as — это не платформа для discovery. Это canonical source для long-form контента, который распространяется ЧЕРЕЗ другие каналы (Fediverse, HN, Reddit). Стратегия: POSSE — Publish Own Site, Syndicate Everywhere.
+    <strong>Ключевой инсайт:</strong> Write.as — это не платформа для обнаружения. Это каноничный источник для длинного контента, который распространяется ЧЕРЕЗ другие каналы (Fediverse, HN, Reddit). Стратегия: POSSE — Publish Own Site, Syndicate Everywhere (публикуй на своём сайте, распространяй везде).
   </div>
 </div>
 
@@ -135,7 +135,7 @@ li{margin-bottom:6px}
 <div class="section">
   <h2>2. Форматы контента</h2>
 
-  <h3>Blog Posts (Collections) — основной формат</h3>
+  <h3>Блог-посты (Collections) — основной формат</h3>
   <p>Посты привязаны к именованному блогу (collection). Постоянные URL с кастомными slug'ами, редактирование после публикации, федерация через ActivityPub, RSS.</p>
 
   <div class="tactic">
@@ -147,7 +147,7 @@ li{margin-bottom:6px}
     <strong>Критическое ограничение — изображения:</strong> Free план НЕ хостит картинки. Решение: хостить на RUVDS (<code>sborka.work/images/writeas/...</code>) — полный контроль, быстрый сервер, соответствие бренду "own your infrastructure".
   </div>
 
-  <h3>Custom CSS (Pro или self-hosted)</h3>
+  <h3>Кастомный CSS (Pro или self-hosted)</h3>
   <p>Write.as Pro ($9/мес) или self-hosted WriteFreely поддерживают кастомный CSS для brand consistency:</p>
   <div class="formula">body { font-family: 'DM Sans', sans-serif; color: #2C2418; background: #FFFDF7; }
 h1, h2, h3 { font-family: 'Playfair Display', serif; }
@@ -156,21 +156,21 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
 
   <h3>Write.as API — автоматизация</h3>
   <table>
-    <tr><th>Endpoint</th><th>Метод</th><th>Назначение</th></tr>
+    <tr><th>Эндпоинт</th><th>Метод</th><th>Назначение</th></tr>
     <tr><td><code>/api/collections/{alias}/posts</code></td><td>POST</td><td>Публикация в блог</td></tr>
     <tr><td><code>/api/posts/{id}</code></td><td>PUT</td><td>Обновление поста</td></tr>
     <tr><td><code>/api/collections/{alias}/posts</code></td><td>GET</td><td>Список постов</td></tr>
     <tr><td><code>/api/auth/login</code></td><td>POST</td><td>Авторизация (получение токена)</td></tr>
   </table>
 
-  <h3>Multi-Blog стратегия</h3>
+  <h3>Мульти-блог стратегия</h3>
   <table>
     <tr><th>Блог</th><th>Назначение</th><th>Аудитория</th></tr>
-    <tr><td><code>write.as/timzinin</code></td><td>Primary: "One Brain, Many Agents"</td><td>EN — глобальная tech/AI</td></tr>
+    <tr><td><code>write.as/timzinin</code></td><td>Основной: «One Brain, Many Agents»</td><td>EN — глобальная tech/AI</td></tr>
     <tr><td><code>write.as/timzinin-ru</code></td><td>Русский контент, СБОРКА</td><td>RU — предприниматели</td></tr>
-    <tr><td><code>write.as/agent-logs</code></td><td>Build-in-public логи агентов</td><td>EN — deep tech</td></tr>
+    <tr><td><code>write.as/agent-logs</code></td><td>Публичные логи сборки агентов</td><td>EN — deep tech</td></tr>
   </table>
-  <div class="insight">Рекомендация: начать с одного блога <code>write.as/timzinin</code> для консолидации аудитории. Разделять только при 100+ подписчиков.</div>
+  <div class="insight">Рекомендация: начать с одного блога <code>write.as/timzinin</code> для консолидации аудитории. Разделять только при 100+ подписчиках.</div>
 </div>
 
 <!-- ===== 3. COMPETITORS ===== -->
@@ -183,7 +183,7 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
     <div class="det">
       <strong>Matt Baer (@matt@write.as) — основатель Write.as</strong>
       ~2,000+ Fediverse подписчиков &middot; 1-2 поста/мес &middot; Open-source, privacy, decentralized publishing<br>
-      <em>Takeaway:</em> Качество > количество. Сообщество Write.as вознаграждает глубину.
+      <em>Вывод:</em> Качество > количество. Сообщество Write.as вознаграждает глубину.
     </div>
   </div>
 
@@ -192,7 +192,7 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
     <div class="det">
       <strong>Drew DeVault (drewdevault.com) — самый успешный WriteFreely-блогер</strong>
       ~10,000+ подписчиков &middot; 2-4/мес &middot; Sourcehut, open-source, tech policy<br>
-      <em>Takeaway:</em> Self-hosted WriteFreely + HN distribution = massive reach. Посты регулярно на главной HN.
+      <em>Вывод:</em> Self-hosted WriteFreely + HN-дистрибуция = массивный охват. Посты регулярно на главной HN.
     </div>
   </div>
 
@@ -201,7 +201,7 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
     <div class="det">
       <strong>Xe Iaso (xeiaso.net) — ближайший конкурент по тематике AI</strong>
       ~15,000+ подписчиков &middot; 4-8/мес &middot; AI, NixOS, DevOps, философский tech<br>
-      <em>Takeaway:</em> Fediverse ХОЧЕТ глубокий AI/infrastructure контент. Но Xe — философский/experimental, Tim — practical builder. Разные квадранты.
+      <em>Вывод:</em> Fediverse ХОЧЕТ глубокий AI/инфраструктурный контент. Но Xe — философский/экспериментальный, Тим — практический строитель. Разные квадранты.
     </div>
   </div>
 
@@ -210,7 +210,7 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
     <div class="det">
       <strong>Cory Doctorow (pluralistic.net) — золотой стандарт POSSE</strong>
       ~100,000+ подписчиков &middot; Daily &middot; Tech policy, surveillance capitalism<br>
-      <em>Takeaway:</em> POSSE стратегия в действии — canonical blog → syndicate everywhere. Именно эта модель для Tim.
+      <em>Вывод:</em> POSSE-стратегия в действии — каноничный блог → синдикация везде. Именно эта модель для Тима.
     </div>
   </div>
 
@@ -219,7 +219,7 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
     <div class="det">
       <strong>Kev Quirk (kevquirk.com) — бывший WriteFreely</strong>
       ~5,000+ подписчиков &middot; 3-5/мес &middot; Web design, privacy, digital minimalism<br>
-      <em>Takeaway:</em> WriteFreely → self-hosted Hugo с ActivityPub bridge. Доказывает миграционный путь.
+      <em>Вывод:</em> WriteFreely → self-hosted Hugo с мостом ActivityPub. Доказывает миграционный путь.
     </div>
   </div>
 
@@ -228,12 +228,12 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
     <div class="det">
       <strong>Jan-Lukas Else (jlelse.blog) — IndieWeb + Fediverse</strong>
       ~3,000+ подписчиков &middot; 5-10/мес &middot; Go programming, decentralized tech<br>
-      <em>Takeaway:</em> Dual presence (blog + Mastodon) создаёт feedback loop.
+      <em>Вывод:</em> Двойное присутствие (блог + Mastodon) создаёт петлю обратной связи.
     </div>
   </div>
 
   <div class="insight">
-    <strong>Gap Analysis:</strong> Верхний правый квадрант (HIGH technical depth + PRACTICAL builder) — ПУСТ на Write.as/WriteFreely. Xe Iaso — philosophical, Drew DeVault — FOSS/policy. Tim = real production multi-agent systems с реальными метриками revenue.
+    <strong>Анализ пробелов:</strong> Верхний правый квадрант (ВЫСОКАЯ техническая глубина + ПРАКТИЧЕСКИЙ строитель) — ПУСТ на Write.as/WriteFreely. Xe Iaso — философский, Drew DeVault — FOSS/политика. Тим = реальные продакшн мультиагентные системы с реальными метриками выручки.
   </div>
 </div>
 
@@ -256,21 +256,21 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
   <h3>Ценности аудитории</h3>
   <table>
     <tr><th>Ценность</th><th>Проявление</th><th>Последствия для Tim</th></tr>
-    <tr><td>Substance over performance</td><td>Никто не пишет ради лайков</td><td>Подход ПИСАТЕЛЯ, не маркетолога</td></tr>
-    <tr><td>Privacy as a feature</td><td>Anti-surveillance, anti-tracking</td><td>UTM должны быть прозрачными</td></tr>
-    <tr><td>Long-form over short-form</td><td>800-2,000 слов норма</td><td>Глубокий контент вознаграждается</td></tr>
-    <tr><td>IndieWeb / POSSE</td><td>Свой контент, своя платформа</td><td>Multi-platform = хорошо, если правильно framed</td></tr>
-    <tr><td>Slow media</td><td>1-3 поста/неделю максимум</td><td>Качество, не количество</td></tr>
+    <tr><td>Суть важнее показухи</td><td>Никто не пишет ради лайков</td><td>Подход ПИСАТЕЛЯ, не маркетолога</td></tr>
+    <tr><td>Приватность как функция</td><td>Анти-слежка, анти-трекинг</td><td>UTM должны быть прозрачными</td></tr>
+    <tr><td>Длинное важнее короткого</td><td>800-2,000 слов норма</td><td>Глубокий контент вознаграждается</td></tr>
+    <tr><td>IndieWeb / POSSE</td><td>Свой контент, своя платформа</td><td>Мульти-платформа = хорошо, если правильно подано</td></tr>
+    <tr><td>Медленные медиа</td><td>1-3 поста/неделю максимум</td><td>Качество, не количество</td></tr>
   </table>
 
   <h3>Демография (оценка)</h3>
   <table>
     <tr><th>Сегмент</th><th>%</th></tr>
-    <tr><td>Software developers</td><td>35-40%</td></tr>
-    <tr><td>Writers / journalists</td><td>15-20%</td></tr>
-    <tr><td>FOSS / privacy advocates</td><td>15-20%</td></tr>
-    <tr><td>Academics / researchers</td><td>10-15%</td></tr>
-    <tr><td>Tech founders / builders</td><td>5-10% ← Tim's target</td></tr>
+    <tr><td>Разработчики</td><td>35-40%</td></tr>
+    <tr><td>Писатели / журналисты</td><td>15-20%</td></tr>
+    <tr><td>Адвокаты FOSS / приватности</td><td>15-20%</td></tr>
+    <tr><td>Академики / исследователи</td><td>10-15%</td></tr>
+    <tr><td>Tech-основатели / строители</td><td>5-10% ← целевая аудитория Тима</td></tr>
   </table>
 
   <div class="warning">
@@ -280,7 +280,7 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
 
 <!-- ===== 5. SEO ===== -->
 <div class="section">
-  <h2>5. SEO-механика</h2>
+  <h2>5. SEO-механика и обнаружение</h2>
 
   <h3>Преимущества Write.as для SEO</h3>
   <ul>
@@ -294,10 +294,10 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
 
   <h3>Стратегия кастомного домена</h3>
   <table>
-    <tr><th>Вариант</th><th>URL</th><th>SEO эффект</th></tr>
+    <tr><th>Вариант</th><th>URL</th><th>SEO-эффект</th></tr>
     <tr><td><code>blog.sborka.work</code></td><td>blog.sborka.work/post</td><td>Строит DA для sborka.work ← <strong>ЛУЧШИЙ</strong></td></tr>
     <tr><td><code>blog.timzinin.com</code></td><td>blog.timzinin.com/post</td><td>Строит личный бренд</td></tr>
-    <tr><td><code>write.as/timzinin</code></td><td>write.as/timzinin/post</td><td>Minimal SEO для своих доменов</td></tr>
+    <tr><td><code>write.as/timzinin</code></td><td>write.as/timzinin/post</td><td>Минимальный SEO для своих доменов</td></tr>
   </table>
 
   <h3>Целевые ключевые кластеры</h3>
@@ -324,7 +324,7 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
 <div class="section">
   <h2>6. Tone of Voice — адаптация</h2>
 
-  <h3>Что СОХРАНИТЬ от Tim's тона</h3>
+  <h3>Что СОХРАНИТЬ от тона Тима</h3>
   <ul>
     <li>Начинать с проблемы читателя, не с самопродвижения</li>
     <li>Называть конкретные инструменты, людей и метрики</li>
@@ -351,29 +351,29 @@ code, pre { font-family: 'JetBrains Mono', monospace; background: #F5EDE0; }</di
   <h3>Контентные столпы для Write.as</h3>
   <table>
     <tr><th>Столп</th><th>Write.as адаптация</th><th>Частота</th></tr>
-    <tr><td>Build in Public</td><td>Глубокие tech breakdowns: архитектура, стоимость, фейлы. 2,000-4,000 слов</td><td>2x/мес</td></tr>
-    <tr><td>Deep Technical</td><td>Гайды: CrewAI patterns, MCP server design, AI video pipeline. Code-heavy</td><td>1x/мес</td></tr>
-    <tr><td>AI Agent Economics</td><td>Реальный cost analysis: сколько стоит 6 агентов. Per-task breakdowns</td><td>1x/мес</td></tr>
-    <tr><td>СБОРКА Case Study</td><td>AI трансформация job matching. MCP-first strategy. Career platform architecture</td><td>1x/мес</td></tr>
+    <tr><td>Публичная сборка</td><td>Глубокие tech-разборы: архитектура, стоимость, провалы. 2,000-4,000 слов</td><td>2x/мес</td></tr>
+    <tr><td>Глубокий технический</td><td>Гайды: паттерны CrewAI, дизайн MCP-серверов, AI-видео пайплайн. Много кода</td><td>1x/мес</td></tr>
+    <tr><td>Экономика AI-агентов</td><td>Реальный анализ затрат: сколько стоят 6 агентов. Разбивка по задачам</td><td>1x/мес</td></tr>
+    <tr><td>Кейс-стади СБОРКА</td><td>AI-трансформация подбора вакансий. MCP-first стратегия. Архитектура карьерной платформы</td><td>1x/мес</td></tr>
   </table>
 
-  <div class="insight">Итого: 5-6 постов/мес на Write.as (один каждые 5-6 дней). Достаточно для visibility без burnout. Язык: PRIMARY English. Occasional Russian — отмечать в заголовке.</div>
+  <div class="insight">Итого: 5-6 постов/мес на Write.as (один каждые 5-6 дней). Достаточно для видимости без выгорания. Язык: ОСНОВНОЙ — английский. Иногда русский — отмечать в заголовке.</div>
 </div>
 
 <!-- ===== 7. CTA STRATEGY ===== -->
 <div class="section">
-  <h2>7. CTA стратегии для sborka.work</h2>
+  <h2>7. Стратегии CTA для sborka.work</h2>
 
   <div class="warning">
-    <strong>Главный вызов:</strong> Write.as сообщество аллергично на overt marketing. Традиционные CTA ("Click here!", "Sign up!") мгновенно разрушат credibility. Стратегия: давать столько ценности, что читатели САМИ ищут другие работы Tim'а.
+    <strong>Главный вызов:</strong> Сообщество Write.as аллергично на открытый маркетинг. Традиционные CTA («Нажми здесь!», «Зарегистрируйся!») мгновенно разрушат доверие. Стратегия: давать столько ценности, что читатели САМИ ищут другие работы Тима.
   </div>
 
-  <h3>UTM формат</h3>
+  <h3>Формат UTM</h3>
   <div class="formula">sborka.work?utm_source=writeas&utm_medium=social&utm_campaign=s20_writeas&utm_content=wa_{slug}</div>
 
   <div class="tactic">
-    <strong>Стратегия #1: "Further Reading" Footer (PRIMARY — 1-3% CTR)</strong>
-    <p>Каждый пост заканчивается стандартным футером, который выглядит как авторская bio, не sales pitch:</p>
+    <strong>Стратегия #1: Футер «Дополнительное чтение» (ОСНОВНАЯ — 1-3% CTR)</strong>
+    <p>Каждый пост заканчивается стандартным футером, который выглядит как авторская подпись, не продающий текст:</p>
     <div class="formula">---
 *Tim Zinin builds multi-agent AI systems. He writes about
 architecture, costs, and failures at write.as/timzinin.
@@ -382,26 +382,26 @@ is at sborka.work.*</div>
   </div>
 
   <div class="tactic">
-    <strong>Стратегия #2: Organic In-Content Reference (SECONDARY — 2-5% CTR)</strong>
+    <strong>Стратегия #2: Органическая ссылка в контенте (ВТОРИЧНАЯ — 2-5% CTR)</strong>
     <p>Когда пост обсуждает тему, связанную с СБОРКОЙ — ссылка естественно в тексте:</p>
     <p><em>"We applied this to the Russian market with СБОРКА, building both a traditional web interface for humans and a JSON-RPC endpoint for AI agents."</em></p>
   </div>
 
   <div class="tactic">
-    <strong>Стратегия #3: "Source Code / Live Example" Link (TERTIARY — 3-7% CTR)</strong>
+    <strong>Стратегия #3: Ссылка «Исходный код / Живой пример» (ТРЕТИЧНАЯ — 3-7% CTR)</strong>
     <p>При обсуждении архитектуры — ссылка на live систему как reference implementation:</p>
     <p><em>"You can see the actual job board at sborka.work/jobs — we deliberately built the HTML version and the MCP endpoint to share the same PostgreSQL backend."</em></p>
   </div>
 
   <div class="tactic">
-    <strong>Стратегия #4: RSS / Follow CTA (для retention — 2-5% conversion)</strong>
+    <strong>Стратегия #4: CTA на RSS / Подписку (для удержания — 2-5% конверсия)</strong>
     <div class="formula">*If this was useful, follow via RSS (write.as/timzinin/feed/)
 or on the Fediverse at @timzinin@write.as.*</div>
-    <p>Самая высококонвертящая CTA на Write.as — соответствует ценностям платформы (RSS, Fediverse, no email harvesting).</p>
+    <p>Самая высококонвертирующая CTA на Write.as — соответствует ценностям платформы (RSS, Fediverse, без сбора email).</p>
   </div>
 
   <div class="warning">
-    <strong>НЕ ДЕЛАТЬ:</strong> Newsletter signup forms, link shorteners, CTA в первом абзаце, pitch СБОРКА в каждом посте (max 60-70% постов с sborka.work ссылкой). UTM отслеживают SOURCE, не USER — важное различие если спросят.
+    <strong>НЕ ДЕЛАТЬ:</strong> Формы подписки на рассылку, сокращатели ссылок, CTA в первом абзаце, продвижение СБОРКИ в каждом посте (макс 60-70% постов с sborka.work ссылкой). UTM отслеживают ИСТОЧНИК, не ПОЛЬЗОВАТЕЛЯ — важное различие если спросят.
   </div>
 </div>
 
@@ -411,7 +411,7 @@ or on the Fediverse at @timzinin@write.as.*</div>
 
   <p>WriteFreely — open-source движок Write.as. Self-hosting даёт: custom domain, full CSS, federation control, no subscription ($0 vs $9/мес), data ownership, SEO benefits.</p>
 
-  <h3>Docker setup на RUVDS</h3>
+  <h3>Docker-настройка на RUVDS</h3>
   <div class="formula">services:
   writefreely:
     image: writeas/writefreely:latest
@@ -425,16 +425,16 @@ or on the Fediverse at @timzinin@write.as.*</div>
 
   <h3>Матрица решения</h3>
   <table>
-    <tr><th>Фактор</th><th>Write.as Hosted ($9/мес)</th><th>Self-Hosted ($0)</th></tr>
-    <tr><td>Setup</td><td>0 (уже работает)</td><td>2-4 часа</td></tr>
-    <tr><td>Custom domain</td><td>Da (Pro)</td><td>Da (полный контроль)</td></tr>
-    <tr><td>Image hosting</td><td>snap.as ($6/мес)</td><td>Self-hosted (бесплатно)</td></tr>
+    <tr><th>Фактор</th><th>Write.as хостинг ($9/мес)</th><th>Самохостинг ($0)</th></tr>
+    <tr><td>Настройка</td><td>0 (уже работает)</td><td>2-4 часа</td></tr>
+    <tr><td>Кастомный домен</td><td>Да (Pro)</td><td>Да (полный контроль)</td></tr>
+    <tr><td>Хостинг картинок</td><td>snap.as ($6/мес)</td><td>Самохостинг (бесплатно)</td></tr>
     <tr><td>SEO</td><td>Ограниченный</td><td>Полный контроль</td></tr>
-    <tr><td>Maintenance</td><td>None</td><td>Updates, backups</td></tr>
+    <tr><td>Обслуживание</td><td>Нет</td><td>Обновления, бэкапы</td></tr>
   </table>
 
   <div class="insight">
-    <strong>Рекомендация:</strong> Начать с write.as/timzinin (уже работает). Через 30 дней оценить: генерирует ли traffic? CSS ограничивает бренд? Картинки — friction? Если 2+ да → мигрировать на self-hosted WriteFreely.
+    <strong>Рекомендация:</strong> Начать с write.as/timzinin (уже работает). Через 30 дней оценить: генерирует ли трафик? CSS ограничивает бренд? Картинки — проблема? Если 2+ да → мигрировать на self-hosted WriteFreely.
   </div>
 
   <div class="warning">
@@ -444,9 +444,9 @@ or on the Fediverse at @timzinin@write.as.*</div>
 
 <!-- ===== 9. CROSS-PLATFORM ===== -->
 <div class="section">
-  <h2>9. Cross-Platform Syndication (POSSE)</h2>
+  <h2>9. Кросс-платформенная синдикация (POSSE)</h2>
 
-  <h3>Content Flow — Write.as как canonical source</h3>
+  <h3>Поток контента — Write.as как каноничный источник</h3>
   <div class="formula">Write.as (canonical)
   ├── ActivityPub → Mastodon followers (AUTO)
   ├── RSS feed → RSS readers (AUTO)
@@ -462,11 +462,11 @@ or on the Fediverse at @timzinin@write.as.*</div>
         ├── Minds (cross-post)
         └── Nostr (excerpt + link)</div>
 
-  <h3>Mastodon integration</h3>
-  <p>Follow @timzinin@write.as из mastodon.social → новый пост появляется в ленте → boost с комментарием → двойной охват для подписчиков обоих аккаунтов.</p>
+  <h3>Интеграция с Mastodon</h3>
+  <p>Подписка на @timzinin@write.as из mastodon.social → новый пост появляется в ленте → буст с комментарием → двойной охват для подписчиков обоих аккаунтов.</p>
 
-  <h3>Canonical URL (критично для SEO)</h3>
-  <p>При cross-post на Dev.to и Hashnode — ВСЕГДА <code>canonical_url</code> на Write.as. Без этого Google штрафует за duplicate content.</p>
+  <h3>Канонический URL (критично для SEO)</h3>
+  <p>При кросс-посте на Dev.to и Hashnode — ВСЕГДА <code>canonical_url</code> на Write.as. Без этого Google штрафует за дублированный контент.</p>
 
   <div class="formula">Dev.to frontmatter:
 ---
@@ -479,7 +479,7 @@ originalArticleURL: "https://write.as/timzinin/running-6-ai-agents-in-production
   <h3>Автоматизация (Python на RUVDS)</h3>
   <div class="formula">import feedparser
 FEED_URL = "https://write.as/timzinin/feed/"
-# Poll every 30 min → parse → adapt per platform → publish via API → log</div>
+# Опрос каждые 30 мин → парсинг → адаптация по платформам → публикация через API → лог</div>
 </div>
 
 <!-- ===== 10. 30-DAY PLAN ===== -->
@@ -495,7 +495,7 @@ FEED_URL = "https://write.as/timzinin/feed/"
 
   <div class="action-plan">
     <div class="week">
-      <div class="week-label">Неделя 1: Foundation</div>
+      <div class="week-label">Неделя 1: Фундамент</div>
       <ul>
         <li><strong>День 1:</strong> Оптимизация профиля Write.as — bio "Multi-Agent Revenue Architect", sborka.work ссылка</li>
         <li><strong>День 2-3:</strong> Пост #1: "How I Run 6 AI Agents Across 8 Businesses: The Full Architecture" (2,500-3,500 слов)</li>
@@ -507,7 +507,7 @@ FEED_URL = "https://write.as/timzinin/feed/"
     </div>
 
     <div class="week">
-      <div class="week-label">Неделя 2: Consistency</div>
+      <div class="week-label">Неделя 2: Регулярность</div>
       <ul>
         <li><strong>День 8-9:</strong> Пост #2: "The Real Cost of Running AI Agents: My 8-Month Breakdown" — реальные MRR числа</li>
         <li><strong>День 11-12:</strong> Пост #3: "Building a Career Platform on MCP: Why I Chose Machine-Readable Job Matching" — самый сильный sborka.work коннектор</li>
@@ -517,7 +517,7 @@ FEED_URL = "https://write.as/timzinin/feed/"
     </div>
 
     <div class="week">
-      <div class="week-label">Неделя 3: Amplification</div>
+      <div class="week-label">Неделя 3: Усиление</div>
       <ul>
         <li><strong>День 15-16:</strong> Пост #4: "I Built an AI Influencer That Posts to 8 Platforms: Here's What I Learned" — ВИРУСНЫЙ потенциал, honest + ethical framing</li>
         <li><strong>День 17:</strong> Major push: HN, lobste.rs, Reddit r/artificial, r/MachineLearning</li>
@@ -527,7 +527,7 @@ FEED_URL = "https://write.as/timzinin/feed/"
     </div>
 
     <div class="week">
-      <div class="week-label">Неделя 4: Optimization</div>
+      <div class="week-label">Неделя 4: Оптимизация</div>
       <ul>
         <li><strong>День 22-23:</strong> Пост #6: "What HUMAIN's 150-Agent Architecture Tells Us About the Future" — MENA keyword traffic</li>
         <li><strong>День 25-26:</strong> Syndication automation script на RUVDS (RSS → Dev.to, Hashnode, TG)</li>
@@ -539,11 +539,11 @@ FEED_URL = "https://write.as/timzinin/feed/"
   </div>
 
   <div class="insight">
-    <strong>Positioning Map:</strong> Tim's целевая позиция — верхний правый квадрант: HIGH technical depth + PRACTICAL builder. Этот квадрант ПУСТ на Write.as/WriteFreely. Ближайший конкурент Xe Iaso — philosophical, не practical. Tim = real production systems + real revenue metrics.
+    <strong>Карта позиционирования:</strong> Целевая позиция Тима — верхний правый квадрант: ВЫСОКАЯ техническая глубина + ПРАКТИЧЕСКИЙ строитель. Этот квадрант ПУСТ на Write.as/WriteFreely. Ближайший конкурент Xe Iaso — философский, не практический. Тим = реальные продакшн-системы + реальные метрики выручки.
   </div>
 </div>
 
-<a href="../index.html" class="back-link">&larr; Вернуться к Dashboard</a>
+<a href="../index.html" class="back-link">&larr; Вернуться к дашборду</a>
 
 </div>
 </body>

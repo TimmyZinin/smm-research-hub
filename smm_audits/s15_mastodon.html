@@ -75,13 +75,13 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
 <nav class="topnav">
   <span class="logo">SMM Hub</span>
-  <a href="../index.html">Dashboard</a>
+  <a href="../index.html">Дашборд</a>
   <span class="sep">|</span>
   <a href="s01_linkedin.html">LinkedIn</a>
   <a href="s02_instagram.html">Instagram</a>
   <a href="s03_youtube.html">YouTube</a>
-  <a href="s04_telegram_personal.html">TG Personal</a>
-  <a href="s05_telegram_sborka.html">TG Sborka</a>
+  <a href="s04_telegram_personal.html">TG Личный</a>
+  <a href="s05_telegram_sborka.html">TG Сборка</a>
   <a href="s06_threads.html">Threads</a>
   <a href="s07_facebook.html">Facebook</a>
   <a href="s08_tiktok.html">TikTok</a>
@@ -98,84 +98,84 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
 
 <header>
   <h1>S-15: Mastodon</h1>
-  <div class="sub">Fediverse &middot; ActivityPub &middot; Zero Algorithm &middot; Anti-Commercial Culture</div>
+  <div class="sub">Fediverse &middot; ActivityPub &middot; Нулевой алгоритм &middot; Анти-коммерческая культура</div>
   <div class="hero-stats">
-    <div class="hero-stat"><strong>5-7M</strong><span>Monthly Active</span></div>
-    <div class="hero-stat"><strong>500</strong><span>Char Limit</span></div>
-    <div class="hero-stat"><strong>$0</strong><span>API Cost</span></div>
-    <div class="hero-stat"><strong>0</strong><span>Algorithm</span></div>
-    <div class="hero-stat"><strong>300</strong><span>req/5min Rate</span></div>
+    <div class="hero-stat"><strong>5-7M</strong><span>Активных/мес</span></div>
+    <div class="hero-stat"><strong>500</strong><span>Лимит символов</span></div>
+    <div class="hero-stat"><strong>$0</strong><span>Стоимость API</span></div>
+    <div class="hero-stat"><strong>0</strong><span>Алгоритм</span></div>
+    <div class="hero-stat"><strong>300</strong><span>запр./5мин лимит</span></div>
   </div>
 </header>
 
-<!-- ===== 1. FEDIVERSE MECHANICS ===== -->
+<!-- ===== 1. МЕХАНИКА FEDIVERSE ===== -->
 <div class="section">
-  <h2>1. Fediverse Mechanics &amp; Content Distribution</h2>
+  <h2>1. Механика Fediverse и дистрибуция контента</h2>
 
-  <p>Mastodon is the largest platform in the Fediverse &mdash; a network of interconnected, independently operated servers communicating via the <strong>ActivityPub</strong> open protocol. ~10-12M active monthly users collectively, with Mastodon accounting for 5-7M. The user base is disproportionately developers, academics, and open-source advocates &mdash; <em>exactly</em> Tim's target audience.</p>
+  <p>Mastodon — крупнейшая платформа в Fediverse &mdash; сети взаимосвязанных, независимо управляемых серверов, общающихся через открытый протокол <strong>ActivityPub</strong>. ~10-12M активных пользователей ежемесячно в совокупности, из них 5-7M на Mastodon. Пользовательская база непропорционально состоит из разработчиков, учёных и сторонников open source &mdash; <em>именно</em> целевая аудитория Тима.</p>
 
-  <div class="tactic"><strong>Critical Difference:</strong> Mastodon has NO algorithm. Content discovery is purely chronological and follower/hashtag-driven. Boosts (retoots) are the ONLY viral mechanism. There is no &laquo;For You&raquo; page, no engagement optimization, no pay-to-play.</div>
+  <div class="tactic"><strong>Критическое отличие:</strong> В Mastodon НЕТ алгоритма. Обнаружение контента чисто хронологическое и основано на подписках/хештегах. Бусты (ретуты) — ЕДИНСТВЕННЫЙ вирусный механизм. Нет страницы &laquo;Для вас&raquo;, нет оптимизации вовлечённости, нет модели &laquo;плати за охват&raquo;.</div>
 
-  <h3 style="margin:20px 0 12px">Three Timelines</h3>
+  <h3 style="margin:20px 0 12px">Три ленты</h3>
   <table>
-    <tr><th>Timeline</th><th>Content</th><th>Reach</th></tr>
-    <tr><td><strong>Home</strong></td><td>Posts from people you follow (any instance)</td><td>Your followers only</td></tr>
-    <tr><td><strong>Local</strong></td><td>All public posts from your instance</td><td>Everyone on mastodon.social (~2.2M accounts)</td></tr>
-    <tr><td><strong>Federated</strong></td><td>All public posts your instance knows about</td><td>Variable &mdash; depends on instance connections</td></tr>
+    <tr><th>Лента</th><th>Контент</th><th>Охват</th></tr>
+    <tr><td><strong>Домашняя</strong></td><td>Посты от ваших подписок (с любого инстанса)</td><td>Только ваши подписчики</td></tr>
+    <tr><td><strong>Локальная</strong></td><td>Все публичные посты вашего инстанса</td><td>Все на mastodon.social (~2,2M аккаунтов)</td></tr>
+    <tr><td><strong>Федеративная</strong></td><td>Все публичные посты, о которых знает ваш инстанс</td><td>Варьируется &mdash; зависит от связей инстанса</td></tr>
   </table>
 
-  <div class="formula">HOW A POST REACHES NEW PEOPLE:
-  1. Direct followers → Home timeline
-  2. Boosts → ALL booster's followers see it (PRIMARY VIRAL MECHANISM)
-  3. Hashtags → Searchable + followable since Mastodon 4.x
-  4. Relay servers → Expand federated timeline
-  5. Explore/Trending → Curated by instance admins (opt-in)
+  <div class="formula">КАК ПОСТ ДОСТИГАЕТ НОВЫХ ЛЮДЕЙ:
+  1. Прямые подписчики → Домашняя лента
+  2. Бусты → ВСЕ подписчики бустера видят его (ОСНОВНОЙ ВИРУСНЫЙ МЕХАНИЗМ)
+  3. Хештеги → Поиск + подписка с версии Mastodon 4.x
+  4. Ретрансляционные серверы → Расширяют федеративную ленту
+  5. Обзор/Тренды → Курируется админами инстанса (по желанию)
 
-  KEY INSIGHT: Getting boosted by accounts with large followings
-  on active instances is THE primary growth lever.</div>
+  КЛЮЧЕВОЙ ИНСАЙТ: Получить буст от аккаунтов с большим количеством
+  подписчиков на активных инстансах — ГЛАВНЫЙ рычаг роста.</div>
 
   <h3 style="margin:20px 0 12px">Mastodon vs Bluesky vs Twitter</h3>
   <table>
-    <tr><th>Feature</th><th>Mastodon</th><th>Bluesky</th><th>Twitter/X</th></tr>
-    <tr><td>Algorithm</td><td>None (chronological)</td><td>Chronological + custom feeds</td><td>Algorithmic + For You</td></tr>
-    <tr><td>API access</td><td><strong>Free, open</strong></td><td>Free, open</td><td>$100-$42K/month</td></tr>
-    <tr><td>Character limit</td><td>500</td><td>300</td><td>280 (free)</td></tr>
-    <tr><td>Federation</td><td>Full (ActivityPub)</td><td>AT Protocol</td><td>None</td></tr>
-    <tr><td>Edit posts</td><td>Yes</td><td>No</td><td>Premium only</td></tr>
-    <tr><td>Ads</td><td>None</td><td>None</td><td>Pervasive</td></tr>
+    <tr><th>Функция</th><th>Mastodon</th><th>Bluesky</th><th>Twitter/X</th></tr>
+    <tr><td>Алгоритм</td><td>Нет (хронология)</td><td>Хронология + кастомные ленты</td><td>Алгоритмический + Для вас</td></tr>
+    <tr><td>Доступ к API</td><td><strong>Бесплатный, открытый</strong></td><td>Бесплатный, открытый</td><td>$100-$42K/месяц</td></tr>
+    <tr><td>Лимит символов</td><td>500</td><td>300</td><td>280 (бесплатно)</td></tr>
+    <tr><td>Федерация</td><td>Полная (ActivityPub)</td><td>AT Protocol</td><td>Нет</td></tr>
+    <tr><td>Редактирование постов</td><td>Да</td><td>Нет</td><td>Только Premium</td></tr>
+    <tr><td>Реклама</td><td>Нет</td><td>Нет</td><td>Повсюду</td></tr>
   </table>
 
-  <div class="insight"><strong>API Advantage:</strong> Mastodon's free open API is massive vs Twitter's $200/month. Tim already has &laquo;Zinin Corp SMM&raquo; app registered with 6 statuses posted. Auto-publishing costs $0.</div>
+  <div class="insight"><strong>Преимущество API:</strong> Бесплатный открытый API Mastodon — огромный плюс vs $200/месяц у Twitter. У Тима уже зарегистрировано приложение &laquo;Zinin Corp SMM&raquo; с 6 опубликованными статусами. Автопубликация стоит $0.</div>
 </div>
 
-<!-- ===== 2. INSTANCE SELECTION ===== -->
+<!-- ===== 2. ВЫБОР ИНСТАНСА ===== -->
 <div class="section">
-  <h2>2. Instance Selection</h2>
+  <h2>2. Выбор инстанса</h2>
 
-  <p>Tim is on <strong>mastodon.social</strong> &mdash; the flagship instance (~2.2M accounts, 200-300K MAU). Analysis of alternatives:</p>
+  <p>Тим на <strong>mastodon.social</strong> &mdash; флагманском инстансе (~2,2M аккаунтов, 200-300K MAU). Анализ альтернатив:</p>
 
   <table>
-    <tr><th>Instance</th><th>Focus</th><th>Users</th><th>Verdict</th></tr>
-    <tr><td><strong>mastodon.social</strong></td><td>General</td><td>~2.2M</td><td style="color:var(--emerald);font-weight:700">STAY (recommended)</td></tr>
-    <tr><td>fosstodon.org</td><td>FOSS/Tech</td><td>~60K</td><td>Strong dev community, but may resist AI/commercial</td></tr>
-    <tr><td>hachyderm.io</td><td>Tech professionals</td><td>~55K</td><td>Tech-focused, tolerant of professional content</td></tr>
-    <tr><td>sigmoid.social</td><td>AI/ML</td><td>~5K</td><td>AI-specific; consider as secondary account later</td></tr>
-    <tr><td>social.vivaldi.net</td><td>General (Vivaldi)</td><td>~40K</td><td>5,000 char limit; tech-leaning</td></tr>
+    <tr><th>Инстанс</th><th>Фокус</th><th>Пользователей</th><th>Вердикт</th></tr>
+    <tr><td><strong>mastodon.social</strong></td><td>Общий</td><td>~2,2M</td><td style="color:var(--emerald);font-weight:700">ОСТАТЬСЯ (рекомендуется)</td></tr>
+    <tr><td>fosstodon.org</td><td>FOSS/Tech</td><td>~60K</td><td>Сильное dev-сообщество, но может сопротивляться AI/коммерции</td></tr>
+    <tr><td>hachyderm.io</td><td>Tech-профессионалы</td><td>~55K</td><td>Tech-фокус, терпим к профессиональному контенту</td></tr>
+    <tr><td>sigmoid.social</td><td>AI/ML</td><td>~5K</td><td>AI-специфичный; рассмотреть как вторичный аккаунт позже</td></tr>
+    <tr><td>social.vivaldi.net</td><td>Общий (Vivaldi)</td><td>~40K</td><td>Лимит 5 000 символов; tech-ориентированный</td></tr>
   </table>
 
-  <div class="tactic"><strong>Recommendation: STAY on mastodon.social.</strong> Maximum federation reach (connected to more instances than any other), API already configured, stable (Mastodon gGmbH, funded by Patreon + EU grants), permissive rules for professional content. Reassess at 90 days.</div>
+  <div class="tactic"><strong>Рекомендация: ОСТАТЬСЯ на mastodon.social.</strong> Максимальный охват федерации (связан с бОльшим количеством инстансов), API уже настроен, стабильный (Mastodon gGmbH, финансируется Patreon + гранты ЕС), мягкие правила для профессионального контента. Пересмотреть через 90 дней.</div>
 </div>
 
-<!-- ===== 3. COMPETITOR ANALYSIS ===== -->
+<!-- ===== 3. АНАЛИЗ КОНКУРЕНТОВ ===== -->
 <div class="section">
-  <h2>3. Competitor Analysis</h2>
+  <h2>3. Анализ конкурентов</h2>
 
   <div class="competitor">
     <div class="ava">SW</div>
     <div>
       <h4>Simon Willison (@simon@simonwillison.net)</h4>
-      <div class="meta">35,000+ followers &middot; Self-hosted instance &middot; 3-8 posts/day</div>
-      <p>LLM tool reviews, Python snippets, blog links. Very high boost-to-favorite ratio. Threads about new AI tools get 200-500 boosts. <strong>Lesson:</strong> genuine discovery process, always educational, never promotional.</p>
+      <div class="meta">35 000+ подписчиков &middot; Свой инстанс &middot; 3-8 постов/день</div>
+      <p>Обзоры LLM-инструментов, фрагменты Python, ссылки на блог. Очень высокое соотношение бустов к лайкам. Треды о новых AI-инструментах получают 200-500 бустов. <strong>Урок:</strong> искренний процесс исследования, всегда обучающий, никогда рекламный.</p>
     </div>
   </div>
 
@@ -183,8 +183,8 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     <div class="ava">CD</div>
     <div>
       <h4>Cory Doctorow (@pluralistic@mamot.fr)</h4>
-      <div class="meta">80,000+ followers &middot; mamot.fr &middot; 5-15 posts/day</div>
-      <p>Anti-enshittification, tech policy. 500-2000 boosts on long threads. Uses Mastodon as PRIMARY platform (not cross-posting). <strong>Lesson:</strong> thread mastery + authenticity is massively rewarded.</p>
+      <div class="meta">80 000+ подписчиков &middot; mamot.fr &middot; 5-15 постов/день</div>
+      <p>Анти-энштификация, техно-политика. 500-2000 бустов на длинных тредах. Использует Mastodon как ОСНОВНУЮ платформу (не кросс-пост). <strong>Урок:</strong> мастерство тредов + аутентичность массово вознаграждаются.</p>
     </div>
   </div>
 
@@ -192,8 +192,8 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     <div class="ava">TG</div>
     <div>
       <h4>Timnit Gebru (@timnitgebru@dair-community.social)</h4>
-      <div class="meta">25,000+ followers &middot; Self-hosted &middot; 2-5 posts/day</div>
-      <p>AI ethics, industry critique. Controversial takes get highest engagement. <strong>Lesson:</strong> authentic voice and principled positions win.</p>
+      <div class="meta">25 000+ подписчиков &middot; Свой инстанс &middot; 2-5 постов/день</div>
+      <p>Этика AI, критика индустрии. Спорные позиции получают максимальную вовлечённость. <strong>Урок:</strong> аутентичный голос и принципиальные позиции побеждают.</p>
     </div>
   </div>
 
@@ -201,8 +201,8 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     <div class="ava">JG</div>
     <div>
       <h4>Jeff Geerling (@geerlingguy@mastodon.social)</h4>
-      <div class="meta">20,000+ followers &middot; mastodon.social &middot; 1-3 posts/day</div>
-      <p>DevOps/Ansible, Raspberry Pi. Hardware project photos get most boosts. <strong>Lesson:</strong> always provides value in the post itself, never just &laquo;new video, check it out.&raquo;</p>
+      <div class="meta">20 000+ подписчиков &middot; mastodon.social &middot; 1-3 поста/день</div>
+      <p>DevOps/Ansible, Raspberry Pi. Фото аппаратных проектов получают больше всего бустов. <strong>Урок:</strong> всегда даёт ценность в самом посте, никогда просто &laquo;новое видео, посмотрите.&raquo;</p>
     </div>
   </div>
 
@@ -210,295 +210,295 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
     <div class="ava">JE</div>
     <div>
       <h4>Julia Evans (@b0rk@mastodon.social)</h4>
-      <div class="meta">25,000+ followers &middot; mastodon.social &middot; 1-2 posts/day</div>
-      <p>Technical zines/infographics. Visual content gets 500-1500 boosts. <strong>Lesson:</strong> visual technical content is king on Mastodon. Making complex topics accessible through visuals.</p>
+      <div class="meta">25 000+ подписчиков &middot; mastodon.social &middot; 1-2 поста/день</div>
+      <p>Технические зины/инфографика. Визуальный контент получает 500-1500 бустов. <strong>Урок:</strong> визуальный технический контент — король на Mastodon. Сделать сложные темы доступными через визуализацию.</p>
     </div>
   </div>
 
-  <h3 style="margin:20px 0 12px">Engagement Benchmarks (500-5K followers)</h3>
+  <h3 style="margin:20px 0 12px">Бенчмарки вовлечённости (500-5K подписчиков)</h3>
   <table>
-    <tr><th>Metric</th><th>Low</th><th>Average</th><th>Good</th><th>Excellent</th></tr>
-    <tr><td>Favorites/post</td><td>2-5</td><td>10-25</td><td>30-75</td><td>100+</td></tr>
-    <tr><td>Boosts/post</td><td>0-2</td><td>3-10</td><td>15-40</td><td>50+</td></tr>
-    <tr><td>Replies/post</td><td>0-1</td><td>2-5</td><td>5-15</td><td>20+</td></tr>
-    <tr><td>Thread engagement</td><td>1.5x</td><td>2x</td><td>3x</td><td>5x+</td></tr>
+    <tr><th>Метрика</th><th>Низкая</th><th>Средняя</th><th>Хорошая</th><th>Отличная</th></tr>
+    <tr><td>Лайков/пост</td><td>2-5</td><td>10-25</td><td>30-75</td><td>100+</td></tr>
+    <tr><td>Бустов/пост</td><td>0-2</td><td>3-10</td><td>15-40</td><td>50+</td></tr>
+    <tr><td>Ответов/пост</td><td>0-1</td><td>2-5</td><td>5-15</td><td>20+</td></tr>
+    <tr><td>Вовлечённость тредов</td><td>1,5x</td><td>2x</td><td>3x</td><td>5x+</td></tr>
   </table>
 
-  <div class="insight"><strong>Growth Projections:</strong> Month 1: 50-200 followers &middot; Month 3: 200-800 &middot; Month 6: 500-2,000 &middot; Month 12: 1,000-5,000. Realistic for AI/tech account with daily quality content + active engagement.</div>
+  <div class="insight"><strong>Прогнозы роста:</strong> Месяц 1: 50-200 подписчиков &middot; Месяц 3: 200-800 &middot; Месяц 6: 500-2 000 &middot; Месяц 12: 1 000-5 000. Реалистично для AI/tech-аккаунта с ежедневным качественным контентом + активной вовлечённостью.</div>
 </div>
 
-<!-- ===== 4. COMMUNITY CULTURE ===== -->
+<!-- ===== 4. КУЛЬТУРА СООБЩЕСТВА ===== -->
 <div class="section">
-  <h2>4. Community Culture &amp; Accessibility</h2>
+  <h2>4. Культура сообщества и доступность</h2>
 
-  <p>Mastodon's culture is shaped by anti-surveillance capitalism, open source ethos, and accessibility-first principles. Understanding this is <strong>non-negotiable</strong> for success.</p>
+  <p>Культура Mastodon сформирована анти-надзорным капитализмом, open source этикой и принципами доступности. Понимание этого <strong>безоговорочно</strong> необходимо для успеха.</p>
 
-  <div class="warning"><strong>Core Values:</strong>
+  <div class="warning"><strong>Ключевые ценности:</strong>
     <ul style="margin:8px 0 0 20px;font-size:.9em">
-      <li><strong>Anti-surveillance capitalism</strong> &mdash; any &laquo;growth hacking&raquo; or &laquo;funnel&raquo; language = hostility</li>
-      <li><strong>Open source &amp; decentralization</strong> &mdash; FOSS contributions earn massive respect</li>
-      <li><strong>Accessibility is not optional</strong> &mdash; alt text, CamelCase hashtags, content warnings = basic courtesy</li>
-      <li><strong>Community over celebrity</strong> &mdash; nobody wants to be a &laquo;Mastodon influencer&raquo;</li>
-      <li><strong>Anti-metrics obsession</strong> &mdash; celebrating follower counts is frowned upon</li>
+      <li><strong>Анти-надзорный капитализм</strong> &mdash; любой &laquo;хак роста&raquo; или &laquo;воронка&raquo; в языке = враждебность</li>
+      <li><strong>Open source и децентрализация</strong> &mdash; вклад в FOSS приносит огромное уважение</li>
+      <li><strong>Доступность не опциональна</strong> &mdash; alt-текст, CamelCase хештеги, предупреждения о контенте = базовая вежливость</li>
+      <li><strong>Сообщество важнее знаменитостей</strong> &mdash; никто не хочет быть &laquo;инфлюенсером Mastodon&raquo;</li>
+      <li><strong>Анти-метрическая одержимость</strong> &mdash; праздновать количество подписчиков не принято</li>
     </ul>
   </div>
 
-  <h3 style="margin:20px 0 12px">What Earns Respect vs Gets You Unfollowed</h3>
+  <h3 style="margin:20px 0 12px">Что заслуживает уважение vs приводит к отписке</h3>
   <div class="grid-2">
     <div style="background:#F0FAF5;padding:16px;border-radius:10px">
-      <h4 style="color:var(--emerald)">EARNS RESPECT</h4>
+      <h4 style="color:var(--emerald)">ЗАСЛУЖИВАЕТ УВАЖЕНИЕ</h4>
       <ul style="font-size:.85em;margin-top:8px;margin-left:16px">
-        <li>Sharing open-source tools/code</li>
-        <li>Writing detailed alt text</li>
-        <li>Boosting others' content</li>
-        <li>Admitting mistakes publicly</li>
-        <li>Using CW appropriately</li>
-        <li>Responding to questions helpfully</li>
-        <li>Contributing to Fediverse projects</li>
+        <li>Делиться open source инструментами/кодом</li>
+        <li>Писать подробный alt-текст</li>
+        <li>Бустить контент других</li>
+        <li>Публично признавать ошибки</li>
+        <li>Использовать CW уместно</li>
+        <li>Полезно отвечать на вопросы</li>
+        <li>Вносить вклад в проекты Fediverse</li>
       </ul>
     </div>
     <div style="background:#FDF0ED;padding:16px;border-radius:10px">
-      <h4 style="color:var(--terra)">GETS YOU UNFOLLOWED</h4>
+      <h4 style="color:var(--terra)">ПРИВОДИТ К ОТПИСКЕ</h4>
       <ul style="font-size:.85em;margin-top:8px;margin-left:16px">
-        <li>No alt text on images consistently</li>
-        <li>Cross-posting with &laquo;RT @user&raquo; format</li>
-        <li>Excessive self-promotion</li>
-        <li>Corporate/marketing language</li>
-        <li>One-way broadcast behavior</li>
-        <li>Mentioning follower counts</li>
-        <li>&laquo;Follow me on Twitter/X&raquo; links</li>
+        <li>Постоянно без alt-текста на изображениях</li>
+        <li>Кросс-пост в формате &laquo;RT @user&raquo;</li>
+        <li>Чрезмерный самопиар</li>
+        <li>Корпоративный/маркетинговый язык</li>
+        <li>Одностороннее вещание</li>
+        <li>Упоминание числа подписчиков</li>
+        <li>Ссылки &laquo;Подпишитесь на меня в Twitter/X&raquo;</li>
       </ul>
     </div>
   </div>
 
-  <h3 style="margin:20px 0 12px">Accessibility Requirements (NON-NEGOTIABLE)</h3>
-  <div class="tactic"><strong>Alt Text:</strong> EVERY image must have alt text. For code screenshots: describe the code. For infographics: describe key data points. For architecture diagrams: describe components and connections. Mastodon UI warns if you post without alt text. Some clients hide images without it. <code>auto_publisher.py</code> MUST include alt text in every media upload.</div>
+  <h3 style="margin:20px 0 12px">Требования доступности (БЕЗОГОВОРОЧНО)</h3>
+  <div class="tactic"><strong>Alt-текст:</strong> КАЖДОЕ изображение должно иметь alt-текст. Для скриншотов кода: описать код. Для инфографики: описать ключевые данные. Для диаграмм архитектуры: описать компоненты и связи. Интерфейс Mastodon предупреждает если публикуете без alt-текста. Некоторые клиенты скрывают изображения без него. <code>auto_publisher.py</code> ДОЛЖЕН включать alt-текст в каждую загрузку медиа.</div>
 
-  <div class="tactic"><strong>CamelCase Hashtags:</strong> #ArtificialIntelligence, NOT #artificialintelligence. Screen readers parse CamelCase as separate words. Violating this signals &laquo;outsider.&raquo;</div>
+  <div class="tactic"><strong>CamelCase хештеги:</strong> #ArtificialIntelligence, НЕ #artificialintelligence. Скринридеры разбирают CamelCase как отдельные слова. Нарушение этого сигнализирует &laquo;чужак.&raquo;</div>
 </div>
 
-<!-- ===== 5. HASHTAG STRATEGY ===== -->
+<!-- ===== 5. СТРАТЕГИЯ ХЕШТЕГОВ ===== -->
 <div class="section">
-  <h2>5. Hashtag Strategy</h2>
+  <h2>5. Стратегия хештегов</h2>
 
-  <p>Hashtags are the primary discovery mechanism on Mastodon. Users can FOLLOW hashtags (since 4.x), making them appear in Home timeline. Use 3-5 per post, max 7. More = spam.</p>
+  <p>Хештеги — основной механизм обнаружения на Mastodon. Пользователи могут ПОДПИСЫВАТЬСЯ на хештеги (с версии 4.x), и они появляются в домашней ленте. Используйте 3-5 на пост, максимум 7. Больше = спам.</p>
 
   <table>
-    <tr><th>Tier</th><th>Hashtags</th><th>Est. Followers</th></tr>
-    <tr><td><strong>Tier 1 (most posts)</strong></td><td>#AI, #ArtificialIntelligence, #MachineLearning, #OpenSource, #Python, #Tech</td><td>40K-100K+ each</td></tr>
-    <tr><td><strong>Tier 2 (rotate)</strong></td><td>#AIAgents, #MultiAgent, #AgenticAI, #BuildInPublic, #DevOps, #TechCareers, #Fediverse</td><td>5K-40K each</td></tr>
-    <tr><td><strong>Tier 3 (specific)</strong></td><td>#CrewAI, #LangChain, #Docker, #SelfHosted, #FOSS, #NLP, #RAG</td><td>1K-15K each</td></tr>
+    <tr><th>Уровень</th><th>Хештеги</th><th>Примерные подписчики</th></tr>
+    <tr><td><strong>Уровень 1 (большинство постов)</strong></td><td>#AI, #ArtificialIntelligence, #MachineLearning, #OpenSource, #Python, #Tech</td><td>40K-100K+ каждый</td></tr>
+    <tr><td><strong>Уровень 2 (ротация)</strong></td><td>#AIAgents, #MultiAgent, #AgenticAI, #BuildInPublic, #DevOps, #TechCareers, #Fediverse</td><td>5K-40K каждый</td></tr>
+    <tr><td><strong>Уровень 3 (конкретные)</strong></td><td>#CrewAI, #LangChain, #Docker, #SelfHosted, #FOSS, #NLP, #RAG</td><td>1K-15K каждый</td></tr>
   </table>
 
-  <div class="formula">HASHTAG FORMULAS BY CONTENT PILLAR:
+  <div class="formula">ФОРМУЛЫ ХЕШТЕГОВ ПО КОНТЕНТНЫМ СТОЛПАМ:
 
-  Build in Public: #BuildInPublic #AI #AIAgents #Python #Automation
-  Technical:       #AI #MachineLearning #LLM #OpenSource #Tech
-  Career:          #TechCareers #AI #HRTech #Hiring #Tech
-  Multi-agent:     #AIAgents #AgenticAI #MultiAgent #Python #AI
-  Open source:     #OpenSource #FOSS #Python #AI #BuildInPublic</div>
+  Сборка на публику: #BuildInPublic #AI #AIAgents #Python #Automation
+  Технический:       #AI #MachineLearning #LLM #OpenSource #Tech
+  Карьера:           #TechCareers #AI #HRTech #Hiring #Tech
+  Мульти-агенты:     #AIAgents #AgenticAI #MultiAgent #Python #AI
+  Open source:       #OpenSource #FOSS #Python #AI #BuildInPublic</div>
 
-  <div class="warning"><strong>Avoid:</strong> #Mastodon (only for platform discussion), #FollowFriday (only genuine recommendations), #Introduction (only first post). No hashtags mid-sentence. No hashtag stuffing (&gt;7).</div>
+  <div class="warning"><strong>Избегать:</strong> #Mastodon (только для обсуждения платформы), #FollowFriday (только искренние рекомендации), #Introduction (только первый пост). Не хештеги посреди предложения. Не набивать хештеги (&gt;7).</div>
 </div>
 
-<!-- ===== 6. TONE OF VOICE ===== -->
+<!-- ===== 6. ТОН КОММУНИКАЦИИ ===== -->
 <div class="section">
-  <h2>6. Tone of Voice</h2>
+  <h2>6. Тон коммуникации</h2>
 
   <table>
-    <tr><th>Platform</th><th>Winning Tone</th></tr>
-    <tr><td>LinkedIn</td><td>Professional, achievement-focused</td></tr>
-    <tr><td>Twitter/X</td><td>Hot takes, provocative, viral-optimized</td></tr>
-    <tr><td>Threads</td><td>Casual, visual, trendy</td></tr>
-    <tr><td><strong>Mastodon</strong></td><td><strong>Authentic, technical, community-minded, practitioner voice</strong></td></tr>
+    <tr><th>Платформа</th><th>Выигрышный тон</th></tr>
+    <tr><td>LinkedIn</td><td>Профессиональный, фокус на достижениях</td></tr>
+    <tr><td>Twitter/X</td><td>Острые мнения, провокационный, оптимизирован для виральности</td></tr>
+    <tr><td>Threads</td><td>Неформальный, визуальный, модный</td></tr>
+    <tr><td><strong>Mastodon</strong></td><td><strong>Аутентичный, технический, сообщество-ориентированный, голос практика</strong></td></tr>
   </table>
 
   <div class="grid-2">
     <div style="background:#F0FAF5;padding:16px;border-radius:10px">
-      <h4 style="color:var(--emerald)">DO</h4>
+      <h4 style="color:var(--emerald)">МОЖНО</h4>
       <ul style="font-size:.85em;margin-top:8px;margin-left:16px">
-        <li>Write as practitioner sharing experience</li>
-        <li>First person: &laquo;I built,&raquo; &laquo;I learned&raquo;</li>
-        <li>Be specific: numbers, code, architecture</li>
-        <li>Acknowledge uncertainty: &laquo;not sure this scales, but...&raquo;</li>
-        <li>Show the messy middle, not polished results</li>
-        <li>Reference open-source tools, credit builders</li>
-        <li>Dry, self-deprecating humor</li>
+        <li>Писать как практик, делящийся опытом</li>
+        <li>От первого лица: &laquo;Я построил,&raquo; &laquo;Я узнал&raquo;</li>
+        <li>Быть конкретным: числа, код, архитектура</li>
+        <li>Признавать неопределённость: &laquo;не уверен, что это масштабируется, но...&raquo;</li>
+        <li>Показывать неприглядную середину, а не отполированные результаты</li>
+        <li>Ссылаться на open source инструменты, отдавать должное создателям</li>
+        <li>Сухой, самоироничный юмор</li>
       </ul>
     </div>
     <div style="background:#FDF0ED;padding:16px;border-radius:10px">
-      <h4 style="color:var(--terra)">DON'T</h4>
+      <h4 style="color:var(--terra)">НЕЛЬЗЯ</h4>
       <ul style="font-size:.85em;margin-top:8px;margin-left:16px">
-        <li>LinkedIn-speak: &laquo;Excited to share,&raquo; &laquo;Thrilled to announce&raquo;</li>
-        <li>Marketing: &laquo;revolutionary,&raquo; &laquo;disrupting,&raquo; &laquo;10x&raquo;</li>
-        <li>Growth-hacker: &laquo;funnel,&raquo; &laquo;conversion,&raquo; &laquo;lead magnet&raquo;</li>
-        <li>CTA urgency: &laquo;Don't miss out,&raquo; &laquo;Limited time&raquo;</li>
-        <li>Cross-post without tone adaptation</li>
-        <li>Emoji walls</li>
+        <li>LinkedIn-стиль: &laquo;Рад поделиться,&raquo; &laquo;Восторженно анонсирую&raquo;</li>
+        <li>Маркетинг: &laquo;революционный,&raquo; &laquo;прорывной,&raquo; &laquo;10x&raquo;</li>
+        <li>Хак-рост: &laquo;воронка,&raquo; &laquo;конверсия,&raquo; &laquo;лид-магнит&raquo;</li>
+        <li>Срочность CTA: &laquo;Не пропустите,&raquo; &laquo;Ограниченное время&raquo;</li>
+        <li>Кросс-пост без адаптации тона</li>
+        <li>Стены эмодзи</li>
       </ul>
     </div>
   </div>
 
-  <h3 style="margin:20px 0 12px">Sample Posts</h3>
-  <div class="tactic" style="font-style:italic;font-family:'JetBrains Mono',monospace;font-size:.85em">Six months into running 6 AI agents that auto-publish to 26 platforms.<br><br>The honest truth: agent reliability is still the hardest problem.<br>Not the AI part -- the "did the API rate-limit change again at 3AM" part.<br><br>Current stack: Python, CrewAI, Docker on a single VPS.<br>Total monthly cost: ~$15.<br><br>#BuildInPublic #AIAgents #Python</div>
+  <h3 style="margin:20px 0 12px">Примеры постов</h3>
+  <div class="tactic" style="font-style:italic;font-family:'JetBrains Mono',monospace;font-size:.85em">Шесть месяцев работы с 6 AI-агентами, автоматически публикующими на 26 платформах.<br><br>Честная правда: надёжность агентов по-прежнему сложнейшая проблема.<br>Не AI-часть — а "API снова сменил лимиты в 3 часа ночи" часть.<br><br>Текущий стек: Python, CrewAI, Docker на одном VPS.<br>Общая месячная стоимость: ~$15.<br><br>#BuildInPublic #AIAgents #Python</div>
 
-  <div class="tactic" style="font-style:italic;font-family:'JetBrains Mono',monospace;font-size:.85em">We analyzed 500 AI job postings on our career platform.<br><br>Interesting finding: "prompt engineering" mentions dropped 40% in 6 months. "Agent orchestration" mentions up 300%.<br><br>The market is shifting from "talk to AI" to "build AI systems."<br><br>Raw data: [link]<br><br>#TechCareers #AI #AIAgents #Hiring</div>
+  <div class="tactic" style="font-style:italic;font-family:'JetBrains Mono',monospace;font-size:.85em">Мы проанализировали 500 AI-вакансий на нашей карьерной платформе.<br><br>Интересная находка: упоминания "prompt engineering" снизились на 40% за 6 месяцев. Упоминания "agent orchestration" выросли на 300%.<br><br>Рынок сдвигается от "говорить с AI" к "строить AI-системы."<br><br>Сырые данные: [ссылка]<br><br>#TechCareers #AI #AIAgents #Hiring</div>
 </div>
 
-<!-- ===== 7. CTA STRATEGY ===== -->
+<!-- ===== 7. СТРАТЕГИЯ CTA ===== -->
 <div class="section">
-  <h2>7. CTA Strategy &rarr; sborka.work</h2>
+  <h2>7. Стратегия CTA &rarr; sborka.work</h2>
 
-  <div class="warning"><strong>The Anti-Commercial Challenge:</strong> Mastodon culture is deeply skeptical of commercial content. The fundamental equation: <code>Value given &gt;&gt; Value extracted</code>. If you consistently provide more than you take, the community will actively support your projects.</div>
+  <div class="warning"><strong>Анти-коммерческий вызов:</strong> Культура Mastodon глубоко скептична к коммерческому контенту. Фундаментальное уравнение: <code>Отданная ценность >> Извлечённая ценность</code>. Если вы постоянно даёте больше, чем берёте, сообщество будет активно поддерживать ваши проекты.</div>
 
-  <h3 style="margin:16px 0 12px">Approved CTA Patterns</h3>
+  <h3 style="margin:16px 0 12px">Одобренные паттерны CTA</h3>
   <table>
-    <tr><th>Pattern</th><th>Why It Works</th><th>Conversion</th></tr>
-    <tr><td><strong>Research Share</strong></td><td>Genuinely useful data. Link to free content. CTA is implicit</td><td>HIGHEST</td></tr>
-    <tr><td><strong>Open Source Announcement</strong></td><td>FOSS contributions earn massive goodwill. sborka.work link is contextual</td><td>HIGH</td></tr>
-    <tr><td><strong>Career Data Insight</strong></td><td>Data is inherently valuable. CTA is informational, not commercial</td><td>HIGH</td></tr>
-    <tr><td><strong>Build-in-Public Progress</strong></td><td>Honest numbers (including low revenue) signal authenticity</td><td>MEDIUM</td></tr>
-    <tr><td><strong>Community Contribution</strong></td><td>Create something useful FOR the community. Maximum goodwill</td><td>MEDIUM</td></tr>
+    <tr><th>Паттерн</th><th>Почему работает</th><th>Конверсия</th></tr>
+    <tr><td><strong>Распространение исследования</strong></td><td>Действительно полезные данные. Ссылка на бесплатный контент. CTA неявный</td><td>НАИВЫСШАЯ</td></tr>
+    <tr><td><strong>Open source анонс</strong></td><td>FOSS-вклад приносит огромную благосклонность. Ссылка на sborka.work контекстуальна</td><td>ВЫСОКАЯ</td></tr>
+    <tr><td><strong>Инсайт по карьерным данным</strong></td><td>Данные ценны сами по себе. CTA информационный, не коммерческий</td><td>ВЫСОКАЯ</td></tr>
+    <tr><td><strong>Прогресс сборки на публику</strong></td><td>Честные цифры (включая низкий доход) сигнализируют аутентичность</td><td>СРЕДНЯЯ</td></tr>
+    <tr><td><strong>Вклад в сообщество</strong></td><td>Создать что-то полезное ДЛЯ сообщества. Максимальная благосклонность</td><td>СРЕДНЯЯ</td></tr>
   </table>
 
-  <div class="formula">RESEARCH SHARE (BEST CTA):
-  "We published our research on AI agent reliability benchmarks.
-  Tested 14 video generation models, measured cost per minute,
-  failure rates, and output quality.
+  <div class="formula">РАСПРОСТРАНЕНИЕ ИССЛЕДОВАНИЯ (ЛУЧШИЙ CTA):
+  "Мы опубликовали наше исследование бенчмарков надёжности AI-агентов.
+  Протестировали 14 моделей генерации видео, измерили стоимость за минуту,
+  частоту сбоев и качество вывода.
 
-  Full report with raw data:
+  Полный отчёт с сырыми данными:
   sborka.work/knowledge/research/ai-video-benchmarks
     ?utm_source=mastodon&amp;utm_medium=social
     &amp;utm_campaign=research_mar2026&amp;utm_content=m15_01
 
   #AI #MachineLearning #GenerativeAI"</div>
 
-  <div class="warning"><strong>CTA Patterns to AVOID:</strong>
+  <div class="warning"><strong>Паттерны CTA, которых ИЗБЕГАТЬ:</strong>
     <ul style="margin:8px 0 0 20px;font-size:.9em">
-      <li>&laquo;Visit sborka.work to find AI jobs!&raquo; (direct commercial pitch)</li>
-      <li>&laquo;Sign up for our newsletter&raquo; (email capture feels extractive)</li>
-      <li>&laquo;Link in bio&raquo; (Instagram-speak)</li>
-      <li>&laquo;Join 500+ members&raquo; (social proof = salesy)</li>
-      <li>&laquo;Limited spots available&raquo; (urgency/scarcity)</li>
+      <li>&laquo;Заходите на sborka.work найти AI-вакансии!&raquo; (прямая коммерческая подача)</li>
+      <li>&laquo;Подпишитесь на нашу рассылку&raquo; (сбор email воспринимается как извлечение)</li>
+      <li>&laquo;Ссылка в био&raquo; (Instagram-стиль)</li>
+      <li>&laquo;Присоединяйтесь к 500+ участникам&raquo; (социальное доказательство = продажи)</li>
+      <li>&laquo;Ограниченное количество мест&raquo; (срочность/дефицит)</li>
     </ul>
   </div>
 
-  <h3 style="margin:20px 0 12px">Profile Link Verification</h3>
-  <div class="tactic"><strong>rel=&quot;me&quot; Verification:</strong> Add <code>&lt;a rel=&quot;me&quot; href=&quot;https://mastodon.social/@timzinin&quot;&gt;</code> to sborka.work HTML. Mastodon verifies the link and shows a green checkmark &mdash; the equivalent of a blue badge. Significantly increases trust. Set sborka.work as verified metadata field.</div>
+  <h3 style="margin:20px 0 12px">Верификация ссылки профиля</h3>
+  <div class="tactic"><strong>Верификация rel=&quot;me&quot;:</strong> Добавить <code>&lt;a rel=&quot;me&quot; href=&quot;https://mastodon.social/@timzinin&quot;&gt;</code> в HTML sborka.work. Mastodon верифицирует ссылку и показывает зелёную галочку &mdash; эквивалент синего бейджа. Значительно повышает доверие. Установить sborka.work как верифицированное поле метаданных.</div>
 </div>
 
-<!-- ===== 8. CROSS-PLATFORM: ACTIVITYPUB FEDERATION ===== -->
+<!-- ===== 8. КРОСС-ПЛАТФОРМЕННОСТЬ: ФЕДЕРАЦИЯ ACTIVITYPUB ===== -->
 <div class="section">
-  <h2>8. Cross-Platform: ActivityPub Federation</h2>
+  <h2>8. Кросс-платформенность: федерация ActivityPub</h2>
 
-  <p>Mastodon's ActivityPub protocol enables interoperability with a growing ecosystem &mdash; a unique advantage no centralized platform offers.</p>
+  <p>Протокол ActivityPub Mastodon обеспечивает совместимость с растущей экосистемой &mdash; уникальное преимущество, которого нет ни у одной централизованной платформы.</p>
 
   <table>
-    <tr><th>Platform</th><th>Type</th><th>Interop</th><th>Priority</th></tr>
-    <tr><td><strong>WordPress (ActivityPub plugin)</strong></td><td>Blog</td><td>Blog posts appear as Mastodon posts, receive comments</td><td style="color:var(--emerald);font-weight:700">HIGH</td></tr>
-    <tr><td><strong>Lemmy</strong></td><td>Reddit-like</td><td>Follow communities from Mastodon, see posts</td><td>MEDIUM</td></tr>
-    <tr><td><strong>PeerTube</strong></td><td>YouTube-like</td><td>Follow channels, see video posts</td><td>MEDIUM</td></tr>
-    <tr><td><strong>Threads</strong></td><td>Microblog</td><td>Limited ActivityPub since Dec 2024, opt-in</td><td>LOW</td></tr>
-    <tr><td><strong>Pixelfed</strong></td><td>Instagram-like</td><td>Full interop: follow, comment, boost</td><td>LOW</td></tr>
-    <tr><td><strong>Flipboard</strong></td><td>News</td><td>ActivityPub support since 2024</td><td>LOW</td></tr>
+    <tr><th>Платформа</th><th>Тип</th><th>Совместимость</th><th>Приоритет</th></tr>
+    <tr><td><strong>WordPress (плагин ActivityPub)</strong></td><td>Блог</td><td>Посты блога появляются как посты Mastodon, получают комментарии</td><td style="color:var(--emerald);font-weight:700">ВЫСОКИЙ</td></tr>
+    <tr><td><strong>Lemmy</strong></td><td>Reddit-подобный</td><td>Подписка на сообщества из Mastodon, просмотр постов</td><td>СРЕДНИЙ</td></tr>
+    <tr><td><strong>PeerTube</strong></td><td>YouTube-подобный</td><td>Подписка на каналы, просмотр видеопостов</td><td>СРЕДНИЙ</td></tr>
+    <tr><td><strong>Threads</strong></td><td>Микроблог</td><td>Ограниченная поддержка ActivityPub с декабря 2024, по желанию</td><td>НИЗКИЙ</td></tr>
+    <tr><td><strong>Pixelfed</strong></td><td>Instagram-подобный</td><td>Полная совместимость: подписка, комментарии, бусты</td><td>НИЗКИЙ</td></tr>
+    <tr><td><strong>Flipboard</strong></td><td>Новости</td><td>Поддержка ActivityPub с 2024</td><td>НИЗКИЙ</td></tr>
   </table>
 
-  <div class="insight"><strong>Power Play:</strong> If sborka.work adds ActivityPub support (WordPress plugin or custom implementation), every research report automatically federates to Mastodon. Users follow <code>@blog@sborka.work</code> and see articles in their timeline. This is the most powerful cross-platform CTA available &mdash; content discovery without any promotion.</div>
+  <div class="insight"><strong>Мощный ход:</strong> Если sborka.work добавит поддержку ActivityPub (плагин WordPress или кастомная реализация), каждый исследовательский отчёт автоматически федерируется в Mastodon. Пользователи подписываются на <code>@blog@sborka.work</code> и видят статьи в своей ленте. Это самый мощный кросс-платформенный CTA — обнаружение контента без какого-либо продвижения.</div>
 
-  <div class="formula">CROSS-POSTING RULES:
-  BEST: Write for Mastodon first → adapt to other platforms
-  GOOD: Post on Mastodon, then share adapted version elsewhere
-  OK:   Write LinkedIn post, then GENUINELY rephrase for Mastodon
-  BAD:  Auto-cross-post from Twitter with "RT" format
-  BAD:  Post identical text on Mastodon and LinkedIn
-  BAD:  Link to your LinkedIn/Twitter post ("Fediverse colonialism")</div>
+  <div class="formula">ПРАВИЛА КРОСС-ПОСТИНГА:
+  ЛУЧШЕ: Писать для Mastodon сначала → адаптировать для других платформ
+  ХОРОШО: Опубликовать на Mastodon, затем расшарить адаптированную версию
+  НОРМАЛЬНО: Написать LinkedIn-пост, затем ИСКРЕННЕ переписать для Mastodon
+  ПЛОХО: Авто-кросс-пост из Twitter в формате "RT"
+  ПЛОХО: Опубликовать идентичный текст на Mastodon и LinkedIn
+  ПЛОХО: Ссылка на свой LinkedIn/Twitter пост ("колониализм Fediverse")</div>
 </div>
 
-<!-- ===== 9. CONTENT STRATEGY ===== -->
+<!-- ===== 9. СТРАТЕГИЯ КОНТЕНТА ===== -->
 <div class="section">
-  <h2>9. Content Strategy &amp; Formats</h2>
+  <h2>9. Стратегия контента и форматы</h2>
 
   <table>
-    <tr><th>Content Type</th><th>Engagement</th><th>Example</th></tr>
-    <tr><td><strong>Open source announcements</strong></td><td>VERY HIGH</td><td>&laquo;Just open-sourced our multi-platform auto-publisher. Python, 26 platforms, $0/month.&raquo;</td></tr>
-    <tr><td><strong>Build in Public</strong></td><td>HIGH</td><td>&laquo;Deployed 6 AI agents. Here's what 3 months taught me about orchestration.&raquo;</td></tr>
-    <tr><td><strong>Technical breakdowns</strong></td><td>HIGH</td><td>Thread: &laquo;How ActivityPub federation works under the hood&raquo;</td></tr>
-    <tr><td><strong>Code snippets</strong></td><td>HIGH</td><td>Screenshot of auto_publisher.py with explanation + alt text</td></tr>
-    <tr><td><strong>Hot takes on AI</strong></td><td>MEDIUM-HIGH</td><td>&laquo;90% of AI pilots fail because they optimize for demos, not production.&raquo;</td></tr>
-    <tr><td><strong>Polls</strong></td><td>HIGH</td><td>&laquo;Biggest challenge with AI agents? 1) Reliability 2) Cost 3) Orchestration 4) Trust&raquo;</td></tr>
-    <tr><td><strong>Career insights</strong></td><td>MEDIUM</td><td>&laquo;We analyzed 500 AI job postings. The skill gap isn't technical.&raquo;</td></tr>
-    <tr><td><strong>Pure promotion</strong></td><td>VERY LOW</td><td>&laquo;Check out sborka.work!&raquo; &mdash; will get you unfollowed</td></tr>
+    <tr><th>Тип контента</th><th>Вовлечённость</th><th>Пример</th></tr>
+    <tr><td><strong>Open source анонсы</strong></td><td>ОЧЕНЬ ВЫСОКАЯ</td><td>&laquo;Только что выложил в open source наш мульти-платформенный автопостер. Python, 26 платформ, $0/мес.&raquo;</td></tr>
+    <tr><td><strong>Сборка на публику</strong></td><td>ВЫСОКАЯ</td><td>&laquo;Задеплоил 6 AI-агентов. Вот чему 3 месяца научили об оркестрации.&raquo;</td></tr>
+    <tr><td><strong>Технические разборы</strong></td><td>ВЫСОКАЯ</td><td>Тред: &laquo;Как работает федерация ActivityPub под капотом&raquo;</td></tr>
+    <tr><td><strong>Фрагменты кода</strong></td><td>ВЫСОКАЯ</td><td>Скриншот auto_publisher.py с пояснением + alt-текст</td></tr>
+    <tr><td><strong>Острые мнения об AI</strong></td><td>СРЕДНЕ-ВЫСОКАЯ</td><td>&laquo;90% AI-пилотов проваливаются потому что оптимизируют для демо, а не для продакшна.&raquo;</td></tr>
+    <tr><td><strong>Опросы</strong></td><td>ВЫСОКАЯ</td><td>&laquo;Главная проблема с AI-агентами? 1) Надёжность 2) Стоимость 3) Оркестрация 4) Доверие&raquo;</td></tr>
+    <tr><td><strong>Карьерные инсайты</strong></td><td>СРЕДНЯЯ</td><td>&laquo;Мы проанализировали 500 AI-вакансий. Дефицит навыков не технический.&raquo;</td></tr>
+    <tr><td><strong>Чистый промоушн</strong></td><td>ОЧЕНЬ НИЗКАЯ</td><td>&laquo;Заходите на sborka.work!&raquo; &mdash; приведёт к отпискам</td></tr>
   </table>
 
-  <h3 style="margin:20px 0 12px">Posting Schedule</h3>
+  <h3 style="margin:20px 0 12px">Расписание публикаций</h3>
   <table>
-    <tr><th>Activity</th><th>Frequency</th><th>Best Time (UTC)</th></tr>
-    <tr><td>Original posts</td><td>1 per day (growth phase)</td><td>12:00-14:00 (EU lunch + US morning)</td></tr>
-    <tr><td>Boosts of others</td><td>2-3 per day</td><td>Throughout the day</td></tr>
-    <tr><td>Replies to others</td><td>3-5 per day</td><td>Active conversation hours</td></tr>
-    <tr><td>Threads</td><td>1 per week</td><td>12:00 UTC for max EU+US reach</td></tr>
-    <tr><td>#FollowFriday</td><td>Weekly (genuine only)</td><td>Fridays</td></tr>
+    <tr><th>Активность</th><th>Частота</th><th>Лучшее время (UTC)</th></tr>
+    <tr><td>Оригинальные посты</td><td>1 в день (фаза роста)</td><td>12:00-14:00 (обед ЕС + утро США)</td></tr>
+    <tr><td>Бусты других</td><td>2-3 в день</td><td>В течение дня</td></tr>
+    <tr><td>Ответы другим</td><td>3-5 в день</td><td>Часы активных разговоров</td></tr>
+    <tr><td>Треды</td><td>1 в неделю</td><td>12:00 UTC для макс. охвата ЕС+США</td></tr>
+    <tr><td>#FollowFriday</td><td>Еженедельно (только искренне)</td><td>По пятницам</td></tr>
   </table>
 
-  <div class="tactic"><strong>Content Warnings (CW):</strong> Use for AI doomerism/existential risk, controversial hot takes, posts about job loss/displacement. When in doubt, add a CW &mdash; the community respects over-use but punishes under-use. NOT needed for: technical posts, career advice, build-in-public, open source.</div>
+  <div class="tactic"><strong>Предупреждения о контенте (CW):</strong> Использовать для AI-думерства/экзистенциальных рисков, спорных острых мнений, постов о потере работы/вытеснении. Если сомневаетесь, добавьте CW &mdash; сообщество уважает избыточное использование, но наказывает за недостаточное. НЕ нужно для: технических постов, карьерных советов, сборки на публику, open source.</div>
 </div>
 
-<!-- ===== 10. 30-DAY ACTION PLAN ===== -->
+<!-- ===== 10. 30-ДНЕВНЫЙ ПЛАН ДЕЙСТВИЙ ===== -->
 <div class="section">
-  <h2>10. 30-Day Action Plan</h2>
+  <h2>10. 30-дневный план действий</h2>
 
-  <h3 style="margin-bottom:16px">Pre-Launch (Day 0)</h3>
+  <h3 style="margin-bottom:16px">Предзапуск (День 0)</h3>
   <div class="action-plan">
     <div class="step">
-      <h4>Optimize profile</h4>
-      <p>Display: &laquo;Tim Zinin&raquo;. Bio (500 chars): &laquo;Multi-agent AI architect. Building systems where 6 AI agents run 8 businesses from a laptop. Open source, build in public. Creator of SBORKA career platform.&raquo; 4 metadata fields: Site (sborka.work verified), GitHub, Blog (Dev.to), YouTube.</p>
+      <h4>Оптимизировать профиль</h4>
+      <p>Имя: &laquo;Tim Zinin&raquo;. Био (500 символов): &laquo;Multi-agent AI architect. Building systems where 6 AI agents run 8 businesses from a laptop. Open source, build in public. Creator of SBORKA career platform.&raquo; 4 поля метаданных: Сайт (sborka.work верифицирован), GitHub, Блог (Dev.to), YouTube.</p>
     </div>
     <div class="step">
-      <h4>Add rel=&quot;me&quot; verification</h4>
-      <p>Add <code>&lt;a rel=&quot;me&quot;&gt;</code> link to sborka.work for green checkmark. Enable &laquo;discoverable&raquo; and &laquo;searchable&raquo; in settings.</p>
+      <h4>Добавить верификацию rel=&quot;me&quot;</h4>
+      <p>Добавить ссылку <code>&lt;a rel=&quot;me&quot;&gt;</code> на sborka.work для зелёной галочки. Включить &laquo;обнаруживаемый&raquo; и &laquo;доступный для поиска&raquo; в настройках.</p>
     </div>
     <div class="step">
-      <h4>Update auto_publisher.py</h4>
-      <p>Mastodon module: 500 char limit, CamelCase hashtags, mandatory alt text on all media uploads. UTM tracking on all links. Test post with image + alt text via API.</p>
+      <h4>Обновить auto_publisher.py</h4>
+      <p>Модуль Mastodon: лимит 500 символов, CamelCase хештеги, обязательный alt-текст на всех загрузках медиа. UTM-отслеживание на всех ссылках. Тестовый пост с картинкой + alt-текстом через API.</p>
     </div>
   </div>
 
-  <h3 style="margin:24px 0 12px">Week 1: Introduction &amp; Orientation</h3>
+  <h3 style="margin:24px 0 12px">Неделя 1: Знакомство и ориентация</h3>
   <table>
-    <tr><th>Day</th><th>Action</th><th>Type</th></tr>
-    <tr><td>1</td><td>#Introduction post: who you are, what you build, open source links, &laquo;What are people working on?&raquo;</td><td>Introduction</td></tr>
-    <tr><td>2</td><td>Technical insight from multi-agent stack + code screenshot WITH alt text</td><td>Technical</td></tr>
-    <tr><td>3</td><td>BOOST DAY: 0 original content. Boost 5-10 great AI/tech posts. Reply to 3-5 thoughtfully</td><td>Community</td></tr>
-    <tr><td>4</td><td>Thread (3-5 posts): &laquo;What 6 months of multi-agent orchestration taught me&raquo;</td><td>Thread</td></tr>
-    <tr><td>5</td><td>Search #AI, #AIAgents, #BuildInPublic. Reply to 5-10 posts. Follow 10-20 genuine interests</td><td>Engagement</td></tr>
-    <tr><td>6</td><td>Architecture diagram/infographic with detailed alt text + soft CTA to sborka.work</td><td>Visual + CTA</td></tr>
-    <tr><td>7</td><td>Light personal/humorous post or more boosts</td><td>Personal</td></tr>
+    <tr><th>День</th><th>Действие</th><th>Тип</th></tr>
+    <tr><td>1</td><td>Пост #Introduction: кто вы, что строите, ссылки на open source, &laquo;Над чем вы работаете?&raquo;</td><td>Знакомство</td></tr>
+    <tr><td>2</td><td>Технический инсайт из мульти-агентного стека + скриншот кода С alt-текстом</td><td>Технический</td></tr>
+    <tr><td>3</td><td>ДЕНЬ БУСТОВ: 0 оригинального контента. Бустнуть 5-10 отличных AI/tech постов. Ответить на 3-5 продуманно</td><td>Сообщество</td></tr>
+    <tr><td>4</td><td>Тред (3-5 постов): &laquo;Чему 6 месяцев мульти-агентной оркестрации научили меня&raquo;</td><td>Тред</td></tr>
+    <tr><td>5</td><td>Поиск по #AI, #AIAgents, #BuildInPublic. Ответить на 5-10 постов. Подписаться на 10-20 по интересам</td><td>Вовлечение</td></tr>
+    <tr><td>6</td><td>Диаграмма архитектуры/инфографика с подробным alt-текстом + мягкий CTA на sborka.work</td><td>Визуал + CTA</td></tr>
+    <tr><td>7</td><td>Лёгкий личный/юмористический пост или больше бустов</td><td>Личное</td></tr>
   </table>
 
-  <h3 style="margin:24px 0 12px">Week 2: Establishing Rhythm</h3>
-  <p>Daily: 1 original post + 2-3 boosts + 3-5 replies. Day 9: first career data CTA to sborka.work research. Day 11: #FollowFriday &mdash; recommend 3-5 accounts you genuinely enjoy.</p>
+  <h3 style="margin:24px 0 12px">Неделя 2: Установление ритма</h3>
+  <p>Ежедневно: 1 оригинальный пост + 2-3 буста + 3-5 ответов. День 9: первый карьерный CTA на исследование sborka.work. День 11: #FollowFriday &mdash; рекомендовать 3-5 аккаунтов, которые искренне нравятся.</p>
 
-  <h3 style="margin:24px 0 12px">Week 3: Deepening Community Ties</h3>
-  <p>Focus on building relationships, not broadcasting. Participate in ongoing AI/tech conversations. Share open-source contributions. Join Lemmy AI communities for cross-federation.</p>
+  <h3 style="margin:24px 0 12px">Неделя 3: Углубление связей с сообществом</h3>
+  <p>Фокус на построении отношений, а не вещании. Участие в текущих AI/tech разговорах. Делиться open source вкладами. Присоединиться к AI-сообществам Lemmy для кросс-федерации.</p>
 
-  <h3 style="margin:24px 0 12px">Week 4: Consolidation</h3>
-  <p>Establish consistent posting rhythm. Second research CTA. Evaluate engagement patterns. Plan Month 2 content calendar.</p>
+  <h3 style="margin:24px 0 12px">Неделя 4: Консолидация</h3>
+  <p>Установить постоянный ритм публикаций. Второй исследовательский CTA. Оценить паттерны вовлечённости. Спланировать контент-календарь Месяца 2.</p>
 
-  <h3 style="margin:24px 0 12px">Month 1 KPIs</h3>
+  <h3 style="margin:24px 0 12px">Месячные KPI</h3>
   <div class="grid-2">
-    <div class="kpi-card"><div class="num">50-200</div><div class="label">Followers</div></div>
-    <div class="kpi-card"><div class="num">28+</div><div class="label">Original Posts</div></div>
-    <div class="kpi-card"><div class="num">60+</div><div class="label">Boosts Given</div></div>
-    <div class="kpi-card"><div class="num">100+</div><div class="label">Replies Written</div></div>
-    <div class="kpi-card"><div class="num">10+</div><div class="label">Boosts on Best Post</div></div>
-    <div class="kpi-card"><div class="num">5+</div><div class="label">sborka.work Clicks</div></div>
-    <div class="kpi-card"><div class="num">1</div><div class="label">Verified Profile Link</div></div>
-    <div class="kpi-card"><div class="num">5+</div><div class="label">Conversations Joined</div></div>
+    <div class="kpi-card"><div class="num">50-200</div><div class="label">Подписчиков</div></div>
+    <div class="kpi-card"><div class="num">28+</div><div class="label">Оригинальных постов</div></div>
+    <div class="kpi-card"><div class="num">60+</div><div class="label">Бустов отдано</div></div>
+    <div class="kpi-card"><div class="num">100+</div><div class="label">Ответов написано</div></div>
+    <div class="kpi-card"><div class="num">10+</div><div class="label">Бустов лучшего поста</div></div>
+    <div class="kpi-card"><div class="num">5+</div><div class="label">Кликов на sborka.work</div></div>
+    <div class="kpi-card"><div class="num">1</div><div class="label">Верифицир. ссылка профиля</div></div>
+    <div class="kpi-card"><div class="num">5+</div><div class="label">Присоединённых разговоров</div></div>
   </div>
 </div>
 
 <footer>
-  SMM Research Hub &copy; 2026 | Тим Зинин | Sprint S-15 Mastodon
+  SMM Research Hub &copy; 2026 | Тим Зинин | Спринт S-15 Mastodon
 </footer>
 
 </div>

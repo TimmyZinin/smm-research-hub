@@ -56,7 +56,7 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
 <body>
 
 <nav class="topnav">
-  <a href="../index.html">&larr; Dashboard</a>
+  <a href="../index.html">&larr; Дашборд</a>
   <a href="s01_telegram.html">TG</a>
   <a href="s02_linkedin.html">LI</a>
   <a href="s03_threads.html">Thr</a>
@@ -90,12 +90,12 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
 
 <div class="hero">
   <h1>S-24: Spotify</h1>
-  <div class="sub">Podcast Discovery & Growth Platform — СБОРКА</div>
+  <div class="sub">Платформа обнаружения и роста подкастов — СБОРКА</div>
   <div class="badge-row">
     <span>open.spotify.com/show/21bqNRvcjY0mj0Zthp2qw3</span>
-    <span>Auto-sync via RSS</span>
+    <span>Авто-синхронизация через RSS</span>
     <span>600M+ пользователей</span>
-    <span>Tier 4 — Podcast</span>
+    <span>Уровень 4 — Подкаст</span>
   </div>
 </div>
 
@@ -106,41 +106,41 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
   <h2>1. Алгоритм и обнаружение</h2>
 
   <h3>1.1 Как Spotify рекомендует подкасты (2025-2026)</h3>
-  <p>Три ключевых системы: <strong>Collaborative Filtering</strong> (основной сигнал — слушатели похожих подкастов), <strong>Content-Based Signals</strong> (NLP title/description + автоматическая транскрипция + категории), <strong>Engagement Metrics</strong>.</p>
+  <p>Три ключевых системы: <strong>Коллаборативная фильтрация</strong> (основной сигнал — слушатели похожих подкастов), <strong>Контентные сигналы</strong> (NLP заголовок/описание + автоматическая транскрипция + категории), <strong>Метрики вовлечённости</strong>.</p>
 
-  <h3>1.2 Engagement Metrics (по приоритету)</h3>
+  <h3>1.2 Метрики вовлечённости (по приоритету)</h3>
   <table>
     <tr><th>#</th><th>Метрика</th><th>Значение</th></tr>
-    <tr><td>1</td><td style="font-weight:600">Completion Rate</td><td>Самый важный сигнал. >60% = качество</td></tr>
-    <tr><td>2</td><td>Follow-to-listen ratio</td><td>Сколько слушателей подписываются после пробы</td></tr>
-    <tr><td>3</td><td>Return rate</td><td>Как часто подписчики возвращаются</td></tr>
-    <tr><td>4</td><td>Save/share rate</td><td>Эпизоды сохранённые/расшаренные</td></tr>
-    <tr><td>5</td><td>Episode start rate</td><td>CTR от impressions к прослушиванию</td></tr>
-    <tr><td>6</td><td>Listening streak</td><td>Бинж-сигнал (подряд несколько эпизодов)</td></tr>
+    <tr><td>1</td><td style="font-weight:600">Процент дослушивания</td><td>Самый важный сигнал. >60% = качество</td></tr>
+    <tr><td>2</td><td>Подписка после прослушивания</td><td>Сколько слушателей подписываются после пробы</td></tr>
+    <tr><td>3</td><td>Процент возвратов</td><td>Как часто подписчики возвращаются</td></tr>
+    <tr><td>4</td><td>Сохранения/репосты</td><td>Эпизоды сохранённые/расшаренные</td></tr>
+    <tr><td>5</td><td>Процент запусков</td><td>CTR от показов к прослушиванию</td></tr>
+    <tr><td>6</td><td>Серия прослушиваний</td><td>Бинж-сигнал (подряд несколько эпизодов)</td></tr>
   </table>
 
   <h3>1.3 Поверхности обнаружения Spotify</h3>
   <table>
     <tr><th>Поверхность</th><th>Как работает</th><th>Приоритет для СБОРКИ</th></tr>
-    <tr><td>Home Feed</td><td>Персонализированные карточки</td><td style="font-weight:600;color:var(--sp)">HIGH</td></tr>
-    <tr><td>"Shows You Might Like"</td><td>Collaborative filtering</td><td style="font-weight:600;color:var(--sp)">HIGH</td></tr>
-    <tr><td>Search Results</td><td>Title, description, транскрипты</td><td style="font-weight:600;color:var(--sp)">HIGH</td></tr>
-    <tr><td>Browse Categories</td><td>Editorial + algorithmic</td><td>MEDIUM</td></tr>
-    <tr><td>"Fresh Finds" for Podcasts</td><td>Новые шоу с сильным engagement</td><td style="font-weight:600;color:var(--sp)">HIGH (4 эпизода = ещё eligible)</td></tr>
+    <tr><td>Главная лента</td><td>Персонализированные карточки</td><td style="font-weight:600;color:var(--sp)">ВЫСОКИЙ</td></tr>
+    <tr><td>«Шоу, которые могут понравиться»</td><td>Коллаборативная фильтрация</td><td style="font-weight:600;color:var(--sp)">ВЫСОКИЙ</td></tr>
+    <tr><td>Результаты поиска</td><td>Заголовок, описание, транскрипты</td><td style="font-weight:600;color:var(--sp)">ВЫСОКИЙ</td></tr>
+    <tr><td>Обзор категорий</td><td>Редакторские + алгоритмические</td><td>СРЕДНИЙ</td></tr>
+    <tr><td>«Свежие находки» для подкастов</td><td>Новые шоу с сильной вовлечённостью</td><td style="font-weight:600;color:var(--sp)">ВЫСОКИЙ (4 эпизода = ещё подходит)</td></tr>
   </table>
 
-  <h3>1.4 Search Ranking</h3>
+  <h3>1.4 Поисковое ранжирование</h3>
   <ol>
-    <li><strong>Exact match в заголовке шоу</strong> — максимальный вес. "СБОРКА" → #1 для "сборка подкаст"</li>
-    <li><strong>Keywords в описании</strong> — второй вес</li>
-    <li><strong>Keywords в заголовках эпизодов</strong> — индексируются</li>
+    <li><strong>Точное совпадение в заголовке шоу</strong> — максимальный вес. "СБОРКА" → #1 для "сборка подкаст"</li>
+    <li><strong>Ключевые слова в описании</strong> — второй вес</li>
+    <li><strong>Ключевые слова в заголовках эпизодов</strong> — индексируются</li>
     <li><strong>Автоматические транскрипты</strong> — с 2025 Spotify индексирует аудио</li>
-    <li><strong>Engagement</strong> — высоко-вовлечённые шоу ранжируются выше</li>
+    <li><strong>Вовлечённость</strong> — высоко-вовлечённые шоу ранжируются выше</li>
     <li><strong>Свежесть</strong> — недавно обновлённые шоу → выше</li>
   </ol>
 
   <div class="callout">
-    <strong>Триггеры для editorial attention:</strong> Публикация consistently, >50% avg completion, >10% w/w рост подписчиков, упоминания в соцсетях со Spotify-ссылками.
+    <strong>Триггеры для редакторского внимания:</strong> Регулярная публикация, >50% среднее дослушивание, >10% еженедельный рост подписчиков, упоминания в соцсетях со Spotify-ссылками.
   </div>
 </div>
 
@@ -148,19 +148,19 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
 <div class="section">
   <h2>2. Форматы контента</h2>
 
-  <h3>2.1 Типы эпизодов: Performance</h3>
+  <h3>2.1 Типы эпизодов: Эффективность</h3>
   <table>
-    <tr><th>Формат</th><th>Avg Completion</th><th>Discovery</th><th>Рекомендация</th></tr>
-    <tr><td><strong>Соло-монолог</strong> (текущий)</td><td>55-65%</td><td>Medium</td><td>Основной формат</td></tr>
-    <tr><td><strong>Интервью/гость</strong></td><td>45-60%</td><td style="font-weight:600;color:var(--sp)">HIGH</td><td>1x/мес для кросс-промо</td></tr>
-    <tr><td><strong>Q&A от слушателей</strong></td><td>60-70%</td><td>LOW</td><td>Для retention</td></tr>
-    <tr><td><strong>Мини-эпизод</strong> (5-8 мин)</td><td>75-85%</td><td>Medium</td><td>Для алгоритмического буста</td></tr>
-    <tr><td><strong>Трейлер</strong> (1-2 мин)</td><td>90%+</td><td style="font-weight:600;color:var(--sp)">HIGH</td><td>Создать немедленно</td></tr>
+    <tr><th>Формат</th><th>Среднее дослушивание</th><th>Обнаружение</th><th>Рекомендация</th></tr>
+    <tr><td><strong>Соло-монолог</strong> (текущий)</td><td>55-65%</td><td>Среднее</td><td>Основной формат</td></tr>
+    <tr><td><strong>Интервью/гость</strong></td><td>45-60%</td><td style="font-weight:600;color:var(--sp)">ВЫСОКОЕ</td><td>1x/мес для кросс-промо</td></tr>
+    <tr><td><strong>Q&A от слушателей</strong></td><td>60-70%</td><td>НИЗКОЕ</td><td>Для удержания</td></tr>
+    <tr><td><strong>Мини-эпизод</strong> (5-8 мин)</td><td>75-85%</td><td>Среднее</td><td>Для алгоритмического буста</td></tr>
+    <tr><td><strong>Трейлер</strong> (1-2 мин)</td><td>90%+</td><td style="font-weight:600;color:var(--sp)">ВЫСОКОЕ</td><td>Создать немедленно</td></tr>
   </table>
 
-  <h3>2.2 Video Podcasts на Spotify</h3>
+  <h3>2.2 Видео-подкасты на Spotify</h3>
   <div class="callout" style="background:#E8F5FE;border-left-color:#1DA1F2">
-    <strong>Video = 2-3x больше impressions</strong> чем audio-only. Видео-эпизоды показываются с визуальными thumbnails в ленте (значительно выше CTR).
+    <strong>Видео = 2-3x больше показов</strong> чем только аудио. Видео-эпизоды показываются с визуальными превью в ленте (значительно выше CTR).
   </div>
   <table>
     <tr><th>Параметр</th><th>Требование</th></tr>
@@ -174,13 +174,13 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
 
   <h3>2.3 Интерактивные функции</h3>
   <ul>
-    <li><strong>Polls</strong> — карточки в плеере. Буст engagement. "Что для тебя самое сложное в поиске работы?"</li>
-    <li><strong>Q&A</strong> — слушатели задают вопросы через страницу эпизода → контент для будущих эпизодов</li>
-    <li><strong>Chapters</strong> — список секций в плеере. Снижает abandonment</li>
-    <li><strong>Transcripts</strong> — индексируются для поиска. Загрузить ручные для точности на русском</li>
+    <li><strong>Опросы</strong> — карточки в плеере. Буст вовлечённости. "Что для тебя самое сложное в поиске работы?"</li>
+    <li><strong>Вопросы и ответы</strong> — слушатели задают вопросы через страницу эпизода → контент для будущих эпизодов</li>
+    <li><strong>Главы</strong> — список секций в плеере. Снижает отвал</li>
+    <li><strong>Транскрипты</strong> — индексируются для поиска. Загрузить ручные для точности на русском</li>
   </ul>
 
-  <h3>2.4 Checklist на каждый эпизод</h3>
+  <h3>2.4 Чек-лист на каждый эпизод</h3>
   <ul>
     <li>☐ Заголовок содержит primary keyword в первых 5 словах</li>
     <li>☐ Описание включает 3-5 keywords естественно</li>
@@ -199,36 +199,36 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
   <h3>3.1 Русскоязычные</h3>
   <table>
     <tr><th>Подкаст</th><th>Эпизоды</th><th>Частота</th><th>Длина</th><th>Фишка</th></tr>
-    <tr><td><strong>"Потом доделаю"</strong></td><td>50+</td><td>Weekly</td><td>30-45 мин</td><td>Сильные гости из tech</td></tr>
-    <tr><td><strong>"Карьерный Консультант"</strong></td><td>30-40</td><td>Biweekly</td><td>20-30 мин</td><td>Практическая ниша</td></tr>
-    <tr><td><strong>"Нормально делай..."</strong></td><td>100+</td><td>Weekly</td><td>40-60 мин</td><td>10K-20K followers, TG интеграция</td></tr>
-    <tr><td><strong>"HR в IT"</strong></td><td>40+</td><td>Biweekly</td><td>25-35 мин</td><td>HR insider perspective</td></tr>
+    <tr><td><strong>"Потом доделаю"</strong></td><td>50+</td><td>Еженедельно</td><td>30-45 мин</td><td>Сильные гости из tech</td></tr>
+    <tr><td><strong>"Карьерный Консультант"</strong></td><td>30-40</td><td>Раз в 2 нед</td><td>20-30 мин</td><td>Практическая ниша</td></tr>
+    <tr><td><strong>"Нормально делай..."</strong></td><td>100+</td><td>Еженедельно</td><td>40-60 мин</td><td>10K-20K подписчиков, TG интеграция</td></tr>
+    <tr><td><strong>"HR в IT"</strong></td><td>40+</td><td>Раз в 2 нед</td><td>25-35 мин</td><td>Взгляд изнутри HR</td></tr>
   </table>
 
   <h3>3.2 Англоязычные (бенчмарки)</h3>
   <table>
-    <tr><th>Подкаст</th><th>Эпизоды</th><th>Частота</th><th>Followers</th><th>Ключевой урок</th></tr>
-    <tr><td><strong>Ken Coleman Show</strong></td><td>1000+</td><td>Daily</td><td>100K+</td><td>Q&A = бесконечно масштабируемый контент</td></tr>
-    <tr><td><strong>Career Tools</strong></td><td>500+</td><td>Weekly</td><td>50K+</td><td>Структурированный формат → привычка</td></tr>
-    <tr><td><strong>Lenny's Podcast</strong></td><td>200+</td><td>2x/week</td><td>200K+</td><td>Short clips из эпизодов → Spotify follows</td></tr>
-    <tr><td><strong>AI Job Search</strong></td><td>30+</td><td>Weekly</td><td>1K-3K</td><td>"AI in job search" = underserved niche</td></tr>
+    <tr><th>Подкаст</th><th>Эпизоды</th><th>Частота</th><th>Подписчики</th><th>Ключевой урок</th></tr>
+    <tr><td><strong>Ken Coleman Show</strong></td><td>1000+</td><td>Ежедневно</td><td>100K+</td><td>Q&A = бесконечно масштабируемый контент</td></tr>
+    <tr><td><strong>Career Tools</strong></td><td>500+</td><td>Еженедельно</td><td>50K+</td><td>Структурированный формат → привычка</td></tr>
+    <tr><td><strong>Lenny's Podcast</strong></td><td>200+</td><td>2x/нед</td><td>200K+</td><td>Короткие клипы из эпизодов → подписки Spotify</td></tr>
+    <tr><td><strong>AI Job Search</strong></td><td>30+</td><td>Еженедельно</td><td>1K-3K</td><td>"AI в поиске работы" = недообслуженная ниша</td></tr>
   </table>
 
   <h3>3.3 Конкурентные преимущества СБОРКИ</h3>
   <ul>
-    <li><strong>AI angle</strong> — мало карьерных подкастов про AI в поиске работы</li>
-    <li><strong>Короткий формат</strong> — 14-15 мин идеален для completion rate (конкуренты 30+ мин)</li>
-    <li><strong>Интегрированная экосистема</strong> — бот + сайт + подкаст + сообщество сильнее standalone</li>
-    <li><strong>Bilingual potential</strong> — могут обслуживать и RU и EN аудитории</li>
+    <li><strong>AI-ракурс</strong> — мало карьерных подкастов про AI в поиске работы</li>
+    <li><strong>Короткий формат</strong> — 14-15 мин идеален для процента дослушивания (конкуренты 30+ мин)</li>
+    <li><strong>Интегрированная экосистема</strong> — бот + сайт + подкаст + сообщество сильнее одиночного продукта</li>
+    <li><strong>Двуязычный потенциал</strong> — могут обслуживать и RU и EN аудитории</li>
   </ul>
 
-  <h3>3.4 Gaps to Exploit</h3>
+  <h3>3.4 Пробелы для использования</h3>
   <ol>
-    <li><strong>Video podcasts</strong> — почти никто из RU-карьерных не делает видео на Spotify</li>
-    <li><strong>AI job search tools</strong> — никто не учит практическому AI-для-карьеры в RU-подкастах</li>
-    <li><strong>Mini-episodes</strong> — нет RU-карьерных подкастов с 3-5 мин quick tips</li>
-    <li><strong>Interactive features</strong> — polls, Q&A практически не используются</li>
-    <li><strong>Social clips</strong> — RU-подкастеры редко создают short clips для соцсетей</li>
+    <li><strong>Видео-подкасты</strong> — почти никто из RU-карьерных не делает видео на Spotify</li>
+    <li><strong>AI-инструменты поиска работы</strong> — никто не учит практическому AI-для-карьеры в RU-подкастах</li>
+    <li><strong>Мини-эпизоды</strong> — нет RU-карьерных подкастов с 3-5 мин быстрыми советами</li>
+    <li><strong>Интерактивные функции</strong> — опросы, Q&A практически не используются</li>
+    <li><strong>Клипы для соцсетей</strong> — RU-подкастеры редко создают короткие клипы для соцсетей</li>
   </ol>
 </div>
 
@@ -252,87 +252,87 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
     <tr><th>Время</th><th>% прослушиваний</th><th>Лучший контент</th></tr>
     <tr><td style="font-weight:600">06:00-09:00</td><td style="font-weight:600">25%</td><td>Мотивация, quick tips</td></tr>
     <tr><td>12:00-14:00</td><td>20%</td><td>15-20 мин практические эпизоды</td></tr>
-    <tr><td style="font-weight:600">17:00-20:00</td><td style="font-weight:600">25%</td><td>Любой формат, catchup</td></tr>
+    <tr><td style="font-weight:600">17:00-20:00</td><td style="font-weight:600">25%</td><td>Любой формат, наверстывание</td></tr>
   </table>
-  <p><strong>Оптимальная публикация:</strong> Вт или Ср, 07:00 по target timezone. Утро = в ленте для commute + lunch.</p>
+  <p><strong>Оптимальная публикация:</strong> Вт или Ср, 07:00 по целевому часовому поясу. Утро = в ленте для поездки на работу + обеда.</p>
 
-  <h3>4.2 Retention Curve (14-15 мин эпизод)</h3>
-  <pre>0:00  ──100%──── Start
-0:30  ───95%──── "Taste test" — САМЫЕ КРИТИЧЕСКИЕ 30 сек
+  <h3>4.2 Кривая удержания (14-15 мин эпизод)</h3>
+  <pre>0:00  ──100%──── Старт
+0:30  ───95%──── «Проба на вкус» — САМЫЕ КРИТИЧЕСКИЕ 30 сек
 1:00  ───85%──── Прошли 1 мин → скорее всего продолжат
-5:00  ───70%──── Стабилизация — committed слушатели
+5:00  ───70%──── Стабилизация — вовлечённые слушатели
 10:00 ───60%──── Сильно для 15-мин эпизодов
 14:00 ───55%──── Близко к концу
-15:00 ───50%──── Outro/CTA — многие уже пропустили</pre>
+15:00 ───50%──── Завершение/CTA — многие уже пропустили</pre>
 
   <div class="callout-warn callout">
-    <strong>Ключевой инсайт:</strong> Первые 30 секунд = make-or-break. Паттерн "hook before intro": начать с самого провокационного утверждения эпизода, ПОТОМ jingle/intro.
+    <strong>Ключевой инсайт:</strong> Первые 30 секунд = решающий момент. Паттерн «зацепка перед интро»: начать с самого провокационного утверждения эпизода, ПОТОМ джингл/интро.
   </div>
 
-  <h3>4.3 Devices</h3>
+  <h3>4.3 Устройства</h3>
   <table>
     <tr><th>Устройство</th><th>%</th><th>Импликация</th></tr>
-    <tr><td>Mobile (наушники)</td><td>45%</td><td>Не могут кликать → verbal CTA критичны</td></tr>
-    <tr><td>Mobile (динамик)</td><td>15%</td><td>Shared environment, профессиональный тон</td></tr>
+    <tr><td>Мобильный (наушники)</td><td>45%</td><td>Не могут кликать → голосовые CTA критичны</td></tr>
+    <tr><td>Мобильный (динамик)</td><td>15%</td><td>Общая среда, профессиональный тон</td></tr>
     <tr><td>Авто/CarPlay</td><td>15%</td><td>Не могут взаимодействовать → запоминающиеся URL</td></tr>
-    <tr><td>Desktop</td><td>15%</td><td>Могут кликать, show notes важны</td></tr>
-    <tr><td>Smart speaker</td><td>10%</td><td>Только голос</td></tr>
+    <tr><td>Компьютер</td><td>15%</td><td>Могут кликать, описание выпуска важно</td></tr>
+    <tr><td>Умная колонка</td><td>10%</td><td>Только голос</td></tr>
   </table>
-  <p><strong>60% не могут кликать.</strong> Verbal CTA: "sborka.work" — коротко и запоминаемо. Произносить: "S-B-O-R-K-A точка work".</p>
+  <p><strong>60% не могут кликать.</strong> Голосовой CTA: "sborka.work" — коротко и запоминаемо. Произносить: "S-B-O-R-K-A точка work".</p>
 </div>
 
 <!-- ===== 5. TONE OF VOICE ===== -->
 <div class="section">
   <h2>5. Tone of Voice для Spotify</h2>
 
-  <h3>5.1 Audio Style Guide</h3>
+  <h3>5.1 Гайд по стилю аудио</h3>
   <ul>
-    <li><strong>Opening hook (первые 15 сек) — CRUCIAL.</strong> НЕ "Привет, это Сборка" как первые слова</li>
-    <li><strong>Паттерн:</strong> [HOOK] → [JINGLE 5 сек] → [Standard intro] → [Content]</li>
-    <li><strong>Пример:</strong> "Ты отправил 50 откликов и ни одного ответа. Знакомо? Сегодня разберёмся, почему." [JINGLE] "Привет, это Сборка..."</li>
+    <li><strong>Зацепка в начале (первые 15 сек) — КРИТИЧЕСКИ ВАЖНО.</strong> НЕ "Привет, это Сборка" как первые слова</li>
+    <li><strong>Паттерн:</strong> [ЗАЦЕПКА] → [ДЖИНГЛ 5 сек] → [Стандартное интро] → [Контент]</li>
+    <li><strong>Пример:</strong> "Ты отправил 50 откликов и ни одного ответа. Знакомо? Сегодня разберёмся, почему." [ДЖИНГЛ] "Привет, это Сборка..."</li>
   </ul>
 
   <h3>5.2 Spotify-специфика</h3>
   <table>
     <tr><th>Правило</th><th>Реализация</th></tr>
-    <tr><td>Conversational "ты"</td><td>Один человек, не аудитория. "Если ты сейчас ищешь..."</td></tr>
-    <tr><td>Verbal signposts</td><td>"Первое.", "Второе.", "Главная мысль:", "Короче говоря:"</td></tr>
-    <tr><td>Без клише</td><td>Нет "smash that follow button", нет фейковой энергии</td></tr>
-    <tr><td>CTA voice</td><td>Мягко, не salesy: "Если тебе полезно, нажми 'Подписаться'"</td></tr>
-    <tr><td>Audio quality</td><td>-16 LUFS, 44.1 kHz, 128-192 kbps CBR, макс 2 сек тишины</td></tr>
+    <tr><td>Разговорное «ты»</td><td>Один человек, не аудитория. "Если ты сейчас ищешь..."</td></tr>
+    <tr><td>Голосовые ориентиры</td><td>"Первое.", "Второе.", "Главная мысль:", "Короче говоря:"</td></tr>
+    <tr><td>Без клише</td><td>Нет "жми подписку", нет фейковой энергии</td></tr>
+    <tr><td>Голос CTA</td><td>Мягко, не навязчиво: "Если тебе полезно, нажми 'Подписаться'"</td></tr>
+    <tr><td>Качество аудио</td><td>-16 LUFS, 44.1 kHz, 128-192 kbps CBR, макс 2 сек тишины</td></tr>
   </table>
 
-  <h3>5.3 Bilingual стратегия</h3>
-  <p><strong>Основная серия:</strong> Русский. <strong>Monthly special:</strong> 1 English эпизод ("СБОРКА International: [Topic]"). Описание шоу: RU + EN секция.</p>
+  <h3>5.3 Двуязычная стратегия</h3>
+  <p><strong>Основная серия:</strong> Русский. <strong>Ежемесячный спецвыпуск:</strong> 1 англоязычный эпизод ("СБОРКА International: [Тема]"). Описание шоу: RU + EN секция.</p>
 </div>
 
 <!-- ===== 6. SPOTIFY FOR PODCASTERS ===== -->
 <div class="section">
-  <h2>6. Spotify for Podcasters Dashboard</h2>
+  <h2>6. Дашборд Spotify for Podcasters</h2>
 
   <h3>6.1 Доступная аналитика</h3>
   <table>
     <tr><th>Метрика</th><th>Что показывает</th><th>Как использовать</th></tr>
-    <tr><td>Starts</td><td>Запуски эпизодов</td><td>Рост во времени</td></tr>
-    <tr><td>Streams</td><td>Plays > 60 сек</td><td>True engagement</td></tr>
-    <tr><td>Listeners</td><td>Уникальные слушатели</td><td>Реальный размер аудитории</td></tr>
-    <tr><td>Followers</td><td>Подписчики шоу</td><td>Loyalty → влияет на алгоритм</td></tr>
-    <tr><td>Average consumption</td><td>% прослушанного</td><td>Качество контента (цель >50%)</td></tr>
-    <tr><td>Listener retention graph</td><td>Поминутное удержание</td><td>Найти точки отвала</td></tr>
-    <tr><td>Discovery sources</td><td>Откуда пришли</td><td>Оптимизация маркетинга</td></tr>
+    <tr><td>Запуски</td><td>Запуски эпизодов</td><td>Рост во времени</td></tr>
+    <tr><td>Стримы</td><td>Воспроизведения > 60 сек</td><td>Реальная вовлечённость</td></tr>
+    <tr><td>Слушатели</td><td>Уникальные слушатели</td><td>Реальный размер аудитории</td></tr>
+    <tr><td>Подписчики</td><td>Подписчики шоу</td><td>Лояльность → влияет на алгоритм</td></tr>
+    <tr><td>Среднее потребление</td><td>% прослушанного</td><td>Качество контента (цель >50%)</td></tr>
+    <tr><td>График удержания</td><td>Поминутное удержание</td><td>Найти точки отвала</td></tr>
+    <tr><td>Источники обнаружения</td><td>Откуда пришли</td><td>Оптимизация маркетинга</td></tr>
   </table>
 
-  <h3>6.2 Setup Checklist</h3>
+  <h3>6.2 Чек-лист настройки</h3>
   <ul>
-    <li>☐ <strong>Claim show</strong> в Spotify for Podcasters (verify ownership через RSS email)</li>
-    <li>☐ Upload show art (3000×3000)</li>
+    <li>☐ <strong>Заявить шоу</strong> в Spotify for Podcasters (подтвердить владение через RSS email)</li>
+    <li>☐ Загрузить обложку шоу (3000×3000)</li>
     <li>☐ Оптимизированное описание шоу (см. секцию 7)</li>
-    <li>☐ Enable Q&A для всех эпизодов</li>
-    <li>☐ Создать первый poll</li>
-    <li>☐ Chapter markers для всех 4 эпизодов</li>
+    <li>☐ Включить Q&A для всех эпизодов</li>
+    <li>☐ Создать первый опрос</li>
+    <li>☐ Маркеры глав для всех 4 эпизодов</li>
     <li>☐ Транскрипты для всех 4 эпизодов</li>
-    <li>☐ Show notes с UTM для всех эпизодов</li>
-    <li>☐ Создать 60-сек clip из лучшего эпизода</li>
+    <li>☐ Описания выпусков с UTM для всех эпизодов</li>
+    <li>☐ Создать 60-сек клип из лучшего эпизода</li>
   </ul>
 </div>
 
@@ -340,31 +340,31 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
 <div class="section">
   <h2>7. CTA-стратегии</h2>
 
-  <h3>7.1 In-Episode Verbal CTAs</h3>
+  <h3>7.1 Голосовые CTA внутри эпизода</h3>
   <div class="cta-grid">
     <div class="cta-card">
       <div class="time">0:15-0:30</div>
-      <h4>Soft follow</h4>
+      <h4>Мягкая подписка</h4>
       <p>"Если ты ещё не подписан, нажми 'Подписаться' прямо сейчас"</p>
     </div>
     <div class="cta-card">
       <div class="time">7:00-7:30</div>
-      <h4>Mid-roll website</h4>
+      <h4>Середина — сайт</h4>
       <p>"Все инструменты, о которых я говорю, есть на sborka.work"</p>
     </div>
     <div class="cta-card">
       <div class="time">12:00-12:30</div>
-      <h4>Primary CTA</h4>
+      <h4>Основной CTA</h4>
       <p>"Хочешь системный подход? Заходи на sborka.work. Там бот, который поможет"</p>
     </div>
     <div class="cta-card">
       <div class="time">14:00-14:30</div>
-      <h4>End CTA</h4>
+      <h4>Финальный CTA</h4>
       <p>"Напиши мне в бот @Sborka_work_bot. Увидимся в следующем выпуске"</p>
     </div>
   </div>
 
-  <h3>7.2 Show Description (ready to paste)</h3>
+  <h3>7.2 Описание шоу (готово к вставке)</h3>
   <pre>СБОРКА — подкаст для тех, кто хочет собраться и найти работу мечты.
 
 Каждую неделю разбираем конкретные инструменты поиска работы:
@@ -380,9 +380,9 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
 
 #карьера #работа #собеседование #резюме #AI #поискработы</pre>
 
-  <h3>7.3 Episode Description Template</h3>
+  <h3>7.3 Шаблон описания эпизода</h3>
   <pre>[Название выпуска]
-[2-3 предложения hook]
+[2-3 предложения зацепки]
 
 В этом выпуске:
 - [Пункт 1]
@@ -401,9 +401,9 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
 
 #СБОРКА #карьера #работа</pre>
 
-  <h3>7.4 Lead Magnets по эпизодам</h3>
+  <h3>7.4 Лид-магниты по эпизодам</h3>
   <table>
-    <tr><th>Эпизод</th><th>Lead Magnet</th><th>URL идея</th></tr>
+    <tr><th>Эпизод</th><th>Лид-магнит</th><th>Идея URL</th></tr>
     <tr><td>Ep01: "Почему так сложно начать"</td><td>Чек-лист: 5 шагов начать</td><td>sborka.work/checklist-start</td></tr>
     <tr><td>Ep02: "Резюме, которое работает"</td><td>Шаблон резюме 2026</td><td>sborka.work/resume-template</td></tr>
     <tr><td>Ep03: "Собеседование без паники"</td><td>10 вопросов, которые задают всегда</td><td>sborka.work/interview-questions</td></tr>
@@ -417,31 +417,31 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
 
   <h3>8.1 Spotify Ad Studio</h3>
   <table>
-    <tr><th>Тип рекламы</th><th>Формат</th><th>Мин. бюджет</th><th>Best For</th></tr>
-    <tr><td>Audio ads</td><td>15-30 сек между песнями/подкастами</td><td>$250</td><td>Brand awareness</td></tr>
-    <tr><td>Display ads</td><td>Баннер при просмотре</td><td>$250</td><td>Click-through</td></tr>
-    <tr><td>Video ads</td><td>15-30 сек видео</td><td>$250</td><td>High engagement</td></tr>
-    <tr><td>Sponsored recommendations</td><td>"Suggested show"</td><td>Через sales</td><td>Direct discovery</td></tr>
+    <tr><th>Тип рекламы</th><th>Формат</th><th>Мин. бюджет</th><th>Лучше всего для</th></tr>
+    <tr><td>Аудиореклама</td><td>15-30 сек между песнями/подкастами</td><td>$250</td><td>Узнаваемость бренда</td></tr>
+    <tr><td>Дисплейная реклама</td><td>Баннер при просмотре</td><td>$250</td><td>Переходы по кликам</td></tr>
+    <tr><td>Видеореклама</td><td>15-30 сек видео</td><td>$250</td><td>Высокая вовлечённость</td></tr>
+    <tr><td>Спонсированные рекомендации</td><td>"Рекомендованное шоу"</td><td>Через отдел продаж</td><td>Прямое обнаружение</td></tr>
   </table>
 
   <h3>8.2 Таргетинг для СБОРКИ</h3>
   <ul>
-    <li><strong>Возраст:</strong> 25-44 (career change demographic)</li>
+    <li><strong>Возраст:</strong> 25-44 (демография смены карьеры)</li>
     <li><strong>Локация:</strong> Турция, Грузия, ОАЭ, Германия, Израиль (диаспора)</li>
-    <li><strong>Язык:</strong> Russian (device language detection)</li>
-    <li><strong>Интересы:</strong> Business & Finance, Education, Technology, Self-Improvement</li>
+    <li><strong>Язык:</strong> Русский (определение по языку устройства)</li>
+    <li><strong>Интересы:</strong> Бизнес и финансы, Образование, Технологии, Саморазвитие</li>
   </ul>
 
   <h3>8.3 Бюджет-рекомендации</h3>
   <table>
     <tr><th>Стратегия</th><th>$/мес</th><th>Результат</th></tr>
-    <tr><td style="background:var(--sp-light);font-weight:600">Organic only</td><td style="background:var(--sp-light)">$0</td><td style="background:var(--sp-light)">50-100 новых слушателей</td></tr>
-    <tr><td>Minimal paid</td><td>$50-100</td><td>200-500 новых</td></tr>
-    <tr><td>Growth push</td><td>$250-500</td><td>500-1500 новых</td></tr>
+    <tr><td style="background:var(--sp-light);font-weight:600">Только органика</td><td style="background:var(--sp-light)">$0</td><td style="background:var(--sp-light)">50-100 новых слушателей</td></tr>
+    <tr><td>Минимальная платная</td><td>$50-100</td><td>200-500 новых</td></tr>
+    <tr><td>Агрессивный рост</td><td>$250-500</td><td>500-1500 новых</td></tr>
   </table>
-  <p><strong>Рекомендация:</strong> Начать с $0 (органика). После 30-дневного плана — тест $50-100/мес. Если cost-per-listener &lt; $0.50, масштабировать.</p>
+  <p><strong>Рекомендация:</strong> Начать с $0 (органика). После 30-дневного плана — тест $50-100/мес. Если стоимость привлечения слушателя &lt; $0.50, масштабировать.</p>
 
-  <h3>8.4 Promo Ad Script (30 сек)</h3>
+  <h3>8.4 Скрипт промо-ролика (30 сек)</h3>
   <div class="callout">
     "Ищешь работу и кажется, что ничего не получается? Ты не один. СБОРКА — подкаст, который помогает собраться и найти работу мечты. Конкретные инструменты: резюме, собеседования, AI в поиске работы. Найди нас в Spotify: СБОРКА. Или заходи на sborka.work."
   </div>
@@ -451,35 +451,35 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
 <div class="section">
   <h2>9. Кросс-платформенная стратегия</h2>
 
-  <h3>9.1 Exclusive vs Multi-Platform</h3>
+  <h3>9.1 Эксклюзив vs мульти-платформа</h3>
   <div class="callout">
-    <strong>Вердикт: Оставаться на мульти-платформе.</strong> RU-аудитория распределена: Яндекс (Россия), Apple (диаспора), Spotify (диаспора). Exclusive потеряет reach. Но Spotify-first фичи: video только на Spotify, polls/Q&A, упоминание "exclusive polls on Spotify".
+    <strong>Вердикт: Оставаться на мульти-платформе.</strong> RU-аудитория распределена: Яндекс (Россия), Apple (диаспора), Spotify (диаспора). Эксклюзив потеряет охват. Но Spotify-first фичи: видео только на Spotify, опросы/Q&A, упоминание «эксклюзивные опросы на Spotify».
   </div>
 
-  <h3>9.2 Dual-Video стратегия</h3>
+  <h3>9.2 Стратегия двойного видео</h3>
   <table>
     <tr><th>Платформа</th><th>Тип видео</th><th>Цель</th></tr>
-    <tr><td>Spotify</td><td>Full video (слайды + voiceover)</td><td>Boost discovery (2-3x impressions)</td></tr>
-    <tr><td>YouTube</td><td>Full video + Shorts clips</td><td>YouTube discovery + SEO</td></tr>
-    <tr><td>TikTok/Reels</td><td>30-60 сек clips с субтитрами</td><td>Виральность</td></tr>
-    <tr><td>@public_sborka</td><td>Аудио + обложка</td><td>Telegram retention</td></tr>
+    <tr><td>Spotify</td><td>Полное видео (слайды + озвучка)</td><td>Буст обнаружения (2-3x показов)</td></tr>
+    <tr><td>YouTube</td><td>Полное видео + Shorts-клипы</td><td>Обнаружение YouTube + SEO</td></tr>
+    <tr><td>TikTok/Reels</td><td>30-60 сек клипы с субтитрами</td><td>Виральность</td></tr>
+    <tr><td>@public_sborka</td><td>Аудио + обложка</td><td>Удержание в Telegram</td></tr>
   </table>
 
   <h3>9.3 Spotify ↔ Telegram интеграция</h3>
   <ol>
     <li>Каждый эпизод → пост в TG с Spotify-ссылкой</li>
-    <li>Периодический CTA "Follow на Spotify для exclusive polls"</li>
-    <li>Зеркальные polls на обеих платформах</li>
+    <li>Периодический CTA «Подпишись на Spotify для эксклюзивных опросов»</li>
+    <li>Зеркальные опросы на обеих платформах</li>
     <li>Анонс в TG первым → эпизод на Spotify через 1-2 часа</li>
     <li>@Sborka_work_bot уведомляет пользователей о новых эпизодах</li>
   </ol>
 
-  <h3>9.4 Social Media Clips (per episode)</h3>
+  <h3>9.4 Клипы для соцсетей (на каждый эпизод)</h3>
   <table>
     <tr><th>Тип</th><th>Длина</th><th>Платформа</th><th>Формат</th></tr>
-    <tr><td>Teaser</td><td>30-45 сек</td><td>TG, LinkedIn, Threads</td><td>Audio + subtitle overlay</td></tr>
-    <tr><td>Key insight</td><td>45-60 сек</td><td>YouTube Shorts, TikTok</td><td>Video (slides + audio)</td></tr>
-    <tr><td>Quote card</td><td>Static</td><td>LinkedIn, TG, VK</td><td>Image + "Listen on Spotify"</td></tr>
+    <tr><td>Тизер</td><td>30-45 сек</td><td>TG, LinkedIn, Threads</td><td>Аудио + наложение субтитров</td></tr>
+    <tr><td>Ключевой инсайт</td><td>45-60 сек</td><td>YouTube Shorts, TikTok</td><td>Видео (слайды + аудио)</td></tr>
+    <tr><td>Цитатная карточка</td><td>Статичная</td><td>LinkedIn, TG, VK</td><td>Картинка + «Слушай на Spotify»</td></tr>
   </table>
 </div>
 
@@ -487,93 +487,93 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;bo
 <div class="section">
   <h2>10. 30-дневный план</h2>
 
-  <h3>Неделя 1: Foundation & Optimization</h3>
+  <h3>Неделя 1: Фундамент и оптимизация</h3>
   <div class="timeline">
     <div class="timeline-item">
-      <h4>Дни 1-2: Claim + Setup Spotify for Podcasters</h4>
-      <p>Claim шоу, verify ownership, оптимизированное описание, show art, enable Q&A, первый poll.</p>
+      <h4>Дни 1-2: Заявка + настройка Spotify for Podcasters</h4>
+      <p>Заявить шоу, подтвердить владение, оптимизированное описание, обложка шоу, включить Q&A, первый опрос.</p>
     </div>
     <div class="timeline-item">
       <h4>Дни 3-4: Оптимизация 4 существующих эпизодов</h4>
-      <p>Переписать описания (summary + takeaways + timestamps + UTM links + hashtags). Загрузить транскрипты. Добавить chapter markers. Polls для ep01 и ep03.</p>
+      <p>Переписать описания (краткое содержание + выводы + таймкоды + UTM-ссылки + хештеги). Загрузить транскрипты. Добавить маркеры глав. Опросы для ep01 и ep03.</p>
     </div>
     <div class="timeline-item">
       <h4>Дни 5-6: Генерация ep05</h4>
-      <p>"Оффер: как не продешевить" с новым "hook before intro" форматом.</p>
+      <p>"Оффер: как не продешевить" с новым форматом «зацепка перед интро».</p>
     </div>
     <div class="timeline-item">
-      <h4>День 7: Создать Show Trailer (60 сек)</h4>
-      <p>"Ты отправляешь отклики. Тишина..." → генерация через ElevenLabs → pin в Spotify + TG.</p>
+      <h4>День 7: Создать трейлер шоу (60 сек)</h4>
+      <p>"Ты отправляешь отклики. Тишина..." → генерация через ElevenLabs → закрепить в Spotify + TG.</p>
     </div>
   </div>
 
-  <h3>Неделя 2: Content & Cross-Promotion</h3>
+  <h3>Неделя 2: Контент и кросс-промо</h3>
   <div class="timeline">
     <div class="timeline-item">
-      <h4>Дни 8-9: Первый Video Episode</h4>
-      <p>Выбрать best performer → 10-15 слайдов → render video (ffmpeg) → upload на Spotify + YouTube.</p>
+      <h4>Дни 8-9: Первый видео-эпизод</h4>
+      <p>Выбрать лучший по показателям → 10-15 слайдов → рендер видео (ffmpeg) → загрузка на Spotify + YouTube.</p>
     </div>
     <div class="timeline-item">
-      <h4>Дни 10-11: Social Media Clips</h4>
-      <p>3 × 45-сек clips из существующих эпизодов с субтитрами. Пост в LinkedIn, Threads, TG, VK.</p>
+      <h4>Дни 10-11: Клипы для соцсетей</h4>
+      <p>3 × 45-сек клипа из существующих эпизодов с субтитрами. Пост в LinkedIn, Threads, TG, VK.</p>
     </div>
     <div class="timeline-item">
-      <h4>Дни 12-14: ep06 + Cross-Promo Push</h4>
-      <p>"AI-инструменты для поиска работы в 2026" — unique angle СБОРКИ. Audio + video. Spotify badge на sborka.work.</p>
+      <h4>Дни 12-14: ep06 + усиление кросс-промо</h4>
+      <p>"AI-инструменты для поиска работы в 2026" — уникальный ракурс СБОРКИ. Аудио + видео. Бейдж Spotify на sborka.work.</p>
     </div>
   </div>
 
-  <h3>Неделя 3: Growth & Engagement</h3>
+  <h3>Неделя 3: Рост и вовлечённость</h3>
   <div class="timeline">
     <div class="timeline-item">
-      <h4>Дни 15-16: Guest Episode Prep</h4>
-      <p>3-5 потенциальных гостей: HR из tech, career changer success story, AI/tech эксперт. Приглашения через TG/LinkedIn.</p>
+      <h4>Дни 15-16: Подготовка гостевого эпизода</h4>
+      <p>3-5 потенциальных гостей: HR из tech, история успешной смены карьеры, AI/tech эксперт. Приглашения через TG/LinkedIn.</p>
     </div>
     <div class="timeline-item">
-      <h4>Дни 17-20: ep07 + Listener Engagement</h4>
-      <p>"Почему рекрутеры не отвечают". Review Spotify analytics (2 недели данных). Q&A submissions.</p>
+      <h4>Дни 17-20: ep07 + вовлечение слушателей</h4>
+      <p>"Почему рекрутеры не отвечают". Обзор аналитики Spotify (2 недели данных). Вопросы от слушателей.</p>
     </div>
     <div class="timeline-item">
-      <h4>День 21: Mid-Month Review</h4>
-      <p>Spotify analytics: followers, listeners, completion rates, demographics. Сравнение с Apple/Яндекс.</p>
+      <h4>День 21: Обзор середины месяца</h4>
+      <p>Аналитика Spotify: подписчики, слушатели, процент дослушивания, демография. Сравнение с Apple/Яндекс.</p>
     </div>
   </div>
 
-  <h3>Неделя 4: Scale & Systematize</h3>
+  <h3>Неделя 4: Масштабирование и систематизация</h3>
   <div class="timeline">
     <div class="timeline-item">
-      <h4>Дни 22-25: ep08 + Lead Magnets</h4>
-      <p>Guest episode (или Q&A). Создать 2 lead magnet pages на sborka.work (/checklist-start, /resume-template).</p>
+      <h4>Дни 22-25: ep08 + лид-магниты</h4>
+      <p>Гостевой эпизод (или Q&A). Создать 2 страницы лид-магнитов на sborka.work (/checklist-start, /resume-template).</p>
     </div>
     <div class="timeline-item">
-      <h4>Дни 26-30: Templates + Month Review</h4>
-      <p>Документировать publishing workflow. Marketing collateral ("Listen on Spotify" badge). Финальный analytics report. Plan Month 2.</p>
+      <h4>Дни 26-30: Шаблоны + обзор месяца</h4>
+      <p>Документировать процесс публикации. Маркетинговые материалы (бейдж «Слушай на Spotify»). Финальный аналитический отчёт. План на Месяц 2.</p>
     </div>
   </div>
 
-  <h3>KPI Dashboard</h3>
+  <h3>Дашборд KPI</h3>
   <table>
-    <tr><th>Метрика</th><th>Day 1</th><th>Day 30 Target</th><th>Stretch</th></tr>
-    <tr><td>Spotify followers</td><td>TBD</td><td style="font-weight:600;color:var(--sp)">+100</td><td>+250</td></tr>
-    <tr><td>Avg listeners/episode</td><td>TBD</td><td>+50%</td><td>+100%</td></tr>
-    <tr><td>Avg completion rate</td><td>TBD</td><td>>50%</td><td>>60%</td></tr>
+    <tr><th>Метрика</th><th>День 1</th><th>Цель День 30</th><th>Амбициозная</th></tr>
+    <tr><td>Подписчики Spotify</td><td>Уточн.</td><td style="font-weight:600;color:var(--sp)">+100</td><td>+250</td></tr>
+    <tr><td>Средн. слушателей/эпизод</td><td>Уточн.</td><td>+50%</td><td>+100%</td></tr>
+    <tr><td>Средн. дослушивание</td><td>Уточн.</td><td>>50%</td><td>>60%</td></tr>
     <tr><td>Эпизоды опубликованы</td><td>4</td><td style="font-weight:600;color:var(--sp)">8 (+4)</td><td>9 (+5)</td></tr>
-    <tr><td>Video episodes</td><td>0</td><td>2</td><td>4</td></tr>
-    <tr><td>Social media clips</td><td>0</td><td>8</td><td>12</td></tr>
-    <tr><td>sborka.work visits (Spotify)</td><td>0</td><td>50</td><td>150</td></tr>
-    <tr><td>Bot signups (podcast)</td><td>0</td><td>10</td><td>30</td></tr>
+    <tr><td>Видео-эпизоды</td><td>0</td><td>2</td><td>4</td></tr>
+    <tr><td>Клипы для соцсетей</td><td>0</td><td>8</td><td>12</td></tr>
+    <tr><td>Визиты sborka.work (Spotify)</td><td>0</td><td>50</td><td>150</td></tr>
+    <tr><td>Регистрации в боте (подкаст)</td><td>0</td><td>10</td><td>30</td></tr>
   </table>
 
   <div class="callout">
-    <strong>Бюджет Month 1: $22</strong> (ElevenLabs). Всё остальное бесплатно. Spotify ads отложить до Month 2 по результатам органики.
+    <strong>Бюджет Месяц 1: $22</strong> (ElevenLabs). Всё остальное бесплатно. Рекламу Spotify отложить до Месяца 2 по результатам органики.
   </div>
 </div>
 
 </div>
 
 <footer>
-  S-24 Spotify Research &middot; SMM Research Hub &middot; Тим Зинин &middot; Март 2026<br>
-  <a href="../index.html" style="color:var(--sp)">&larr; Вернуться к Dashboard</a>
+  Исследование S-24 Spotify &middot; SMM Research Hub &middot; Тим Зинин &middot; Март 2026<br>
+  <a href="../index.html" style="color:var(--sp)">&larr; Вернуться к Дашборду</a>
 </footer>
 
 </body>
