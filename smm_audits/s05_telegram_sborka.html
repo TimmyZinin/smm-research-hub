@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-05 Telegram СБОРКА — SMM Research | Тим Зинин</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--telegram:#229ED9;--sborka:#1B8AC4}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--telegram);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+header{background:linear-gradient(135deg,var(--telegram),var(--sborka));color:var(--white);padding:48px 40px;border-radius:16px;margin-bottom:32px}
+header h1{font-family:'Playfair Display',serif;font-size:2.4em;margin-bottom:8px}
+header .sub{opacity:.9;font-size:1.1em;margin-bottom:16px}
+header .meta{display:flex;gap:24px;flex-wrap:wrap}
+header .meta-item{background:rgba(255,255,255,.15);border-radius:10px;padding:10px 18px;text-align:center}
+header .meta-num{font-family:'JetBrains Mono',monospace;font-size:1.6em;font-weight:700;display:block}
+header .meta-label{font-size:.7em;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+.section{background:var(--card);border-radius:12px;padding:32px;margin-bottom:24px;box-shadow:0 2px 12px rgba(44,36,24,.06)}
+.section h2{font-family:'Playfair Display',serif;font-size:1.5em;color:var(--telegram);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+.section h3{font-size:1.1em;color:var(--terra);margin:20px 0 10px}
+.section h4{font-size:.95em;color:var(--dark);margin:14px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:.88em;margin:12px 0}
+th{background:var(--sand);color:var(--dark);font-weight:600;text-transform:uppercase;font-size:.72em;letter-spacing:.5px;padding:10px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--white)}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#fff}
+.badge-boost{background:var(--emerald)}.badge-penalty{background:var(--terra)}.badge-medium{background:var(--gold);color:var(--dark)}
+.insight{background:#EDF7F0;border:1px solid #C5E8CE;border-radius:8px;padding:14px 18px;margin:12px 0;font-size:.9em}
+.insight b{color:var(--emerald)}
+.warning{background:#FDF0ED;border:1px solid #F0C8BE;border-radius:8px;padding:14px 18px;margin:12px 0;font-size:.9em}
+.warning b{color:var(--terra)}
+.tactic{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--telegram);border-radius:8px;padding:16px 20px;margin:12px 0}
+.tactic .tactic-title{font-weight:700;font-size:.95em;margin-bottom:6px}
+.tactic .tactic-data{font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--telegram);margin-bottom:6px}
+.tactic .tactic-action{font-size:.88em;color:var(--dark)}
+.formula{background:var(--sand);border-radius:8px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:.82em;line-height:1.7;margin:12px 0;white-space:pre-wrap}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.do-list,.dont-list{padding:14px 18px;border-radius:8px;font-size:.88em}
+.do-list{background:#EDF7F0;border:1px solid #C5E8CE}
+.dont-list{background:#FDF0ED;border:1px solid #F0C8BE}
+.do-list h4{color:var(--emerald);margin-bottom:8px}.dont-list h4{color:var(--terra);margin-bottom:8px}
+.do-list li,.dont-list li{margin-bottom:5px;margin-left:16px}
+.competitor{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;margin:10px 0}
+.competitor .name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05em;color:var(--telegram)}
+.competitor .stats{font-family:'JetBrains Mono',monospace;font-size:.8em;color:var(--muted);margin:4px 0 8px}
+.action-plan{counter-reset:action}
+.action-item{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin:8px 0;position:relative;padding-left:50px}
+.action-item::before{counter-increment:action;content:counter(action);position:absolute;left:14px;top:14px;background:var(--telegram);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em}
+.timeline{display:flex;gap:0;margin:20px 0}
+.timeline-item{flex:1;padding:12px;text-align:center;background:var(--sand);border:1px solid var(--border);font-size:.82em}
+.timeline-item:first-child{border-radius:8px 0 0 8px}
+.timeline-item:last-child{border-radius:0 8px 8px 0}
+.timeline-item .week{font-weight:700;color:var(--telegram);display:block;margin-bottom:4px}
+.funnel{background:var(--sand);border-radius:12px;padding:20px;margin:16px 0}
+.funnel-step{display:flex;align-items:center;gap:12px;margin:6px 0;font-size:.88em}
+.funnel-step .arrow{color:var(--telegram);font-weight:700}
+.funnel-step .rate{font-family:'JetBrains Mono',monospace;color:var(--emerald);font-size:.82em}
+.pillar{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;margin:8px 0}
+.pillar .pillar-pct{font-family:'JetBrains Mono',monospace;font-size:1.4em;font-weight:700;color:var(--telegram);margin-bottom:4px}
+.pillar .pillar-name{font-weight:700;font-size:.95em;margin-bottom:6px}
+footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="logo">SMM Hub</span>
+  <a href="../smm_platform_audit.html">Dashboard</a>
+  <span class="sep">|</span>
+  <a href="s01_linkedin.html">LinkedIn</a>
+  <a href="s02_instagram.html">Instagram</a>
+  <a href="s03_youtube.html">YouTube</a>
+  <a href="s04_telegram_personal.html">TG Personal</a>
+  <a href="s05_telegram_sborka.html" class="active">TG СБОРКА</a>
+  <a href="s06_threads.html">Threads</a>
+  <a href="s07_facebook.html">Facebook</a>
+  <a href="s08_tiktok.html">TikTok</a>
+</nav>
+
+<div class="container">
+
+<!-- ===== HEADER ===== -->
+<header>
+  <h1>S-05: Telegram @public_sborka</h1>
+  <div class="sub">Brand/Community Channel &mdash; СБОРКА Карьерный клуб</div>
+  <div class="meta">
+    <div class="meta-item"><span class="meta-num">~93</span><span class="meta-label">Подписчиков</span></div>
+    <div class="meta-item"><span class="meta-num">55</span><span class="meta-label">CRM Users</span></div>
+    <div class="meta-item"><span class="meta-num">3</span><span class="meta-label">Вебинара</span></div>
+    <div class="meta-item"><span class="meta-num">500</span><span class="meta-label">Цель мес. 1</span></div>
+  </div>
+</header>
+
+<!-- ===== 1. BRAND CHANNEL MECHANICS 2026 ===== -->
+<div class="section">
+  <h2>1. Механики бренд-канала в Telegram 2026</h2>
+
+  <h3>Бренд-канал vs Личный канал</h3>
+  <table>
+    <tr><th>Параметр</th><th>Личный (@timofeyzinin)</th><th>Бренд (@public_sborka)</th></tr>
+    <tr><td>Голос</td><td>Первое лицо, личный</td><td>"Мы" / третье лицо, структурный</td></tr>
+    <tr><td>Контент-микс</td><td>70% мнение/история, 30% польза</td><td>60% польза, 25% соцдок, 15% промо</td></tr>
+    <tr><td>Частота</td><td>1-2/день допустимо</td><td>3-5/неделю оптимально</td></tr>
+    <tr><td>Драйвер вовлечения</td><td>Харизма, hot takes</td><td>Практическая ценность, принадлежность</td></tr>
+    <tr><td>Монетизация</td><td>Личный коучинг, курсы</td><td>Членство, сервисы, джобборд</td></tr>
+    <tr><td>Механика роста</td><td>Виральный личный контент</td><td>Реферралы, SEO, кросс-платформа</td></tr>
+  </table>
+
+  <h3>4-Pillar Content Framework</h3>
+  <div class="grid-2">
+    <div class="pillar">
+      <div class="pillar-pct">40%</div>
+      <div class="pillar-name">Utility Content</div>
+      <p style="font-size:.88em">Карьерные советы, шаблоны резюме, скрипты собеседований, тактики переговоров о зарплате. Причина остаться подписанным.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-pct">25%</div>
+      <div class="pillar-name">Market Intelligence</div>
+      <p style="font-size:.88em">Тренды рынка труда, зарплатные бенчмарки, данные о найме, востребованные навыки. Позиционирует канал как источник информации.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-pct">20%</div>
+      <div class="pillar-name">Social Proof</div>
+      <p style="font-size:.88em">Истории успеха участников, хайлайты вебинаров, кейсы до/после, отзывы. Триггерит FOMO.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-pct">15%</div>
+      <div class="pillar-name">Promo & Community</div>
+      <p style="font-size:.88em">Анонсы вебинаров, обновления клуба, спотлайты участников, лимитированные офферы. Прямая конверсия.</p>
+    </div>
+  </div>
+
+  <h3>Тренды платформы 2026</h3>
+  <div class="tactic">
+    <div class="tactic-title">Telegram Ads для каналов от 50 подписчиков</div>
+    <div class="tactic-data">CPM: 30-80 RUB | CPC: 3-10 RUB | Мин. бюджет: ~200 RUB</div>
+    <div class="tactic-action">СБОРКА уже eligible. Таргет: подписчики @antirabstvo, @normalno_delaj, карьерные каналы. Бюджет теста: 5,000 RUB = 100-500 новых подписчиков.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Channel Stories (эфемерный контент, 24h)</div>
+    <div class="tactic-data">Доступно с 2024 | Создаёт urgency | Не все каналы используют</div>
+    <div class="tactic-action">Behind-the-scenes подготовки вебинаров, реакции участников в реальном времени, "сегодня последний день промокода".</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Mini Apps (TMA) &mdash; уже есть у СБОРКИ</div>
+    <div class="tactic-data">NRC-style redesign | Интерактивные карьерные тесты | Job matching</div>
+    <div class="tactic-action">Использовать TMA для AI-разбора резюме, карьерного ассессмента, скоринга прямо в Telegram. Уникальное конкурентное преимущество.</div>
+  </div>
+
+  <div class="insight"><b>Ключевой инсайт:</b> При ~93 подписчиках каждый подписчик &mdash; высокая ценность. Фокус на view rate (цель 30%+) и конверсию в бот/вебинар, НЕ на raw growth. Качество > количество до 500+ подписчиков.</div>
+</div>
+
+<!-- ===== 2. COMPETITOR TEARDOWN ===== -->
+<div class="section">
+  <h2>2. Конкуренты: карьерные каналы в Telegram</h2>
+
+  <div class="competitor">
+    <div class="name">@habrcareer &mdash; Habr Career</div>
+    <div class="stats">~85K subs | 2-3 поста/день | view rate 12-18% | IT карьера, зарплатные обзоры</div>
+    <p>Зарплатные опросы и рыночные данные &mdash; самый вовлекающий формат. <strong>Для СБОРКИ:</strong> создать "СБОРКА Career Pulse" &mdash; ежемесячный отчёт с данными даже от 55 пользователей.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">@antirabstvo &mdash; Антирабство</div>
+    <div class="stats">~70K subs | 1-2 поста/день | view rate 10-15% | Карьерный консалтинг</div>
+    <p>Founder-driven контент работает даже в бренд-канале. <strong>Для СБОРКИ:</strong> Тим должен быть лицом @public_sborka. "Tim's take" на карьерные темы создаёт личную связь внутри бренда.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">@headhunter &mdash; HeadHunter Official</div>
+    <div class="stats">~250K+ subs | 3-5 постов/день | view rate 8-12% | Рынок труда, инфографика</div>
+    <p>Data-driven инфографика &mdash; их топ-формат. <strong>Для СБОРКИ:</strong> нельзя конкурировать по объёму данных, но можно по actionability: "HH говорит 30% резюме отклоняют за 6 сек. Вот что изменить (пошагово)".</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">@tcareer &mdash; T-Career (Тинькофф)</div>
+    <div class="stats">~35K subs | 1 пост/день | view rate 12-20% | IT карьера, soft skills</div>
+    <p>"Day in the life" и интервью сотрудников = высокий engagement. <strong>Для СБОРКИ:</strong> формат "Member Spotlight" &mdash; фокус на соискателях, а не на сотрудниках.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">@normalno_delaj &mdash; Алёна Владимирская</div>
+    <div class="stats">~120K subs | 1-2 поста/день | view rate 12-18% | Executive карьера, рынок</div>
+    <p>Expert authority + bold takes = рост в карьерной нише. <strong>Для СБОРКИ:</strong> Тим не должен бояться спорных карьерных мнений. "Unpopular opinion: cover letters are dead" &mdash; 2-3x лучше generic advice.</p>
+  </div>
+
+  <h3>Конкурентная матрица</h3>
+  <table>
+    <tr><th>Фича</th><th>СБОРКА</th><th>Habr Career</th><th>Антирабство</th><th>HH</th><th>Нормально делай</th></tr>
+    <tr><td>Есть бот</td><td><strong style="color:var(--emerald)">Да</strong></td><td>Нет</td><td>Да</td><td>Да</td><td>Нет</td></tr>
+    <tr><td>Платный tier</td><td><strong style="color:var(--emerald)">Клуб</strong></td><td>Нет</td><td>Консалтинг</td><td>Нет</td><td>Консалтинг</td></tr>
+    <tr><td>AI-интеграция</td><td><strong style="color:var(--emerald)">TMA + AI review</strong></td><td>Нет</td><td>Нет</td><td>Частично</td><td>Нет</td></tr>
+    <tr><td>Вебинары</td><td><strong style="color:var(--emerald)">Еженедельно</strong></td><td>Редко</td><td>Иногда</td><td>Нет</td><td>Иногда</td></tr>
+    <tr><td>Community group</td><td>Пока нет</td><td>Нет</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
+    <tr><td>Уникальность</td><td>AI-система поиска работы</td><td>Данные/обзоры</td><td>Личные истории</td><td>Market data</td><td>Экспертное мнение</td></tr>
+  </table>
+
+  <div class="insight"><b>Конкурентное преимущество СБОРКИ:</b> Bot-first подход (ни один крупный конкурент не предлагает TG бота для карьерного трекинга) + AI-интеграция + структурированная программа (клуб) vs one-off консалтинг + доступная цена (4,900 vs 10,000-50,000 за сессию).</div>
+</div>
+
+<!-- ===== 3. BOT + CHANNEL SYNERGY ===== -->
+<div class="section">
+  <h2>3. Bot + Channel синергия</h2>
+
+  <h3>Интеграционная архитектура</h3>
+  <div class="formula">@public_sborka (Channel)
+  &darr; User видит полезный контент
+  &darr; CTA: "Подробнее в боте @Sborka_work_bot"
+  &darr;
+@Sborka_work_bot (Bot)
+  ├&rarr; Welcome sequence (3 сообщения за 24ч)
+  │    ├&rarr; Msg 1: "Привет! Я бот СБОРКИ. Выбери ситуацию..."
+  │    ├&rarr; Msg 2 (4ч): "Кстати, у нас скоро вебинар..."
+  │    └&rarr; Msg 3 (20ч): "Посмотри результаты участников..."
+  ├&rarr; Lead magnet delivery (PDF, шаблоны, гайды)
+  ├&rarr; Webinar registration + reminder chain
+  ├&rarr; Tariff selection / payment
+  └&rarr; CRM tracking + segmentation</div>
+
+  <h3>Welcome Sequence (рекомендация)</h3>
+  <div class="tactic">
+    <div class="tactic-title">Message 1 &mdash; Сразу при /start</div>
+    <div class="tactic-action">"Привет! Я бот СБОРКИ &mdash; карьерного клуба, который помогает найти работу за 6-8 недель. Что тебе сейчас актуальнее? [Ищу работу] [Хочу сменить профессию] [Хочу повышение]"</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Message 2 &mdash; Через 4 часа (если нет взаимодействия)</div>
+    <div class="tactic-action">Анонс ближайшего вебинара + кнопки [Да, записаться] [Расскажи подробнее]</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Message 3 &mdash; Через 20 часов (если нет оплаты)</div>
+    <div class="tactic-action">Testimonial от участника + CTA [Смотреть тарифы]</div>
+  </div>
+
+  <h3>Сегментированные рассылки</h3>
+  <table>
+    <tr><th>Сегмент</th><th>Критерий</th><th>Стратегия</th></tr>
+    <tr><td><strong>A: Новички</strong></td><td>Начали бот, нет оплаты, &lt;7 дней</td><td>Welcome &rarr; Вебинар &rarr; Post-webinar offer</td></tr>
+    <tr><td><strong>B: Тёплые</strong></td><td>Взаимодействовал, нет оплаты, 7-30 дней</td><td>Еженедельный совет &rarr; Reminder &rarr; Testimonial &rarr; Soft offer</td></tr>
+    <tr><td><strong>C: Холодные</strong></td><td>Нет взаимодействия &gt;30 дней</td><td>Ежемесячное "Что нового" &rarr; Только big events</td></tr>
+    <tr><td><strong>D: Платные</strong></td><td>Активная подписка</td><td>Эксклюзивный контент &rarr; Ивенты &rarr; Реферальная программа</td></tr>
+  </table>
+
+  <h3>Lead Magnets через бот</h3>
+  <table>
+    <tr><th>Lead Magnet</th><th>Доставка</th><th>Ожидаемая конверсия</th></tr>
+    <tr><td>"Чек-лист: 10 шагов к работе мечты" (PDF)</td><td>Бот на /start</td><td>30-50%</td></tr>
+    <tr><td>"Шаблон резюме 2026" (Google Docs)</td><td>Бот после квиза</td><td>20-30%</td></tr>
+    <tr><td>"AI-разбор резюме" (TMA)</td><td>In-bot интерактив</td><td>40-60%</td></tr>
+    <tr><td>"Запись прошлого вебинара" (видео)</td><td>Бот после регистрации</td><td>30-45%</td></tr>
+    <tr><td>"Гайд: 10 вопросов на собеседовании" (PDF)</td><td>Канал pinned + бот</td><td>35-50%</td></tr>
+  </table>
+
+  <div class="warning"><b>Deeplink-трекинг:</b> Все ссылки канал&rarr;бот делать через <code>t.me/Sborka_work_bot?start=channel_{post_id}</code> для отслеживания UTM конверсий из канала в бот.</div>
+</div>
+
+<!-- ===== 4. TONE OF VOICE ===== -->
+<div class="section">
+  <h2>4. Tone of Voice для бренд-канала</h2>
+
+  <div class="grid-2">
+    <div class="do-list">
+      <h4>ДЕЛАТЬ</h4>
+      <ul>
+        <li>"Мы" / "Команда СБОРКИ" для общих постов</li>
+        <li>"Тим Зинин, основатель" для экспертных мнений</li>
+        <li>Структурированные списки и чек-листы</li>
+        <li>Цифры и данные (даже от 55 участников)</li>
+        <li>Конкретные примеры и шаблоны</li>
+        <li>Спорные карьерные мнения (2-3x engagement)</li>
+        <li>Эмодзи минимально: 1-2 на пост, для структуры</li>
+        <li>Русский язык, допустим IT-сленг</li>
+      </ul>
+    </div>
+    <div class="dont-list">
+      <h4>НЕ ДЕЛАТЬ</h4>
+      <ul>
+        <li>Generic мотивация ("верь в себя!") &mdash; max 1/неделю</li>
+        <li>Длинные абзацы без структуры</li>
+        <li>Промо больше 15% от всех постов</li>
+        <li>Спам-рассылки (причина блокировок на вебинаре #3)</li>
+        <li>Копирование формата HH/Habr &mdash; у них data, у вас system</li>
+        <li>Ненужные англицизмы в карьерных советах</li>
+        <li>Публикации в пятницу вечером (самый низкий view rate)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Оптимальное время публикации</h3>
+  <table>
+    <tr><th>Время (МСК)</th><th>Аудитория</th><th>Контент</th></tr>
+    <tr><td><strong>09:00-10:00</strong></td><td>Утренняя дорога на работу</td><td>Карьерные советы, мотивация, короткие посты</td></tr>
+    <tr><td><strong>13:00-14:00</strong></td><td>Обеденный перерыв</td><td>Рыночные данные, опросы, инфографика</td></tr>
+    <tr><td><strong>19:00-20:00</strong></td><td>Вечерний отдых</td><td>Длинные посты, истории участников, полезные гайды</td></tr>
+  </table>
+
+  <div class="insight"><b>Пн-Вт</b> посты получают на 15-20% больше просмотров, чем пятничные в карьерной нише. Лучший день для промо вебинара &mdash; вторник (D-5) и среда (D-3).</div>
+</div>
+
+<!-- ===== 5. CHANNEL OPTIMIZATION ===== -->
+<div class="section">
+  <h2>5. Оптимизация канала</h2>
+
+  <h3>Описание канала (рекомендация)</h3>
+  <div class="formula">СБОРКА &mdash; карьерный клуб
+
+Система поиска работы за 6-8 недель.
+AI-бот, вебинары, экспертное сообщество.
+
+Bot: @Sborka_work_bot
+Site: sborka.work
+
+Основатель: @timzinin</div>
+
+  <h3>Discussion Group: когда запускать</h3>
+  <div class="warning"><b>При &lt;200 подписчиках НЕ создавать discussion group.</b> Пустой чат убивает восприятие. Используйте реакции и опросы в канале, взаимодействие через бот.</div>
+
+  <div class="tactic">
+    <div class="tactic-title">Запуск @sborka_chat при 300+ подписчиках</div>
+    <div class="tactic-action">Привязать к каналу как linked discussion. Засидить 15-20 активных участников из CRM. Структурировать через Topics: General, Вакансии, Резюме, Собеседования, Истории успеха.</div>
+  </div>
+
+  <h3>Иерархия контента по уровням</h3>
+  <table>
+    <tr><th>Уровень</th><th>Канал (бесплатно)</th><th>Бот (бесплатно)</th><th>Клуб (платно)</th></tr>
+    <tr><td>Советы</td><td>Общие tips</td><td>Персонализированные по роли</td><td>Deep-dive воркшопы</td></tr>
+    <tr><td>Вакансии</td><td>Публичная подборка</td><td>Фильтр по предпочтениям</td><td>Эксклюзивные pre-filtered</td></tr>
+    <tr><td>Резюме</td><td>Только советы</td><td>AI auto-review (basic)</td><td>Экспертный разбор + feedback</td></tr>
+    <tr><td>Вебинары</td><td>Replay highlights</td><td>Полный replay</td><td>Live + Q&A доступ</td></tr>
+    <tr><td>Сообщество</td><td>Read-only канал</td><td>Bot interactions</td><td>Приватная группа + нетворкинг</td></tr>
+    <tr><td>Менторство</td><td>&mdash;</td><td>&mdash;</td><td>1-on-1 с Тимом (VIP)</td></tr>
+  </table>
+</div>
+
+<!-- ===== 6. CONTENT PLAYBOOK ===== -->
+<div class="section">
+  <h2>6. Content Playbook: еженедельный план</h2>
+
+  <table>
+    <tr><th>День</th><th>Тема</th><th>Формат</th><th>Тип (pillar)</th><th>Пример</th></tr>
+    <tr><td><strong>Пн</strong></td><td>Career Tip</td><td>Long post + image</td><td>Utility (40%)</td><td>"Как написать Follow-up после собеседования"</td></tr>
+    <tr><td><strong>Вт</strong></td><td>Market Insight</td><td>Инфографика / data</td><td>Intelligence (25%)</td><td>"Рынок вакансий: что изменилось за неделю"</td></tr>
+    <tr><td><strong>Ср</strong></td><td>Webinar Day</td><td>Анонс + напоминание</td><td>Promo (15%)</td><td>"Сегодня в 16:00 &mdash; вебинар: тема, спикер"</td></tr>
+    <tr><td><strong>Чт</strong></td><td>Member Story</td><td>Story + фото</td><td>Social Proof (20%)</td><td>"Как Алексей сменил профессию за 8 недель"</td></tr>
+    <tr><td><strong>Пт</strong></td><td>Tool / Resource</td><td>Список</td><td>Utility (40%)</td><td>"5 сервисов для автопоиска вакансий"</td></tr>
+    <tr><td><strong>Сб-Вс</strong></td><td>Poll / Interactive</td><td>Telegram poll</td><td>Engagement</td><td>"Какая зарплата вас устроит? (анонимно)"</td></tr>
+  </table>
+
+  <h3>Шаблоны постов</h3>
+  <div class="tactic">
+    <div class="tactic-title">Career Tip Post</div>
+    <div class="formula">[Заголовок совета]
+
+[2-3 абзаца actionable текста]
+
+[Bullet points с конкретными шагами]
+
+---
+Больше инструментов для поиска работы &mdash;
+в нашем боте: @Sborka_work_bot</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Success Story Post</div>
+    <div class="formula">"[Цитата участника]"
+
+[Имя], [роль/индустрия]
+
+До СБОРКИ: [ситуация]
+Через [X] недель: [результат]
+Ключевое действие: [что помогло]
+
+---
+Хочешь так же? Тарифы от 4,900 руб/мес
+@Sborka_work_bot</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Market Insight Post</div>
+    <div class="formula">[Заголовок с data point]
+
+[2-3 абзаца анализа тренда]
+
+Что это значит для вас:
+- [Вывод 1]
+- [Вывод 2]
+- [Действие]
+
+Источник: [ссылка]
+#рынок_труда #карьера</div>
+  </div>
+</div>
+
+<!-- ===== 7. WEBINAR FUNNEL ===== -->
+<div class="section">
+  <h2>7. Вебинарная воронка в Telegram</h2>
+
+  <h3>Промо-план вебинара (7 дней)</h3>
+  <table>
+    <tr><th>День</th><th>Канал</th><th>Бот</th></tr>
+    <tr><td><strong>D-7</strong></td><td>Анонс: тема + спикер + "Save the date"</td><td>Кнопка регистрации</td></tr>
+    <tr><td><strong>D-5</strong></td><td>Value teaser: "3 ошибки, которые разберём"</td><td>&mdash;</td></tr>
+    <tr><td><strong>D-3</strong></td><td>Social proof: "Прошлый вебинар: 18 пришло, 4 получили офферы"</td><td>Reminder зарегистрированным</td></tr>
+    <tr><td><strong>D-2</strong></td><td>Urgency: "Осталось 2 дня! 30 мест на Zoom"</td><td>Push незарегистрированным</td></tr>
+    <tr><td><strong>D-0 утро</strong></td><td>"Сегодня в {time}! Тема: {topic}"</td><td>Reminder всем зарегистрированным</td></tr>
+    <tr><td><strong>D-0 за 10 мин</strong></td><td>&mdash;</td><td>Zoom link <strong>ТОЛЬКО</strong> зарегистрированным</td></tr>
+    <tr><td><strong>D-0 старт</strong></td><td>"Мы в эфире! Присоединяйтесь: {zoom}"</td><td>"Мы начали!" message</td></tr>
+    <tr><td><strong>D+1</strong></td><td>Key takeaway + replay teaser</td><td>Оффер с промокодом</td></tr>
+    <tr><td><strong>D+3</strong></td><td>&mdash;</td><td>Дедлайн: "Промокод истекает сегодня"</td></tr>
+  </table>
+
+  <div class="warning"><b>Проблема вебинара #3:</b> 4 пользователя заблокировали бот из-за спама рассылками. <strong>Решение:</strong> максимум 3 сообщения от бота в день вебинара. Zoom link &mdash; ТОЛЬКО зарегистрированным. Канал &mdash; для анонсов, бот &mdash; только для тех, кто записался.</div>
+
+  <h3>Конверсионные бенчмарки (карьерные вебинары, RU рынок)</h3>
+  <table>
+    <tr><th>Этап</th><th>Конверсия</th><th>С промокодом</th></tr>
+    <tr><td>Регистрация &rarr; Присутствие</td><td>40-60%</td><td>&mdash;</td></tr>
+    <tr><td>Присутствие &rarr; Клик на оффер</td><td>20-35%</td><td>&mdash;</td></tr>
+    <tr><td>Клик &rarr; Покупка</td><td>10-25%</td><td>+30-50% lift</td></tr>
+    <tr><td><strong>End-to-end</strong> (рег &rarr; покупка)</td><td>3-10%</td><td>5-15%</td></tr>
+  </table>
+</div>
+
+<!-- ===== 8. GROWTH HACKS ===== -->
+<div class="section">
+  <h2>8. Growth Hacks & CTA Strategy</h2>
+
+  <h3>Тактики роста</h3>
+  <div class="tactic">
+    <div class="tactic-title">Telegram Ads (первый тест)</div>
+    <div class="tactic-data">Бюджет: 5,000 RUB | Ожидание: 60K-170K показов, 100-500 новых subs | CPA: 10-50 RUB/sub</div>
+    <div class="tactic-action">Таргет: подписчики @antirabstvo, @normalno_delaj, @tcareer. Текст: "СБОРКА &mdash; карьерный клуб с AI-ботом. Найди работу за 6-8 недель."</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Content Partnerships (кросс-промо)</div>
+    <div class="tactic-data">Ожидание: +20-100 subs за партнёрство | Стоимость: бесплатно</div>
+    <div class="tactic-action">Guest post exchange с карьерными коучами. Совместный вебинар с HR-каналом. Roundup: "5 карьерных каналов, которые стоит читать" &mdash; попросить партнёров включить СБОРКУ в аналогичный пост.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Referral Program ("Приведи друга")</div>
+    <div class="tactic-data">Механика: unique ref link через бот | Друг подписался &rarr; месяц бесплатно | 3 друга &rarr; VIP upgrade</div>
+    <div class="tactic-action">Использовать существующую инфраструктуру @Sborka_partners_bot (20% x 6 мес). Добавить member-level рефералку через <code>t.me/Sborka_work_bot?start=ref_{code}</code>.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Event-Driven Growth</div>
+    <div class="tactic-data">Сезоны: январь + сентябрь (пик поиска работы) | Layoff-новости = трафик спайк</div>
+    <div class="tactic-action">Быстрые комментарии на layoff-новости + "Мы помогаем с поиском работы". Тематические кампании: "Women in Tech" (8 марта), "New Year, New Career" (январь).</div>
+  </div>
+
+  <h3>CTA Strategy</h3>
+  <table>
+    <tr><th>Тип CTA</th><th>Где</th><th>Частота</th><th>Пример</th></tr>
+    <tr><td><span class="badge" style="background:#8BB8D9">Soft</span></td><td>Конец utility поста</td><td>Каждый пост</td><td>"Больше советов &mdash; в нашем боте @Sborka_work_bot"</td></tr>
+    <tr><td><span class="badge" style="background:var(--gold);color:var(--dark)">Medium</span></td><td>Анонс вебинара</td><td>2-3/неделю</td><td>"[Записаться на вебинар]" (inline button через бот)</td></tr>
+    <tr><td><span class="badge" style="background:var(--terra)">Hard</span></td><td>После success story</td><td>Max 1 на 5 постов</td><td>"Хочешь так же? Тарифы от 4,900 руб/мес: [Смотреть]"</td></tr>
+    <tr><td><span class="badge" style="background:var(--muted)">Passive</span></td><td>Описание канала</td><td>Всегда</td><td>"Bot: @Sborka_work_bot | Site: sborka.work"</td></tr>
+  </table>
+
+  <div class="insight"><b>Правило:</b> максимум 1 hard CTA на 5 постов. Слишком много промо = отписки. Soft CTA можно в каждом посте.</div>
+</div>
+
+<!-- ===== 9. CONVERSION FUNNEL ===== -->
+<div class="section">
+  <h2>9. Conversion Funnel: канал &rarr; клуб</h2>
+
+  <div class="funnel">
+    <div class="funnel-step"><strong>STAGE 1:</strong> Awareness (канал) <span class="rate">view rate: 25-40%</span></div>
+    <div class="funnel-step"><span class="arrow">&darr;</span></div>
+    <div class="funnel-step"><strong>STAGE 2:</strong> Interest (клик CTA) <span class="rate">CTR: 5-15%</span></div>
+    <div class="funnel-step"><span class="arrow">&darr;</span></div>
+    <div class="funnel-step"><strong>STAGE 3:</strong> Consideration (бот interaction) <span class="rate">bot start: 30-50% кликов</span></div>
+    <div class="funnel-step"><span class="arrow">&darr;</span></div>
+    <div class="funnel-step"><strong>STAGE 4:</strong> Intent (регистрация на вебинар) <span class="rate">reg: 20-40% bot starters</span></div>
+    <div class="funnel-step"><span class="arrow">&darr;</span></div>
+    <div class="funnel-step"><strong>STAGE 5:</strong> Evaluation (присутствие на вебинаре) <span class="rate">attendance: 40-60%</span></div>
+    <div class="funnel-step"><span class="arrow">&darr;</span></div>
+    <div class="funnel-step"><strong>STAGE 6:</strong> Purchase (вступление в клуб) <span class="rate">conversion: 5-15%</span></div>
+    <div class="funnel-step"><span class="arrow">&darr;</span></div>
+    <div class="funnel-step"><strong>STAGE 7:</strong> Retention (остался &gt;1 мес) <span class="rate">retention: 60-80%</span></div>
+  </div>
+
+  <div class="warning"><b>Расчёт для 93 подписчиков:</b> 1,000 subs &rarr; 300 видят CTA &rarr; 30 кликов &rarr; 12 reg &rarr; 6 attend &rarr; 1 покупка. При 93 subs каждый вебинар конвертирует 0-1 человек из канала. <strong>Рост канала до 500-1,000 критичен для устойчивой воронки.</strong></div>
+
+  <h3>KPIs по этапам роста</h3>
+  <table>
+    <tr><th>KPI</th><th>Цель (100-1K subs)</th><th>"Good"</th><th>"Great"</th></tr>
+    <tr><td>View rate</td><td>25%+</td><td>30-40%</td><td>40%+</td></tr>
+    <tr><td>Рост в месяц</td><td>+20-50 subs</td><td>+50-100</td><td>+100+</td></tr>
+    <tr><td>Bot starts из канала</td><td>5-15/неделю</td><td>15-25</td><td>25+</td></tr>
+    <tr><td>Присутствие на вебинаре</td><td>10-20 чел</td><td>20-30</td><td>30+</td></tr>
+    <tr><td>Платные конверсии/мес</td><td>1-2</td><td>3-5</td><td>5+</td></tr>
+    <tr><td>Частота постов</td><td>3-4/неделю</td><td>5/неделю</td><td>Ежедневно</td></tr>
+    <tr><td>Unsubscribe rate</td><td>&lt;5%/мес</td><td>&lt;3%</td><td>&lt;1%</td></tr>
+  </table>
+</div>
+
+<!-- ===== 30-DAY ACTION PLAN ===== -->
+<div class="section">
+  <h2>30-Day Action Plan</h2>
+
+  <div class="timeline">
+    <div class="timeline-item"><span class="week">Неделя 1</span>Фундамент: описание, welcome sequence, первый lead magnet</div>
+    <div class="timeline-item"><span class="week">Неделя 2</span>Контент-машина: запуск еженедельного плана, 4-5 постов</div>
+    <div class="timeline-item"><span class="week">Неделя 3</span>Воронка: оптимизация вебинара, UGC, первый партнёр</div>
+    <div class="timeline-item"><span class="week">Неделя 4</span>Рост: TG Ads тест, реферальная программа, аналитика</div>
+  </div>
+
+  <div class="action-plan">
+    <div class="action-item">
+      <strong>Обновить описание канала</strong> по рекомендованному шаблону. Добавить ссылку на бот и sborka.work. <span class="badge badge-boost">День 1</span>
+    </div>
+    <div class="action-item">
+      <strong>Добавить ссылку на канал в welcome message бота.</strong> Каждый новый пользователь бота &mdash; потенциальный подписчик канала. <span class="badge badge-boost">День 1</span>
+    </div>
+    <div class="action-item">
+      <strong>Запустить серию "Career Tip Tuesday".</strong> Еженедельный utility-контент. AI (Lisa/Yuki) для черновиков, Тим персонализирует. <span class="badge badge-boost">День 2</span>
+    </div>
+    <div class="action-item">
+      <strong>Создать первый lead magnet:</strong> "Чек-лист резюме 2026" (PDF, 2 страницы). Доставка через бот на /start. Промо в канале. <span class="badge badge-boost">День 3-4</span>
+    </div>
+    <div class="action-item">
+      <strong>Реализовать welcome sequence в боте</strong> (3 сообщения за 24ч) через apscheduler. Автоматизация первого впечатления. <span class="badge badge-medium">Неделя 1</span>
+    </div>
+    <div class="action-item">
+      <strong>Запустить еженедельный контент-план:</strong> Пн: Tip, Вт: Market, Ср: Webinar, Чт: Story, Пт: Tools, Сб-Вс: Poll. 4-5 постов/неделю. <span class="badge badge-medium">Неделя 2</span>
+    </div>
+    <div class="action-item">
+      <strong>Оптимизировать вебинарную воронку:</strong> сократить рассылки в день вебинара до 3 max. Канал для анонсов, бот только для зарегистрированных. <span class="badge badge-medium">Неделя 2</span>
+    </div>
+    <div class="action-item">
+      <strong>Собрать первую success story</strong> по "Hero's Journey" шаблону. Попросить участника CRM поделиться результатом. <span class="badge badge-medium">Неделя 3</span>
+    </div>
+    <div class="action-item">
+      <strong>Найти 3 карьерных канала для кросс-промо.</strong> Написать коучам/HR через TG. Предложить guest post exchange. <span class="badge badge-medium">Неделя 3</span>
+    </div>
+    <div class="action-item">
+      <strong>Запустить тест Telegram Ads</strong> (5,000 RUB). Таргет: подписчики карьерных каналов. Цель: 100-300 новых подписчиков. <span class="badge badge-boost">Неделя 4</span>
+    </div>
+  </div>
+
+  <h3>Траектория роста</h3>
+  <table>
+    <tr><th>Milestone</th><th>Срок</th><th>Channel Subs</th><th>Bot Users</th><th>Paid Members</th><th>MRR</th></tr>
+    <tr><td><strong>Текущее</strong></td><td>Мар 2026</td><td>~93</td><td>55</td><td>7</td><td>~$515</td></tr>
+    <tr><td>Phase 1</td><td>Апр 2026</td><td>200-300</td><td>100</td><td>10-12</td><td>~$700</td></tr>
+    <tr><td>Phase 2</td><td>Июн 2026</td><td>500-800</td><td>250</td><td>15-25</td><td>~$1,200</td></tr>
+    <tr><td>Phase 3</td><td>Сен 2026</td><td>1,000-2,000</td><td>500</td><td>30-50</td><td>~$2,500</td></tr>
+    <tr><td>Phase 4</td><td>Дек 2026</td><td>3,000-5,000</td><td>1,000</td><td>50-100</td><td>~$5,000</td></tr>
+  </table>
+
+  <div class="insight"><b>Ключевое условие:</b> консистентный контент (4-5 постов/неделю), еженедельные вебинары, ежемесячные TG Ads 5,000-10,000 RUB, 2-3 контент-партнёрства в месяц.</div>
+</div>
+
+<footer>
+  S-05 Telegram @public_sborka &mdash; Research compiled 2026-03-04 | SMM Research Hub | Тим Зинин
+</footer>
+
+</div>
+</body>
+</html>

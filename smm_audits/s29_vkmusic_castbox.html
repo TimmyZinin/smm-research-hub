@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S-29 VK Music + CastBox — SMM Research Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--vk:#0077FF;--vk-dark:#0059B3;--vk-light:#E5F0FF;--cb:#F55B23;--cb-light:#FEEDE6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--dark);line-height:1.7}
+.topnav{position:sticky;top:0;z-index:100;background:var(--dark);padding:8px 16px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{color:rgba(255,253,247,.7);text-decoration:none;font-size:.75em;padding:4px 10px;border-radius:20px;transition:.2s;flex-shrink:0}
+.topnav a:hover,.topnav a.active{color:var(--white);background:rgba(255,253,247,.15)}
+.topnav a.active{background:var(--vk)}
+.hero{background:linear-gradient(135deg,#0077FF,#0059B3,#003D7A);color:#fff;padding:80px 24px 60px;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:8px}
+.hero .sub{opacity:.85;font-size:1.05em;margin-bottom:20px}
+.hero .badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero .badge-row span{background:rgba(255,255,255,.18);padding:6px 16px;border-radius:20px;font-size:.85em}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 60px}
+.section{margin-bottom:48px}
+.section h2{font-family:'Playfair Display',serif;font-size:1.6em;color:var(--vk-dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--vk-light)}
+.section h3{font-size:1.15em;color:var(--vk);margin:20px 0 10px;font-weight:600}
+.section h3.cb{color:var(--cb)}
+p{margin-bottom:14px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.92em}
+th{background:var(--vk);color:#fff;padding:10px 14px;text-align:left;font-weight:600}
+th.cb{background:var(--cb)}
+td{padding:10px 14px;border-bottom:1px solid #e8e0d4}
+tr:hover td{background:var(--vk-light)}
+ul,ol{margin:0 0 16px 20px}
+li{margin-bottom:6px}
+.card{background:var(--sand);border-radius:12px;padding:20px;margin:16px 0}
+.highlight{background:var(--vk-light);border-left:4px solid var(--vk);padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
+.highlight-cb{background:var(--cb-light);border-left:4px solid var(--cb);padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
+.cta-box{background:linear-gradient(135deg,var(--vk-light),#fff);border:2px solid var(--vk);border-radius:12px;padding:20px;margin:20px 0}
+code{font-family:'JetBrains Mono',monospace;background:var(--sand);padding:2px 8px;border-radius:4px;font-size:.88em}
+pre{background:var(--dark);color:var(--vk);padding:20px;border-radius:8px;overflow-x:auto;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.85em;line-height:1.5}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+.metric{background:var(--vk-light);border-radius:10px;padding:16px;text-align:center}
+.metric.cb{background:var(--cb-light)}
+.metric .num{font-family:'JetBrains Mono',monospace;font-size:1.8em;font-weight:700;color:var(--vk-dark);display:block}
+.metric.cb .num{color:var(--cb)}
+.metric .label{font-size:.8em;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.dual{grid-template-columns:1fr}}
+footer{text-align:center;padding:40px;color:var(--muted);font-size:.85em;border-top:1px solid var(--sand)}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+<a href="../smm_platform_audit.html">Dashboard</a>
+<a href="s01_linkedin.html">LinkedIn</a>
+<a href="s02_instagram.html">IG</a>
+<a href="s03_youtube.html">YT</a>
+<a href="s04_telegram_personal.html">TG</a>
+<a href="s05_telegram_sborka.html">TG Sborka</a>
+<a href="s06_threads.html">Threads</a>
+<a href="s07_facebook.html">FB</a>
+<a href="s08_tiktok.html">TikTok</a>
+<a href="s09_vk.html">VK</a>
+<a href="s10_vcru.html">VC.ru</a>
+<a href="s11_devto.html">Dev.to</a>
+<a href="s12_medium.html">Medium</a>
+<a href="s13_hashnode.html">Hashnode</a>
+<a href="s14_bluesky.html">Bluesky</a>
+<a href="s15_mastodon.html">Mastodon</a>
+<a href="s16_tumblr.html">Tumblr</a>
+<a href="s17_okru.html">OK.ru</a>
+<a href="s18_nostr.html">Nostr</a>
+<a href="s19_minds.html">Minds</a>
+<a href="s23_mave.html">Mave</a>
+<a href="s24_spotify.html">Spotify</a>
+<a href="s25_apple.html">Apple</a>
+<a href="s26_yandex.html">Yandex</a>
+<a href="s27_deezer.html">Deezer</a>
+<a href="s28_pocketcasts.html">PocketCasts</a>
+<a href="s29_vkmusic_castbox.html" class="active">VK Music</a>
+</nav>
+
+<div class="hero">
+<h1>VK Music + CastBox</h1>
+<div class="sub">S-29 | Новые платформы для подачи</div>
+<div class="badge-row">
+<span>VK: 100M+ MAU</span>
+<span>CastBox: 30M+ global</span>
+<span>Social Graph Discovery</span>
+<span>In-Audio Comments</span>
+<span>Ещё не подключены</span>
+</div>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1 -->
+<div class="section">
+<h2>1. Алгоритм и Discovery</h2>
+
+<div class="dual">
+<div class="card">
+<h3>VK Music</h3>
+<p><strong>Social graph = #1 сигнал.</strong> Если друг ВК слушает подкаст — он появляется в рекомендациях с соцпруфом ("3 друга слушают").</p>
+<ul>
+<li>"For You" feed: подкасты рядом с музыкой</li>
+<li>Community integration: участники карьерных сообществ → карьерные подкасты</li>
+<li>Freshness boost 24-48ч для новых эпизодов</li>
+<li>~12% рынка RU подкастов</li>
+</ul>
+</div>
+<div class="card">
+<h3 class="cb">CastBox</h3>
+<p><strong>Deep learning рекомендации.</strong> Анализирует listening history, skip patterns, completion, ratings.</p>
+<ul>
+<li>Per-category trending lists</li>
+<li>In-audio comments = engagement signals</li>
+<li>2-4 недели discovery boost для новых шоу</li>
+<li>30M+ users, сильный на Android</li>
+</ul>
+</div>
+</div>
+
+<div class="highlight">
+<strong>VK Music:</strong> каждый слушатель-VK-юзер создаёт ripple через сеть друзей. Social graph > algorithm.
+</div>
+
+<div class="highlight-cb">
+<strong>CastBox:</strong> RU-карьерных подкастов практически нет. In-audio comments + clips = уникальные engagement tools.
+</div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+<h2>2. Форматы контента</h2>
+
+<h3>VK Music плеер</h3>
+<table>
+<tr><th>Функция</th><th>Статус</th></tr>
+<tr><td>Скорость воспроизведения</td><td>0.5x - 2.0x</td></tr>
+<tr><td>Оффлайн загрузка</td><td>Подкасты бесплатно для стриминга</td></tr>
+<tr><td>Cast (Marusia)</td><td>Поддерживается</td></tr>
+<tr><td>Show notes</td><td>Plain text (ссылки НЕ кликабельны в плеере, но кликабельны в VK-посте)</td></tr>
+<tr><td>Chapters</td><td><strong>Не поддерживается</strong></td></tr>
+<tr><td>Episode artwork</td><td>Поддерживается (1400x1400 мин)</td></tr>
+</table>
+
+<h3 class="cb">CastBox плеер</h3>
+<table>
+<tr><th class="cb">Функция</th><th class="cb">Статус</th></tr>
+<tr><td>In-Audio Comments</td><td><strong>Уникально!</strong> Комментарии привязаны к таймкоду</td></tr>
+<tr><td>Clips</td><td>60-сек сниппеты для шеринга в соцсети</td></tr>
+<tr><td>Show notes</td><td><strong>HTML, кликабельные ссылки</strong></td></tr>
+<tr><td>Скорость</td><td>0.5x - 3.0x (!)</td></tr>
+<tr><td>Listening stats</td><td>Gamification: часы, стрики, категории</td></tr>
+<tr><td>Retention curve</td><td>Creator Studio показывает где слушатели уходят</td></tr>
+</table>
+
+<h3>Show Notes шаблоны</h3>
+<div class="dual">
+<div class="card">
+<strong>VK Music (plain text):</strong>
+<pre style="font-size:.8em;background:var(--dark);color:var(--vk);margin-top:8px">СБОРКА | Эпизод N: [Название]
+
+[2-3 предложения]
+
+Ссылки:
+sborka.work
+t.me/Sborka_work_bot
+sborka.mave.digital
+
+00:00 Интро
+00:30 [Хук]
+03:00 [Основной]
+12:00 [Практика]</pre>
+</div>
+<div class="card">
+<strong>CastBox (HTML, кликабельно):</strong>
+<pre style="font-size:.8em;background:var(--dark);color:var(--cb);margin-top:8px">СБОРКА | Эпизод N: [Название]
+
+[2-3 предложения]
+
+Ссылки:
+sborka.work?utm_source=castbox
+&amp;utm_medium=podcast
+&amp;utm_campaign=s29_castbox
+&amp;utm_content=epN
+
+t.me/Sborka_work_bot?start=source_cb_epN</pre>
+</div>
+</div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+<h2>3. Анализ конкурентов</h2>
+
+<h3>Карьерные подкасты на VK Music</h3>
+<table>
+<tr><th>Подкаст</th><th>Фокус</th><th>Длина</th><th>Аудитория</th></tr>
+<tr><td>Нормальная работа</td><td>General career, культура</td><td>30-45 мин</td><td>25-35</td></tr>
+<tr><td>HR говорит</td><td>Recruitment insider tips</td><td>20-30 мин</td><td>22-30</td></tr>
+<tr><td>Не работа, а сказка</td><td>Необычные профессии</td><td>25-35 мин</td><td>20-28</td></tr>
+<tr><td>Карьерный консультант</td><td>CV, interviews</td><td>15-25 мин</td><td>25-35</td></tr>
+<tr><td>Кем стать?</td><td>Career orientation</td><td>15-20 мин</td><td>18-22</td></tr>
+</table>
+
+<h3>Конкурентные преимущества СБОРКИ</h3>
+<ol>
+<li><strong>14 мин</strong> — короче всех. Matches VK's younger audience + mobile-first</li>
+<li><strong>Тёплый тон</strong> vs. корпоративный/HR-centric у конкурентов</li>
+<li><strong>Продуктовая воронка:</strong> бот + community + клуб (конкуренты = standalone media)</li>
+<li><strong>AI-generated consistency:</strong> регулярная публикация без scheduling constraints</li>
+<li><strong>Low competition:</strong> VK Music каталог подкастов меньше Spotify/Apple</li>
+</ol>
+
+<div class="highlight-cb">
+<strong>CastBox:</strong> русскоязычных карьерных подкастов практически нет. Diaspora audience on Android = underserved market.
+</div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+<h2>4. Процесс подачи</h2>
+
+<div class="dual">
+<div class="cta-box">
+<h3 style="margin-top:0">VK Music (10 шагов)</h3>
+<ol>
+<li>Перейти на vk.com/app51488920</li>
+<li>Авторизоваться через VK</li>
+<li>Выбрать "Подключить подкаст"</li>
+<li>Вставить RSS: cloud.mave.digital/69800</li>
+<li>Подтвердить ownership (email)</li>
+<li>Заполнить категорию: "Образование"</li>
+<li>Загрузить обложку 3000x3000</li>
+<li>Отправить на модерацию (1-3 дня)</li>
+<li>При капче — повторить через VPN</li>
+<li>После одобрения — RSS sync автоматический</li>
+</ol>
+</div>
+<div class="cta-box" style="border-color:var(--cb)">
+<h3 class="cb" style="margin-top:0">CastBox (11 шагов)</h3>
+<ol>
+<li>creators.castbox.fm → Sign Up</li>
+<li>Войти через Google</li>
+<li>Import Podcast → RSS URL</li>
+<li>Вставить: cloud.mave.digital/69800</li>
+<li>Preview metadata → проверить</li>
+<li>Email verification (tim.zinin@gmail.com)</li>
+<li>Confirm ownership</li>
+<li>Set categories: Careers + Education</li>
+<li>Set language: Russian</li>
+<li>Submit for review (24-48ч)</li>
+<li>After approval: auto-sync RSS</li>
+</ol>
+</div>
+</div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+<h2>5. Tone of Voice</h2>
+
+<h3>Адаптация тона</h3>
+<table>
+<tr><th>Параметр</th><th>VK Music (18-25)</th><th>CastBox (global)</th></tr>
+<tr><td>Обращение</td><td><strong>"Ты" обязательно</strong></td><td>"Ты" (для RU), neutral для EN</td></tr>
+<tr><td>Стиль</td><td>Casual, emoji-friendly, short punchy</td><td>Более нейтральный, детальные описания</td></tr>
+<tr><td>Emoji</td><td>Уместны в описаниях</td><td>Минимально</td></tr>
+<tr><td>Сленг</td><td>"Короче", "на самом деле"</td><td>Стандартный русский</td></tr>
+<tr><td>CTA стиль</td><td>"Заходи в бот, там тебе чеклист"</td><td>"Ссылка в описании эпизода"</td></tr>
+</table>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+<h2>6. SEO и Discovery</h2>
+
+<h3>VK Music Search</h3>
+<ul>
+<li>Заголовки с keywords: "Сборка | Карьера, резюме, работа мечты"</li>
+<li>Хэштеги в VK-постах: #карьера #работа #резюме #собеседование #сборка</li>
+<li>VK Clips: короткие видео для промо подкаста (15-60 сек)</li>
+<li>VK Stories: interactive polls "Что сложнее: резюме или собеседование?"</li>
+</ul>
+
+<h3 class="cb">CastBox Search</h3>
+<ul>
+<li>Title enhancement: "Сборка — подкаст про карьеру и поиск работы"</li>
+<li>Bilingual description: RU + EN ключевые слова</li>
+<li>Categories: "Careers" (primary) + "Education > Self-Improvement"</li>
+<li>Google-индексация: CastBox pages индексируются Google, что даёт spillover</li>
+</ul>
+
+<h3>Категории</h3>
+<table>
+<tr><th>Платформа</th><th>Primary</th><th>Secondary</th></tr>
+<tr><td>VK Music</td><td>Образование</td><td>Бизнес / Саморазвитие</td></tr>
+<tr><td>CastBox</td><td>Careers</td><td>Education > Self-Improvement</td></tr>
+</table>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section">
+<h2>7. CTA-стратегии</h2>
+
+<h3>VK Music CTA Paths</h3>
+<table>
+<tr><th>Путь</th><th>Описание</th></tr>
+<tr><td>VK Music → Community → Bot</td><td>Слушатель → VK-сообщество СБОРКИ → бот в закреплённом посте</td></tr>
+<tr><td>VK Music → Bot direct</td><td>Ссылка в описании эпизода → t.me/Sborka_work_bot</td></tr>
+<tr><td>VK Music → sborka.work</td><td>sborka.work?utm_source=vk_music&amp;utm_medium=podcast&amp;utm_campaign=s29_vk&amp;utm_content=ep{N}</td></tr>
+</table>
+
+<h3 class="cb">CastBox CTA</h3>
+<div class="highlight-cb">
+CastBox рендерит <strong>кликабельные HTML-ссылки</strong> в show notes. Это главное преимущество для CTA.
+<pre style="margin-top:8px;background:var(--dark);color:var(--cb)">sborka.work?utm_source=castbox&amp;utm_medium=podcast
+  &amp;utm_campaign=s29_castbox&amp;utm_content=ep{N}
+
+t.me/Sborka_work_bot?start=source_cb_ep{N}</pre>
+</div>
+
+<h3>UTM-шаблоны</h3>
+<pre>VK Music:
+sborka.work?utm_source=vk_music&amp;utm_medium=podcast&amp;utm_campaign=s29_vk&amp;utm_content=ep01
+
+CastBox:
+sborka.work?utm_source=castbox&amp;utm_medium=podcast&amp;utm_campaign=s29_castbox&amp;utm_content=ep01</pre>
+</div>
+
+<!-- SECTION 8 -->
+<div class="section">
+<h2>8. Экосистема VK</h2>
+
+<h3>7 точек интеграции</h3>
+<table>
+<tr><th>Канал</th><th>Механизм</th><th>Приоритет</th></tr>
+<tr><td><strong>VK Community</strong></td><td>Подкаст-виджет на странице сообщества</td><td>P0</td></tr>
+<tr><td><strong>VK Clips</strong></td><td>15-60 сек видео для промо эпизодов</td><td>P0</td></tr>
+<tr><td>VK Stories</td><td>Interactive: polls, stickers, links</td><td>P1</td></tr>
+<tr><td>VK Wall Posts</td><td>Ссылки кликабельны когда эпизод шарится как пост</td><td>P1</td></tr>
+<tr><td>VK Mini Apps</td><td>Будущее: job board как Mini App</td><td>P3</td></tr>
+<tr><td>VK Ads</td><td>Таргетинг по интересам "Карьера", "Работа" (min бюджет)</td><td>P2</td></tr>
+<tr><td>VK Marusia</td><td>Голосовой ассистент: "Маруся, включи подкаст Сборка"</td><td>P2</td></tr>
+</table>
+
+<h3 class="cb">CastBox Ecosystem</h3>
+<ul>
+<li><strong>Google Assistant:</strong> "Hey Google, play СБОРКА on CastBox"</li>
+<li><strong>Android Auto:</strong> Подкаст в машине через CastBox</li>
+<li><strong>Wear OS:</strong> Прослушивание на smart-часах</li>
+<li><strong>Chromecast:</strong> Cast на TV</li>
+<li><strong>Google Search indexing:</strong> CastBox pages индексируются → organic discovery</li>
+</ul>
+</div>
+
+<!-- SECTION 9 -->
+<div class="section">
+<h2>9. Кросс-платформа</h2>
+
+<h3>RSS-синхронизация</h3>
+<table>
+<tr><th>Платформа</th><th>Sync Delay</th><th>Особенности</th></tr>
+<tr><td>VK Music</td><td>2-6 часов (polling)</td><td>Ручная подача → затем auto RSS sync</td></tr>
+<tr><td>CastBox</td><td>1-4 часа (polling)</td><td>Ручная подача → затем auto RSS sync</td></tr>
+</table>
+
+<h3>VK Internal Cross-Linking</h3>
+<p>VK Music уникален тем, что подкаст живёт ВНУТРИ социальной сети. 10 точек кросс-промо:</p>
+<ul>
+<li>Community → Podcast Widget</li>
+<li>Wall Post → Episode Link</li>
+<li>Story → Swipe-up to Episode</li>
+<li>Clip → Podcast promo video</li>
+<li>Friends' Activity → Social proof</li>
+<li>VK Music "For You" → Algorithm</li>
+<li>Category Browse → Education</li>
+<li>Mini App → Future integration</li>
+<li>VK Ads → Paid promotion</li>
+<li>Marusia → Voice discovery</li>
+</ul>
+
+<h3>Distribution Ecosystem</h3>
+<table>
+<tr><th>Платформа</th><th>Роль</th></tr>
+<tr><td>Mave</td><td>RSS source</td></tr>
+<tr><td>Spotify</td><td>Volume driver</td></tr>
+<tr><td>Apple</td><td>Authority signal</td></tr>
+<tr><td>Яндекс.Музыка</td><td>RU mainstream</td></tr>
+<tr><td>Deezer</td><td>EU diaspora</td></tr>
+<tr><td>Pocket Casts</td><td>Power listeners</td></tr>
+<tr><td><strong>VK Music</strong></td><td><strong>VK social graph</strong></td></tr>
+<tr><td><strong>CastBox</strong></td><td><strong>Android/Global, in-audio engagement</strong></td></tr>
+</table>
+</div>
+
+<!-- SECTION 10 -->
+<div class="section">
+<h2>10. 30-дневный план действий</h2>
+
+<h3>Неделя 1: Подача</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>Платформа</th></tr>
+<tr><td>1</td><td>Подать на VK Music через vk.com/app51488920</td><td>VK Music</td></tr>
+<tr><td>1</td><td>Подать на CastBox через creators.castbox.fm</td><td>CastBox</td></tr>
+<tr><td>2-3</td><td>Модерация VK (1-3 дня). При отказе — повтор</td><td>VK Music</td></tr>
+<tr><td>2-3</td><td>Модерация CastBox (24-48ч)</td><td>CastBox</td></tr>
+<tr><td>4</td><td>Верификация: проверить что шоу появилось на обеих</td><td>Обе</td></tr>
+<tr><td>5</td><td>Оптимизировать описания с keywords и CTA-ссылками</td><td>Обе</td></tr>
+<tr><td>6-7</td><td>Создать VK-сообщество для подкаста (если нет)</td><td>VK</td></tr>
+</table>
+
+<h3>Неделя 2: Оптимизация</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>Платформа</th></tr>
+<tr><td>8</td><td>Добавить подкаст-виджет на VK Community page</td><td>VK</td></tr>
+<tr><td>9</td><td>Создать 3 VK Clips (по 1 на эпизод): hook + CTA</td><td>VK</td></tr>
+<tr><td>10</td><td>VK Story: poll "Что сложнее: резюме или собеседование?"</td><td>VK</td></tr>
+<tr><td>11</td><td>Update show notes на CastBox: HTML ссылки + UTM</td><td>CastBox</td></tr>
+<tr><td>12</td><td>Добавить CastBox и VK Music ссылки на sborka.work</td><td>Сайт</td></tr>
+<tr><td>13-14</td><td>Кросс-промо в TG: "Слушайте на VK Music и CastBox"</td><td>Telegram</td></tr>
+</table>
+
+<h3>Неделя 3: Рост</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>Платформа</th></tr>
+<tr><td>15-16</td><td>ep06: оптимизирован для VK (keyword-rich, younger tone)</td><td>Mave → All</td></tr>
+<tr><td>17</td><td>VK Wall post с эпизодом + хэштеги</td><td>VK</td></tr>
+<tr><td>18</td><td>Запросить in-audio comments на CastBox: "Напиши мнение!"</td><td>CastBox</td></tr>
+<tr><td>19</td><td>2 VK Clips для ep06</td><td>VK</td></tr>
+<tr><td>20-21</td><td>Мониторинг: проверить аналитику обеих платформ</td><td>Обе</td></tr>
+</table>
+
+<h3>Неделя 4: Анализ</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>Платформа</th></tr>
+<tr><td>22-24</td><td>Аналитический отчёт: plays, subscribers, UTM-трафик</td><td>Обе</td></tr>
+<tr><td>25-27</td><td>ep07 скрипт на основе лучшего эпизода</td><td>Mave</td></tr>
+<tr><td>28</td><td>CastBox: retention curve analysis — где уходят?</td><td>CastBox</td></tr>
+<tr><td>29-30</td><td>30-дневный отчёт. VK Ads decision (да/нет)</td><td>Обе</td></tr>
+</table>
+
+<h3>KPI-таргеты (30 дней)</h3>
+<div class="dual">
+<div>
+<h3>VK Music</h3>
+<div class="metric-grid" style="grid-template-columns:1fr 1fr">
+<div class="metric"><span class="num">50</span><span class="label">Subscribers</span></div>
+<div class="metric"><span class="num">200+</span><span class="label">Plays</span></div>
+<div class="metric"><span class="num">10</span><span class="label">Bot Starts</span></div>
+<div class="metric"><span class="num">6</span><span class="label">VK Clips</span></div>
+</div>
+</div>
+<div>
+<h3 class="cb">CastBox</h3>
+<div class="metric-grid" style="grid-template-columns:1fr 1fr">
+<div class="metric cb"><span class="num">20</span><span class="label">Subscribers</span></div>
+<div class="metric cb"><span class="num">50+</span><span class="label">Plays</span></div>
+<div class="metric cb"><span class="num">5</span><span class="label">Bot Starts</span></div>
+<div class="metric cb"><span class="num">10+</span><span class="label">In-Audio Comments</span></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<footer>
+Sprint S-29 VK Music + CastBox | Исследование завершено 4 марта 2026 | SMM Research Hub
+</footer>
+</body>
+</html>

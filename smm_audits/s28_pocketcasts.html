@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S-28 Pocket Casts — SMM Research Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--pc:#F43E37;--pc-dark:#D32F2F;--pc-light:#FDECEA}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--dark);line-height:1.7}
+.topnav{position:sticky;top:0;z-index:100;background:var(--dark);padding:8px 16px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{color:rgba(255,253,247,.7);text-decoration:none;font-size:.75em;padding:4px 10px;border-radius:20px;transition:.2s;flex-shrink:0}
+.topnav a:hover,.topnav a.active{color:var(--white);background:rgba(255,253,247,.15)}
+.topnav a.active{background:var(--pc)}
+.hero{background:linear-gradient(135deg,#F43E37,#D32F2F,#9C1B1B);color:#fff;padding:80px 24px 60px;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:8px}
+.hero .sub{opacity:.85;font-size:1.05em;margin-bottom:20px}
+.hero .badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero .badge-row span{background:rgba(255,255,255,.18);padding:6px 16px;border-radius:20px;font-size:.85em}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 60px}
+.section{margin-bottom:48px}
+.section h2{font-family:'Playfair Display',serif;font-size:1.6em;color:var(--pc-dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--pc-light)}
+.section h3{font-size:1.15em;color:var(--pc);margin:20px 0 10px;font-weight:600}
+p{margin-bottom:14px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.92em}
+th{background:var(--pc);color:#fff;padding:10px 14px;text-align:left;font-weight:600}
+td{padding:10px 14px;border-bottom:1px solid #e8e0d4}
+tr:hover td{background:var(--pc-light)}
+ul,ol{margin:0 0 16px 20px}
+li{margin-bottom:6px}
+.card{background:var(--sand);border-radius:12px;padding:20px;margin:16px 0}
+.highlight{background:var(--pc-light);border-left:4px solid var(--pc);padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
+.cta-box{background:linear-gradient(135deg,var(--pc-light),#fff);border:2px solid var(--pc);border-radius:12px;padding:20px;margin:20px 0}
+code{font-family:'JetBrains Mono',monospace;background:var(--sand);padding:2px 8px;border-radius:4px;font-size:.88em}
+pre{background:var(--dark);color:var(--pc);padding:20px;border-radius:8px;overflow-x:auto;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.85em;line-height:1.5}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+.metric{background:var(--pc-light);border-radius:10px;padding:16px;text-align:center}
+.metric .num{font-family:'JetBrains Mono',monospace;font-size:1.8em;font-weight:700;color:var(--pc-dark);display:block}
+.metric .label{font-size:.8em;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+footer{text-align:center;padding:40px;color:var(--muted);font-size:.85em;border-top:1px solid var(--sand)}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+<a href="../smm_platform_audit.html">Dashboard</a>
+<a href="s01_linkedin.html">LinkedIn</a>
+<a href="s02_instagram.html">IG</a>
+<a href="s03_youtube.html">YT</a>
+<a href="s04_telegram_personal.html">TG</a>
+<a href="s05_telegram_sborka.html">TG Sborka</a>
+<a href="s06_threads.html">Threads</a>
+<a href="s07_facebook.html">FB</a>
+<a href="s08_tiktok.html">TikTok</a>
+<a href="s09_vk.html">VK</a>
+<a href="s10_vcru.html">VC.ru</a>
+<a href="s11_devto.html">Dev.to</a>
+<a href="s12_medium.html">Medium</a>
+<a href="s13_hashnode.html">Hashnode</a>
+<a href="s14_bluesky.html">Bluesky</a>
+<a href="s15_mastodon.html">Mastodon</a>
+<a href="s16_tumblr.html">Tumblr</a>
+<a href="s17_okru.html">OK.ru</a>
+<a href="s18_nostr.html">Nostr</a>
+<a href="s19_minds.html">Minds</a>
+<a href="s23_mave.html">Mave</a>
+<a href="s24_spotify.html">Spotify</a>
+<a href="s25_apple.html">Apple</a>
+<a href="s26_yandex.html">Yandex</a>
+<a href="s27_deezer.html">Deezer</a>
+<a href="s28_pocketcasts.html" class="active">PocketCasts</a>
+<a href="s29_vkmusic_castbox.html">VK Music</a>
+</nav>
+
+<div class="hero">
+<h1>Pocket Casts</h1>
+<div class="sub">S-28 | Power Listener Platform</div>
+<div class="badge-row">
+<span>pca.st/95ecagwv</span>
+<span>RSS via Mave</span>
+<span>Automattic (WordPress)</span>
+<span>Tech-savvy 25-45</span>
+<span>Conversion &gt; Reach</span>
+</div>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1 -->
+<div class="section">
+<h2>1. Алгоритм и Discovery</h2>
+<p>Pocket Casts не имеет алгоритма в стиле Spotify/YouTube. Discovery: 70% поиск, 20% курация, 10% trending.</p>
+
+<h3>Механизмы обнаружения</h3>
+<table>
+<tr><th>Механизм</th><th>Как работает</th><th>Приоритет</th></tr>
+<tr><td><strong>Поиск</strong></td><td>Индексирует: title, author, description, episode titles. Exact match &gt; partial</td><td>P0</td></tr>
+<tr><td><strong>Trending</strong></td><td>Velocity подписок за 7-дневное окно. 50 подписчиков за 24ч = trending даже с 200 total</td><td>P1</td></tr>
+<tr><td>Curated Lists</td><td>Редакция (Австралия, Automattic). Тематические коллекции, обновляются периодически</td><td>P2</td></tr>
+<tr><td>Similar Podcasts</td><td>По пересечению подписчиков. Под шоу появляются похожие</td><td>P2</td></tr>
+<tr><td>Category Browse</td><td>По RSS &lt;itunes:category&gt;. "Careers" (primary) + "Education" (secondary)</td><td>P1</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Subscriber velocity — главный рычаг.</strong> Каждый новый подписчик непропорционально важен при малой базе. Burst 20-30 подписчиков за день = trending в категории.
+</div>
+
+<h3>Ключевой инсайт</h3>
+<p>Для русскоязычного подкаста <strong>кросс-промо и прямые ссылки</strong> (pca.st/95ecagwv) ценнее алгоритмического pickup. RU-конкуренция на PC = близка к нулю.</p>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+<h2>2. Форматы и фичи плеера</h2>
+
+<h3>Power-user фичи Pocket Casts</h3>
+<table>
+<tr><th>Функция</th><th>Описание</th><th>Для СБОРКИ</th></tr>
+<tr><td><strong>Chapters (ID3v2)</strong></td><td>MP3 chapter markers. Навигируемый список в плеере</td><td>ДОБАВИТЬ ко всем эпизодам. Главный дифференциатор</td></tr>
+<tr><td>Trim Silence</td><td>Удаляет паузы автоматически</td><td>ElevenLabs уже минимизирует паузы — OK</td></tr>
+<tr><td>Volume Boost</td><td>Нормализация громкости</td><td>Применить -16 LUFS перед загрузкой</td></tr>
+<tr><td>Playback Speed</td><td>1.2-1.5x норма для power users</td><td>Тестировать голос клона на 1.3x</td></tr>
+<tr><td>Custom Filters</td><td>"Эпизоды &lt;20 мин" — СБОРКА попадает</td><td>14-мин формат = идеален для фильтров</td></tr>
+<tr><td>Up Next Queue</td><td>Ручная очередь. Заголовок должен "заслужить" место</td><td>Конкретные, проблемно-ориентированные заголовки</td></tr>
+<tr><td>Web Player</td><td>play.pocketcasts.com (Plus $3.99/мес)</td><td>Для desktop listeners</td></tr>
+</table>
+
+<h3>Техническая оптимизация</h3>
+<table>
+<tr><th>Параметр</th><th>Текущее</th><th>Рекомендация</th></tr>
+<tr><td>Формат</td><td>MP3</td><td>MP3 (оставить)</td></tr>
+<tr><td>Bitrate</td><td>~128kbps</td><td>128kbps CBR</td></tr>
+<tr><td>Громкость</td><td>Неизвестно</td><td>-16 LUFS</td></tr>
+<tr><td>Chapters</td><td><strong>Нет</strong></td><td><strong>4-5 на эпизод</strong></td></tr>
+<tr><td>Episode art</td><td>Общая обложка</td><td>Per-episode art</td></tr>
+</table>
+
+<h3>Шаблон глав</h3>
+<pre>Chapter 1 [0:00] "Intro" — url: pca.st/95ecagwv
+Chapter 2 [0:30] "Hook title" — episode-specific
+Chapter 3 [3:00] "Main topic title" — core content
+Chapter 4 [12:00] "Practice / Action Steps"
+Chapter 5 [14:00] "CTA" — url: sborka.work?utm_source=pocketcasts...</pre>
+
+<p>При клике на Chapter 5 — URL открывается в браузере. Прямой, low-friction CTA.</p>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+<h2>3. Анализ конкурентов</h2>
+
+<h3>EN-карьерные подкасты на Pocket Casts</h3>
+<table>
+<tr><th>Подкаст</th><th>Формат</th><th>Эпизоды</th><th>Что работает</th></tr>
+<tr><td>The Ken Coleman Show</td><td>Интервью + Q&A</td><td>1500+</td><td>Высокая частота, actionable</td></tr>
+<tr><td>Happen to Your Career</td><td>Интервью</td><td>500+</td><td>Personal stories, нишевые transitions</td></tr>
+<tr><td>Career Tools (Manager Tools)</td><td>Монолог + фреймворки</td><td>800+</td><td>Систематика, power user аудитория</td></tr>
+<tr><td>Soft Skills Engineering</td><td>Duo host, Q&A</td><td>400+</td><td>Dev-specific, юмор + советы</td></tr>
+</table>
+
+<div class="highlight">
+<strong>RU-конкуренция на Pocket Casts = практически нулевая.</strong><br>
+PC users, говорящие по-русски — типично senior tech professionals: staff engineers, tech leads, managers. Это <strong>high-value leads</strong> для СБОРКИ.
+</div>
+
+<h3>Паттерны успешных шоу</h3>
+<ul>
+<li>Монолог работает хорошо (формат СБОРКИ aligned)</li>
+<li>Эпизоды &lt;20 мин — для commute-listening</li>
+<li>Фреймворки и чеклисты = bookmark + revisit</li>
+<li>Конкретные заголовки &gt; generic в 3-5x по поисковым кликам</li>
+</ul>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+<h2>4. Аудитория и культура</h2>
+
+<h3>Профиль пользователя</h3>
+<table>
+<tr><th>Параметр</th><th>Значение</th></tr>
+<tr><td>Ядро</td><td>Power-listeners с 2010. Clean UX, no ads</td></tr>
+<tr><td>Владелец</td><td>Automattic (WordPress) с 2022</td></tr>
+<tr><td>Демография</td><td>25-45, urban, college-educated. Tech workers, developers, designers, PMs</td></tr>
+<tr><td>Устройства</td><td>~55% Android, ~45% iOS</td></tr>
+<tr><td>Недельное слушание</td><td>5-8 часов (vs. 2-3 у casual)</td></tr>
+<tr><td>Подписки</td><td>15-25 подкастов (vs. 5-8 у casual)</td></tr>
+<tr><td>География</td><td>US/Canada 40%, Europe 25%, Australia 10%</td></tr>
+</table>
+
+<h3>RU-говорящие на PC</h3>
+<ul>
+<li>Малый, но high-quality сегмент: tech workers, expat community</li>
+<li>Билингвальные, комфортно с EN-контентом, ценят RU-опции</li>
+<li>Senior-level professionals (staff engineers, leads, managers)</li>
+<li>Ценят efficiency — короткие, плотные эпизоды</li>
+<li>Уже используют Telegram, LinkedIn, GitHub (целевая СБОРКИ)</li>
+</ul>
+
+<h3>Поведение</h3>
+<ul>
+<li><strong>Пики:</strong> утренний коммьют (7-9), обед (12-1), вечерняя прогулка (6-8)</li>
+<li><strong>Queue-based:</strong> эпизоды добавляются осознанно в Up Next</li>
+<li><strong>Speed:</strong> 1.2-1.5x — норма</li>
+<li><strong>Completionist:</strong> дослушивают чаще, чем Spotify-юзеры</li>
+<li><strong>Low tolerance for filler:</strong> каждая минута должна заслужить своё место</li>
+</ul>
+
+<h3>Сообщество</h3>
+<ul>
+<li>Reddit r/pocketcasts (~50K)</li>
+<li>Блог blog.pocketcasts.com — podcast spotlights</li>
+<li>Word-of-mouth = primary growth driver</li>
+</ul>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+<h2>5. Tone of Voice</h2>
+
+<h3>Адаптация для Power Listeners</h3>
+<table>
+<tr><th>Аспект</th><th>Общая аудитория</th><th>Pocket Casts</th></tr>
+<tr><td>Темп</td><td>Нормальный разговорный</td><td>Быстрее, плотнее информация/минуту</td></tr>
+<tr><td>Техническая глубина</td><td>Упрощённые объяснения</td><td>Инструменты/платформы по имени</td></tr>
+<tr><td>Аналогии</td><td>Бытовые</td><td>Tech/product (agile sprint, A/B тест)</td></tr>
+<tr><td>CTA</td><td>"Приходи к нам!"</td><td>"Ссылка в chapters/описании" — efficient</td></tr>
+<tr><td>Интро</td><td>30 сек generic</td><td>15 сек, без "что этот подкаст о..."</td></tr>
+<tr><td>Filler</td><td>Переходные фразы</td><td>Вырезать безжалостно</td></tr>
+<tr><td>Данные</td><td>Иногда статистика</td><td>"73% рекрутеров..." — data-driven</td></tr>
+<tr><td>Структура</td><td>Flowing narrative</td><td>"Три части: X, Y, Z" — explicit</td></tr>
+</table>
+
+<h3>Что НЕ делать на Pocket Casts</h3>
+<ul>
+<li>Длинные эмоциональные подводки перед сутью</li>
+<li>Повторять имя/описание шоу в каждом эпизоде</li>
+<li>"Если ты тут впервые..." (для этого есть ep01)</li>
+<li>Просить "подпишись и оставь отзыв" — PC-юзеры считают patronizing</li>
+</ul>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+<h2>6. SEO и Discovery</h2>
+
+<h3>Оптимизация поиска</h3>
+<ul>
+<li><strong>Title "Sborka"</strong> — короткое, запоминающееся. Добавить subtitle в RSS: "Podcast pro karier i poisk raboty"</li>
+<li><strong>Описание:</strong> первые ~150 символов = "headline" в результатах поиска. Front-load keywords</li>
+<li>Включить "Russian-language" / "на русском" — помогает билингвальным юзерам</li>
+</ul>
+
+<h3>Категории RSS</h3>
+<pre>&lt;itunes:category text="Business"&gt;
+  &lt;itunes:category text="Careers"/&gt;
+&lt;/itunes:category&gt;
+&lt;itunes:category text="Education"&gt;
+  &lt;itunes:category text="Self-Improvement"/&gt;
+&lt;/itunes:category&gt;</pre>
+
+<h3>Language Tag</h3>
+<p>Убедиться <code>&lt;language&gt;ru&lt;/language&gt;</code> в RSS. Влияет на language-filtered browsing.</p>
+
+<h3>Нумерация заголовков</h3>
+<pre>#01 Pochemu tak slozhno nachat
+#02 Rezyume, kotoroe rabotaet za tebya
+#03 Sobesedovanie bez paniki</pre>
+<p>Номера помогают power users навигировать в очереди, сигнализируют организованный контент.</p>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section">
+<h2>7. CTA-стратегии</h2>
+
+<h3>Show Notes (HTML, кликабельно)</h3>
+<pre>&lt;p&gt;&lt;strong&gt;#01 Pochemu tak slozhno nachat&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;[1-2 sentence hook]&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;V etom vypuske:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;[Topic 1]&lt;/li&gt;
+  &lt;li&gt;[Topic 2]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ssylki:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="sborka.work?utm..."&gt;SBORKA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="t.me/Sborka_work_bot?start=source_pc_ep1"&gt;Bot&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+<h3>Chapter Markers как CTA</h3>
+<div class="highlight">
+Chapter markers содержат URLs. При клике — URL открывается в браузере. Это <strong>underused CTA channel</strong>:
+<pre style="margin-top:10px">Chapter 5 [14:00]: "Prisoedinaysya k SBORKE"
+URL: sborka.work?utm_source=pocketcasts&amp;...&amp;utm_content=ep{N}_chapter</pre>
+</div>
+
+<h3>Аудио CTA</h3>
+<ul>
+<li>5-10 сек в конце, конкретно: "скачай чеклист на sborka.work"</li>
+<li>"Ssylka v opisanii" — power users знают где искать</li>
+<li>"Nazhmi na poslednyuyu glavu, tam ssylka"</li>
+<li>НЕ: mid-roll &gt;10 сек, spelling URLs вслух, множественные CTA</li>
+</ul>
+
+<h3>Web Player Embed</h3>
+<pre>&lt;iframe src="https://play.pocketcasts.com/podcasts/95ecagwv"
+  width="100%" height="450" frameborder="0"
+  title="SBORKA on Pocket Casts"&gt;&lt;/iframe&gt;</pre>
+</div>
+
+<!-- SECTION 8 -->
+<div class="section">
+<h2>8. Платформенные фичи</h2>
+
+<h3>Free vs Plus ($3.99/мес)</h3>
+<table>
+<tr><th>Функция</th><th>Free</th><th>Plus</th></tr>
+<tr><td>Слушать подкасты</td><td>Да</td><td>Да</td></tr>
+<tr><td>Поиск и подписка</td><td>Да</td><td>Да</td></tr>
+<tr><td>Скорость, Trim Silence, Volume Boost</td><td>Да</td><td>Да</td></tr>
+<tr><td>Custom Filters, Up Next</td><td>Да</td><td>Да</td></tr>
+<tr><td>Web Player (play.pocketcasts.com)</td><td>Нет</td><td>Да</td></tr>
+<tr><td>Desktop apps (Win/Mac)</td><td>Нет</td><td>Да</td></tr>
+<tr><td>Cloud storage</td><td>Нет</td><td>10 GB</td></tr>
+<tr><td>Folders, Advanced Bookmarks</td><td>Нет</td><td>Да</td></tr>
+</table>
+<p>Chapters, show notes, playback speed — бесплатно для всех. Embed для Plus-подписчиков.</p>
+
+<h3>Bookmarks Strategy</h3>
+<p>Контент, который "bookmark-worthy": конкретные советы, фреймворки, чеклисты. Сигнализировать: "вот ключевой фреймворк..." — пользователь сохранит.</p>
+
+<h3>Share Clips (в разработке)</h3>
+<p>30-60 сек сниппеты из эпизода для соцсетей. "Hook" сегмент (0:30-3:00) СБОРКИ = идеален для clip sharing.</p>
+</div>
+
+<!-- SECTION 9 -->
+<div class="section">
+<h2>9. Кросс-платформа</h2>
+
+<h3>Роль Pocket Casts</h3>
+<div class="card">
+<p><strong>Не volume driver</strong> (Spotify/YM).<br>
+<strong>Не authority signal</strong> (Apple).<br>
+<strong>Pocket Casts = conversion platform.</strong> Меньше аудитория, но выше intent, tech-savvy, вероятнее кликнут CTA.</p>
+</div>
+
+<h3>pca.st Short Links</h3>
+<pre>Listen on:
+Spotify: [link]
+Apple Podcasts: [link]
+Яндекс.Музыка: [link]
+Pocket Casts: pca.st/95ecagwv</pre>
+
+<h3>Кросс-промо</h3>
+<ul>
+<li>Show notes: Telegram + Bot links</li>
+<li>Chapter markers: sborka.work URL</li>
+<li>Из других каналов в PC: для tech-focused постов приоритизировать pca.st link</li>
+<li>UTM: <code>sborka.work?utm_source=pocketcasts&amp;utm_medium=podcast&amp;utm_campaign=s28_pocketcasts&amp;utm_content=ep{N}</code></li>
+</ul>
+</div>
+
+<!-- SECTION 10 -->
+<div class="section">
+<h2>10. 30-дневный план действий</h2>
+
+<h3>Неделя 1: Фундамент</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>1</td><td>Проверить RSS категории в Mave: "Careers" + "Education > Self-Improvement"</td><td>Категории корректны</td></tr>
+<tr><td>1</td><td>Проверить &lt;language&gt;ru&lt;/language&gt; тег</td><td>Language тег OK</td></tr>
+<tr><td>2</td><td>Обновить описание подкаста — keyword-optimized, 150 символов</td><td>Описание обновлено</td></tr>
+<tr><td>3</td><td><strong>Добавить chapter markers ко всем 4 эпизодам</strong> (re-upload MP3 с ID3)</td><td>Chapters видны в PC</td></tr>
+<tr><td>4</td><td>Обновить show notes для всех 4 эпизодов (HTML links, UTM)</td><td>Кликабельные ссылки</td></tr>
+<tr><td>5</td><td>Per-episode artwork</td><td>Уникальные обложки</td></tr>
+<tr><td>6-7</td><td>Опубликовать ep05</td><td>ep05 на PC</td></tr>
+</table>
+
+<h3>Неделя 2: Оптимизация</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>8</td><td>Нормализация -16 LUFS для всех MP3, re-upload</td><td>Стабильная громкость</td></tr>
+<tr><td>9</td><td>Бейдж "Listen on Pocket Casts" на sborka.work</td><td>Badge на сайте</td></tr>
+<tr><td>10</td><td>pca.st/95ecagwv во все link-списки (TG, LinkedIn, etc.)</td><td>pca.st везде</td></tr>
+<tr><td>11</td><td>2 LinkedIn поста с pca.st ссылкой</td><td>Посты опубликованы</td></tr>
+<tr><td>12</td><td>Пост в r/pocketcasts или r/podcasting (если правила позволяют)</td><td>Reddit пост</td></tr>
+<tr><td>13-14</td><td>Нумерация заголовков: "#01 ..." формат</td><td>Номера в заголовках</td></tr>
+</table>
+
+<h3>Неделя 3: Рост</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>15</td><td>Кросс-промо: "for power listeners" в @public_sborka</td><td>TG пост</td></tr>
+<tr><td>16</td><td>Подкаст-секция на sborka.work</td><td>Player на сайте</td></tr>
+<tr><td>17</td><td>ep06 скрипт: denser, больше фреймворков (для PC аудитории)</td><td>Скрипт</td></tr>
+<tr><td>18-19</td><td>Генерация ep06 с chapters baked in</td><td>ep06 с chapters</td></tr>
+<tr><td>20-21</td><td>Публикация ep06 + мульти-платформенный share</td><td>ep06 live</td></tr>
+</table>
+
+<h3>Неделя 4: Анализ</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>22</td><td>Аналитика Mave: plays, per-platform, per-episode</td><td>Snapshot</td></tr>
+<tr><td>23</td><td>Лучший эпизод по completion</td><td>Top identified</td></tr>
+<tr><td>24</td><td>UTM-трафик от PC в Umami</td><td>PC traffic measured</td></tr>
+<tr><td>25-27</td><td>ep07 на основе лучшего</td><td>ep07 скрипт</td></tr>
+<tr><td>28-30</td><td>30-дневный отчёт</td><td>Report ready</td></tr>
+</table>
+
+<h3>KPI-таргеты</h3>
+<div class="metric-grid">
+<div class="metric"><span class="num">30-50</span><span class="label">PC Subscribers</span></div>
+<div class="metric"><span class="num">100+</span><span class="label">Plays from PC</span></div>
+<div class="metric"><span class="num">10-20</span><span class="label">sborka.work clicks</span></div>
+<div class="metric"><span class="num">5-10</span><span class="label">Bot starts</span></div>
+<div class="metric"><span class="num">6/6</span><span class="label">Episodes w/ Chapters</span></div>
+<div class="metric"><span class="num">70%+</span><span class="label">Completion Rate</span></div>
+</div>
+</div>
+
+</div>
+
+<footer>
+Sprint S-28 Pocket Casts | Исследование завершено 4 марта 2026 | SMM Research Hub
+</footer>
+</body>
+</html>

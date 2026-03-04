@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-14 Bluesky — SMM Research Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--bsky:#0085FF;--bsky-dark:#0066CC;--bsky-light:#E8F4FF}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--bsky);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+
+.container{max-width:1100px;margin:0 auto;padding:20px}
+
+header{background:linear-gradient(135deg,#0085FF,#0066CC,#003D7A);color:#fff;padding:48px 40px;border-radius:16px;margin-bottom:32px;position:relative;overflow:hidden}
+header::before{content:'🦋';position:absolute;right:30px;top:20px;font-size:4em;opacity:.15}
+header h1{font-family:'Playfair Display',serif;font-size:2.2em;margin-bottom:6px}
+header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
+.hero-stats{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stat{background:rgba(255,255,255,.15);border-radius:10px;padding:10px 18px;text-align:center}
+.hero-stat strong{font-family:'JetBrains Mono',monospace;font-size:1.5em;display:block}
+.hero-stat span{font-size:.7em;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+
+.section{background:var(--card);border-radius:12px;padding:32px;margin-bottom:24px;box-shadow:0 2px 12px rgba(44,36,24,.06)}
+.section h2{font-family:'Playfair Display',serif;font-size:1.5em;color:var(--bsky);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+
+.tactic{background:var(--bsky-light);border-left:4px solid var(--bsky);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0;font-size:.95em}
+.tactic strong{color:var(--bsky-dark)}
+.insight{background:#F0FAF5;border-left:4px solid var(--emerald);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0}
+.insight strong{color:var(--emerald)}
+.warning{background:#FFF5EE;border-left:4px solid var(--terra);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0}
+.warning strong{color:var(--terra)}
+.formula{background:var(--dark);color:var(--white);padding:16px 24px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:.9em;margin:16px 0;line-height:1.8;white-space:pre-wrap}
+
+.competitor{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px;background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:12px}
+.competitor .ava{width:48px;height:48px;border-radius:50%;background:var(--bsky);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2em}
+.competitor h4{margin-bottom:4px;font-size:.95em}
+.competitor .meta{color:var(--muted);font-size:.8em;margin-bottom:6px}
+.competitor p{font-size:.9em;line-height:1.5}
+
+table{width:100%;border-collapse:collapse;font-size:.9em;margin:16px 0}
+th{background:var(--bsky-light);color:var(--bsky-dark);font-weight:600;text-transform:uppercase;font-size:.75em;letter-spacing:.5px;padding:10px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--white)}
+
+.action-plan{counter-reset:step}
+.action-plan .step{position:relative;padding:16px 16px 16px 56px;background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:10px}
+.action-plan .step::before{counter-increment:step;content:counter(step);position:absolute;left:16px;top:16px;width:28px;height:28px;background:var(--bsky);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em}
+.action-plan .step h4{margin-bottom:4px;font-size:.95em}
+.action-plan .step p{font-size:.9em;color:var(--muted)}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kpi-card{background:var(--bsky-light);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .num{font-family:'JetBrains Mono',monospace;font-size:2em;font-weight:700;color:var(--bsky)}
+.kpi-card .label{font-size:.8em;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+
+footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
+
+@media(max-width:700px){
+  .topnav{gap:8px}.topnav a{font-size:.75em;padding:3px 7px}
+  header{padding:24px 20px}header h1{font-size:1.6em}
+  .grid-2{grid-template-columns:1fr}
+  .competitor{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="logo">SMM Hub</span>
+  <a href="../smm_platform_audit.html">Dashboard</a>
+  <span class="sep">|</span>
+  <a href="s01_linkedin.html">LinkedIn</a>
+  <a href="s02_instagram.html">Instagram</a>
+  <a href="s03_youtube.html">YouTube</a>
+  <a href="s04_telegram_personal.html">TG Personal</a>
+  <a href="s05_telegram_sborka.html">TG Sborka</a>
+  <a href="s06_threads.html">Threads</a>
+  <a href="s07_facebook.html">Facebook</a>
+  <a href="s08_tiktok.html">TikTok</a>
+  <a href="s09_vk.html">VK</a>
+  <a href="s10_vcru.html">VC.ru</a>
+  <a href="s11_devto.html">Dev.to</a>
+  <a href="s12_medium.html">Medium</a>
+  <a href="s13_hashnode.html">Hashnode</a>
+  <a href="s14_bluesky.html" class="active">Bluesky</a>
+  <a href="s15_mastodon.html">Mastodon</a>
+</nav>
+
+<div class="container">
+
+<header>
+  <h1>S-14: Bluesky</h1>
+  <div class="sub">AT Protocol &middot; Custom Feeds &middot; Starter Packs &middot; Zero-Algo Organic Growth</div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>40M+</strong><span>Registered Users</span></div>
+    <div class="hero-stat"><strong>2-5M</strong><span>DAU</span></div>
+    <div class="hero-stat"><strong>300</strong><span>Char Limit</span></div>
+    <div class="hero-stat"><strong>$0</strong><span>API Cost</span></div>
+    <div class="hero-stat"><strong>0</strong><span>Link Penalty</span></div>
+  </div>
+</header>
+
+<!-- ===== 1. ALGORITHM & FEED MECHANICS ===== -->
+<div class="section">
+  <h2>1. Algorithm &amp; Feed Mechanics</h2>
+
+  <p>Bluesky's architecture is fundamentally different from any other social platform: <strong>there is no single monolithic algorithm</strong>. Instead, users choose from pluggable feed generators built on the open AT Protocol.</p>
+
+  <div class="tactic"><strong>Critical Insight:</strong> Bluesky does NOT penalize external links. Unlike X/Twitter which suppresses link posts, Bluesky treats posts with links the same as text-only. This is the single biggest CTA advantage among all platforms.</div>
+
+  <h3 style="margin:20px 0 12px;font-size:1.1em">Four Feed Types</h3>
+
+  <table>
+    <tr><th>Feed</th><th>Mechanics</th><th>Growth Relevance</th></tr>
+    <tr><td><strong>Following</strong></td><td>Pure chronological, posts from followed accounts</td><td>LOW &mdash; only reaches existing followers</td></tr>
+    <tr><td><strong>Discover</strong></td><td>Algorithmic: engagement velocity, social graph proximity, recency, language detection</td><td>HIGH &mdash; primary growth vector for new accounts</td></tr>
+    <tr><td><strong>Custom Feeds</strong></td><td>Third-party algorithms: keyword, engagement threshold, author list &mdash; any logic</td><td>VERY HIGH &mdash; unique to Bluesky, Tim can build his own</td></tr>
+    <tr><td><strong>Trending Topics</strong></td><td>Rapid engagement velocity in Explore/Search</td><td>MEDIUM &mdash; news-cycle dependent</td></tr>
+  </table>
+
+  <div class="formula">DISCOVER RANKING SIGNALS:
+  ┌─ Engagement velocity (20 likes in 10 min &gt; 50 likes in 6 hrs)
+  ├─ Replies + quote posts weight &gt; likes (conversation = boost)
+  ├─ Social graph proximity (2nd/3rd degree connections)
+  ├─ Content freshness (strong recency bias)
+  ├─ Language detection (matches user preference)
+  └─ Account reputation (follower count, engagement ratio, age)</div>
+
+  <div class="insight"><strong>No Shadowban:</strong> Bluesky has no shadowban mechanism. Moderation uses labelers (third-party tagging services), not algorithmic suppression. Content is either visible or removed &mdash; no grey zone.</div>
+
+  <h3 style="margin:20px 0 12px;font-size:1.1em">AT Protocol Architecture</h3>
+  <div class="formula">User's App (Bluesky client)
+    │
+    v
+Feed Generator (any server implementing the spec)
+    │
+    v
+App View (Bluesky indexing service)
+    │
+    v
+PDS (Personal Data Server — user data lives here)
+
+KEY: Tim can build + host his own feed generator → authority positioning</div>
+</div>
+
+<!-- ===== 2. CUSTOM FEEDS & STARTER PACKS ===== -->
+<div class="section">
+  <h2>2. Custom Feeds &amp; Starter Packs</h2>
+
+  <h3 style="margin-bottom:12px">Custom Feeds: The Bluesky Superpower</h3>
+  <p>Any developer can build algorithmic feeds using the AT Protocol Feed Generator specification. Feeds filter the public firehose by keywords, engagement, author lists, or any custom logic. Users can pin feeds as tabs.</p>
+
+  <div class="tactic"><strong>Strategy:</strong> Build a custom feed &laquo;AI Agents &amp; Multi-Agent Systems&raquo;. Filter firehose for: &laquo;AI agent&raquo;, &laquo;multi-agent&raquo;, &laquo;CrewAI&raquo;, &laquo;AutoGen&raquo;, &laquo;LangGraph&raquo;, &laquo;agentic AI&raquo;. Host on RUVDS (Docker container, $0 cost). This positions Tim as curator/authority in the AI agents niche.</div>
+
+  <div class="formula">FEED GENERATOR SETUP:
+  git clone https://github.com/bluesky-social/feed-generator.git
+  cd feed-generator && npm install
+  # Configure with Bluesky App Password
+  # Deploy to RUVDS via Docker
+  # Cost: $0 (existing infrastructure)</div>
+
+  <h3 style="margin:20px 0 12px">Starter Packs: The #1 Growth Hack</h3>
+  <p>Curated lists of accounts that new users can follow in one click. A well-positioned Starter Pack can bring <strong>50-500+ followers in a single wave</strong>.</p>
+
+  <table>
+    <tr><th>Starter Pack</th><th>Contents</th><th>Share Strategy</th></tr>
+    <tr><td><strong>&laquo;AI Builders &amp; Multi-Agent Architects&raquo;</strong></td><td>30-50 accounts: AI researchers, agentic AI builders, tool creators, dev advocates</td><td>Share on LinkedIn, Telegram, Dev.to — update monthly</td></tr>
+    <tr><td><strong>&laquo;Career Tech &amp; Job Market&raquo;</strong></td><td>Career coaches, job board founders, HR tech people, recruiters on Bluesky</td><td>SBORKA positioning — share in career communities</td></tr>
+  </table>
+
+  <div class="insight"><strong>Growth Mechanism:</strong> Creating a popular Starter Pack positions you as community leader. Being included in others' Starter Packs is the fastest path to follower growth &mdash; aim to get listed in 5+ existing AI/Tech packs.</div>
+</div>
+
+<!-- ===== 3. COMPETITOR ANALYSIS ===== -->
+<div class="section">
+  <h2>3. Competitor Analysis</h2>
+
+  <div class="competitor">
+    <div class="ava">SW</div>
+    <div>
+      <h4>Simon Willison (@simonwillison.net)</h4>
+      <div class="meta">50-80K followers &middot; AI tools, LLMs, Datasette &middot; 5-15 posts/day</div>
+      <p>Dominates AI tooling niche. Succeeds by being genuinely helpful &mdash; every post adds value, no fluff. Deep technical analysis + tool recommendations.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">SH</div>
+    <div>
+      <h4>swyx / Shawn Wang (@swyx.io)</h4>
+      <div class="meta">15-30K followers &middot; AI engineering, Latent Space podcast &middot; 2-5 posts/day</div>
+      <p>Owns the term &laquo;AI Engineer&raquo;. Synthesizes complex AI topics into accessible insights. <strong>Lesson:</strong> owning a concept (&laquo;Multi-Agent Revenue Architect&raquo;) works if backed by substance.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">AK</div>
+    <div>
+      <h4>Andrej Karpathy (@karpathy.ai)</h4>
+      <div class="meta">40-70K followers &middot; AI research, former Tesla/OpenAI &middot; Sporadic but high-impact</div>
+      <p>Proves even low-frequency posting works if each post is high-signal. Educational content, original thinking.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">MW</div>
+    <div>
+      <h4>Molly White (@molly0xfff.bsky.social)</h4>
+      <div class="meta">40-60K followers &middot; Tech criticism, accountability &middot; 3-10 posts/day</div>
+      <p>Independent journalism. Bluesky rewards authenticity and substance over hype. Sharp, informed analysis.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">EB</div>
+    <div>
+      <h4>Emily Bender (@faculty.washington.edu)</h4>
+      <div class="meta">30-50K followers &middot; AI ethics, NLP &middot; 3-8 posts/day</div>
+      <p>Informed contrarian takes perform well. Academic rigor + community engagement. You don't need to agree with AI hype to grow.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">RB</div>
+    <div>
+      <h4>Rachel by the Bay (@rachelbythebay.com)</h4>
+      <div class="meta">20-40K followers &middot; Systems engineering, debugging &middot; 1-3 posts/day</div>
+      <p>Practitioner credibility: real stories, technical depth. Being a practitioner who shares real experience beats theoretical content.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:20px 0 12px">Competitive Gap Analysis</h3>
+  <table>
+    <tr><th>Niche</th><th>Saturation</th><th>Tim's Opportunity</th></tr>
+    <tr><td>AI research/commentary</td><td>HIGH</td><td>Differentiate via practitioner lens, not researcher</td></tr>
+    <tr><td>AI tools/reviews</td><td>HIGH</td><td>Focus on multi-agent specifically, not general LLM tooling</td></tr>
+    <tr><td><strong>Multi-agent systems / agentic AI</strong></td><td><strong>LOW</strong></td><td><strong>Tim's sweet spot. Very few practitioners sharing real production experience</strong></td></tr>
+    <tr><td><strong>Career/job market + AI</strong></td><td><strong>VERY LOW</strong></td><td><strong>SBORKA's unique positioning. Almost nobody covers this on Bluesky</strong></td></tr>
+    <tr><td>AI video production</td><td>LOW</td><td>Lisa pipeline is unique content angle</td></tr>
+  </table>
+
+  <div class="warning"><strong>Key Numbers:</strong> Tech engagement on Bluesky averages 8-12% (vs X's 3.6%, Threads' 6.25%). The mid-tier (1K-10K followers) is achievable within 3-6 months with consistent effort. Mark Cuban has 1.25M followers. AI Researcher Starter Pack has 50K+ subscribers.</div>
+</div>
+
+<!-- ===== 4. AT PROTOCOL ADVANTAGES ===== -->
+<div class="section">
+  <h2>4. AT Protocol Advantages</h2>
+
+  <div class="grid-2">
+    <div class="tactic"><strong>Data Portability:</strong> All posts, follows, and profile stored in your Personal Data Server (PDS). Exportable anytime. If Bluesky fails, your content survives. Investment is protected.</div>
+    <div class="tactic"><strong>Account Portability:</strong> Identity is a DID (Decentralized Identifier). Move between PDS providers without losing followers. Custom domains work as handles.</div>
+    <div class="tactic"><strong>Open Firehose:</strong> All public data available in real-time. Build analytics dashboards on RUVDS. Monitor mentions, engagement, competitor activity for free.</div>
+    <div class="tactic"><strong>Labeling System:</strong> Decentralized moderation through labelers. Future play: build a &laquo;Quality AI Content&raquo; labeler to tag high-quality posts in the niche.</div>
+  </div>
+
+  <h3 style="margin:20px 0 12px">Domain Handle: The Brand Power Move</h3>
+
+  <div class="insight"><strong>Critical Recommendation:</strong> Set <code>sborka.work</code> as Bluesky handle instead of <code>timzinin.bsky.social</code>. Every post, reply, and repost shows your domain. It's a verified badge equivalent (proves domain ownership). Free brand awareness with every interaction. The AI/tech community respects custom domain handles.</div>
+
+  <div class="formula">DOMAIN HANDLE SETUP (15 min):
+  1. Add DNS TXT record: _atproto.sborka.work → did=did:plc:xxxxx
+  2. Update handle in Bluesky Settings → Advanced → Change Handle
+  3. Now every post shows "sborka.work" as the handle
+
+  Alternative: use timzinin.com for personal brand focus
+  Can be changed later — not permanent</div>
+</div>
+
+<!-- ===== 5. CONTENT STRATEGY ===== -->
+<div class="section">
+  <h2>5. Content Strategy &amp; Formats</h2>
+
+  <table>
+    <tr><th>Format</th><th>Engagement</th><th>Notes</th></tr>
+    <tr><td><strong>Hot takes / opinions</strong></td><td>HIGHEST</td><td>Informed contrarian opinions on AI, tech, hiring. Bluesky loves smart debate</td></tr>
+    <tr><td><strong>Threads (5-10 posts)</strong></td><td>HIGH</td><td>Deep dives on technical topics. Native thread support</td></tr>
+    <tr><td><strong>Images with text</strong></td><td>HIGH</td><td>Dashboards, code, results, memes. Visual stands out in text-heavy feed</td></tr>
+    <tr><td><strong>Text-only posts</strong></td><td>MEDIUM-HIGH</td><td>Strong observations, one-liners, questions. Bread-and-butter of Bluesky</td></tr>
+    <tr><td><strong>Quote posts</strong></td><td>MEDIUM-HIGH</td><td>Your take on someone else's post. Positions as thought leader</td></tr>
+    <tr><td><strong>Links with context</strong></td><td>MEDIUM</td><td>NO penalty! Always add 2-3 sentences of context with link</td></tr>
+    <tr><td><strong>Video (60 sec max)</strong></td><td>LOW-MEDIUM</td><td>Short clips work, not primary content type</td></tr>
+  </table>
+
+  <h3 style="margin:20px 0 12px">Content Pillars</h3>
+  <div class="grid-2">
+    <div style="background:var(--bsky-light);padding:16px;border-radius:10px">
+      <h4 style="color:var(--bsky-dark)">Build in Public: AI Agents (40%)</h4>
+      <p style="font-size:.9em;margin-top:8px">&laquo;Today my 7-agent system processed X. Here's what broke&raquo;<br>Architecture diagrams, code snippets, real costs ($0.09/min)</p>
+    </div>
+    <div style="background:#FFF8ED;padding:16px;border-radius:10px">
+      <h4 style="color:var(--gold)">Hot Takes on AI Industry (25%)</h4>
+      <p style="font-size:.9em;margin-top:8px">&laquo;90% of AI pilots fail because...&raquo;<br>Commentary on OpenAI/Anthropic/Meta releases, multi-agent vs single-agent</p>
+    </div>
+    <div style="background:#F0FAF5;padding:16px;border-radius:10px">
+      <h4 style="color:var(--emerald)">Career/Hiring in AI Era (20%)</h4>
+      <p style="font-size:.9em;margin-top:8px">How AI changes job search, SBORКА insights, job market data<br>Thread: &laquo;AI in hiring 2026: what the data says&raquo;</p>
+    </div>
+    <div style="background:#FDF0ED;padding:16px;border-radius:10px">
+      <h4 style="color:var(--terra)">Personal/Relatable (15%)</h4>
+      <p style="font-size:.9em;margin-top:8px">Working from Turkey, honest failures, 3AM debugging stories<br>Behind-the-scenes of running multiple businesses with AI</p>
+    </div>
+  </div>
+
+  <h3 style="margin:20px 0 12px">Posting Schedule</h3>
+  <table>
+    <tr><th>Activity</th><th>Frequency</th><th>Best Time (MSK)</th></tr>
+    <tr><td>Original posts</td><td>1-2 per day</td><td>16:00-20:00 (peak US + EU overlap)</td></tr>
+    <tr><td>Threads (deep dives)</td><td>1 per week</td><td>17:00 MSK (9am ET)</td></tr>
+    <tr><td>Replies to others</td><td>5-10 per day</td><td>20:00-00:00 (US afternoon)</td></tr>
+    <tr><td>Quote posts</td><td>2-3 per week</td><td>Reactive to trending content</td></tr>
+  </table>
+</div>
+
+<!-- ===== 6. TONE OF VOICE ===== -->
+<div class="section">
+  <h2>6. Tone of Voice &amp; Cultural Norms</h2>
+
+  <p>Bluesky's culture was shaped by journalists, academics, developers, and people leaving X. Understanding this is critical for content resonance.</p>
+
+  <table>
+    <tr><th>Cultural Norm</th><th>Implication for Tim</th></tr>
+    <tr><td><strong>Earnestness over irony</strong></td><td>Genuine enthusiasm about your work lands better than sarcastic takes</td></tr>
+    <tr><td><strong>Expertise is respected</strong></td><td>Tim's real-world experience with AI systems will be valued, not mocked</td></tr>
+    <tr><td><strong>Self-promo is context-dependent</strong></td><td>&laquo;Check out my product!&raquo; = ignored. &laquo;I built X, here's what I learned&raquo; = welcomed</td></tr>
+    <tr><td><strong>Alt text is expected</strong></td><td>ALWAYS add alt text to images. Cultural norm, not optional</td></tr>
+    <tr><td><strong>Anti-hustle culture</strong></td><td>Frame building businesses as craft, not &laquo;rise and grind&raquo;</td></tr>
+    <tr><td><strong>Tech literacy is high</strong></td><td>No need to over-explain. Audience understands APIs, Docker, agents</td></tr>
+  </table>
+
+  <div class="warning"><strong>What to AVOID:</strong>
+    <ul style="margin:8px 0 0 20px;font-size:.9em">
+      <li>&laquo;10X your productivity with AI&raquo; &mdash; hustle culture / marketing speak</li>
+      <li>Engagement bait (&laquo;RT if you agree&raquo;) &mdash; seen as manipulative</li>
+      <li>Cross-posting exact Twitter content &mdash; feels lazy, different cultural context</li>
+      <li>Selling hard &mdash; community resistance to pure marketing</li>
+      <li>Russian language posts &mdash; English dominant; Russian audience negligible on Bluesky</li>
+      <li>Ignoring alt text &mdash; cultural norm violation</li>
+    </ul>
+  </div>
+
+  <h3 style="margin:20px 0 12px">Sample Posts for Tim</h3>
+  <div class="tactic" style="font-style:italic">&laquo;My 7-agent AI system just crossed 1,000 pieces of production content this month. Total cost: $47. Here's the architecture breakdown [thread]&raquo;</div>
+  <div class="tactic" style="font-style:italic">&laquo;Hot take: most "AI agent" demos are just fancy prompt chains. Real multi-agent systems need failure handling, state management, and human-in-the-loop. I've built both. The gap is enormous.&raquo;</div>
+  <div class="tactic" style="font-style:italic">&laquo;Ran the numbers on AI's impact on job search in 2026. Applicants using AI for resume optimization get 3x more interviews but 40% lower conversion. The system is adapting. Thread:&raquo;</div>
+</div>
+
+<!-- ===== 7. COMMUNITY & ENGAGEMENT ===== -->
+<div class="section">
+  <h2>7. Community &amp; Engagement Strategy</h2>
+
+  <div class="insight"><strong>Rule of 5:10:1:</strong> For every 1 original post, write 5 replies to others and 3 quote posts. This ratio ensures you're part of the community, not just broadcasting.</div>
+
+  <h3 style="margin:16px 0 12px">Priority Engagement Targets</h3>
+  <table>
+    <tr><th>#</th><th>Category</th><th>Why</th></tr>
+    <tr><td>1</td><td><strong>AI builders and researchers</strong></td><td>Core audience. Posts about agents, LLMs, automation</td></tr>
+    <tr><td>2</td><td><strong>Developer advocates</strong> (OpenAI, Anthropic, Google DeepMind, Vercel)</td><td>Amplification potential, industry authority</td></tr>
+    <tr><td>3</td><td><strong>Indie hackers and solopreneurs</strong></td><td>Shared &laquo;build in public&raquo; ethos</td></tr>
+    <tr><td>4</td><td><strong>Career/HR tech people</strong></td><td>SБОРКА positioning. Rare on Bluesky = less competition</td></tr>
+    <tr><td>5</td><td><strong>Tech journalists</strong></td><td>Amplification. They share interesting takes</td></tr>
+  </table>
+
+  <div class="tactic"><strong>Engagement Tactics:</strong>
+    <ul style="margin:8px 0 0 20px;font-size:.95em">
+      <li>Reply with genuinely useful additions (not &laquo;great post!&raquo;)</li>
+      <li>Share real data: &laquo;I've seen similar &mdash; our 7-agent system shows X&raquo;</li>
+      <li>Ask thoughtful questions that invite response</li>
+      <li>Quote post with a contrarian or additional angle</li>
+      <li>Thread your replies if the topic warrants depth</li>
+    </ul>
+  </div>
+
+  <h3 style="margin:20px 0 12px">Labelers: Moderation Innovation</h3>
+  <p>Third-party services that tag content with labels. Users choose which labelers to subscribe to. Future opportunity: build a &laquo;Quality AI Content&raquo; labeler.</p>
+</div>
+
+<!-- ===== 8. CTA STRATEGY ===== -->
+<div class="section">
+  <h2>8. CTA Strategy &rarr; sborka.work</h2>
+
+  <div class="insight"><strong>Key Advantage:</strong> Bluesky does NOT penalize external links. This is the single biggest strategic advantage over X/Twitter for CTA purposes. No suppressed reach, no reduced impressions.</div>
+
+  <h3 style="margin:16px 0 12px">The 4:1 Rule</h3>
+  <p>For every 4 value posts (no CTA), include 1 post with a link to sborka.work. This ratio keeps the feed feeling genuine rather than promotional.</p>
+
+  <table>
+    <tr><th>CTA Type</th><th>Conversion</th><th>Example</th></tr>
+    <tr><td><strong>Thread Closer</strong></td><td>HIGHEST</td><td>After 5-10 post thread: &laquo;I track these trends at sborka.work &mdash; full data: sborka.work/knowledge/research/ai-hiring?utm_source=bluesky&raquo;</td></tr>
+    <tr><td><strong>Resource Link</strong></td><td>HIGH</td><td>&laquo;We published our latest research on MCP-first job platforms. 50 pages of data. Free: sborka.work/...&raquo;</td></tr>
+    <tr><td><strong>Bio Link</strong></td><td>PASSIVE</td><td>Profile website: sborka.work?utm_source=bluesky&amp;utm_medium=profile</td></tr>
+    <tr><td><strong>Build-in-Public</strong></td><td>MEDIUM</td><td>&laquo;Our career bot at sborka.work just hit 55 users. Here's what I learned about retention:&raquo;</td></tr>
+    <tr><td><strong>Reply CTA</strong></td><td>SPARINGLY</td><td>When someone asks about career/AI tools &mdash; mention SБОРКА if genuinely relevant</td></tr>
+  </table>
+
+  <div class="formula">UTM FORMAT:
+  sborka.work/knowledge/research/{slug}
+    ?utm_source=bluesky
+    &utm_medium=social
+    &utm_campaign={topic}
+    &utm_content={post_type}_{date}
+
+BOT LINK:
+  https://t.me/Sborka_work_bot?start=source_bs_tim_{date}
+
+CONVERSION FUNNEL:
+  Bluesky post (300 chars) → sborka.work/research (free content)
+    → CTA on page → @Sborka_work_bot → Trial/Paid
+
+  Expected: 2-5% click rate → 10-20% bot start → 5-15% paid</div>
+
+  <div class="tactic"><strong>Link Card Optimization:</strong> Ensure sborka.work has proper OpenGraph meta tags (og:title, og:description, og:image, og:url). A well-designed link card dramatically increases click-through rates on Bluesky.</div>
+</div>
+
+<!-- ===== 9. CROSS-PLATFORM PIPELINE ===== -->
+<div class="section">
+  <h2>9. Cross-Platform Pipeline</h2>
+
+  <div class="formula">CONTENT FLOW:
+  LinkedIn (EN, long-form) ─── primary professional platform
+    ├─→ Bluesky (EN, compressed 300 chars + punchy version)
+    │     └─→ Thread expansion of key points
+    ├─→ Dev.to / Hashnode (EN, full technical articles)
+    ├─→ Telegram @timofeyzinin (RU, adapted)
+    ├─→ Threads (EN, ultra-compressed 500 chars)
+    ├─→ Mastodon (EN, cross-post from Bluesky)
+    └─→ VK / OK.ru (RU, adapted)
+
+  BLUESKY-NATIVE (does not originate elsewhere):
+    • Replies and engagement (conversations)
+    • Custom feed curation
+    • Starter Pack updates
+    • AT Protocol commentary</div>
+
+  <table>
+    <tr><th>Source Platform</th><th>Bluesky Adaptation</th></tr>
+    <tr><td>LinkedIn post (2000+ chars)</td><td>Extract sharpest insight into 300 chars. Add &laquo;Full analysis on LinkedIn: [link]&raquo;</td></tr>
+    <tr><td>Dev.to article</td><td>3-5 key findings as thread. Link to full article in last post</td></tr>
+    <tr><td>Telegram (Russian)</td><td>Translate and compress. Emphasize technical over career aspects</td></tr>
+    <tr><td>YouTube video/short</td><td>Key insight as text + link to video</td></tr>
+  </table>
+
+  <div class="tactic"><strong>Auto-Publisher Integration:</strong> Bluesky API is free, no rate-limit issues. Tim already has credentials on RUVDS (BLUESKY_* in .env). Integration with existing auto_publisher.py is straightforward.</div>
+
+  <div class="formula">BLUESKY API QUICK REFERENCE:
+  Base: https://bsky.social/xrpc/
+
+  Auth:   POST com.atproto.server.createSession
+          Body: {"identifier": handle, "password": app_password}
+          Returns: accessJwt, did
+
+  Post:   POST com.atproto.repo.createRecord
+          Auth: Bearer {accessJwt}
+          Body: {repo: did, collection: "app.bsky.feed.post",
+                 record: {text, createdAt, facets, embed}}
+
+  Image:  POST com.atproto.repo.uploadBlob
+          Content-Type: image/png → Returns blob ref</div>
+</div>
+
+<!-- ===== 10. 30-DAY ACTION PLAN ===== -->
+<div class="section">
+  <h2>10. 30-Day Action Plan</h2>
+
+  <h3 style="margin-bottom:16px">Pre-Launch Checklist (Day 0)</h3>
+  <div class="action-plan">
+    <div class="step">
+      <h4>Set up custom domain handle</h4>
+      <p>DNS TXT record for sborka.work → DID. Every post = free brand impression. 15 minutes.</p>
+    </div>
+    <div class="step">
+      <h4>Optimize profile</h4>
+      <p>Display: &laquo;Tim Zinin | Multi-Agent Revenue Architect&raquo;. Bio: &laquo;Building AI systems that run 8 businesses. 7 agents, $0.09/min production content. Founder sborka.work career tech.&raquo; Website: sborka.work with UTM.</p>
+    </div>
+    <div class="step">
+      <h4>Pin a strong intro post</h4>
+      <p>5-post thread introducing who you are and what you build. This is the landing page for new visitors.</p>
+    </div>
+    <div class="step">
+      <h4>Create &laquo;AI Agents &amp; Builders&raquo; Starter Pack</h4>
+      <p>30+ relevant accounts. Include your own. Share link across LinkedIn, Telegram, Dev.to.</p>
+    </div>
+    <div class="step">
+      <h4>Follow 100-150 accounts</h4>
+      <p>AI builders, researchers, developer advocates, indie hackers, career tech people.</p>
+    </div>
+    <div class="step">
+      <h4>Verify API publishing</h4>
+      <p>Test post from RUVDS via Python script. Confirm auto_publisher integration works.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:24px 0 12px">Week 1: Foundation (Days 1-7)</h3>
+  <table>
+    <tr><th>Day</th><th>Content</th><th>Engagement</th></tr>
+    <tr><td>1</td><td>Pinned intro thread (5 posts)</td><td>Follow 50 accounts, reply to 10 posts</td></tr>
+    <tr><td>2</td><td>&laquo;My 7-agent system architecture in one diagram&raquo; (image)</td><td>Reply to 10+ posts</td></tr>
+    <tr><td>3</td><td>Hot take on recent AI news (300 chars, punchy)</td><td>Quote post 2-3 AI posts</td></tr>
+    <tr><td>4</td><td>Build-in-public metric (&laquo;This week my agents produced X at $Y cost&raquo;)</td><td>Reply to 10+, follow 20 more</td></tr>
+    <tr><td>5</td><td>Thread: &laquo;What most people get wrong about AI agents&raquo;</td><td>Share Starter Pack on LinkedIn</td></tr>
+    <tr><td>6</td><td>Career/SBORКА: &laquo;AI is changing how we hire. Here's real data&raquo;</td><td>Reply to 10+</td></tr>
+    <tr><td>7</td><td>Week review: analyze what got engagement</td><td>Note patterns for Week 2</td></tr>
+  </table>
+
+  <h3 style="margin:24px 0 12px">Week 2: Content Rhythm (Days 8-14)</h3>
+  <p>Establish daily rhythm: 1-2 posts + 5-10 replies + 1-2 quote posts. First CTA to sborka.work on Day 10. Thread: &laquo;I run 8 businesses with 6 AI agents. Here's the breakdown.&raquo;</p>
+
+  <h3 style="margin:24px 0 12px">Week 3: Community Building (Days 15-21)</h3>
+  <p>Deploy custom feed &laquo;AI Agents &amp; Multi-Agent Systems&raquo; on RUVDS. Announce with thread. 3+ ongoing conversations with established accounts. Update Starter Pack with new discoveries.</p>
+
+  <h3 style="margin:24px 0 12px">Week 4: Amplification (Days 22-30)</h3>
+  <p>Hit 500 followers. Regular CTA rhythm. Meta-thread: &laquo;30 days on Bluesky: what I learned from 1 follower.&raquo; Share growth story on LinkedIn.</p>
+
+  <h3 style="margin:24px 0 12px">Month 1 KPIs</h3>
+  <div class="grid-2">
+    <div class="kpi-card"><div class="num">500+</div><div class="label">Followers</div></div>
+    <div class="kpi-card"><div class="num">30-40</div><div class="label">Posts Published</div></div>
+    <div class="kpi-card"><div class="num">200+</div><div class="label">Replies Written</div></div>
+    <div class="kpi-card"><div class="num">6-8</div><div class="label">Threads</div></div>
+    <div class="kpi-card"><div class="num">100+</div><div class="label">Starter Pack Subs</div></div>
+    <div class="kpi-card"><div class="num">50+</div><div class="label">Custom Feed Subs</div></div>
+    <div class="kpi-card"><div class="num">10+</div><div class="label">sborka.work Clicks</div></div>
+    <div class="kpi-card"><div class="num">50+</div><div class="label">Best Post Likes</div></div>
+  </div>
+
+  <h3 style="margin:24px 0 12px">Technical Implementation Priorities</h3>
+  <table>
+    <tr><th>Priority</th><th>Task</th><th>Effort</th><th>Impact</th></tr>
+    <tr><td>P0</td><td>Custom domain handle setup</td><td>15 min</td><td>HIGH</td></tr>
+    <tr><td>P0</td><td>Profile optimization</td><td>15 min</td><td>HIGH</td></tr>
+    <tr><td>P1</td><td>Starter Pack creation</td><td>30 min</td><td>HIGH</td></tr>
+    <tr><td>P1</td><td>Auto-publisher integration</td><td>2-3 hrs</td><td>MEDIUM</td></tr>
+    <tr><td>P2</td><td>Custom feed generator deployment</td><td>4-6 hrs</td><td>HIGH</td></tr>
+    <tr><td>P2</td><td>Bluesky analytics dashboard</td><td>2-3 hrs</td><td>MEDIUM</td></tr>
+    <tr><td>P3</td><td>Labeler exploration</td><td>4-8 hrs</td><td>LOW</td></tr>
+  </table>
+</div>
+
+<footer>
+  SMM Research Hub &copy; 2026 | Тим Зинин | Sprint S-14 Bluesky
+</footer>
+
+</div>
+</body>
+</html>

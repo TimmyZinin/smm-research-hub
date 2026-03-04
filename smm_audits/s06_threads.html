@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-06 Threads — SMM Research | Тим Зинин</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--threads:#000000;--threads-accent:#E1306C}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--threads-accent);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+header{background:linear-gradient(135deg,#000000,#333333);color:var(--white);padding:48px 40px;border-radius:16px;margin-bottom:32px}
+header h1{font-family:'Playfair Display',serif;font-size:2.4em;margin-bottom:8px}
+header .sub{opacity:.9;font-size:1.1em;margin-bottom:16px}
+header .meta{display:flex;gap:24px;flex-wrap:wrap}
+header .meta-item{background:rgba(255,255,255,.12);border-radius:10px;padding:10px 18px;text-align:center}
+header .meta-num{font-family:'JetBrains Mono',monospace;font-size:1.6em;font-weight:700;display:block}
+header .meta-label{font-size:.7em;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+.section{background:var(--card);border-radius:12px;padding:32px;margin-bottom:24px;box-shadow:0 2px 12px rgba(44,36,24,.06)}
+.section h2{font-family:'Playfair Display',serif;font-size:1.5em;color:var(--dark);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+.section h3{font-size:1.1em;color:var(--terra);margin:20px 0 10px}
+.section h4{font-size:.95em;color:var(--dark);margin:14px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:.88em;margin:12px 0}
+th{background:var(--sand);color:var(--dark);font-weight:600;text-transform:uppercase;font-size:.72em;letter-spacing:.5px;padding:10px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--white)}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#fff}
+.badge-boost{background:var(--emerald)}.badge-penalty{background:var(--terra)}.badge-medium{background:var(--gold);color:var(--dark)}
+.insight{background:#EDF7F0;border:1px solid #C5E8CE;border-radius:8px;padding:14px 18px;margin:12px 0;font-size:.9em}
+.insight b{color:var(--emerald)}
+.warning{background:#FDF0ED;border:1px solid #F0C8BE;border-radius:8px;padding:14px 18px;margin:12px 0;font-size:.9em}
+.warning b{color:var(--terra)}
+.tactic{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--threads-accent);border-radius:8px;padding:16px 20px;margin:12px 0}
+.tactic .tactic-title{font-weight:700;font-size:.95em;margin-bottom:6px}
+.tactic .tactic-data{font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--threads-accent);margin-bottom:6px}
+.tactic .tactic-action{font-size:.88em;color:var(--dark)}
+.formula{background:var(--sand);border-radius:8px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:.82em;line-height:1.7;margin:12px 0;white-space:pre-wrap}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.do-list,.dont-list{padding:14px 18px;border-radius:8px;font-size:.88em}
+.do-list{background:#EDF7F0;border:1px solid #C5E8CE}
+.dont-list{background:#FDF0ED;border:1px solid #F0C8BE}
+.do-list h4{color:var(--emerald);margin-bottom:8px}.dont-list h4{color:var(--terra);margin-bottom:8px}
+.do-list li,.dont-list li{margin-bottom:5px;margin-left:16px}
+.competitor{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;margin:10px 0}
+.competitor .name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05em;color:var(--dark)}
+.competitor .stats{font-family:'JetBrains Mono',monospace;font-size:.8em;color:var(--muted);margin:4px 0 8px}
+.action-plan{counter-reset:action}
+.action-item{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin:8px 0;position:relative;padding-left:50px}
+.action-item::before{counter-increment:action;content:counter(action);position:absolute;left:14px;top:14px;background:var(--threads-accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em}
+.timeline{display:flex;gap:0;margin:20px 0}
+.timeline-item{flex:1;padding:12px;text-align:center;background:var(--sand);border:1px solid var(--border);font-size:.82em}
+.timeline-item:first-child{border-radius:8px 0 0 8px}
+.timeline-item:last-child{border-radius:0 8px 8px 0}
+.timeline-item .week{font-weight:700;color:var(--threads-accent);display:block;margin-bottom:4px}
+footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="logo">SMM Hub</span>
+  <a href="../smm_platform_audit.html">Dashboard</a>
+  <span class="sep">|</span>
+  <a href="s01_linkedin.html">LinkedIn</a>
+  <a href="s02_instagram.html">Instagram</a>
+  <a href="s03_youtube.html">YouTube</a>
+  <a href="s04_telegram_personal.html">TG Personal</a>
+  <a href="s05_telegram_sborka.html">TG СБОРКА</a>
+  <a href="s06_threads.html" class="active">Threads</a>
+  <a href="s07_facebook.html">Facebook</a>
+  <a href="s08_tiktok.html">TikTok</a>
+</nav>
+
+<div class="container">
+
+<!-- ===== HEADER ===== -->
+<header>
+  <h1>S-06: Threads @timofeyzinin</h1>
+  <div class="sub">Conversation-First Platform &mdash; AI/Career Niche</div>
+  <div class="meta">
+    <div class="meta-item"><span class="meta-num">177</span><span class="meta-label">Подписчиков</span></div>
+    <div class="meta-item"><span class="meta-num">5,007</span><span class="meta-label">Views</span></div>
+    <div class="meta-item"><span class="meta-num">6.25%</span><span class="meta-label">Median ER платформы</span></div>
+    <div class="meta-item"><span class="meta-num">500+</span><span class="meta-label">Цель мес. 1</span></div>
+  </div>
+</header>
+
+<!-- ===== 1. ALGORITHM ===== -->
+<div class="section">
+  <h2>1. Алгоритм Threads 2026</h2>
+
+  <h3>Dual-Feed система</h3>
+  <p style="margin-bottom:12px">Threads использует два фида: <strong>"For You"</strong> (рекомендательный, дефолтный, ~80% пользователей) и <strong>"Following"</strong> (хронологический, нужно переключать вручную). Рост = оптимизация под For You.</p>
+
+  <h3>Что бустит/штрафует охват</h3>
+  <table>
+    <tr><th>Сигнал</th><th>Импакт</th><th>Детали</th></tr>
+    <tr><td>Ранние реплаи (первые 15 мин)</td><td><span class="badge badge-boost">Very High</span></td><td>Self-reply chains тоже считаются. Ответ на свой пост сразу триггерит алгоритм</td></tr>
+    <tr><td>Reply chains от других</td><td><span class="badge badge-boost">Very High</span></td><td>Conversational posts &mdash; #1 сигнал. Задавай вопросы, будь спорным</td></tr>
+    <tr><td>Репосты + Quote posts</td><td><span class="badge badge-boost">High</span></td><td>Quote posts весят больше простых репостов (добавляют engagement surface)</td></tr>
+    <tr><td>Сохранения</td><td><span class="badge badge-boost">High</span></td><td>Недооценённый сигнал. Списки, фреймворки, шаблоны получают алгоритмический буст</td></tr>
+    <tr><td>Картинки/карусели</td><td><span class="badge badge-boost">Medium-High</span></td><td>+20-40% impressions vs text-only. +60% engagement (данные 2025)</td></tr>
+    <tr><td>Внешние ссылки в тексте поста</td><td><span class="badge badge-penalty">High Penalty</span></td><td>-30-50% дистрибуции. Ставь ссылку в bio или в первый reply</td></tr>
+    <tr><td>5+ хештегов</td><td><span class="badge badge-penalty">Medium</span></td><td>Выглядит как спам. 1-3 Topics &mdash; оптимум</td></tr>
+    <tr><td>Идентичный кросс-пост с IG</td><td><span class="badge badge-penalty">Medium</span></td><td>Как минимум перепиши hook. Лучше &mdash; уникальный контент</td></tr>
+    <tr><td>Engagement bait</td><td><span class="badge badge-penalty">Low-Med</span></td><td>"Like if you agree", "Follow for more" &mdash; Meta явно демотирует</td></tr>
+  </table>
+
+  <div class="insight"><b>Ключевой инсайт:</b> У постов есть окно 60-90 минут на набор engagement. Первые 15-30 минут критичны. Пост с 5 реплаями за 10 мин обгонит пост с 20 реплаями за 24ч.</div>
+
+  <h3>Instagram Interest Graph</h3>
+  <p style="font-size:.9em">Threads использует interest graph Instagram для начального распределения контента. С 1,684 подписчиками на IG алгоритм уже знает интересы вашей аудитории &mdash; это значительное преимущество перед аккаунтами без IG-связки.</p>
+</div>
+
+<!-- ===== 2. COMPETITOR TEARDOWN ===== -->
+<div class="section">
+  <h2>2. Конкуренты и ниши</h2>
+
+  <div class="competitor">
+    <div class="name">Архетип: AI News Aggregator (The Rundown AI)</div>
+    <div class="stats">~150K+ subs | 3-5 постов/день | ER 2-3% | Скорость = главное оружие</div>
+    <p><strong>Для Тима:</strong> Быть одним из первых 5 аккаунтов, кто пишет о крупном AI-событии. Простой язык, ОДИН вывод на пост.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Архетип: Practical AI Builder</div>
+    <div class="stats">20-50K subs | 1-2 поста/день | ER 4-6% | Личные истории &mdash; драйвер реплаев</div>
+    <p><strong>Для Тима:</strong> Делиться опытом построения AI-агентов, запуска карьерного клуба. Stories > advice. "Я построил X и вот что случилось".</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Архетип: Career/Founder Insights</div>
+    <div class="stats">Посты набирают 50K-300K views | 200-1000+ комментов | Contrarian career takes</div>
+    <p><strong>Для Тима:</strong> Спорные карьерные мнения + данные. "Все говорят учи код. Но 78% AI-замещённых рабочих мест &mdash; это кодинг. Реальный навык &mdash; ___"</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Архетип: Russian-speaking Tech Creators</div>
+    <div class="stats">1-5K subs | Irregular posting | Низкая конкуренция</div>
+    <p><strong>Для Тима:</strong> <strong style="color:var(--emerald)">Blue ocean.</strong> Русскоязычных AI/career создателей на Threads почти нет. Быть THE русскоязычным голосом AI+карьера. 20-30% постов на русском.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Архетип: LinkedIn Crossover Creator</div>
+    <div class="stats">10-30K subs | 1-2 поста/день | ER 3-5% | Адаптированный LinkedIn контент</div>
+    <p><strong>Для Тима:</strong> 7,000 LinkedIn подписчиков = bank контента. Лучшие LinkedIn-посты → 150-символьные hot takes для Threads.</p>
+  </div>
+
+  <div class="warning"><b>Конкурентные gaps (возможности):</b> (1) Русскоязычный AI-career контент &mdash; почти ноль конкуренции. (2) AI agent builder с реальным опытом (не новости, а building experience). (3) Community angle (карьерный клуб). (4) Cross-platform data с 26 платформ. (5) Реальные данные о найме из СБОРКИ.</div>
+</div>
+
+<!-- ===== 3. CONTENT FORMATS ===== -->
+<div class="section">
+  <h2>3. Форматы контента</h2>
+
+  <h3>Рейтинг форматов по охвату</h3>
+  <table>
+    <tr><th>Формат</th><th>Reach Multiplier</th><th>ER</th><th>Лучше для</th></tr>
+    <tr><td>Hot take (текст, &lt;200 символов)</td><td>1.5-3x</td><td>High</td><td>Виральность, новые подписчики</td></tr>
+    <tr><td>Carousel-style thread (3-5 постов)</td><td>1.3-2x</td><td>Very High</td><td>Authority, сохранения</td></tr>
+    <tr><td>Картинка + короткий текст</td><td>1.2-1.8x</td><td>Medium-High</td><td>Brand recognition, шеры</td></tr>
+    <tr><td>Question post (&lt;100 символов)</td><td>1.2-1.5x</td><td>Very High (replies)</td><td>Engagement farming</td></tr>
+    <tr><td>Список ("5 вещей про...")</td><td>1.1-1.5x</td><td>High (saves)</td><td>Value delivery, шеры</td></tr>
+    <tr><td>Пост со ссылкой в теле</td><td><strong style="color:var(--terra)">0.5-0.7x</strong></td><td>Low</td><td>Трафик (но пенализируется!)</td></tr>
+  </table>
+
+  <h3>Длина поста</h3>
+  <div class="formula">Max: 500 символов/пост
+Оптимум для engagement: 100-280 символов (standalone)
+Thread hook: &lt;200 символов (первый пост)
+Thread length: 3-7 постов (sweet spot)
+Beyond 7 = падает completion rate</div>
+
+  <h3>Topics (хештеги Threads)</h3>
+  <table>
+    <tr><th>Уровень</th><th>Topics</th><th>Стратегия</th></tr>
+    <tr><td>High traffic</td><td>#AI, #ArtificialIntelligence, #Tech, #Career</td><td>1-2x/неделю для охвата</td></tr>
+    <tr><td><strong>Sweet spot</strong></td><td>#AITools, #CareerAdvice, #TechCareers, #FutureOfWork</td><td>3-4x/неделю, оптимальная конкуренция</td></tr>
+    <tr><td>Niche domination</td><td>#AIHiring, #AICareer, #ResumeTips, #CareerChange</td><td>Ежедневно, low competition</td></tr>
+    <tr><td>Русскоязычные</td><td>Пока почти нет &mdash; создавай свои</td><td>Автоматический authority</td></tr>
+  </table>
+</div>
+
+<!-- ===== 4. TONE OF VOICE ===== -->
+<div class="section">
+  <h2>4. Tone of Voice для Threads</h2>
+
+  <table>
+    <tr><th>Платформа</th><th>Тон</th><th>Длина</th><th>Формальность</th></tr>
+    <tr><td>LinkedIn</td><td>Professional, data-driven</td><td>Long (1300+ chars)</td><td>High</td></tr>
+    <tr><td>Telegram</td><td>Casual-professional, community</td><td>Medium</td><td>Medium</td></tr>
+    <tr><td>Twitter/X</td><td>Sharp, witty, edgy</td><td>Very short</td><td>Low</td></tr>
+    <tr><td><strong>Threads</strong></td><td><strong>Conversational, opinionated, authentic</strong></td><td><strong>100-300 chars</strong></td><td><strong>Low-Medium</strong></td></tr>
+  </table>
+
+  <div class="grid-2">
+    <div class="do-list">
+      <h4>РАБОТАЕТ</h4>
+      <ul>
+        <li>Как разговор с умным другом в баре, не со сцены</li>
+        <li>Мнения > информация ("ChatGPT делает джуниоров хуже &mdash; вот данные" > "Как использовать ChatGPT")</li>
+        <li>Уязвимость и реальные истории (failures 2-3x > success)</li>
+        <li>Сухой юмор и самоирония</li>
+        <li>Hot takes с evidence, не engagement bait</li>
+        <li>Пост на EN, reply с RU-переводом (буст reply chain)</li>
+      </ul>
+    </div>
+    <div class="dont-list">
+      <h4>НЕ РАБОТАЕТ</h4>
+      <ul>
+        <li>Corporate-speak ("We are pleased to announce...")</li>
+        <li>Pure self-promo ("Купи мой курс!")</li>
+        <li>Мотивационные цитаты без контекста</li>
+        <li>Длинный education без hook</li>
+        <li>Overload хештегов (#AI #Career #Tech #Hiring #Resume)</li>
+        <li>Emoji overload (1-2 на пост ок, не каждое предложение)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight"><b>Позиционирование:</b> "Anti-guru builder sharing real data." Не учитель со сцены, а строитель, который делится наблюдениями. Позиция: "Я построил 30 AI-агентов и карьерный клуб. Вот что работает, а вот что &mdash; bullshit."</div>
+</div>
+
+<!-- ===== 5. PROFILE OPTIMIZATION ===== -->
+<div class="section">
+  <h2>5. Оптимизация профиля</h2>
+
+  <h3>Bio (рекомендация)</h3>
+  <div class="formula">Building AI agents that actually work.
+Running СБОРКА career club &mdash; helped 50+ people find jobs.
+Multi-agent architect. Sharing what I build &amp; learn.
+sborka.work</div>
+
+  <h3>UTM-ссылка для bio</h3>
+  <div class="formula">sborka.work/?utm_source=threads&amp;utm_medium=social&amp;utm_campaign=s06_threads&amp;utm_content=bio</div>
+
+  <h3>Чек-лист профиля</h3>
+  <table>
+    <tr><th>Элемент</th><th>Рекомендация</th></tr>
+    <tr><td>Аватар</td><td>Одинаковый на всех платформах (консистентность бренда)</td></tr>
+    <tr><td>Instagram link</td><td>Обязательно привязан (interest graph!)</td></tr>
+    <tr><td>Bio link</td><td>sborka.work с UTM (единственное место для ссылки)</td></tr>
+    <tr><td>Verified badge</td><td>Не стоит при 177 подписчиках &mdash; ROI слишком низкий</td></tr>
+    <tr><td>Язык bio</td><td>English primary (larger audience), RU в постах</td></tr>
+  </table>
+</div>
+
+<!-- ===== 6. CONTENT PLAYBOOK ===== -->
+<div class="section">
+  <h2>6. Content Playbook</h2>
+
+  <h3>Еженедельный план</h3>
+  <table>
+    <tr><th>День</th><th>Формат</th><th>Тип</th><th>Пример</th></tr>
+    <tr><td><strong>Пн</strong></td><td>Hot take (EN)</td><td>AI opinion</td><td>"90% of AI career advice is recycled 2019 tech bro wisdom with a ChatGPT sticker."</td></tr>
+    <tr><td><strong>Вт</strong></td><td>Question post</td><td>Career engagement</td><td>"The worst career advice you ever got was ___"</td></tr>
+    <tr><td><strong>Ср</strong></td><td>Thread (3-5 posts)</td><td>Builder story</td><td>"I built an AI agent that does X. Thread on how + what I learned."</td></tr>
+    <tr><td><strong>Чт</strong></td><td>List/Image post (RU)</td><td>Career tips</td><td>"5 промптов для ChatGPT, которые помогут на собеседовании"</td></tr>
+    <tr><td><strong>Пт</strong></td><td>Contrarian data</td><td>Market insight</td><td>"Everyone says tech layoffs are over. Here's the data that says otherwise."</td></tr>
+    <tr><td><strong>Сб</strong></td><td>Personal story</td><td>Vulnerability</td><td>"Got rejected from 47 companies. The thing that worked was NOT what you think."</td></tr>
+    <tr><td><strong>Вс</strong></td><td>Quote post (RU+EN)</td><td>AI news reaction</td><td>Quote крупную AI-новость + свой take</td></tr>
+  </table>
+
+  <h3>Hook-формулы</h3>
+  <div class="tactic">
+    <div class="tactic-title">Hot Take + "Change my mind"</div>
+    <div class="tactic-action">"AI will replace 40% of HR departments by 2028. Here's why. Change my mind."</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Contrarian Data</div>
+    <div class="tactic-action">"Everyone says learn to code. But 78% of AI-displaced jobs are coding jobs. The real skill is ___"</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Personal Story Hook</div>
+    <div class="tactic-action">"I got rejected from 47 companies before landing my dream job. The thing that finally worked was NOT what you think."</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">This or That</div>
+    <div class="tactic-action">"Senior Dev at 300k FAANG vs Founder at 100k with full ownership. Which one and why?"</div>
+  </div>
+
+  <h3>Контент-пайплайн из других платформ</h3>
+  <table>
+    <tr><th>Источник</th><th>Адаптация для Threads</th><th>Частота</th></tr>
+    <tr><td>LinkedIn (лонгриды)</td><td>Извлечь 1 insight, переписать как 150-символьный hot take</td><td>3x/неделю</td></tr>
+    <tr><td>Telegram (посты канала)</td><td>Сократить, добавить EN-версию, добавить question CTA</td><td>2x/неделю</td></tr>
+    <tr><td>YouTube (видео)</td><td>Text summary ключевого момента + "Full breakdown on YouTube" (в reply)</td><td>1x/неделю</td></tr>
+    <tr><td>AI tool эксперименты</td><td>Скриншот + короткая реакция</td><td>3x/неделю</td></tr>
+  </table>
+</div>
+
+<!-- ===== 7. GROWTH HACKS ===== -->
+<div class="section">
+  <h2>7. Growth Hacks</h2>
+
+  <div class="tactic">
+    <div class="tactic-title">Thread-Jacking (тактика #1 для &lt;500 подписчиков)</div>
+    <div class="tactic-data">20-30 quality replies/день | Нотификации на 20-30 крупных аккаунтов | Отвечать за 5-10 мин</div>
+    <div class="tactic-action">Найти крупные AI/tech/career аккаунты (10K+). Включить нотификации. Отвечать первым с substantive reply (100-200 символов, добавить ценность). НЕ "Great post!" а "This reminds me of [data point]. Here's why it matters for [audience]."</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Instagram → Threads Pipeline</div>
+    <div class="tactic-data">1,684 IG followers = главный asset для роста</div>
+    <div class="tactic-action">IG Stories 2-3x/неделю: "I just dropped a hot take about AI hiring on Threads &mdash; go argue with me." Опрос в Stories: "Follow me on Threads? Yes / Not yet" (кнопка "Not yet" = клики). НЕ auto-cross-post одинаковый контент.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Bilingual Strategy (Blue Ocean)</div>
+    <div class="tactic-data">Русскоязычных AI/career создателей на Threads ~0</div>
+    <div class="tactic-action">80% постов на EN (larger audience), 20-30% на RU (uncontested niche). Техника: пост на EN, первый reply с RU-переводом (двойной эффект: reply chain + два аудитории).</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Speed on AI News</div>
+    <div class="tactic-data">Первые 50-100 аккаунтов на trending topic = massive boost</div>
+    <div class="tactic-action">Мониторить: TechCrunch, The Verge, HN, Reuters AI. Когда крупная AI-новость &mdash; пост за 30 мин с собственным take. Short + opinionated.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Recurring Series</div>
+    <div class="tactic-data">Предсказуемость = habit = retention</div>
+    <div class="tactic-action">"AI Tool Tuesday" &mdash; еженедельный разбор AI-инструмента. "Career Myth Friday" &mdash; разрушение карьерного мифа с данными. Люди ждут и возвращаются.</div>
+  </div>
+</div>
+
+<!-- ===== 8. CTA STRATEGY ===== -->
+<div class="section">
+  <h2>8. CTA Strategy → sborka.work</h2>
+
+  <div class="warning"><b>Главное ограничение:</b> Ссылки в теле поста штрафуются на -30-50% дистрибуции. Нельзя ставить ссылку на sborka.work прямо в пост.</div>
+
+  <h3>3-Layer CTA System</h3>
+  <table>
+    <tr><th>Layer</th><th>Где</th><th>Как</th><th>Конверсия</th></tr>
+    <tr><td><strong>Bio Link</strong></td><td>Профиль</td><td>sborka.work с UTM (единственная прямая ссылка)</td><td>Стабильный baseline трафик</td></tr>
+    <tr><td><strong>Reply Link</strong></td><td>Первый reply к посту</td><td>"Link if interested: sborka.work/..." (слабее penalty)</td><td>Interested users кликают</td></tr>
+    <tr><td><strong>Screenshot CTA</strong></td><td>Картинка в посте</td><td>Скриншот с URL, пользователь вводит вручную</td><td>Нулевой penalty, но friction</td></tr>
+  </table>
+
+  <h3>CTA-типы для постов</h3>
+  <div class="tactic">
+    <div class="tactic-title">Education CTA (самый частый)</div>
+    <div class="tactic-action">"I wrote a full guide on this. Link in bio." &mdash; после ценного поста/thread</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Contrarian CTA</div>
+    <div class="tactic-action">"Think I'm wrong? Our data from 55 career transformations says otherwise. Link in bio for the case studies."</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Community CTA</div>
+    <div class="tactic-action">"We help people find jobs in 6-8 weeks using AI. 55 people already in. Link in bio."</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Case Study CTA</div>
+    <div class="tactic-action">"Maria found a job in 4 weeks through our system. Full story in bio."</div>
+  </div>
+
+  <div class="insight"><b>Ожидаемые конверсии:</b> 100-500 bio clicks/мес → 5-75 email signups → 2-25 webinar regs. При 500 подписчиках: ~50-150 bio clicks/мес, 5-15 signups.</div>
+</div>
+
+<!-- ===== 9. 30-DAY ACTION PLAN ===== -->
+<div class="section">
+  <h2>9. 30-Day Action Plan: 177 → 500+</h2>
+
+  <div class="timeline">
+    <div class="timeline-item"><span class="week">Неделя 1</span>Foundation: профиль, IG-связка, первые 20 reply/день</div>
+    <div class="timeline-item"><span class="week">Неделя 2</span>Content Machine: 2-3 поста/день, recurring series</div>
+    <div class="timeline-item"><span class="week">Неделя 3</span>Community: thread-jacking, quote posts, RU-контент</div>
+    <div class="timeline-item"><span class="week">Неделя 4</span>Scale: анализ данных, удвоение лучших форматов</div>
+  </div>
+
+  <div class="action-plan">
+    <div class="action-item">
+      <strong>Обновить bio</strong> по рекомендованному шаблону. Добавить sborka.work с UTM. Привязать Instagram. <span class="badge badge-boost">День 1</span>
+    </div>
+    <div class="action-item">
+      <strong>Найти и подписаться на 30 AI/tech/career аккаунтов.</strong> Включить нотификации для thread-jacking. <span class="badge badge-boost">День 1</span>
+    </div>
+    <div class="action-item">
+      <strong>Начать 20-30 quality replies/день.</strong> Первая неделя &mdash; чистый engagement без ожидания роста. Это посев. <span class="badge badge-boost">Дни 1-7</span>
+    </div>
+    <div class="action-item">
+      <strong>IG Story: "Follow me on Threads"</strong> с кнопкой-ссылкой. Повторить 3 раза за первую неделю. <span class="badge badge-boost">Дни 2-7</span>
+    </div>
+    <div class="action-item">
+      <strong>Запустить "AI Tool Tuesday"</strong> &mdash; еженедельная серия. Первый пост: разбор AI-инструмента для поиска работы. <span class="badge badge-medium">Неделя 2</span>
+    </div>
+    <div class="action-item">
+      <strong>Публиковать 2-3 поста/день</strong> по контент-плану. Mix: EN hot takes + RU career tips + question posts + builder stories. <span class="badge badge-medium">Неделя 2</span>
+    </div>
+    <div class="action-item">
+      <strong>Первый RU-пост + EN reply.</strong> Тест билингвальной стратегии. Отслеживать engagement vs EN-only. <span class="badge badge-medium">Неделя 2</span>
+    </div>
+    <div class="action-item">
+      <strong>Quote post strategy:</strong> каждый день 2-3 quote posts на крупные аккаунты с собственным take. Никогда simple repost. <span class="badge badge-medium">Неделя 3</span>
+    </div>
+    <div class="action-item">
+      <strong>LinkedIn repurpose:</strong> взять 5 лучших LinkedIn-постов, адаптировать в Threads hot takes (150 символов). <span class="badge badge-medium">Неделя 3</span>
+    </div>
+    <div class="action-item">
+      <strong>Анализ: что зашло?</strong> Посмотреть top-5 постов по engagement. Удвоить этот формат на неделе 4. Отказаться от форматов с ER &lt;2%. <span class="badge badge-boost">Неделя 4</span>
+    </div>
+  </div>
+
+  <h3>Траектория роста</h3>
+  <table>
+    <tr><th>Milestone</th><th>Срок</th><th>Followers</th><th>Views/week</th><th>Bio clicks/мес</th></tr>
+    <tr><td><strong>Текущее</strong></td><td>Мар 2026</td><td>177</td><td>~1,200</td><td>~20</td></tr>
+    <tr><td>Week 1</td><td>+7 дней</td><td>~220</td><td>~2,000</td><td>~40</td></tr>
+    <tr><td>Week 2</td><td>+14 дней</td><td>~300</td><td>~4,000</td><td>~80</td></tr>
+    <tr><td>Week 3</td><td>+21 день</td><td>~400</td><td>~6,000</td><td>~120</td></tr>
+    <tr><td>Week 4</td><td>+30 дней</td><td><strong>500+</strong></td><td>~10,000</td><td>~200</td></tr>
+    <tr><td>Day 60</td><td>+60 дней</td><td>2,000</td><td>~30,000</td><td>~500</td></tr>
+    <tr><td>Day 90</td><td>+90 дней</td><td>5,000</td><td>~80,000</td><td>~1,200</td></tr>
+  </table>
+
+  <div class="insight"><b>Ключевое условие:</b> 2-3 поста/день + 20-30 replies/день + IG cross-promo 3x/неделю. Threads &mdash; conversation-first: engagement routine важнее чем production quality.</div>
+</div>
+
+<footer>
+  S-06 Threads @timofeyzinin &mdash; Research compiled 2026-03-04 | SMM Research Hub | Тим Зинин
+</footer>
+
+</div>
+</body>
+</html>

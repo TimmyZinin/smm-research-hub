@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-12 Medium — SMM Research Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--medium:#1A8917;--medium-dark:#0F6B0D;--medium-light:#2DB82A}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--medium);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+
+.container{max-width:960px;margin:0 auto;padding:20px}
+
+header{background:linear-gradient(135deg,#1A8917,#0F6B0D,#064D04);color:var(--white);padding:48px 40px;border-radius:16px;margin-bottom:32px;position:relative;overflow:hidden}
+header::after{content:'M';position:absolute;right:30px;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:8em;font-weight:700;opacity:.06}
+header h1{font-family:'Playfair Display',serif;font-size:2.2em;margin-bottom:8px;position:relative;z-index:1}
+header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px;position:relative;z-index:1}
+header .stats-row{display:flex;gap:16px;flex-wrap:wrap;position:relative;z-index:1}
+header .stat{background:rgba(255,255,255,.12);border-radius:10px;padding:10px 16px;text-align:center;min-width:90px}
+header .stat-num{font-family:'JetBrains Mono',monospace;font-size:1.5em;font-weight:700;display:block}
+header .stat-label{font-size:.7em;text-transform:uppercase;letter-spacing:.5px;opacity:.85}
+
+.section{background:var(--card);border-radius:12px;padding:28px 32px;margin-bottom:24px;box-shadow:0 2px 12px rgba(44,36,24,.06)}
+.section h2{font-family:'Playfair Display',serif;font-size:1.5em;color:var(--medium);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+.section h3{font-size:1.1em;color:var(--dark);margin:20px 0 10px;font-weight:700}
+.section h4{font-size:.95em;color:var(--medium);margin:16px 0 8px;font-weight:600}
+
+table{width:100%;border-collapse:collapse;font-size:.85em;margin:12px 0}
+th{background:var(--sand);color:var(--dark);font-weight:600;text-transform:uppercase;font-size:.72em;letter-spacing:.5px;padding:8px 10px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--white)}
+
+.tactic{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--medium);border-radius:8px;padding:16px;margin:12px 0}
+.tactic h4{color:var(--medium);margin:0 0 6px;font-size:.9em}
+.tactic p,.tactic ul,.tactic ol{font-size:.88em;color:#555}
+.tactic ul,.tactic ol{margin-left:18px}
+.tactic li{margin-bottom:3px}
+
+.insight{background:#E8F5E9;border-radius:8px;padding:14px 18px;margin:12px 0;border-left:4px solid var(--medium)}
+.insight strong{color:var(--medium-dark)}
+
+.warning{background:#FFF3E0;border-radius:8px;padding:14px 18px;margin:12px 0;border-left:4px solid #F57C00}
+.warning strong{color:#E65100}
+
+.formula{background:var(--dark);color:var(--white);border-radius:8px;padding:16px 20px;margin:14px 0;font-family:'JetBrains Mono',monospace;font-size:.82em;line-height:1.7;overflow-x:auto}
+
+.competitor{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;margin:10px 0;transition:box-shadow .2s}
+.competitor:hover{box-shadow:0 4px 16px rgba(26,137,23,.1)}
+.competitor .comp-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.competitor .comp-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05em;color:var(--medium)}
+.competitor .comp-badge{background:var(--medium);color:#fff;padding:2px 8px;border-radius:10px;font-size:.7em;font-weight:600}
+.competitor .comp-stats{font-size:.82em;color:var(--muted);margin-bottom:6px}
+.competitor .comp-lesson{font-size:.85em;padding:8px 12px;background:#F1F8E9;border-radius:6px;border-left:3px solid var(--medium-light)}
+
+.action-plan{display:grid;grid-template-columns:60px 1fr;gap:0;margin:16px 0}
+.action-plan .day{background:var(--medium);color:#fff;padding:10px 8px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.8em;font-weight:600;border-bottom:1px solid rgba(255,255,255,.2)}
+.action-plan .day:first-child{border-radius:8px 0 0 0}
+.action-plan .task{background:var(--white);border:1px solid var(--border);border-left:0;padding:10px 14px;font-size:.85em;border-bottom:1px solid var(--border)}
+.action-plan .task:nth-child(2){border-radius:0 8px 0 0}
+.action-plan .task:last-child{border-radius:0 0 8px 0}
+.action-plan .day:nth-last-child(2){border-radius:0 0 0 8px}
+
+.pub-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin:8px 0;display:flex;align-items:center;gap:12px}
+.pub-card .pub-tier{background:var(--medium);color:#fff;padding:2px 8px;border-radius:4px;font-size:.7em;font-weight:700;white-space:nowrap}
+.pub-card .pub-tier.t2{background:var(--gold);color:var(--dark)}
+.pub-card .pub-tier.t3{background:var(--muted)}
+.pub-card .pub-name{font-weight:700;font-size:.9em}
+.pub-card .pub-info{font-size:.78em;color:var(--muted)}
+
+footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
+@media(max-width:700px){
+  .topnav{gap:8px}.topnav a{font-size:.75em;padding:3px 7px}
+  header{padding:24px 20px}header h1{font-size:1.5em}header::after{display:none}
+  .section{padding:18px 16px}.action-plan{grid-template-columns:50px 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="logo">SMM Hub</span>
+  <a href="../smm_platform_audit.html">Dashboard</a>
+  <span class="sep">|</span>
+  <a href="s01_linkedin.html">LinkedIn</a>
+  <a href="s02_instagram.html">Instagram</a>
+  <a href="s03_youtube.html">YouTube</a>
+  <a href="s04_telegram_personal.html">TG Personal</a>
+  <a href="s05_telegram_sborka.html">TG Sborka</a>
+  <a href="s06_threads.html">Threads</a>
+  <a href="s07_facebook.html">Facebook</a>
+  <a href="s08_tiktok.html">TikTok</a>
+  <a href="s09_vk.html">VK</a>
+  <a href="s10_vcru.html">VC.ru</a>
+  <a href="s11_devto.html">Dev.to</a>
+  <a href="s12_medium.html" class="active">Medium</a>
+  <span class="sep">|</span>
+  <a href="s23_mave.html">Mave</a>
+  <a href="s24_spotify.html">Spotify</a>
+  <a href="s25_apple.html">Apple</a>
+  <a href="s26_yandex.html">Yandex</a>
+</nav>
+
+<div class="container">
+
+<header>
+  <h1>S-12: Medium</h1>
+  <div class="sub">Крупнейшая blogging-платформа &middot; DA 94-96 &middot; Boost Program &middot; Partner Program monetization</div>
+  <div class="stats-row">
+    <div class="stat"><span class="stat-num">DA 95</span><span class="stat-label">Domain Rating</span></div>
+    <div class="stat"><span class="stat-num">0</span><span class="stat-label">Followers</span></div>
+    <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Target/мес 1</span></div>
+    <div class="stat"><span class="stat-num">$</span><span class="stat-label">Partner Program</span></div>
+    <div class="stat"><span class="stat-num">EN</span><span class="stat-label">Язык</span></div>
+  </div>
+</header>
+
+<!-- ===== 1. ALGORITHM ===== -->
+<div class="section">
+  <h2>1. Алгоритм и дистрибуция Medium (2026)</h2>
+
+  <h3>Каналы дистрибуции</h3>
+  <table>
+    <tr><th>Канал</th><th>% Views</th><th>Механика</th></tr>
+    <tr><td><strong>Google Search / SEO</strong></td><td>30-40%</td><td>DA 95 — статьи ранжируются выше большинства блогов</td></tr>
+    <tr><td><strong>Medium Home Feed</strong></td><td>25-35%</td><td>Персонализация + recency + follows + topics</td></tr>
+    <tr><td><strong>Publication followers</strong></td><td>10-20%</td><td>Главный lever для новых авторов</td></tr>
+    <tr><td><strong>Daily Digest (email)</strong></td><td>10-15%</td><td>Рассылка подписчикам, высокий CTR</td></tr>
+    <tr><td><strong>Topic pages &amp; tags</strong></td><td>5-10%</td><td>5 тегов/статью, стратегический выбор</td></tr>
+    <tr><td><strong>Social referral</strong></td><td>5-10%</td><td>LinkedIn, Twitter/X — минимальный algorithmic boost</td></tr>
+  </table>
+
+  <h3>Boost Program — главный механизм роста</h3>
+  <div class="insight">
+    <strong>Boost = 5-50x amplification.</strong> Boosted статьи доминируют в home feed, topic pages и Daily Digest. Это единственный надёжный путь к массовому reach на Medium.
+  </div>
+
+  <h4>10 критериев отбора для Boost</h4>
+  <div class="tactic">
+    <ol>
+      <li><strong>Strong opening</strong> — первые 2-3 предложения должны hook</li>
+      <li><strong>Original perspective</strong> — не пересказ, а genuine insight или опыт</li>
+      <li><strong>Well-structured</strong> — заголовки, логический flow, форматирование</li>
+      <li><strong>Proper sourcing</strong> — claims backed by data, ссылки на источники</li>
+      <li><strong>No excessive self-promotion</strong> — CTAs на свои продукты штрафуются</li>
+      <li><strong>Good headline</strong> — specific, compelling, не кликбейт</li>
+      <li><strong>Optimal length</strong> — 800-2,500 слов (sweet spot ~1,200-1,800)</li>
+      <li><strong>Clean writing</strong> — минимум грамматических ошибок</li>
+      <li><strong>Images with alt text</strong> — accessibility критична для Boost</li>
+      <li><strong>Published in quality publication</strong> — статьи в известных пабах получают больше внимания кураторов</li>
+    </ol>
+  </div>
+
+  <h3>Engagement Velocity</h3>
+  <div class="formula">
+Первые 4-8 часов = критическое окно<br>
+50+ claps + 3+ responses за 4 часа → значительно выше шанс Boost<br>
+Sharing в соцсети СРАЗУ после публикации → trigger algorithmic amplification<br>
+Commenting на чужие статьи за час до/после публикации → visibility boost
+  </div>
+
+  <h3>Что убивает reach (антипаттерны)</h3>
+  <div class="warning">
+    <ul style="font-size:.88em">
+      <li><strong>Excessive outbound links</strong> в первых 3 параграфах (особенно на свои сайты)</li>
+      <li><strong>Thin content</strong> менее 500 слов</li>
+      <li><strong>Listicles без глубины</strong> ("10 AI Tools" с 1 предложением каждый)</li>
+      <li><strong>Duplicate content</strong> опубликованный в другом месте первым</li>
+      <li><strong>Too many CTAs</strong> на внешние продукты</li>
+      <li><strong>Member-only toggle OFF</strong> — бесплатные статьи не могут быть Boosted</li>
+    </ul>
+  </div>
+
+  <h3>Оптимальное время публикации</h3>
+  <table>
+    <tr><th>День</th><th>Время (UTC)</th><th>Примечание</th></tr>
+    <tr><td><strong>Вторник</strong></td><td>11:00-14:00</td><td>Наивысший weekday engagement</td></tr>
+    <tr><td><strong>Среда</strong></td><td>11:00-14:00</td><td>Сильная B2B аудитория</td></tr>
+    <tr><td><strong>Четверг</strong></td><td>11:00-14:00</td><td>Pre-weekend reading surge</td></tr>
+    <tr><td>Суббота</td><td>08:00-10:00</td><td>Weekend long-read behavior</td></tr>
+  </table>
+
+  <h3>Ключевые метрики</h3>
+  <table>
+    <tr><th>Метрика</th><th>Good</th><th>Excellent</th></tr>
+    <tr><td>Read ratio (% дочитавших)</td><td>&gt; 30%</td><td>&gt; 50%</td></tr>
+    <tr><td>Claps total</td><td>&gt; 100</td><td>&gt; 500</td></tr>
+    <tr><td>Responses</td><td>&gt; 5</td><td>&gt; 20</td></tr>
+    <tr><td>Read time</td><td>5-8 мин</td><td>7 мин (sweet spot)</td></tr>
+    <tr><td>Followers gained / story</td><td>&gt; 10</td><td>&gt; 50</td></tr>
+  </table>
+</div>
+
+<!-- ===== 2. PUBLICATIONS ===== -->
+<div class="section">
+  <h2>2. Стратегия публикаций</h2>
+
+  <p>Публикации на Medium = кураторские журналы. Публикация в правильном издании — разница между 50 и 50,000 views.</p>
+
+  <h3>Tier 1 — Must-Target (100K+ followers)</h3>
+  <div class="pub-card"><span class="pub-tier">T1</span><div><span class="pub-name">Towards Data Science</span> <span class="pub-info">~700K+ followers | ML, AI, Data Science | Review: 3-7 дней | Competitive</span></div></div>
+  <div class="pub-card"><span class="pub-tier">T1</span><div><span class="pub-name">The Startup</span> <span class="pub-info">~800K+ followers | Startups, Entrepreneurship | Review: 1-3 дня | Career + AI agent бизнес angle</span></div></div>
+  <div class="pub-card"><span class="pub-tier">T1</span><div><span class="pub-name">Towards AI</span> <span class="pub-info">500K+ followers | 2,500+ writers | AI, ML, LLMs | Более доступна чем TDS</span></div></div>
+  <div class="pub-card"><span class="pub-tier">T1</span><div><span class="pub-name">Better Programming</span> <span class="pub-info">~350K+ followers | Software Engineering | Code-heavy, dev audience</span></div></div>
+  <div class="pub-card"><span class="pub-tier">T1</span><div><span class="pub-name">Level Up Coding</span> <span class="pub-info">~292K followers | Dev tutorials, Career | Strong overlap с СБОРКА</span></div></div>
+
+  <h3>Tier 2 — Growth Publications</h3>
+  <div class="pub-card"><span class="pub-tier t2">T2</span><div><span class="pub-name">Generative AI</span> <span class="pub-info">~30K+ | GenAI, LLMs, Agents — прямое соответствие нише</span></div></div>
+  <div class="pub-card"><span class="pub-tier t2">T2</span><div><span class="pub-name">Data Science Collective</span> <span class="pub-info">900K followers | Practical AI/ML content | Open for submissions</span></div></div>
+  <div class="pub-card"><span class="pub-tier t2">T2</span><div><span class="pub-name">ODSC</span> <span class="pub-info">150K+ | ML platforms, AI environments</span></div></div>
+  <div class="pub-card"><span class="pub-tier t2">T2</span><div><span class="pub-name">Write A Catalyst</span> <span class="pub-info">75K+ | Writing + AI trends | Fast-growing (Feb 2026 launch)</span></div></div>
+
+  <h3>Гибридная стратегия (рекомендуется)</h3>
+  <table>
+    <tr><th>Фаза</th><th>Период</th><th>Стратегия</th></tr>
+    <tr><td><strong>Phase 1</strong></td><td>Месяцы 1-3</td><td>100% в external publications. Построить follower base до 500+</td></tr>
+    <tr><td><strong>Phase 2</strong></td><td>Месяцы 3-6</td><td>60% external + 40% personal profile. Запуск "series"</td></tr>
+    <tr><td><strong>Phase 3</strong></td><td>Месяц 6+</td><td>Запуск своей публикации "One Brain, Many Agents". 50/50 mix</td></tr>
+  </table>
+
+  <div class="insight">
+    <strong>Boost через публикации:</strong> 50% Boosted статей приходят из номинаций публикаций. Публикации с track record Boosted контента получают приоритет при review.
+  </div>
+</div>
+
+<!-- ===== 3. SEO ===== -->
+<div class="section">
+  <h2>3. SEO-мощность Medium</h2>
+
+  <h3>Domain Authority</h3>
+  <table>
+    <tr><th>Метрика</th><th>Medium</th><th>Dev.to</th><th>sborka.work</th></tr>
+    <tr><td>Moz DA</td><td><strong>94-96</strong></td><td>88-90</td><td>Minimal</td></tr>
+    <tr><td>Ahrefs DR</td><td><strong>93-95</strong></td><td>88-90</td><td>Minimal</td></tr>
+    <tr><td>Indexing speed</td><td>1-6 часов (established), 12-48 (new)</td><td>24-72 часа</td><td>Дни-Недели</td></tr>
+  </table>
+
+  <div class="insight">
+    <strong>Medium DA 95 &gt; Dev.to DA 90.</strong> Medium статья может outrank dedicated blogs на том же topic. Для evergreen туториалов — Medium first, затем cross-post.
+  </div>
+
+  <h3>Canonical URL стратегия</h3>
+  <div class="tactic">
+    <h4>Для SEO-первых статей (evergreen tutorials)</h4>
+    <ol>
+      <li>Публиковать на Medium первым (leverage DA 95)</li>
+      <li>После 30 дней — republish на sborka.work с canonical → Medium</li>
+      <li>Medium ранжируется выше, читатели discover Tim's profile</li>
+    </ol>
+  </div>
+  <div class="tactic">
+    <h4>Для brand-первых статей (thought leadership, СБОРКА announcements)</h4>
+    <ol>
+      <li>Публиковать на sborka.work первым</li>
+      <li>Import в Medium через built-in import tool (автоматически ставит canonical)</li>
+      <li>Medium amplifies distribution, sborka.work gets SEO credit</li>
+    </ol>
+  </div>
+
+  <h3>Keyword Opportunities</h3>
+  <table>
+    <tr><th>Keyword Cluster</th><th>Volume/мес</th><th>Competition</th></tr>
+    <tr><td>"AI agents" + вариации</td><td>40-80K</td><td>High</td></tr>
+    <tr><td>"multi-agent systems"</td><td>5-15K</td><td>Medium</td></tr>
+    <tr><td>"build AI agent" + tutorials</td><td>10-30K</td><td>High</td></tr>
+    <tr><td>"AI career" / "AI jobs"</td><td>20-50K</td><td>Medium</td></tr>
+    <tr><td>"CrewAI tutorial"</td><td>5-10K</td><td>Medium</td></tr>
+    <tr><td>"AI agent architecture"</td><td>2-5K</td><td>Low</td></tr>
+    <tr><td>"AI automation business"</td><td>2-5K</td><td>Low-Med</td></tr>
+    <tr><td>"LLM agents production"</td><td>1-3K</td><td>Low</td></tr>
+  </table>
+</div>
+
+<!-- ===== 4. COMPETITORS ===== -->
+<div class="section">
+  <h2>4. Анализ конкурентов</h2>
+
+  <div class="competitor">
+    <div class="comp-header">
+      <span class="comp-name">Matt Shumer (@mattshumer)</span>
+      <span class="comp-badge">15-20K followers</span>
+    </div>
+    <div class="comp-stats">AI Agents, Autonomous Systems, Founder OthersideAI | 2-4/мес | 500-2,000 claps</div>
+    <div class="comp-lesson">"Builder who writes" позиционирование работает великолепно. Комбинирует founder narrative с technical AI insights. Ближайший аналог Тима.</div>
+  </div>
+
+  <div class="competitor">
+    <div class="comp-header">
+      <span class="comp-name">Lak Lakshmanan (@lakshmanok)</span>
+      <span class="comp-badge">30K+ followers</span>
+    </div>
+    <div class="comp-stats">ML/AI, Google Cloud | 3-6/мес (consistent) | Towards Data Science | 200-1,000 claps</div>
+    <div class="comp-lesson">Consistency beats virality. 3-4 posts/мес в top publications строит compounding authority. Deep technical + opinion mix.</div>
+  </div>
+
+  <div class="competitor">
+    <div class="comp-header">
+      <span class="comp-name">Jim Fan</span>
+      <span class="comp-badge">AI Research</span>
+    </div>
+    <div class="comp-stats">NVIDIA AI, Research | Irregular posting | High-impact when published</div>
+    <div class="comp-lesson">Research-backed opinion pieces с уникальными данными получают massive engagement. "I tested X" формат = золото.</div>
+  </div>
+
+  <div class="competitor">
+    <div class="comp-header">
+      <span class="comp-name">Zulie Rane</span>
+      <span class="comp-badge">Career + Writing</span>
+    </div>
+    <div class="comp-stats">Career Growth, Writing on Medium | Consistent | High read ratios</div>
+    <div class="comp-lesson">Career-focused контент с personal storytelling = высокий read ratio. Прямое пересечение с СБОРКА mission.</div>
+  </div>
+
+  <div class="competitor">
+    <div class="comp-header">
+      <span class="comp-name">Santiago Valdarrama</span>
+      <span class="comp-badge">ML Engineering</span>
+    </div>
+    <div class="comp-stats">ML pipelines, Production AI | Technical | Towards Data Science</div>
+    <div class="comp-lesson">Production-focused ML контент выделяется на фоне теоретических статей. Tim's production multi-agent experience = уникальное преимущество.</div>
+  </div>
+
+  <div class="competitor">
+    <div class="comp-header">
+      <span class="comp-name">Damien Benveniste</span>
+      <span class="comp-badge">AI Applications</span>
+    </div>
+    <div class="comp-stats">Practical AI, Production Systems | Regular | Data-driven articles</div>
+    <div class="comp-lesson">Real cost/performance data в статьях = high bookmark rate. Readers trust numbers over claims.</div>
+  </div>
+
+  <h3>Gap Analysis</h3>
+  <div class="insight">
+    <strong>Голубой океан:</strong> Никто на Medium не занимает позицию "30+ AI агентов как solo entrepreneur + career tools". Matt Shumer ближе всех, но он фокусируется на продукте (HyperWrite), не на мульти-агентной экосистеме.
+  </div>
+</div>
+
+<!-- ===== 5. MONETIZATION ===== -->
+<div class="section">
+  <h2>5. Monetization &amp; Paywall стратегия</h2>
+
+  <h3>Medium Partner Program</h3>
+  <table>
+    <tr><th>Период</th><th>Expected Earnings</th><th>Conditions</th></tr>
+    <tr><td>Месяц 1-3</td><td>$10-50/мес</td><td>Building audience, learning what works</td></tr>
+    <tr><td>Месяц 3-6</td><td>$50-200/мес</td><td>Consistent publishing + Boost nomination</td></tr>
+    <tr><td>Месяц 6-12</td><td>$200-1,000/мес</td><td>Established authority + regular Boosts</td></tr>
+    <tr><td>Год 1+</td><td>$500-3,000/мес</td><td>Top-tier author status</td></tr>
+  </table>
+
+  <h3>Metered Paywall стратегия</h3>
+  <div class="tactic">
+    <h4>70% Paywalled / 30% Free</h4>
+    <ul>
+      <li><strong>Paywalled (70%):</strong> Frameworks, proprietary data, advanced tutorials, premium case studies</li>
+      <li><strong>Free (30%):</strong> Hot takes, trending insights, personal stories, educational content</li>
+      <li><strong>Бесплатные статьи</strong> работают как top-of-funnel → привлекают followers → они читают paywalled контент</li>
+    </ul>
+  </div>
+
+  <h3>Friend Links — ключевой тактический инструмент</h3>
+  <div class="tactic">
+    <h4>Friend Link = бесплатный доступ к paywalled статье</h4>
+    <ul>
+      <li>Каждая paywalled статья генерирует уникальный Friend Link</li>
+      <li>Share Friend Link в LinkedIn, Telegram, Twitter — readers получают бесплатный доступ</li>
+      <li>Friend Link views всё ещё считаются для Partner Program earnings (4x multiplier!)</li>
+      <li>Это WIN-WIN: читатель доволен, автор зарабатывает, Medium растёт</li>
+    </ul>
+  </div>
+
+  <div class="warning">
+    <strong>Правило:</strong> ВСЕГДА ставить Member-only toggle ON (paywall). Бесплатные статьи не могут быть Boosted и не приносят revenue. Даже для awareness статей — paywall ON + share Friend Link.
+  </div>
+</div>
+
+<!-- ===== 6. CONTENT FORMATS ===== -->
+<div class="section">
+  <h2>6. Форматы контента</h2>
+
+  <h3>Рейтинг форматов для Medium</h3>
+  <table>
+    <tr><th>Формат</th><th>Performance</th><th>Read Time</th><th>Boost Potential</th></tr>
+    <tr><td><strong>"How I Built X" case studies</strong></td><td>EXCELLENT</td><td>7-10 мин</td><td>HIGH</td></tr>
+    <tr><td><strong>Comparison / Benchmark</strong></td><td>EXCELLENT</td><td>5-8 мин</td><td>HIGH</td></tr>
+    <tr><td><strong>Data-driven analysis</strong></td><td>EXCELLENT</td><td>5-8 мин</td><td>HIGH</td></tr>
+    <tr><td>Personal narrative + lessons</td><td>GOOD</td><td>5-7 мин</td><td>MEDIUM-HIGH</td></tr>
+    <tr><td>Step-by-step tutorials</td><td>GOOD</td><td>8-12 мин</td><td>MEDIUM</td></tr>
+    <tr><td>Opinion / Hot take</td><td>GOOD (high comments)</td><td>4-6 мин</td><td>MEDIUM</td></tr>
+    <tr><td>Listicles с глубиной</td><td>GOOD</td><td>5-7 мин</td><td>LOW-MED</td></tr>
+  </table>
+
+  <h3>Viral headline формулы</h3>
+  <div class="tactic">
+    <h4>5 proven patterns для 10K+ claps</h4>
+    <ol>
+      <li><strong>Curiosity Gap + Specificity:</strong> "I Analyzed 50 Viral Medium Articles — Here's What Actually Makes Content Go Big"</li>
+      <li><strong>Controversy + Education:</strong> "Why Everyone Is Wrong About Prompt Engineering" (46x engagement multiplier!)</li>
+      <li><strong>Specific Numbers + Results:</strong> "I Made $1,427 in 13 Days With AI Agents"</li>
+      <li><strong>Challenge Consensus:</strong> "Single-Agent AI Is Dead: Here's Why Multi-Agent Systems Win"</li>
+      <li><strong>Transparency + Failure:</strong> "I Tried 10 AI Agent Frameworks. Here's What Failed (And Why)"</li>
+    </ol>
+  </div>
+
+  <h3>Formatting для engagement</h3>
+  <div class="formula">
+Bullet points → +2.1x shares<br>
+Images every 150-300 words → +38% engagement (human faces best)<br>
+Subheadings every 2-3 параграфа → visual breaks<br>
+Hook in first paragraph → решение stay/leave за 100 слов<br>
+Optimal length: 7 min / ~1,600 слов
+  </div>
+
+  <h3>Вес метрик engagement</h3>
+  <div class="insight">
+    <strong>Comments = 60% веса, Claps = 40%.</strong> Это значит: лучше 5 genuine responses чем 500 claps. Формулировки, провоцирующие дискуссию, важнее "лайкабельного" контента.
+  </div>
+</div>
+
+<!-- ===== 7. TONE OF VOICE ===== -->
+<div class="section">
+  <h2>7. Tone of Voice для Medium</h2>
+
+  <h3>Medium vs Dev.to vs LinkedIn</h3>
+  <table>
+    <tr><th>Аспект</th><th>Medium</th><th>Dev.to</th><th>LinkedIn</th></tr>
+    <tr><td>Стиль</td><td>Журналистский + personal</td><td>Technical + casual</td><td>Professional + inspiring</td></tr>
+    <tr><td>Глубина</td><td>Narrative storytelling</td><td>Code-first, reproducible</td><td>Insights, short-form</td></tr>
+    <tr><td>Аудитория</td><td>Broader tech + business</td><td>Developers only</td><td>Professionals</td></tr>
+    <tr><td>CTA tolerance</td><td>Low (soft only)</td><td>Low (value-first)</td><td>Medium</td></tr>
+    <tr><td>Promo culture</td><td>Anti-promo (curation)</td><td>Anti-promo (community)</td><td>Accepted if valuable</td></tr>
+  </table>
+
+  <h3>Адаптация ToV Тима для Medium</h3>
+  <div class="tactic">
+    <h4>DO</h4>
+    <ul>
+      <li>Начинай с hook — проблема или intriguing question в первом параграфе</li>
+      <li>Personal narrative thread через статью (Medium readers love stories)</li>
+      <li>Конкретные числа и данные (not "a lot" but "37% increase")</li>
+      <li>Honest failures — "What Didn't Work" секция = gold на Medium</li>
+      <li>Subheadings с keywords (SEO + readability)</li>
+      <li>End с clear takeaway (не CTA, а actionable insight)</li>
+    </ul>
+  </div>
+  <div class="warning">
+    <h4 style="color:#E65100">DON'T</h4>
+    <ul style="font-size:.88em">
+      <li>Marketing language ("revolutionary", "game-changing", "disruptive")</li>
+      <li>Outbound links в первых 3 параграфах</li>
+      <li>AI-generated generic content (Medium кураторы детектят и штрафуют)</li>
+      <li>Listicles с 1 предложением на пункт</li>
+      <li>Urgency language ("Limited!", "Sign up NOW!")</li>
+    </ul>
+  </div>
+
+  <div class="insight">
+    <strong>Язык: English only.</strong> Medium's audience = predominantly English. Russian content gets minimal distribution. Для RU-аудитории — VK, VC.ru, Telegram.
+  </div>
+</div>
+
+<!-- ===== 8. CTA STRATEGY ===== -->
+<div class="section">
+  <h2>8. CTA-стратегия: Medium &rarr; sborka.work</h2>
+
+  <h3>4-уровневая CTA framework</h3>
+  <table>
+    <tr><th>Уровень</th><th>Тип</th><th>Риск</th><th>Пример</th></tr>
+    <tr><td><strong>1</strong></td><td>Bio link</td><td>Zero</td><td>sborka.work в profile bio</td></tr>
+    <tr><td><strong>2</strong></td><td>End-of-article mention</td><td>Low</td><td>"I'm building SBORKA — career tools for AI era" в author footer</td></tr>
+    <tr><td><strong>3</strong></td><td>Contextual mid-article link</td><td>Medium</td><td>"We researched AI hiring trends at SBORKA: [link]" — только где добавляет ценность</td></tr>
+    <tr><td><strong>4</strong></td><td>Content upgrade CTA</td><td>Use sparingly</td><td>"Full playbook available at sborka.work" — только в конце серии</td></tr>
+  </table>
+
+  <div class="warning">
+    <strong>Medium's anti-promo filter:</strong> Excessive outbound links в первых параграфах = Boost disqualification. Max 1-2 ссылки на sborka.work per article. НИКОГДА в первых 3 параграфах.
+  </div>
+
+  <h3>UTM шаблон</h3>
+  <div class="formula">
+sborka.work?utm_source=medium&amp;utm_medium=social&amp;utm_campaign=s12_medium&amp;utm_content={slug}
+  </div>
+
+  <h3>Friend Link + CTA combo</h3>
+  <div class="tactic">
+    <h4>Самая мощная тактика на Medium</h4>
+    <ol>
+      <li>Публикуй статью за paywall</li>
+      <li>Генерируй Friend Link</li>
+      <li>Share Friend Link в LinkedIn с коротким summary</li>
+      <li>В LinkedIn post включи CTA → sborka.work</li>
+      <li>Читатели из LinkedIn заходят по Friend Link → читают на Medium → discover Tim's profile → follow</li>
+      <li>Medium считает engagement → Partner Program revenue + Boost potential</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ===== 9. CROSS-PLATFORM ===== -->
+<div class="section">
+  <h2>9. Cross-Platform Pipeline</h2>
+
+  <h3>Content Flywheel</h3>
+  <div class="formula">
+Medium Article (primary, paywall ON)<br>
+&nbsp;&nbsp;├── LinkedIn Post (summary + Friend Link) → Day 0<br>
+&nbsp;&nbsp;├── Twitter/X Thread (key points) → Day 1<br>
+&nbsp;&nbsp;├── Dev.to cross-post (canonical → Medium, 48h delay) → Day 2<br>
+&nbsp;&nbsp;├── Hashnode cross-post (canonical → Medium, 48h delay) → Day 3<br>
+&nbsp;&nbsp;├── Telegram (RU перевод key insights) → Day 0<br>
+&nbsp;&nbsp;└── sborka.work (deep-dive version, 30 days later) → Month 2+
+  </div>
+
+  <h3>Правила cross-posting</h3>
+  <div class="tactic">
+    <ul>
+      <li><strong>Medium first</strong> — всегда. DA 95 даёт лучший SEO</li>
+      <li><strong>Cross-post на Dev.to/Hashnode через 48ч</strong> с canonical URL → Medium</li>
+      <li><strong>НИКОГДА не дублировать без canonical</strong> — Google штрафует оба</li>
+      <li><strong>Medium's Import tool</strong> автоматически ставит canonical при импорте с других платформ</li>
+      <li><strong>LinkedIn = amplifier</strong> — short summary + Friend Link = best external traffic source</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== 10. 30-DAY ACTION PLAN ===== -->
+<div class="section">
+  <h2>10. 30-дневный Action Plan</h2>
+
+  <h3>Pre-Launch (Дни 1-3): Profile + Publications</h3>
+  <div class="action-plan">
+    <div class="day">Day 1</div>
+    <div class="task"><strong>Profile:</strong> Bio = "Multi-Agent Revenue Architect | Building AI systems that run businesses autonomously" | Website = sborka.work с UTM | Pin best articles</div>
+    <div class="day">Day 2</div>
+    <div class="task"><strong>Applications:</strong> Submit writer access к 5 publications: Towards AI, Data Science Collective, Better Programming, Level Up Coding, Write A Catalyst</div>
+    <div class="day">Day 3</div>
+    <div class="task"><strong>Research:</strong> Read 20 top articles в target publications. Comment substantively on 5. Follow 30 relevant authors</div>
+  </div>
+
+  <h3>Неделя 1 (Дни 4-10): Foundation</h3>
+  <div class="action-plan">
+    <div class="day">Day 4</div>
+    <div class="task"><strong>Article 1 (POSITIONING):</strong> "I Run 8 Businesses with 6 AI Agents — Here's What I Learned" | Submit to Towards AI | Paywall ON | Tags: AI, Agents, Productivity, Automation, Career</div>
+    <div class="day">Day 6</div>
+    <div class="task"><strong>Article 2 (TUTORIAL):</strong> "How to Build Your First AI Agent in 30 Minutes" | Submit to Better Programming | Code examples, screenshot</div>
+    <div class="day">Day 8</div>
+    <div class="task"><strong>Article 3 (CASE STUDY):</strong> "The Real Cost of Running AI Agents: 12-Month Breakdown" | Submit to Towards Data Science | Data-driven, tables</div>
+    <div class="day">Daily</div>
+    <div class="task">Comment on 5 articles in niche (15 мин). Reply to all comments on own articles &lt;24ч. Share each article to LinkedIn (Friend Link) + Telegram (RU summary)</div>
+  </div>
+  <p style="font-size:.85em;color:var(--muted);margin-top:6px">Цель: 200-500 followers, 1,000-2,000 reads</p>
+
+  <h3>Неделя 2-3 (Дни 11-24): Momentum</h3>
+  <div class="action-plan">
+    <div class="day">Day 11</div>
+    <div class="task"><strong>Article 4:</strong> "5 AI Agent Frameworks Compared: CrewAI vs LangGraph vs AutoGen" | Listicle + benchmarks | High Boost potential</div>
+    <div class="day">Day 14</div>
+    <div class="task"><strong>Article 5 (CONTROVERSIAL):</strong> "I Automated My Job With AI. Here's How You Can Too." | Opinion + data | Aim for 20+ responses</div>
+    <div class="day">Day 18</div>
+    <div class="task"><strong>Article 6:</strong> "Building Multi-Agent Systems for Remote Teams" | СБОРКА career angle | Level Up Coding</div>
+    <div class="day">Day 22</div>
+    <div class="task"><strong>Article 7:</strong> "What 50 AI Job Listings Reveal About 2026 Hiring" | Data-driven research | Towards AI</div>
+  </div>
+  <p style="font-size:.85em;color:var(--muted);margin-top:6px">Цель: cumulative 3,000-5,000 reads, 1+ article nominated for Boost</p>
+
+  <h3>Неделя 4 (Дни 25-30): Optimization</h3>
+  <div class="action-plan">
+    <div class="day">Day 25</div>
+    <div class="task"><strong>Analytics review:</strong> Какие статьи &gt;40% read ratio? Какие sparked debate? Какие headline patterns сработали?</div>
+    <div class="day">Day 27</div>
+    <div class="task"><strong>Article 8 (META):</strong> "Everything I Learned About AI Career Optimization in 30 Days" | Reflection + data | Cross-post top article to Dev.to/Hashnode</div>
+    <div class="day">Day 30</div>
+    <div class="task"><strong>Repurpose:</strong> Top 2 articles → LinkedIn articles. Most-discussed → Twitter thread. Follow-up article на топ-комменты</div>
+  </div>
+
+  <h3>Сводные цели за 30 дней</h3>
+  <table>
+    <tr><th>Метрика</th><th>Minimum</th><th>Target</th><th>Stretch</th></tr>
+    <tr><td>Articles published</td><td>6</td><td>8</td><td>10</td></tr>
+    <tr><td>Total reads</td><td>1,000</td><td>3,000-5,000</td><td>10,000</td></tr>
+    <tr><td>Followers</td><td>200</td><td>500-1,000</td><td>2,000</td></tr>
+    <tr><td>Read ratio avg</td><td>25%</td><td>35%+</td><td>45%+</td></tr>
+    <tr><td>Responses total</td><td>20</td><td>50-100</td><td>200</td></tr>
+    <tr><td>Boost nominations</td><td>0</td><td>1</td><td>3</td></tr>
+    <tr><td>Partner Program revenue</td><td>$5</td><td>$10-50</td><td>$100+</td></tr>
+    <tr><td>sborka.work clicks</td><td>10</td><td>30</td><td>100</td></tr>
+  </table>
+</div>
+
+<footer>
+  <p>S-12 Medium Research — SMM Research Hub &middot; Тим Зинин &middot; Март 2026</p>
+  <p style="margin-top:4px;font-size:.8em">Powered by research-orchestrator + content-marketer agents</p>
+</footer>
+
+</div>
+</body>
+</html>

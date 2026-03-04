@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-18 Nostr — SMM Research Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--nostr:#8B5CF6;--nostr-dark:#7C3AED;--nostr-light:#F3EEFE}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--nostr);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+
+.container{max-width:1100px;margin:0 auto;padding:20px}
+
+header{background:linear-gradient(135deg,#8B5CF6,#7C3AED,#4C1D95);color:#fff;padding:48px 40px;border-radius:16px;margin-bottom:32px;position:relative;overflow:hidden}
+header::before{content:'nostr';position:absolute;right:20px;top:15px;font-size:4em;font-weight:900;opacity:.06;font-family:'JetBrains Mono',monospace}
+header h1{font-family:'Playfair Display',serif;font-size:2.2em;margin-bottom:6px}
+header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
+.hero-stats{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stat{background:rgba(255,255,255,.15);border-radius:10px;padding:10px 18px;text-align:center}
+.hero-stat strong{font-family:'JetBrains Mono',monospace;font-size:1.5em;display:block}
+.hero-stat span{font-size:.7em;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+
+section{background:var(--card);border-radius:14px;padding:32px;margin-bottom:24px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(44,36,24,.05)}
+section h2{font-family:'Playfair Display',serif;font-size:1.5em;margin-bottom:18px;color:var(--nostr-dark);border-bottom:2px solid var(--nostr-light);padding-bottom:10px}
+section h3{font-size:1.1em;font-weight:700;margin:18px 0 10px;color:var(--dark)}
+
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th{background:var(--nostr-light);text-align:left;padding:10px 12px;font-weight:600;border-bottom:2px solid var(--nostr)}
+td{padding:10px 12px;border-bottom:1px solid var(--border)}
+tr:hover td{background:var(--nostr-light)}
+
+.tactic{background:var(--nostr-light);border-left:4px solid var(--nostr);padding:16px 20px;border-radius:0 10px 10px 0;margin:14px 0}
+.tactic strong{color:var(--nostr-dark)}
+
+.insight{background:linear-gradient(135deg,#F3EEFE,#F8F5FF);border:1px solid var(--nostr);border-radius:10px;padding:16px 20px;margin:14px 0}
+.insight::before{content:'INSIGHT';font-family:'JetBrains Mono',monospace;font-size:.7em;font-weight:700;color:var(--nostr);letter-spacing:2px;display:block;margin-bottom:6px}
+
+.warning{background:#FFF0E6;border-left:4px solid var(--terra);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-size:.93em}
+.warning::before{content:'WARNING: ';font-weight:700;color:var(--terra)}
+
+.formula{background:var(--dark);color:var(--white);padding:16px 24px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:.95em;margin:14px 0;text-align:center}
+.formula .highlight{color:var(--nostr);font-weight:700}
+
+.competitor{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;margin:12px 0;transition:box-shadow .2s}
+.competitor:hover{box-shadow:0 4px 16px rgba(139,92,246,.15)}
+.competitor .name{font-weight:700;font-size:1.05em;margin-bottom:4px;color:var(--nostr-dark)}
+.competitor .meta{font-size:.85em;color:var(--muted);margin-bottom:8px;font-family:'JetBrains Mono',monospace}
+.competitor .takeaway{font-size:.92em;color:var(--dark)}
+
+.action-plan{counter-reset:step}
+.action-plan .step{position:relative;padding:18px 20px 18px 60px;margin:10px 0;background:var(--card);border:1px solid var(--border);border-radius:10px}
+.action-plan .step::before{counter-increment:step;content:counter(step);position:absolute;left:16px;top:16px;width:32px;height:32px;background:var(--nostr);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9em}
+.action-plan .step strong{color:var(--nostr-dark)}
+
+.kpi-card{display:inline-block;background:linear-gradient(135deg,var(--nostr),var(--nostr-dark));color:#fff;padding:12px 20px;border-radius:10px;margin:6px 8px 6px 0;text-align:center}
+.kpi-card .val{font-family:'JetBrains Mono',monospace;font-size:1.4em;font-weight:700;display:block}
+.kpi-card .label{font-size:.75em;text-transform:uppercase;letter-spacing:1px;opacity:.9}
+
+.pillar{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:14px 0}
+.pillar-item{background:var(--nostr-light);border-radius:10px;padding:16px;border-top:3px solid var(--nostr)}
+.pillar-item .pct{font-family:'JetBrains Mono',monospace;font-size:1.8em;font-weight:700;color:var(--nostr)}
+.pillar-item h4{margin:6px 0;font-size:.95em}
+.pillar-item p{font-size:.85em;color:var(--muted)}
+
+ul,ol{margin:10px 0 10px 20px}
+li{margin-bottom:6px;font-size:.94em}
+code{font-family:'JetBrains Mono',monospace;background:var(--nostr-light);padding:2px 6px;border-radius:4px;font-size:.88em}
+
+@media(max-width:768px){
+header{padding:28px 20px}header h1{font-size:1.5em}
+section{padding:20px}
+.hero-stats{flex-direction:column}
+.topnav{gap:8px;padding:8px 12px}.topnav a{font-size:.75em;padding:3px 7px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+<span class="logo">SMM Hub</span>
+<a href="../smm_platform_audit.html">Dashboard</a>
+<span class="sep">|</span>
+<a href="s01_linkedin.html">LinkedIn</a>
+<a href="s02_instagram.html">IG</a>
+<a href="s03_threads.html">Threads</a>
+<a href="s04_telegram.html">TG</a>
+<a href="s05_youtube.html">YT</a>
+<a href="s06_tiktok.html">TikTok</a>
+<a href="s07_vk.html">VK</a>
+<a href="s08_x.html">X</a>
+<a href="s09_facebook.html">FB</a>
+<a href="s10_pinterest.html">Pin</a>
+<a href="s11_reddit.html">Reddit</a>
+<a href="s12_medium.html">Medium</a>
+<a href="s13_hashnode.html">Hashnode</a>
+<a href="s14_bluesky.html">Bluesky</a>
+<a href="s15_mastodon.html">Mastodon</a>
+<a href="s16_tumblr.html">Tumblr</a>
+<a href="s17_okru.html">OK.ru</a>
+<a href="s18_nostr.html" class="active">Nostr</a>
+<span class="sep">|</span>
+</nav>
+
+<div class="container">
+
+<header>
+<h1>S-18: Nostr Protocol</h1>
+<p class="sub">Decentralized Social via Relays &mdash; Zap Micropayments, NIP-05 Identity, Bitcoin-Native Audience, Self-Hosted Relay</p>
+<div class="hero-stats">
+<div class="hero-stat"><strong>~2M</strong><span>Active Accounts</span></div>
+<div class="hero-stat"><strong>0</strong><span>AI/Agent Creators</span></div>
+<div class="hero-stat"><strong>Zaps</strong><span>Bitcoin Micropayments</span></div>
+<div class="hero-stat"><strong>NIP-05</strong><span>tim@sborka.work</span></div>
+<div class="hero-stat"><strong>200+</strong><span>30-Day Target</span></div>
+</div>
+</header>
+
+<!-- SECTION 1: Protocol Mechanics -->
+<section id="protocol">
+<h2>1. Nostr Protocol Mechanics</h2>
+<p>Nostr (Notes and Other Stuff Transmitted by Relays) is a decentralized protocol built on three primitives: <strong>Clients</strong> (apps), <strong>Relays</strong> (WebSocket servers), and <strong>Keypairs</strong> (secp256k1 cryptographic identity, same curve as Bitcoin). No blockchain, no token, no central authority.</p>
+
+<h3>Core Architecture</h3>
+<div class="formula">
+Private key (nsec) &rarr; <span class="highlight">signs events</span> &rarr; Public key (npub) = your identity &rarr; <span class="highlight">NIP-05</span> = human-readable (tim@sborka.work)
+</div>
+
+<h3>Key Event Kinds</h3>
+<table>
+<tr><th>Kind</th><th>Name</th><th>Relevance</th></tr>
+<tr><td><strong>0</strong></td><td>Profile Metadata</td><td>HIGH &mdash; first impression, name, bio, NIP-05, Lightning address</td></tr>
+<tr><td><strong>1</strong></td><td>Short Text Note</td><td>HIGH &mdash; daily posts (like tweets, up to ~65KB)</td></tr>
+<tr><td><strong>6</strong></td><td>Repost</td><td>HIGH &mdash; sharing others' notes (engagement)</td></tr>
+<tr><td><strong>7</strong></td><td>Reaction</td><td>HIGH &mdash; likes, emoji reactions</td></tr>
+<tr><td><strong>9734/9735</strong></td><td>Zap Request/Receipt</td><td>HIGH &mdash; Lightning micropayments on notes</td></tr>
+<tr><td><strong>10002</strong></td><td>Relay List (NIP-65)</td><td>HIGH &mdash; tells network where to find your content</td></tr>
+<tr><td><strong>30023</strong></td><td>Long-form Content</td><td>HIGH &mdash; full Markdown articles (blog posts)</td></tr>
+</table>
+
+<h3>Content Propagation Model</h3>
+<div class="insight">Unlike centralized platforms, there is NO single algorithm. Each client implements its own feed logic. Primal has trending feeds, Damus is more chronological. Your <strong>relay selection</strong> and <strong>network effects</strong> matter more than "gaming the algorithm." Getting reposted (kind 6) by someone with wider relay coverage is the primary viral mechanic.</div>
+
+<div class="warning">Events are immutable once published (no edit). No guaranteed delivery if relays go down. No global search (relay-dependent). Images need external hosting (nostr.build, void.cat). These are protocol tradeoffs for censorship resistance.</div>
+</section>
+
+<!-- SECTION 2: Client Apps -->
+<section id="clients">
+<h2>2. Client Apps &amp; Posting Workflow</h2>
+
+<h3>Client Comparison</h3>
+<table>
+<tr><th>Client</th><th>Platform</th><th>Discovery</th><th>Long-form</th><th>Zaps</th><th>Automation</th></tr>
+<tr><td><strong>Primal</strong></td><td>Web + iOS + Android</td><td>Excellent</td><td>Good</td><td>Native + wallet</td><td>REST API</td></tr>
+<tr><td><strong>Damus</strong></td><td>iOS only</td><td>Basic</td><td>Basic</td><td>Native</td><td>No</td></tr>
+<tr><td><strong>Amethyst</strong></td><td>Android only</td><td>Tag-based</td><td>Good</td><td>Native</td><td>No</td></tr>
+<tr><td><strong>Snort</strong></td><td>Web</td><td>Trending tab</td><td>Good</td><td>Native</td><td>No</td></tr>
+<tr><td><strong>Habla.news</strong></td><td>Web</td><td>NIP-23 focused</td><td>Excellent</td><td>Native</td><td>No</td></tr>
+</table>
+
+<div class="tactic"><strong>Recommended: Primal as primary client.</strong> Cross-platform, best discovery (curated trending feeds), built-in wallet for zaps, REST API for automation. Use Habla.news specifically for long-form articles (NIP-23).</div>
+
+<h3>Publishing Pipeline Integration</h3>
+<div class="formula">
+auto_publisher.py &rarr; sign event with nsec &rarr; <span class="highlight">publish to 5+ relays via WebSocket</span> &rarr; visible on ALL clients simultaneously
+</div>
+<p>Use <code>nostr-sdk</code> (Python, based on rust-nostr) to programmatically publish events. No OAuth, no API keys, no rate limits from a central authority. Just sign JSON and send over WebSocket.</p>
+</section>
+
+<!-- SECTION 3: Content Strategy -->
+<section id="content">
+<h2>3. Content Strategy &mdash; What Works on Nostr</h2>
+
+<h3>Formats Ranked by Engagement</h3>
+<table>
+<tr><th>Format</th><th>Engagement</th><th>Best For</th></tr>
+<tr><td><strong>Hot takes / opinions</strong></td><td>HIGHEST</td><td>Visibility, reposts, conversation starters</td></tr>
+<tr><td><strong>Build-in-public threads</strong></td><td>HIGH</td><td>Showing real work, attracting builders</td></tr>
+<tr><td><strong>Zap-worthy insights</strong></td><td>HIGH</td><td>Earning sats, social proof</td></tr>
+<tr><td><strong>Long-form articles (NIP-23)</strong></td><td>MEDIUM-HIGH</td><td>Deep authority, SEO via Habla.news</td></tr>
+<tr><td><strong>Reposts with commentary</strong></td><td>MEDIUM</td><td>Network building, being seen</td></tr>
+<tr><td><strong>Images / infographics</strong></td><td>MEDIUM</td><td>Visual differentiation (rare on Nostr)</td></tr>
+</table>
+
+<h3>What Works for AI/Tech Content</h3>
+<div class="pillar">
+<div class="pillar-item">
+<div class="pct">1</div>
+<h4>"Show, Don't Tell"</h4>
+<p>Screenshots of dashboards, agent outputs, real metrics. "6 AI agents published 47 posts today. Cost: $0.83."</p>
+</div>
+<div class="pillar-item">
+<div class="pct">2</div>
+<h4>Bitcoin-Angle AI</h4>
+<p>AI + Bitcoin intersection. "AI agents that YOU control, not OpenAI." Sovereignty narrative.</p>
+</div>
+<div class="pillar-item">
+<div class="pct">3</div>
+<h4>Anti-Establishment Tech</h4>
+<p>"Why I build on open protocols." "My AI agents post to Nostr because no one can ban them."</p>
+</div>
+<div class="pillar-item">
+<div class="pct">4</div>
+<h4>Educational Explainers</h4>
+<p>Teach the community. "Building an AI auto-poster for Nostr (open-source)." Deep technical dives.</p>
+</div>
+</div>
+
+<h3>Optimal Posting Frequency</h3>
+<table>
+<tr><th>Type</th><th>Frequency</th></tr>
+<tr><td>Short notes (kind 1)</td><td>2-4/day (mix of original + replies + reposts)</td></tr>
+<tr><td>Long-form (NIP-23)</td><td>1-2/week</td></tr>
+<tr><td>Engagement replies</td><td>5-10/day (primary growth driver)</td></tr>
+<tr><td>Zapping others</td><td>10-20/day (builds reciprocity)</td></tr>
+</table>
+
+<div class="warning">What does NOT work: self-promotional spam, LinkedIn corporate-speak, AI hype without substance, mentioning altcoins/Ethereum (Bitcoin-only community), cross-posted generic content without Nostr-native formatting.</div>
+</section>
+
+<!-- SECTION 4: Competitors -->
+<section id="competitors">
+<h2>4. Competitor Analysis &mdash; AI/Tech on Nostr</h2>
+
+<div class="insight">The AI/multi-agent niche on Nostr is <strong>essentially unoccupied</strong>. Dominant topics are Bitcoin, Lightning, privacy, and open-source development. Tim entering with genuine AI-agent expertise + Bitcoin awareness would be a <strong>category-defining first-mover</strong>. No direct competitor does "Multi-Agent Revenue Architect" content.</div>
+
+<div class="competitor">
+<div class="name">@jb55 (William Casarin) &mdash; Damus Creator</div>
+<div class="meta">50,000+ followers &middot; 100+ zaps/post &middot; Nostr dev, iOS, open source</div>
+<div class="takeaway">Shows that deep technical builder content with real code gets massive engagement. <strong>Lesson:</strong> Be a builder, show output.</div>
+</div>
+
+<div class="competitor">
+<div class="name">@ODELL (Matt Odell) &mdash; Citadel Dispatch</div>
+<div class="meta">80,000+ followers &middot; Hundreds of zaps/post &middot; Bitcoin + privacy + freedom tech</div>
+<div class="takeaway">Podcast cross-posted to Nostr performs very well. Media + tech authority. <strong>Lesson:</strong> Cross-post SBORKA podcast content here.</div>
+</div>
+
+<div class="competitor">
+<div class="name">@fiatjaf &mdash; Nostr Protocol Creator</div>
+<div class="meta">40,000+ followers &middot; Shapes protocol direction &middot; Philosophy + decentralization</div>
+<div class="takeaway">Thought leadership on protocol design gets amplified. <strong>Lesson:</strong> "How Nostr could be backbone for AI agent communication" = viral potential.</div>
+</div>
+
+<div class="competitor">
+<div class="name">@Gigi &mdash; "21 Lessons" Author</div>
+<div class="meta">35,000+ followers &middot; Philosophical threads get massive zaps</div>
+<div class="takeaway">Long-form thoughtful content on technology philosophy does very well. <strong>Lesson:</strong> Deep-think pieces on AI + sovereignty earn respect.</div>
+</div>
+
+<div class="competitor">
+<div class="name">@MartyBent &mdash; TFTC Podcast</div>
+<div class="meta">25,000+ followers &middot; Bitcoin mining, energy, AI-related takes</div>
+<div class="takeaway">AI x Bitcoin content is underserved niche that gets attention. <strong>Lesson:</strong> This intersection is Tim's sweet spot.</div>
+</div>
+
+<h3>Gap Analysis</h3>
+<table>
+<tr><th>Niche</th><th>Current Coverage</th><th>Tim's Opportunity</th></tr>
+<tr><td>AI agents / multi-agent systems</td><td>Almost ZERO</td><td><strong>WIDE OPEN &mdash; Tim could be THE voice</strong></td></tr>
+<tr><td>AI + Bitcoin intersection</td><td>Sparse, surface-level</td><td>Tim has genuine depth</td></tr>
+<tr><td>Build-in-public (AI systems)</td><td>Very few</td><td>High novelty, community loves it</td></tr>
+<tr><td>AI video / content generation</td><td>Nearly nonexistent</td><td>Lisa pipeline is unique</td></tr>
+<tr><td>Career / hiring in tech</td><td>Almost nothing</td><td>SBORKA = no competition</td></tr>
+</table>
+</section>
+
+<!-- SECTION 5: Lightning & Zaps -->
+<section id="lightning">
+<h2>5. Lightning Network &amp; Zap Strategy</h2>
+
+<p>Zaps are instant Bitcoin micropayments attached to specific notes &mdash; the killer feature differentiating Nostr from every other social platform.</p>
+
+<h3>Zap Economics</h3>
+<table>
+<tr><th>Level</th><th>Sats</th><th>USD Equiv</th><th>Triggered By</th></tr>
+<tr><td>Casual appreciation</td><td>21-100</td><td>$0.02-0.10</td><td>Basic good post</td></tr>
+<tr><td>Good post</td><td>500-1,000</td><td>$0.50-1.00</td><td>Useful insight</td></tr>
+<tr><td>Excellent content</td><td>2,100-10,000</td><td>$2-10</td><td>Deep technical post</td></tr>
+<tr><td>Exceptional / viral</td><td>21,000-100,000</td><td>$20-100</td><td>Category-defining content</td></tr>
+<tr><td>"Zap storms"</td><td>500,000+</td><td>$500+</td><td>Community pile-ons on viral posts</td></tr>
+</table>
+
+<h3>Lightning Address Setup</h3>
+<div class="tactic"><strong>Phase 1: Start with Alby</strong> (getalby.com) &mdash; free hosted wallet, easy setup.<br>
+<strong>Phase 2: Migrate to LNbits on RUVDS</strong> &mdash; full sovereignty, custom Lightning address <code>tim@sborka.work</code>.<br>
+Set <code>lud16</code> in Nostr profile metadata to enable receiving zaps.</div>
+
+<h3>Strategic Value of Zaps</h3>
+<ol>
+<li><strong>Social proof:</strong> Zap counts visible on posts signal quality (like likes but with real money)</li>
+<li><strong>Community building:</strong> Zapping others builds relationships and visibility</li>
+<li><strong>Demand validation:</strong> If AI content earns meaningful zaps, it confirms market</li>
+<li><strong>Gateway to services:</strong> "If you like what my agents do, imagine them working for YOUR business"</li>
+</ol>
+
+<div class="warning">CRITICAL cultural rules: Say "sats" not "dollars." Say "Bitcoin" not "crypto." NEVER mention altcoins (Ethereum, Solana). Zap first, engage second. Round numbers (21, 210, 2100) are culturally meaningful (Bitcoin references).</div>
+</section>
+
+<!-- SECTION 6: Relay Strategy -->
+<section id="relays">
+<h2>6. Relay Strategy &amp; Self-Hosted Relay</h2>
+
+<h3>Recommended 10-Relay Configuration</h3>
+<table>
+<tr><th>Tier</th><th>Relay</th><th>Purpose</th><th>Cost</th></tr>
+<tr><td rowspan="5"><strong>Tier 1: Public</strong></td><td><code>wss://relay.damus.io</code></td><td>Largest, most clients default</td><td>Free</td></tr>
+<tr><td><code>wss://relay.primal.net</code></td><td>Powers Primal trending</td><td>Free</td></tr>
+<tr><td><code>wss://nos.lol</code></td><td>Major public relay</td><td>Free</td></tr>
+<tr><td><code>wss://relay.nostr.band</code></td><td>Search/analytics discovery</td><td>Free</td></tr>
+<tr><td><code>wss://relay.snort.social</code></td><td>Snort client's default</td><td>Free</td></tr>
+<tr><td><strong>Tier 2: Quality</strong></td><td><code>wss://nostr.wine</code></td><td>Paid, high signal-to-noise</td><td>~$10/year</td></tr>
+<tr><td><strong>Tier 3: Self-hosted</strong></td><td><code>wss://relay.sborka.work</code></td><td>Brand cohesion + data sovereignty</td><td>$0 (RUVDS)</td></tr>
+</table>
+
+<div class="tactic"><strong>Self-hosted relay on RUVDS:</strong> Run <code>strfry</code> via Docker on existing infrastructure. Custom domain <code>wss://relay.sborka.work</code> = professional branding. NIP-05 + relay on same domain = maximum brand cohesion. Your content is ALWAYS available regardless of third-party relay uptime.</div>
+
+<div class="formula">
+NIP-65 publish: tell the network <span class="highlight">WHERE</span> to find your content &rarr; kind 10002 event listing all write relays
+</div>
+</section>
+
+<!-- SECTION 7: Tone of Voice -->
+<section id="tone">
+<h2>7. Tone of Voice &amp; Nostr Culture</h2>
+
+<h3>Cultural Landscape</h3>
+<table>
+<tr><th>Value</th><th>Implication for Content</th></tr>
+<tr><td><strong>Bitcoin maximalism</strong></td><td>Most users Bitcoin-only. Frame costs in sats. No altcoin mentions</td></tr>
+<tr><td><strong>Cypherpunk ethos</strong></td><td>Privacy, cryptography, personal sovereignty, anti-surveillance</td></tr>
+<tr><td><strong>Builder culture</strong></td><td>Respect earned by SHIPPING, not talking. Show output</td></tr>
+<tr><td><strong>Anti-corporate sentiment</strong></td><td>Distrust of Big Tech, VC, corporate AI. Individual > institution</td></tr>
+<tr><td><strong>Open-source ideology</strong></td><td>Code should be public. Protocols should be open</td></tr>
+<tr><td><strong>Generosity (V4V)</strong></td><td>Value for Value = content is free, voluntarily supported via zaps</td></tr>
+</table>
+
+<h3>Tone Examples</h3>
+<div class="warning" style="border-left-color:var(--terra)">
+<strong style="color:var(--terra)">BAD (LinkedIn tone):</strong> "Excited to share our latest AI agent deployment! Our multi-agent system has achieved a 340% increase in content output. Looking forward to continuing this journey! #AITransformation"
+</div>
+<div class="tactic" style="border-left-color:var(--emerald)">
+<strong style="color:var(--emerald)">GOOD (Nostr-native):</strong> "My 6 AI agents published 47 posts across 12 platforms today while I was asleep. Total cost: $0.83. Here's the actual dashboard screenshot. The LinkedIn agent still writes like a corporate drone though, working on that."
+</div>
+<div class="tactic" style="border-left-color:var(--nostr)">
+<strong style="color:var(--nostr)">GREAT (Full alignment):</strong> "Hot take: 90% of 'AI companies' are just API wrappers with a sales team. I run 8 businesses with 6 agents from a laptop. Total infra cost: $50/month on a VPS. The moat isn't the AI, it's the system design. Here's my actual architecture:"
+</div>
+
+<h3>Cultural Signals to Embed</h3>
+<ul>
+<li><strong>"Sats"</strong> instead of dollars when discussing costs</li>
+<li><strong>"FOSS"</strong> mentions when applicable</li>
+<li><strong>"Sovereignty"</strong> &mdash; frame AI agents as tools for individual sovereignty</li>
+<li><strong>"V4V"</strong> (Value for Value) &mdash; content is free, voluntarily supported</li>
+<li><strong>#grownostr</strong> &mdash; community hashtag for boosting adoption</li>
+</ul>
+</section>
+
+<!-- SECTION 8: CTA Strategy -->
+<section id="cta">
+<h2>8. CTA Strategy &amp; NIP-05 Branding</h2>
+
+<h3>NIP-05 Verification (HIGHEST PRIORITY)</h3>
+<div class="formula">
+<span class="highlight">tim@sborka.work</span> = verified identity across ALL clients + passive brand impression + SEO for domain
+</div>
+
+<div class="tactic"><strong>Implementation:</strong> Create <code>/.well-known/nostr.json</code> on sborka.work with CORS headers (<code>Access-Control-Allow-Origin: *</code>). Add Nginx config on RUVDS. Every time Tim's profile appears = passive <code>sborka.work</code> brand impression without any explicit CTA.</div>
+
+<h3>CTA Patterns That Work</h3>
+<div class="pillar">
+<div class="pillar-item">
+<div class="pct">1</div>
+<h4>Value-First CTA</h4>
+<p>[Valuable content] ... "Built this as part of sborka.work. DM me if you want agents working for your business."</p>
+</div>
+<div class="pillar-item">
+<div class="pct">2</div>
+<h4>Zap-Gated Content</h4>
+<p>"I wrote a 3K-word guide on multi-agent systems. Zap this note and I'll send you the companion code repo."</p>
+</div>
+<div class="pillar-item">
+<div class="pct">3</div>
+<h4>Thread with Natural CTA</h4>
+<p>"Thread: How I built an AI agent for 12 platforms... 7/7: Full system at sborka.work. Source: github.com/TimmyZinin"</p>
+</div>
+<div class="pillar-item">
+<div class="pct">4</div>
+<h4>Lightning-Native CTA</h4>
+<p>"Zap 1000 sats + reply with your LinkedIn URL. My AI agent will analyze your profile in 5 min."</p>
+</div>
+</div>
+
+<h3>UTM Format</h3>
+<div class="formula">
+sborka.work?<span class="highlight">utm_source=nostr</span>&amp;utm_medium=social&amp;utm_campaign=s18_nostr&amp;utm_content={post_topic}
+</div>
+</section>
+
+<!-- SECTION 9: Cross-Platform -->
+<section id="cross-platform">
+<h2>9. Cross-Platform Bridges &amp; Syndication</h2>
+
+<h3>Bridge Status</h3>
+<table>
+<tr><th>Bridge</th><th>Status</th><th>Recommendation</th></tr>
+<tr><td>Nostr &harr; Mastodon</td><td><strong>ACTIVE (Mostr.pub)</strong></td><td>Enable &mdash; free amplification to Fediverse followers</td></tr>
+<tr><td>Nostr &harr; Bluesky</td><td>No bridge exists</td><td>Cross-post via auto_publisher pipeline</td></tr>
+<tr><td>Nostr &harr; Twitter/X</td><td>Blocked ($200/mo API)</td><td>Skip unless Twitter re-activated</td></tr>
+</table>
+
+<h3>Content Adaptation</h3>
+<table>
+<tr><th>Target Platform</th><th>Adaptation from Nostr</th></tr>
+<tr><td><strong>LinkedIn</strong></td><td>Remove Bitcoin references, add corporate framing, expand on business outcomes</td></tr>
+<tr><td><strong>Telegram</strong></td><td>Russian translation, more casual, channel-specific context</td></tr>
+<tr><td><strong>Dev.to / Hashnode</strong></td><td>Expand into tutorial format, more code blocks, structured</td></tr>
+<tr><td><strong>Mastodon</strong></td><td>Minimal adaptation via Mostr bridge</td></tr>
+<tr><td><strong>Bluesky</strong></td><td>Shorter, remove zap references, keep technical tone</td></tr>
+</table>
+
+<div class="tactic"><strong>What to cross-post:</strong> Long-form NIP-23 articles &rarr; Dev.to, Hashnode, LinkedIn. Build-in-public updates &rarr; adapted versions everywhere.<br>
+<strong>What NOT to cross-post:</strong> Zap references, relay discussions, Bitcoin-heavy takes (alienate LinkedIn audience).</div>
+</section>
+
+<!-- SECTION 10: 30-Day Plan -->
+<section id="plan">
+<h2>10. 30-Day Action Plan: 0 &rarr; 200+ Followers</h2>
+
+<div class="action-plan">
+<div class="step"><strong>Day 1 &mdash; Infrastructure.</strong> NIP-05 verification (<code>tim@sborka.work</code>): create <code>/.well-known/nostr.json</code>, add CORS to Nginx. Update profile metadata (kind 0): name, bio, NIP-05, Lightning address, website with UTM. Set up Lightning via Alby. Expand to 8-10 relays. Publish NIP-65 relay list.</div>
+
+<div class="step"><strong>Day 2 &mdash; First Content.</strong> Introduction note: "I run 8 businesses with 6 AI agents. Here's what they did today: [real metrics]." Hot take: "90% of AI companies are just API wrappers. The real moat is system architecture." Follow 50 Bitcoin/tech/builder accounts. Zap 20 interesting posts (21-100 sats each).</div>
+
+<div class="step"><strong>Days 3-4 &mdash; Engagement Sprint.</strong> Reply meaningfully to 10+ posts from large accounts. Repost 3-5 with commentary. Post 1 build-in-public update with dashboard screenshot. Publish first NIP-23 long-form: "How I Built a 6-Agent AI System That Runs 8 Businesses" on Habla.news. Continue 15-20 zaps/day.</div>
+
+<div class="step"><strong>Days 5-7 &mdash; Rhythm.</strong> Daily cadence: 2-3 short notes + 5-10 replies + 15-20 zaps. Post technical content: code snippets, architecture diagrams, real metrics. Engage with Nostr developers. Set up Nostr publishing in auto_publisher pipeline (nostr-sdk).</div>
+
+<div class="step"><strong>Week 2 &mdash; Content Depth.</strong> Daily themed posts: agent cost breakdowns in sats, multi-agent architecture threads, "How Nostr could be backbone for AI agent communication" long-form, build-in-public reflections. Follow 100+ total. Target: first 50 followers, first organic zaps, 5+ meaningful conversations.</div>
+
+<div class="step"><strong>Week 3 &mdash; Authority.</strong> Publish "The AI Agents Playbook" as NIP-23. Create Nostr-native AI demo ("Zap 1000 sats + reply with your LinkedIn URL, my agent analyzes in 5 min"). Start weekly "Agent Report" thread. Create NIP-51 list of "AI builders on Nostr." Target: 100+ followers.</div>
+
+<div class="step"><strong>Week 4 &mdash; Scale.</strong> Automate daily posting via pipeline (1-2 auto-posts/day, manual engagement stays). Set up self-hosted relay <code>wss://relay.sborka.work</code> on RUVDS (strfry Docker). Reach out to Nostr podcast hosts (Citadel Dispatch, TFTC). A/B test content types by zap/repost rates.<br>
+<strong>Target: 200+ followers, automated pipeline, self-hosted relay, first inbound inquiry</strong></div>
+</div>
+
+<h3>Monthly KPIs</h3>
+<div style="margin-top:14px">
+<div class="kpi-card"><span class="val">200+</span><span class="label">Followers</span></div>
+<div class="kpi-card"><span class="val">5-10</span><span class="label">Zaps/Post</span></div>
+<div class="kpi-card"><span class="val">50+</span><span class="label">Reactions on Best Post</span></div>
+<div class="kpi-card"><span class="val">1+</span><span class="label">Inbound Inquiry</span></div>
+<div class="kpi-card"><span class="val">NIP-05</span><span class="label">Verified</span></div>
+<div class="kpi-card"><span class="val">relay</span><span class="label">Self-Hosted Running</span></div>
+</div>
+
+<div class="insight"><strong>Key advantage:</strong> Nostr publishing requires NO OAuth, NO API keys, NO rate limits. Just sign JSON events with nsec and send via WebSocket. Integration into auto_publisher.py is trivial compared to any centralized platform.</div>
+</section>
+
+</div>
+
+<footer style="text-align:center;padding:30px;color:var(--muted);font-size:.85em">
+SMM Research Hub &mdash; S-18 Nostr &middot; Generated 2026-03-04 &middot; For Tim Zinin / SBORKA
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-03 YouTube — SMM Research | Тим Зинин</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--youtube:#FF0000}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--youtube);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+header{background:linear-gradient(135deg,var(--youtube),#CC0000);color:var(--white);padding:48px 40px;border-radius:16px;margin-bottom:32px}
+header h1{font-family:'Playfair Display',serif;font-size:2.4em;margin-bottom:8px}
+header .sub{opacity:.9;font-size:1.1em;margin-bottom:16px}
+header .meta{display:flex;gap:24px;flex-wrap:wrap}
+header .meta-item{background:rgba(255,255,255,.15);border-radius:10px;padding:10px 18px;text-align:center}
+header .meta-num{font-family:'JetBrains Mono',monospace;font-size:1.6em;font-weight:700;display:block}
+header .meta-label{font-size:.7em;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+.section{background:var(--card);border-radius:12px;padding:32px;margin-bottom:24px;box-shadow:0 2px 12px rgba(44,36,24,.06)}
+.section h2{font-family:'Playfair Display',serif;font-size:1.5em;color:var(--youtube);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+.section h3{font-size:1.1em;color:var(--terra);margin:20px 0 10px}
+.section h4{font-size:.95em;color:var(--dark);margin:14px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:.88em;margin:12px 0}
+th{background:var(--sand);color:var(--dark);font-weight:600;text-transform:uppercase;font-size:.72em;letter-spacing:.5px;padding:10px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--white)}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#fff}
+.badge-boost{background:var(--emerald)}.badge-penalty{background:var(--terra)}.badge-medium{background:var(--gold);color:var(--dark)}
+.insight{background:#EDF7F0;border:1px solid #C5E8CE;border-radius:8px;padding:14px 18px;margin:12px 0;font-size:.9em}
+.insight b{color:var(--emerald)}
+.warning{background:#FDF0ED;border:1px solid #F0C8BE;border-radius:8px;padding:14px 18px;margin:12px 0;font-size:.9em}
+.warning b{color:var(--terra)}
+.tactic{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--youtube);border-radius:8px;padding:16px 20px;margin:12px 0}
+.tactic .tactic-title{font-weight:700;font-size:.95em;margin-bottom:6px}
+.tactic .tactic-data{font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--youtube);margin-bottom:6px}
+.tactic .tactic-action{font-size:.88em;color:var(--dark)}
+.formula{background:var(--sand);border-radius:8px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:.82em;line-height:1.7;margin:12px 0;white-space:pre-wrap}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.do-list,.dont-list{padding:14px 18px;border-radius:8px;font-size:.88em}
+.do-list{background:#EDF7F0;border:1px solid #C5E8CE}
+.dont-list{background:#FDF0ED;border:1px solid #F0C8BE}
+.do-list h4{color:var(--emerald);margin-bottom:8px}.dont-list h4{color:var(--terra);margin-bottom:8px}
+.do-list li,.dont-list li{margin-bottom:5px;margin-left:16px}
+.competitor{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;margin:10px 0}
+.competitor .name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05em;color:var(--youtube)}
+.competitor .stats{font-family:'JetBrains Mono',monospace;font-size:.8em;color:var(--muted);margin:4px 0 8px}
+.action-plan{counter-reset:action}
+.action-item{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin:8px 0;position:relative;padding-left:50px}
+.action-item::before{counter-increment:action;content:counter(action);position:absolute;left:14px;top:14px;background:var(--youtube);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em}
+.source{font-size:.78em;color:var(--muted);margin-top:4px;font-style:italic}
+.timeline{display:flex;gap:0;margin:20px 0}
+.timeline-item{flex:1;padding:12px;text-align:center;background:var(--sand);border:1px solid var(--border);font-size:.82em}
+.timeline-item:first-child{border-radius:8px 0 0 8px}
+.timeline-item:last-child{border-radius:0 8px 8px 0}
+.timeline-item .week{font-weight:700;color:var(--youtube);display:block;margin-bottom:4px}
+footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="logo">SMM Hub</span>
+  <a href="../smm_platform_audit.html">Dashboard</a>
+  <span class="sep">|</span>
+  <a href="s01_linkedin.html">LinkedIn</a>
+  <a href="s02_instagram.html">Instagram</a>
+  <a href="s03_youtube.html" class="active">YouTube</a>
+  <a href="s04_telegram_personal.html">TG Personal</a>
+  <a href="s05_telegram_sborka.html">TG Sborka</a>
+  <a href="s06_threads.html">Threads</a>
+  <a href="s07_facebook.html">Facebook</a>
+  <a href="s08_tiktok.html">TikTok</a>
+</nav>
+
+<div class="container">
+
+<header>
+  <h1>S-03 YouTube</h1>
+  <div class="sub">@timzinin &middot; "Real Lives, Real Places" &middot; Документальный / AI / Карьера</div>
+  <div class="meta">
+    <div class="meta-item"><span class="meta-num">1,870</span><span class="meta-label">Подписчиков</span></div>
+    <div class="meta-item"><span class="meta-num">429</span><span class="meta-label">Видео</span></div>
+    <div class="meta-item"><span class="meta-num">7+</span><span class="meta-label">Мес. без контента</span></div>
+    <div class="meta-item"><span class="meta-num">23K</span><span class="meta-label">Топ видео</span></div>
+  </div>
+</header>
+
+<!-- SECTION 1: Algorithm -->
+<div class="section">
+  <h2>1. YouTube Algorithm 2026 — Механика роста</h2>
+
+  <h3>Ключевые сигналы ранжирования</h3>
+  <table>
+    <tr><th>Сигнал</th><th>Вес</th><th>Бенчмарк</th><th>Как использовать</th></tr>
+    <tr><td><strong>CTR (кликабельность)</strong></td><td><span class="badge badge-boost">Очень высокий</span></td><td>4-10% норма, >10% отлично</td><td>Thumbnail + Title оптимизация — приоритет №1</td></tr>
+    <tr><td><strong>AVD (средняя длительность просмотра)</strong></td><td><span class="badge badge-boost">Очень высокий</span></td><td>>50% для 10-мин видео</td><td>Удержание через retention editing, хуки каждые 30 сек</td></tr>
+    <tr><td><strong>Satisfaction surveys</strong></td><td><span class="badge badge-boost">Высокий</span></td><td>Опросы "Стоило ли время?"</td><td>Давать реальную ценность, не кликбейт</td></tr>
+    <tr><td><strong>Session time</strong></td><td><span class="badge badge-medium">Высокий</span></td><td>Зрители смотрят дальше?</td><td>Плейлисты + end screens + "next video" CTA</td></tr>
+    <tr><td><strong>Engagement</strong></td><td><span class="badge badge-medium">Высокий</span></td><td>Likes, shares, comments</td><td>Задавать вопросы, отвечать на комменты</td></tr>
+    <tr><td><strong>Upload freshness</strong></td><td><span class="badge badge-medium">Средний</span></td><td>Буст 24-72 часа</td><td>Промо в первые сутки — максимальный кросс-постинг</td></tr>
+    <tr><td><strong>Content grouping</strong></td><td><span class="badge badge-medium">Средний</span></td><td>Тематические кластеры</td><td>Фокус на 2 кластера: документалки + AI/карьера</td></tr>
+  </table>
+
+  <h3>5 поверхностей алгоритма</h3>
+  <table>
+    <tr><th>Поверхность</th><th>Доля трафика</th><th>Что влияет</th></tr>
+    <tr><td><strong>Home Feed</strong></td><td>40-60%</td><td>Персонализация, CTR + AVD — главные факторы</td></tr>
+    <tr><td><strong>Suggested Videos</strong></td><td>20-30%</td><td>Похожие темы, overlap зрителей, плейлисты</td></tr>
+    <tr><td><strong>YouTube Search</strong></td><td>10-20%</td><td>Title, description, spoken words (авто-субтитры индексируются)</td></tr>
+    <tr><td><strong>Shorts Feed</strong></td><td>Отдельная система</td><td>Swipe-away rate, watch-through, re-watch rate</td></tr>
+    <tr><td><strong>Subscriptions</strong></td><td>10-15% подписчиков</td><td>Bell notifications, первые 1-2 часа критичны</td></tr>
+  </table>
+
+  <div class="warning">
+    <b>Критичные изменения 2025-2026:</b> YouTube вернулся к приоритету long-form после Shorts-бума. Satisfaction surveys стали прямым сигналом ранжирования. Content grouping = нужно выбрать 1-2 кластера и не распыляться. Podcasts tab — новая точка входа для аудио/видео-подкастов.
+  </div>
+
+  <div class="insight">
+    <b>Для @timzinin:</b> 429 видео с непоследовательной тематикой = алгоритм не понимает аудиторию канала. Нужно: (1) вычистить каталог до 60-80 видео, (2) зафиксировать 2 кластера — документалки + AI/карьера, (3) первые 10 видео после перезапуска определят новую "идентичность" канала для алгоритма.
+  </div>
+</div>
+
+<!-- SECTION 2: Competitor Teardown -->
+<div class="section">
+  <h2>2. Competitor Teardown — 5 бенчмарков</h2>
+
+  <div class="competitor">
+    <div class="name">Ali Abdaal</div>
+    <div class="stats">~3M subs &middot; 500K-1M views/video &middot; 1/week &middot; EN</div>
+    <p>Talking head + documentary storytelling. Вырос с 50K до 3M за 5 лет через consistent uploading. Никогда не загружает filler-контент. Каждый thumbnail: лицо + big text + чистый фон.</p>
+    <p><strong>Урок:</strong> Документальный стиль + личная история + регулярность = вирусный потенциал. Именно то, что Тим делает лучше всего.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Greg Isenberg</div>
+    <div class="stats">~400K subs &middot; 50K→400K за 12 мес &middot; 3-4/week + daily Shorts &middot; EN</div>
+    <p>Clip-first strategy: записывает длинные разговоры, нарезает на Shorts + long-form. Одна сессия записи = 5 Shorts + 2 long-form.</p>
+    <p><strong>Урок:</strong> Одна запись → максимум контент-единиц. Масштабируемая модель производства.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Andrey Smaev</div>
+    <div class="stats">~50K subs &middot; 3-8K views/video &middot; 2-3/week &middot; RU</div>
+    <p>Русскоязычный tech/стартапы. Founder interviews + case studies + market trends. CPM $15-25 (tech niche premium).</p>
+    <p><strong>Урок:</strong> Russian-language AI/career контент = растущий спрос + меньше конкуренции чем EN. Гостевые интервью приносят аудиторию гостя.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Lleo2k</div>
+    <div class="stats">~15K subs &middot; 2-5K views &middot; 1-2/week &middot; EN &middot; 500 subs/мес рост</div>
+    <p>БЛИЖАЙШИЙ бенчмарк для Тима. Shorts-to-long pipeline: 3-4 Shorts/week + 1 long-form. Отвечает на каждый комментарий в первые 24ч. Series format ("30-day AI challenge").</p>
+    <p><strong>Урок:</strong> Устойчивый рост через консистентность, не вирусные моменты. Shorts для discovery, long-form для conversion.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Марина Белая</div>
+    <div class="stats">~30K subs &middot; 5-12K views &middot; 2-3/week &middot; RU</div>
+    <p>Documentary storytelling — БЛИЖАЙШИЙ стилистически к Тиму. "Day in my life", "how I built X". Красивая кинематография, аутентичность, показывает неудачи.</p>
+    <p><strong>Урок:</strong> Документальный формат + личный бренд + визуальный сторителлинг = формула роста русскоязычного YouTube. Это УЖЕ сильная сторона Тима.</p>
+  </div>
+
+  <div class="insight">
+    <b>Паттерн всех конкурентов:</b> Consistency beats quality. Каналы, загружающие 2-3x/неделю с "good enough" качеством, обгоняют каналы с ежемесячными "идеальными" видео. Все растущие каналы используют Shorts как top-of-funnel.
+  </div>
+</div>
+
+<!-- SECTION 3: Content Formats -->
+<div class="section">
+  <h2>3. Content Formats — Что работает в нише</h2>
+
+  <table>
+    <tr><th>Формат</th><th>AVD</th><th>CTR</th><th>Шеринг</th><th>Усилия</th><th>Рост</th></tr>
+    <tr style="background:#EDF7F0"><td><strong>Документальные мини-фильмы</strong></td><td>Очень высокий</td><td>Высокий</td><td>Высокий</td><td>Очень высокие</td><td>Высокий (вирусный потенциал)</td></tr>
+    <tr style="background:#EDF7F0"><td><strong>Talking head + B-roll</strong></td><td>Средне-высокий</td><td>Средний</td><td>Средний</td><td>Средние</td><td>Средний</td></tr>
+    <tr><td>Listicle ("5 способов...")</td><td>Средний</td><td>Высокий</td><td>Средний</td><td>Низко-средние</td><td>Средний</td></tr>
+    <tr><td>Tutorial/how-to</td><td>Высокий</td><td>Средне-высокий</td><td>Высокий</td><td>Средние</td><td>Высокий (search traffic)</td></tr>
+    <tr><td>Интервью</td><td>Средне-высокий</td><td>Средний</td><td>Средний</td><td>Средние</td><td>Средний</td></tr>
+    <tr><td>Commentary/reaction</td><td>Средний</td><td>Высокий</td><td>Средний</td><td>Низкие</td><td>Средне-высокий</td></tr>
+    <tr style="background:#FDF0ED"><td>Live stream</td><td>Низкий</td><td>Низкий</td><td>Низкий</td><td>Низкие</td><td>Очень низкий</td></tr>
+  </table>
+
+  <h3>Рекомендуемый микс контента</h3>
+  <div class="tactic">
+    <div class="tactic-title">Tier 1 — Core (80% загрузок)</div>
+    <div class="tactic-data">Документальные мини-фильмы (8-15 мин): 1-2/мес + Talking head с B-roll (5-10 мин): 2-4/мес</div>
+    <div class="tactic-action">Проверенная сила Тима: "Минималисты" (23K), narrative city/country (1-6K). Talking head для карьерных инсайтов и AI-комментариев с прямым CTA на sborka.work.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Tier 2 — Growth (15%)</div>
+    <div class="tactic-data">Listicle/explainer (7-12 мин): 2/мес</div>
+    <div class="tactic-action">"5 AI-инструментов для карьерного роста", "3 ошибки на собеседовании" — SEO-friendly, стабильный поисковой трафик.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Tier 3 — Experimental (5%)</div>
+    <div class="tactic-data">Интервью с интересными людьми: 1/мес</div>
+    <div class="tactic-action">AI-фаундеры, карьерные switchers, участники СБОРКИ. Cross-pollination аудиторий.</div>
+  </div>
+
+  <div class="warning">
+    <b>ИЗБЕГАТЬ:</b> Live стримы (доказано: 11-85 просмотров у Тима), рандомные сырые клипы без нарратива, чистые screen recordings без personality, контент вне ниши.
+  </div>
+
+  <h3>Sweet spots по длительности (2026)</h3>
+  <table>
+    <tr><th>Длина</th><th>Алгоритм</th><th>Лучше всего для</th></tr>
+    <tr><td><strong>30-60 сек</strong></td><td>Shorts feed</td><td>Хуки, тизеры, вирусные моменты</td></tr>
+    <tr><td><strong>8-12 мин</strong></td><td>Sweet spot для mid-roll ads + retention</td><td>Основной контент — talking head, explainer</td></tr>
+    <tr><td><strong>15-20 мин</strong></td><td>Отлично для глубоких тем</td><td>Документалки, deep dives</td></tr>
+  </table>
+</div>
+
+<!-- SECTION 4: Tone of Voice -->
+<div class="section">
+  <h2>4. Tone of Voice — Стиль для YouTube</h2>
+
+  <h3>Позиционирование голоса</h3>
+  <div class="grid-2">
+    <div class="do-list">
+      <h4>Стиль Тима на YouTube</h4>
+      <ul>
+        <li><strong>Нарративный</strong> — история первична, урок вторичен</li>
+        <li><strong>Show, don't tell</strong> — B-roll + визуальный storytelling</li>
+        <li><strong>Документальное спокойствие</strong> — авторитет, а не hyperactive energy</li>
+        <li><strong>Conversational</strong> — разговор С зрителем, не лекция</li>
+        <li><strong>Vocal variety</strong> — паузы перед ключевыми утверждениями</li>
+        <li><strong>Тонкая фоновая музыка</strong> — задаёт эмоциональный тон</li>
+      </ul>
+    </div>
+    <div class="dont-list">
+      <h4>Чего НЕ делать</h4>
+      <ul>
+        <li>НЕ копировать MrBeast-стиль гиперактивности</li>
+        <li>НЕ быть монотонным — vocal variety matters</li>
+        <li>НЕ начинать с тишины или fade-in</li>
+        <li>НЕ лекции-монологи без визуала</li>
+        <li>НЕ более 3 CTA за видео</li>
+        <li>НЕ кликбейт без delivery</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Структура скрипта (8-12 мин видео)</h3>
+  <div class="formula">[0:00-0:30] HOOK — Самый сильный момент/утверждение/визуал
+[0:30-1:30] CONTEXT — Почему это важно + кто ты (для новых зрителей)
+[1:30-3:00] STORY/SETUP — Нарратив, который ведёт видео
+[3:00-6:00] CORE CONTENT — Основная ценность (советы, инсайты, анализ)
+[6:00-7:00] CTA #1 — Мягкий CTA (sborka.work, подписка)
+[7:00-9:00] DEEPER INSIGHT — "One more thing" для тех кто досмотрел
+[9:00-10:00] CONCLUSION + CTA #2 — Жёсткий CTA (подписка + клуб)
+[10:00-10:30] END SCREEN — Визуальные CTA на следующее видео/плейлист</div>
+
+  <h3>5 формул хуков для Тима</h3>
+  <div class="tactic">
+    <div class="tactic-title">1. The Reveal Hook</div>
+    <div class="tactic-action">Начать с самого удивительного момента видео, потом cut: "3 дня назад..." — используя существующий travel-footage.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">2. The Question Hook</div>
+    <div class="tactic-action">"Что будешь делать, когда AI заменит 80% твоей работы? Я реально это проверил." — провокация + personal proof.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">3. The Location Hook</div>
+    <div class="tactic-action">Stunning визуал города/места + voiceover: "Я приехал сюда, чтобы найти кое-что." — сила travel-контента.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">4. The Contradiction Hook</div>
+    <div class="tactic-action">"Все говорят [распространённое мнение]. Я обнаружил обратное." — работает для карьерных и AI-тем.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">5. The Personal Hook</div>
+    <div class="tactic-action">"Это видео чуть не осталось неснятым. Вот почему." — уязвимость + интрига.</div>
+  </div>
+
+  <h3>Retention Editing Patterns</h3>
+  <table>
+    <tr><th>Приём</th><th>Частота</th><th>Эффект</th></tr>
+    <tr><td>Смена ракурса/зума</td><td>Каждые 3-5 сек</td><td>Перезагрузка внимания</td></tr>
+    <tr><td>Текст на экране</td><td>При ключевых статах/цитатах</td><td>Двойное кодирование (аудио + визуал)</td></tr>
+    <tr><td>B-roll правило третей</td><td>1/3 talking head, 1/3 B-roll, 1/3 текст/графика</td><td>Визуальное разнообразие</td></tr>
+    <tr><td>Sound effects</td><td>На переходах (субтильно)</td><td>Маркировка структуры</td></tr>
+    <tr><td>Pattern interrupts</td><td>Каждые 30-60 сек</td><td>Сброс таймера "скучно"</td></tr>
+  </table>
+</div>
+
+<!-- SECTION 5: Profile Optimization -->
+<div class="section">
+  <h2>5. Channel Optimization — Ребрендинг для перезапуска</h2>
+
+  <h3>Что менять</h3>
+  <table>
+    <tr><th>Элемент</th><th>Сейчас</th><th>Рекомендация</th></tr>
+    <tr><td><strong>Название канала</strong></td><td>Tim Zinin | Real Lives, Real Places</td><td>Tim Zinin | AI + Career (или оставить, добавив тему в About)</td></tr>
+    <tr><td><strong>About / Описание</strong></td><td>"There are nearly 8 billion people..."</td><td>SEO-заточенное: "Документальные фильмы об AI, карьере и людях. Основатель СБОРКА (sborka.work). Новые видео каждую среду."</td></tr>
+    <tr><td><strong>Banner</strong></td><td>Текущий (неизвестно)</td><td>2560x1440. Лицо + ключевые слова + расписание + sborka.work. Тёплая палитра.</td></tr>
+    <tr><td><strong>Аватар</strong></td><td>Текущий</td><td>Профессиональное фото лица, совпадающее с LinkedIn/Instagram/TG</td></tr>
+    <tr><td><strong>Handle</strong></td><td>@timzinin</td><td>Оставить — совпадает со всеми платформами</td></tr>
+    <tr><td><strong>Featured video</strong></td><td>?</td><td>Comeback video (после публикации) — для новых посетителей канала</td></tr>
+    <tr><td><strong>Featured channels</strong></td><td>?</td><td>Добавить 3-5 каналов из ниши (взаимная видимость)</td></tr>
+    <tr><td><strong>Ссылки</strong></td><td>Instagram + 5 других</td><td>sborka.work (первая!), Telegram, LinkedIn, Instagram</td></tr>
+  </table>
+
+  <h3>Чистка каталога 429 видео</h3>
+  <div class="grid-2">
+    <div class="do-list">
+      <h4>ОСТАВИТЬ публичными (~60-80)</h4>
+      <ul>
+        <li>Все документалки ("Минималисты" 23K, "Зачем ты работаешь?" 5.6K)</li>
+        <li>Narrative city/country videos с >500 просмотров</li>
+        <li>China Shorts серия (2-6K)</li>
+        <li>Видео с >50% AVD и >3% CTR</li>
+        <li>Всё, что соответствует новому направлению</li>
+      </ul>
+    </div>
+    <div class="dont-list">
+      <h4>UNLIST (не удалять!) — ~350 видео</h4>
+      <ul>
+        <li>~400 сырых клипов 2010-х с &lt;100 просмотрами</li>
+        <li>Off-topic контент</li>
+        <li>Видео с AVD &lt;20%</li>
+        <li>Live стримы (11-85 просмотров)</li>
+        <li>Делать партиями: 50-100/неделю (не всё сразу!)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="warning">
+    <b>Важно:</b> НЕ удалять — только unlist. Удаление теряет watch time навсегда. Mass changes могут флагнуть алгоритм — делать партиями по 20-30/неделю.
+  </div>
+
+  <h3>5 плейлистов для структуры</h3>
+  <table>
+    <tr><th>Плейлист</th><th>Контент</th><th>SEO-цель</th></tr>
+    <tr><td>Documentary Films</td><td>Минималисты, travel docs</td><td>"russian documentaries", "документальные фильмы"</td></tr>
+    <tr><td>Career in AI / Tech</td><td>Карьерные советы, AI industry</td><td>"career in AI", "карьера в IT 2026"</td></tr>
+    <tr><td>City Stories</td><td>Narrative city/country videos</td><td>Поиски по городам</td></tr>
+    <tr><td>SBORKA Career Club</td><td>CTA-heavy контент, карьерные tips</td><td>"карьерный клуб", "job search tips"</td></tr>
+    <tr><td>AI Tools & Insights</td><td>AI tutorials, обзоры инструментов</td><td>"AI tools 2026"</td></tr>
+  </table>
+</div>
+
+<!-- SECTION 6: Shorts Strategy -->
+<div class="section">
+  <h2>6. Shorts Strategy — Двигатель роста</h2>
+
+  <h3>Механика Shorts Feed</h3>
+  <table>
+    <tr><th>Метрика</th><th>Что значит</th><th>Таргет</th></tr>
+    <tr><td><strong>Swipe-away rate</strong></td><td>% кто свайпнул до конца</td><td>&lt;30%</td></tr>
+    <tr><td><strong>Watch-through rate</strong></td><td>% кто досмотрел</td><td>&gt;70%</td></tr>
+    <tr><td><strong>Re-watch rate</strong></td><td>% кто пересмотрел</td><td>Любой положительный сигнал</td></tr>
+    <tr><td><strong>Subscribe from Short</strong></td><td>Новые подписки</td><td>Критично для роста</td></tr>
+  </table>
+
+  <h3>Оптимальная длительность</h3>
+  <div class="insight">
+    <b>Рекомендация для Тима: 30-45 секунд.</b> Документальный/нарративный стиль требует времени для микро-истории, но достаточно коротко для высокого completion rate. Формат 9:16 (vertical) обязателен.
+  </div>
+
+  <h3>Частота публикации</h3>
+  <table>
+    <tr><th>Режим</th><th>Shorts/неделя</th><th>Примечание</th></tr>
+    <tr><td>Минимум</td><td>3</td><td>Для поддержания видимости</td></tr>
+    <tr style="background:#EDF7F0"><td><strong>Growth mode (рекомендуется)</strong></td><td><strong>5-7 (1/день)</strong></td><td><strong>Оптимальный баланс роста и burnout</strong></td></tr>
+    <tr><td>Агрессивный</td><td>14-21</td><td>Diminishing returns выше 3/день</td></tr>
+  </table>
+
+  <h3>Shorts → Long-form Pipeline</h3>
+  <div class="warning">
+    <b>Жёсткая правда:</b> Shorts-подписчики НЕ надёжно смотрят long-form. Конверсия: 0.5-2% от views Shorts. Short с 100K просмотрами = 500-2,000 views на long-form. Но это работает через узнаваемость бренда.
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Teaser Shorts</div>
+    <div class="tactic-action">Нарезать из long-form. Закончить: "Полное видео на канале" (НЕ "ссылка в био" — YouTube депрайоритизирует external redirects). Pin комментарий со ссылкой.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">Series Shorts</div>
+    <div class="tactic-action">3-5 частей серии, наращивающих curiosity. Часть 5: "Я снял об этом полную документалку". Серии: "30-day AI challenge", "AI tool за 60 секунд", "Career tip дня".</div>
+  </div>
+
+  <h3>Первые 20 идей для Shorts</h3>
+  <table>
+    <tr><th>#</th><th>Серия</th><th>Кол-во</th></tr>
+    <tr><td>1-5</td><td>Клипы из China footage</td><td>5</td></tr>
+    <tr><td>6-10</td><td>"Career tip за 30 секунд"</td><td>5</td></tr>
+    <tr><td>11-13</td><td>AI tool quick demos</td><td>3</td></tr>
+    <tr><td>14-16</td><td>City beauty shots + voiceover</td><td>3</td></tr>
+    <tr><td>17-18</td><td>Behind-the-scenes создания контента</td><td>2</td></tr>
+    <tr><td>19-20</td><td>Reaction на AI-новости</td><td>2</td></tr>
+  </table>
+
+  <div class="insight">
+    <b>Shorts monetization:</b> RPM $0.01-0.07 за 1K views. 10M Short views/мес = ~$100-700/мес. Shorts для РОСТА, не для дохода. Основной доход — через funnel на sborka.work.
+  </div>
+</div>
+
+<!-- SECTION 7: Growth Hacks -->
+<div class="section">
+  <h2>7. Growth Hacks — Нестандартные тактики</h2>
+
+  <div class="tactic">
+    <div class="tactic-title">Reactivation Sequence (перед comeback-видео)</div>
+    <div class="tactic-data">2 недели подготовки = +40% к engagement первого видео</div>
+    <div class="tactic-action">Неделя -2: Community poll "Какой контент хотите?". Неделя -1: Image teaser behind-the-scenes. Launch day: Text post + видео. Неделя +1: Клип из видео.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Cross-Platform Funnel: TG → YouTube</div>
+    <div class="tactic-data">5-15% конверсия из TG-канала</div>
+    <div class="tactic-action">Тизер (первые 30 сек или ключевой клип) в TG канал. "Полное видео на YouTube" + прямая ссылка. Polls в TG для генерации идей (зрители чувствуют причастность).</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Cross-Platform Funnel: LinkedIn → YouTube</div>
+    <div class="tactic-data">2-8% конверсия из поста LinkedIn</div>
+    <div class="tactic-action">LinkedIn пост с key insight из видео. Дать ценность в самом посте (LinkedIn любит native). Внизу: "Снял полное видео: [ссылка]".</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Premiere Strategy для event-контента</div>
+    <div class="tactic-data">Live chat при Premiere = engagement boost для алгоритма</div>
+    <div class="tactic-action">Запланировать Premiere за 24-48ч. Промо во всех каналах. Использовать для comeback-видео и документалок. НЕ для обычных загрузок.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Comment-First Hour</div>
+    <div class="tactic-data">Reply на КАЖДЫЙ комментарий в первый час = algorithmic boost</div>
+    <div class="tactic-action">Быть онлайн в момент публикации. Heart + reply на каждый комментарий. Pin CTA-комментарий (sborka.work + следующее видео). Задать вопрос В видео, чтобы спровоцировать комменты.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">YouTube Podcasts Tab</div>
+    <div class="tactic-data">Новая поверхность с низкой конкуренцией</div>
+    <div class="tactic-action">Любые long-form разговоры/интервью дополнительно публиковать как "Podcast" в YouTube Studio. Появляется в Google Podcasts, YouTube Music и отдельной вкладке.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Collaboration Strategy</div>
+    <div class="tactic-data">Guest appearances на каналах 2-5x больше = самый быстрый рост</div>
+    <div class="tactic-action">Таргет: русскоязычные tech/career creators. Предложение: "Расшарю клип своей аудитории на всех платформах". Даже response videos работают. 1-2 коллаба/мес после Month 3.</div>
+  </div>
+
+  <div class="insight">
+    <b>Unfair advantage Тима:</b> Кросс-платформенная аудитория (TG + LinkedIn + VK + Instagram). Большинство мелких YouTubers не имеют existing аудитории на других платформах. Это = built-in seed audience для каждого видео.
+  </div>
+</div>
+
+<!-- SECTION 8: CTA Strategy -->
+<div class="section">
+  <h2>8. CTA Strategy — Трафик на sborka.work</h2>
+
+  <h3>Placement-карта CTA</h3>
+  <table>
+    <tr><th>Позиция</th><th>Тип CTA</th><th>Эффективность</th><th>Пример скрипта</th></tr>
+    <tr><td>0:30-1:00</td><td>Мягкая подписка</td><td>Средняя</td><td>"Если тебе интересен AI и карьера — подписывайся"</td></tr>
+    <tr><td>5-6 мин (mid-video)</td><td>sborka.work</td><td><span class="badge badge-boost">Высокая</span></td><td>"Кстати, мы в СБОРКЕ как раз этим занимаемся — sborka.work. Ладно, вернёмся к теме."</td></tr>
+    <tr><td>Последние 30 сек</td><td>Жёсткий CTA</td><td><span class="badge badge-boost">Высокая</span></td><td>"Подписывайся и заходи на sborka.work — ссылка в описании"</td></tr>
+    <tr><td>Pinned comment</td><td>sborka.work link</td><td>2-4% CTR</td><td>Всегда присутствует, всегда доступен</td></tr>
+    <tr><td>Description line 1</td><td>sborka.work link</td><td>Средняя</td><td>Первое, что видно при раскрытии описания</td></tr>
+    <tr><td>End screen</td><td>Следующее видео + подписка</td><td>Средняя</td><td>Визуальный CTA на playlist или "best for viewer"</td></tr>
+  </table>
+
+  <div class="insight">
+    <b>Pinned comment = скрытое оружие.</b> 2-4% CTR vs 0.5-1% для ссылок в описании. Каждое видео должно иметь pinned comment с ссылкой на sborka.work + контекстный CTA.
+  </div>
+
+  <h3>UTM-шаблон для YouTube</h3>
+  <div class="formula">sborka.work?utm_source=youtube&utm_medium=social&utm_campaign=s03_youtube&utm_content={video_id}
+
+Описание: sborka.work?utm_source=youtube&utm_medium=description
+Pinned comment: sborka.work?utm_source=youtube&utm_medium=comment
+End screen: sborka.work?utm_source=youtube&utm_medium=endscreen</div>
+
+  <h3>Воронка конверсии</h3>
+  <div class="formula">10,000 views видео
+  → 200-500 кликов по ссылке в описании (2-5%)
+    → 50-100 визитов на sborka.work (25-50% bounce)
+      → 5-15 регистраций (10-15% конверсия)
+        → с регулярным контентом = compound growth</div>
+
+  <h3>Монетизация поэтапно</h3>
+  <table>
+    <tr><th>Фаза</th><th>Подписчики</th><th>YouTube Revenue</th><th>Реальная ценность</th></tr>
+    <tr><td>Phase 1</td><td>1,870-5,000</td><td>$10-50/мес (AdSense + Super Thanks)</td><td>YouTube = marketing funnel → sborka.work</td></tr>
+    <tr><td>Phase 2</td><td>5,000-10,000</td><td>$100-300/мес + Memberships</td><td>Affiliates ($50-200/мес) + рост трафика</td></tr>
+    <tr><td>Phase 3</td><td>10,000+</td><td>$500-3,000/мес + Sponsors</td><td>Sponsored: $500-2K/видео в tech нише</td></tr>
+  </table>
+
+  <div class="warning">
+    <b>Russian-language CPM: $1-5 vs English $5-15.</b> Если часть контента на EN или с EN субтитрами — потенциал дохода x3-5. YouTube = marketing channel, не revenue channel на этом этапе.
+  </div>
+</div>
+
+<!-- SECTION 9: 30-Day Action Plan -->
+<div class="section">
+  <h2>9. 30-Day Action Plan — Comeback @timzinin</h2>
+
+  <div class="timeline">
+    <div class="timeline-item"><span class="week">Week 0</span>Подготовка</div>
+    <div class="timeline-item"><span class="week">Week 1</span>Reactivation</div>
+    <div class="timeline-item"><span class="week">Week 2</span>Consistency</div>
+    <div class="timeline-item"><span class="week">Week 3</span>Growth</div>
+    <div class="timeline-item"><span class="week">Week 4</span>Optimize</div>
+  </div>
+
+  <h3>Phase 0: Preparation (Неделя 0 — до публикации)</h3>
+  <div class="action-plan">
+    <div class="action-item"><strong>Audit 429 видео</strong> — Категоризировать: keep / unlist / delete. YouTube Studio → сортировка по views, AVD, CTR. Цель: оставить ~60-80 публичных.</div>
+    <div class="action-item"><strong>Unlist первая партия</strong> — 50-100 худших видео (сырые клипы 2010-х, &lt;100 просмотров). Следующие 50-100 на следующей неделе.</div>
+    <div class="action-item"><strong>Обновить канал</strong> — Banner (2560x1440), About section (SEO), ссылки (sborka.work первая), Featured video slot.</div>
+    <div class="action-item"><strong>Создать 5 плейлистов</strong> — Documentary Films, Career in AI/Tech, City Stories, SBORKA Career Club, AI Tools.</div>
+    <div class="action-item"><strong>Community tab warm-up</strong> — Poll: "Какой контент хотите видеть?" + teaser image.</div>
+    <div class="action-item"><strong>Проверить монетизацию</strong> — YouTube Studio → Monetization tab. 1,870 subs = порог пройден, но watch hours могут быть низкими после dormancy.</div>
+  </div>
+
+  <h3>Phase 1: Comeback (Неделя 1)</h3>
+  <div class="action-plan">
+    <div class="action-item"><strong>Comeback Video</strong> — "Я пропал на 7 месяцев. Я строил кое-что." 8-10 мин. 10 сек = acknowledge absence, потом VALUE. Что строил (СБОРКА, AI, контент). CTA: подписка + sborka.work.</div>
+    <div class="action-item"><strong>Premiere</strong> — Запланировать как Premiere. Промо во всех каналах за 24-48ч. Live chat при Premiere.</div>
+    <div class="action-item"><strong>3 Shorts launch</strong> — Из существующих China footage или документалок. 30-45 сек. Hook в первые 2 сек.</div>
+    <div class="action-item"><strong>Cross-promote</strong> — TG канал (тизер + ссылка), LinkedIn пост (key insight), VK, Instagram Stories.</div>
+    <div class="action-item"><strong>Comment engagement</strong> — Reply на ВСЕ комменты в первый час. Pin CTA-комментарий. Heart comments.</div>
+  </div>
+
+  <h3>Phase 2: Cadence (Недели 2-3)</h3>
+  <div class="action-plan">
+    <div class="action-item"><strong>Weekly schedule</strong> — Пн: Short #1 (тизер). Ср: Long-form video. Чт: Short #2 (standalone tip). Сб: Short #3 (BTS/personal). Community posts: 2-3/неделю.</div>
+    <div class="action-item"><strong>Вторая документалка</strong> — Re-edit лучший travel footage с новым нарративом. Или новый AI/карьерный контент.</div>
+    <div class="action-item"><strong>Shorts burst</strong> — Увеличить до 5 Shorts/неделю. Series format: "Career tip дня", "AI tool за 60 сек".</div>
+  </div>
+
+  <h3>Phase 3: Optimization (Неделя 4+)</h3>
+  <div class="action-plan">
+    <div class="action-item"><strong>Analytics review</strong> — CTR, AVD, traffic sources, subscriber growth. Удвоить то, что работает. Убрать то, что не работает.</div>
+    <div class="action-item"><strong>Thumbnail A/B testing</strong> — YouTube native A/B или TubeBuddy. Минимум 1,000 impressions на вариант.</div>
+    <div class="action-item"><strong>Outreach на коллабы</strong> — 3-5 creators из ниши. Предложение: гостевое появление или response video.</div>
+  </div>
+
+  <h3>KPIs по месяцам</h3>
+  <table>
+    <tr><th>Метрика</th><th>Сейчас</th><th>Month 3</th><th>Month 6</th><th>Month 12</th></tr>
+    <tr><td><strong>Подписчики</strong></td><td>1,870</td><td>2,500</td><td>5,000</td><td>10,000</td></tr>
+    <tr><td>Monthly views</td><td>~low</td><td>10,000</td><td>50,000</td><td>150,000</td></tr>
+    <tr><td>Avg CTR</td><td>?</td><td>5%</td><td>7%</td><td>8%</td></tr>
+    <tr><td>Avg AVD</td><td>?</td><td>4 min</td><td>5 min</td><td>6 min</td></tr>
+    <tr><td>sborka.work clicks/мес</td><td>0</td><td>100</td><td>500</td><td>1,500</td></tr>
+    <tr><td>Shorts views/мес</td><td>0</td><td>20,000</td><td>100,000</td><td>500,000</td></tr>
+    <tr><td>Revenue/мес</td><td>$0</td><td>$10-30</td><td>$100-300</td><td>$500-1,500</td></tr>
+  </table>
+
+  <h3>Первые 10 видео (Content Queue)</h3>
+  <table>
+    <tr><th>#</th><th>Тема</th><th>Формат</th><th>Длительность</th></tr>
+    <tr><td>1</td><td>"Я пропал на 7 месяцев. Я строил кое-что."</td><td>Comeback / talking head</td><td>8-10 мин</td></tr>
+    <tr><td>2</td><td>Re-edit лучшего travel footage с новым нарративом</td><td>Documentary recut</td><td>10-15 мин</td></tr>
+    <tr><td>3</td><td>"Как AI меняет карьеры в 2026"</td><td>Talking head + screen demos</td><td>8-12 мин</td></tr>
+    <tr><td>4</td><td>"5 карьерных ошибок, которые я вижу каждую неделю"</td><td>Listicle (опыт СБОРКИ)</td><td>7-10 мин</td></tr>
+    <tr><td>5</td><td>"Зачем я создал карьерный клуб"</td><td>СБОРКА origin story</td><td>8-10 мин</td></tr>
+    <tr><td>6</td><td>China documentary recut</td><td>Documentary re-edit</td><td>10-15 мин</td></tr>
+    <tr><td>7</td><td>"AI-инструменты, которые я реально использую каждый день"</td><td>Screen recording + talking head</td><td>8-12 мин</td></tr>
+    <tr><td>8</td><td>Интервью с интересным человеком</td><td>Interview</td><td>15-20 мин</td></tr>
+    <tr><td>9</td><td>"День из жизни: AI-powered career club"</td><td>Behind-the-scenes</td><td>10 мин</td></tr>
+    <tr><td>10</td><td>"Будущее работы уже наступило"</td><td>Documentary commentary</td><td>10-15 мин</td></tr>
+  </table>
+</div>
+
+<footer>
+  <p>S-03 YouTube Research &middot; Тим Зинин &middot; Март 2026</p>
+  <p>Данные: YouTube Creator documentation, vidIQ, Social Blade, industry reports 2025-2026</p>
+  <p style="margin-top:12px"><a href="../smm_platform_audit.html" style="color:var(--youtube)">&larr; Вернуться на Dashboard</a> &nbsp;|&nbsp; <a href="s02_instagram.html" style="color:var(--muted)">&larr; S-02 Instagram</a> &nbsp;|&nbsp; <a href="s04_telegram_personal.html" style="color:var(--muted)">S-04 TG Personal &rarr;</a></p>
+</footer>
+
+</div>
+</body>
+</html>

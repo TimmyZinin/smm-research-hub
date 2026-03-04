@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-08 TikTok — SMM Research | Тим Зинин</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--tiktok:#000000;--tiktok-accent:#FE2C55}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--tiktok-accent);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+header{background:linear-gradient(135deg,#000000,#25F4EE,#FE2C55);color:var(--white);padding:48px 40px;border-radius:16px;margin-bottom:32px}
+header h1{font-family:'Playfair Display',serif;font-size:2.4em;margin-bottom:8px;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+header .sub{opacity:.9;font-size:1.1em;margin-bottom:16px}
+header .meta{display:flex;gap:24px;flex-wrap:wrap}
+header .meta-item{background:rgba(0,0,0,.4);border-radius:10px;padding:10px 18px;text-align:center}
+header .meta-num{font-family:'JetBrains Mono',monospace;font-size:1.6em;font-weight:700;display:block}
+header .meta-label{font-size:.7em;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+.section{background:var(--card);border-radius:12px;padding:32px;margin-bottom:24px;box-shadow:0 2px 12px rgba(44,36,24,.06)}
+.section h2{font-family:'Playfair Display',serif;font-size:1.5em;color:var(--dark);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+.section h3{font-size:1.1em;color:var(--terra);margin:20px 0 10px}
+table{width:100%;border-collapse:collapse;font-size:.88em;margin:12px 0}
+th{background:var(--sand);color:var(--dark);font-weight:600;text-transform:uppercase;font-size:.72em;letter-spacing:.5px;padding:10px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--white)}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#fff}
+.badge-boost{background:var(--emerald)}.badge-penalty{background:var(--terra)}.badge-medium{background:var(--gold);color:var(--dark)}
+.insight{background:#EDF7F0;border:1px solid #C5E8CE;border-radius:8px;padding:14px 18px;margin:12px 0;font-size:.9em}
+.insight b{color:var(--emerald)}
+.warning{background:#FDF0ED;border:1px solid #F0C8BE;border-radius:8px;padding:14px 18px;margin:12px 0;font-size:.9em}
+.warning b{color:var(--terra)}
+.tactic{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--tiktok-accent);border-radius:8px;padding:16px 20px;margin:12px 0}
+.tactic .tactic-title{font-weight:700;font-size:.95em;margin-bottom:6px}
+.tactic .tactic-data{font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--tiktok-accent);margin-bottom:6px}
+.tactic .tactic-action{font-size:.88em;color:var(--dark)}
+.formula{background:var(--sand);border-radius:8px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:.82em;line-height:1.7;margin:12px 0;white-space:pre-wrap}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.do-list,.dont-list{padding:14px 18px;border-radius:8px;font-size:.88em}
+.do-list{background:#EDF7F0;border:1px solid #C5E8CE}
+.dont-list{background:#FDF0ED;border:1px solid #F0C8BE}
+.do-list h4{color:var(--emerald);margin-bottom:8px}.dont-list h4{color:var(--terra);margin-bottom:8px}
+.do-list li,.dont-list li{margin-bottom:5px;margin-left:16px}
+.competitor{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;margin:10px 0}
+.competitor .name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05em;color:var(--dark)}
+.competitor .stats{font-family:'JetBrains Mono',monospace;font-size:.8em;color:var(--muted);margin:4px 0 8px}
+.action-plan{counter-reset:action}
+.action-item{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin:8px 0;position:relative;padding-left:50px}
+.action-item::before{counter-increment:action;content:counter(action);position:absolute;left:14px;top:14px;background:var(--tiktok-accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em}
+.timeline{display:flex;gap:0;margin:20px 0}
+.timeline-item{flex:1;padding:12px;text-align:center;background:var(--sand);border:1px solid var(--border);font-size:.82em}
+.timeline-item:first-child{border-radius:8px 0 0 8px}
+.timeline-item:last-child{border-radius:0 8px 8px 0}
+.timeline-item .week{font-weight:700;color:var(--tiktok-accent);display:block;margin-bottom:4px}
+.script{background:#F8F4FF;border:1px solid #D8CCE8;border-radius:8px;padding:16px;margin:10px 0;font-size:.88em}
+.script .script-title{font-weight:700;color:#6B4C9A;margin-bottom:6px}
+footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="logo">SMM Hub</span>
+  <a href="../smm_platform_audit.html">Dashboard</a>
+  <span class="sep">|</span>
+  <a href="s01_linkedin.html">LinkedIn</a>
+  <a href="s02_instagram.html">Instagram</a>
+  <a href="s03_youtube.html">YouTube</a>
+  <a href="s04_telegram_personal.html">TG Personal</a>
+  <a href="s05_telegram_sborka.html">TG СБОРКА</a>
+  <a href="s06_threads.html">Threads</a>
+  <a href="s07_facebook.html">Facebook</a>
+  <a href="s08_tiktok.html" class="active">TikTok</a>
+</nav>
+
+<div class="container">
+
+<header>
+  <h1>S-08: TikTok</h1>
+  <div class="sub">Niche Pivot: Travel → AI/Career | FYP-First Strategy</div>
+  <div class="meta">
+    <div class="meta-item"><span class="meta-num">1,288</span><span class="meta-label">Подписчиков</span></div>
+    <div class="meta-item"><span class="meta-num">4,844</span><span class="meta-label">Лайков</span></div>
+    <div class="meta-item"><span class="meta-num">70%+</span><span class="meta-label">Completion rate для виральности</span></div>
+    <div class="meta-item"><span class="meta-num">3,000</span><span class="meta-label">Цель 30 дней</span></div>
+  </div>
+</header>
+
+<!-- ===== 1. ALGORITHM ===== -->
+<div class="section">
+  <h2>1. Алгоритм TikTok 2026</h2>
+
+  <h3>3-Stage FYP Funnel</h3>
+  <div class="formula">Stage 1: Small batch (100-300 views) → тестирование
+Stage 2: Medium batch (1K-10K) → если engagement высокий
+Stage 3: Viral push (10K-1M+) → если продолжает расти
+Каждый этап = новая оценка engagement signals</div>
+
+  <h3>Ranking Signals (по приоритету)</h3>
+  <table>
+    <tr><th>#</th><th>Сигнал</th><th>Вес</th><th>Что изменилось с 2024</th></tr>
+    <tr><td>1</td><td><strong>Watch time / Completion rate</strong></td><td><span class="badge badge-boost">Highest</span></td><td>70%+ completion нужен для виральности (было 50%)</td></tr>
+    <tr><td>2</td><td><strong>Shares</strong></td><td><span class="badge badge-boost">Very High</span></td><td>Теперь #2 сигнал (было ниже). "Send to friend" = главная метрика</td></tr>
+    <tr><td>3</td><td><strong>Replays</strong></td><td><span class="badge badge-boost">High</span></td><td>Loop-worthy контент пушится агрессивно</td></tr>
+    <tr><td>4</td><td><strong>Saves</strong></td><td><span class="badge badge-boost">High</span></td><td>Save-worthy = value signal для алгоритма</td></tr>
+    <tr><td>5</td><td><strong>Comments</strong></td><td><span class="badge badge-medium">Medium</span></td><td>Comment velocity в первые 60 мин</td></tr>
+    <tr><td>6</td><td><strong>Likes</strong></td><td><span class="badge badge-medium">Medium</span></td><td>Наименее важный из engagement signals</td></tr>
+  </table>
+
+  <h3>Новое в 2025-2026</h3>
+  <table>
+    <tr><th>Изменение</th><th>Влияние</th></tr>
+    <tr><td>Longer content promoted (3-10 мин)</td><td>Больше не только Shorts. Tutorials, deep dives получают push</td></tr>
+    <tr><td>TikTok SEO matured</td><td>41% Gen Z используют TikTok как поисковик. Keywords в captions критичны</td></tr>
+    <tr><td>Originality scoring</td><td>Оригинальный контент получает буст. Репосты/дубликаты deprioritized</td></tr>
+    <tr><td>Topic authority system</td><td>Алгоритм строит "экспертный профиль". Consistent posting в одной нише = буст</td></tr>
+  </table>
+
+  <div class="insight"><b>Ключевой вывод:</b> Watch time &gt; всё остальное. Короткие видео (11-18 сек) с 70%+ completion = самый надёжный путь в FYP. Shares стали #2 сигналом &mdash; "пришли другу" контент = growth hack.</div>
+</div>
+
+<!-- ===== 2. NICHE PIVOT ===== -->
+<div class="section">
+  <h2>2. Niche Pivot: Travel → AI/Career</h2>
+
+  <h3>3 варианта перехода</h3>
+  <table>
+    <tr><th>Вариант</th><th>Потеря подписчиков</th><th>Срок рек-классификации</th><th>Рекомендация</th></tr>
+    <tr><td><strong>A: Gradual Bridge</strong></td><td>~5%</td><td>3-4 недели</td><td><span class="badge badge-boost">Рекомендуем</span></td></tr>
+    <tr><td>B: Hard Pivot</td><td>10-20%</td><td>2-3 недели</td><td>Быстрее, но болезненнее</td></tr>
+    <tr><td>C: New Account</td><td>100% (start from 0)</td><td>1-2 недели</td><td>Только если аккаунт shadowbanned</td></tr>
+  </table>
+
+  <h3>4-Week Bridge Plan</h3>
+  <div class="timeline">
+    <div class="timeline-item"><span class="week">Подготовка</span>Bio update, bridge content ideas, batch recording</div>
+    <div class="timeline-item"><span class="week">Нед. 1-2</span>Bridge: Travel + Career (digital nomad, remote work, freelance AI)</div>
+    <div class="timeline-item"><span class="week">Нед. 3-4</span>Full transition: 100% AI/Career content</div>
+    <div class="timeline-item"><span class="week">Нед. 5+</span>Scale: удвоить winning formats</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Bridge Content Ideas (Travel → Career)</div>
+    <div class="tactic-action">"How I work remotely from Turkey using AI tools" | "Digital nomad career: how I built an AI business abroad" | "From travel blogger to AI agent architect &mdash; my story" | "5 AI tools that let me work from anywhere"</div>
+  </div>
+
+  <div class="warning"><b>Timeline рек-классификации:</b> 10-15 видео для начального тестирования алгоритмом → 20-30 видео для значительного сдвига → 50+ для полной рек-классификации. При 2 видео/день = ~25 дней до полной перестройки.</div>
+</div>
+
+<!-- ===== 3. COMPETITORS ===== -->
+<div class="section">
+  <h2>3. Конкуренты</h2>
+
+  <div class="competitor">
+    <div class="name">@tiktokai_news / AI News Aggregators</div>
+    <div class="stats">High growth | 3-5 видео/день | Screen recording + text overlay | Speed = weapon</div>
+    <p><strong>Takeaway:</strong> Скорость реакции на AI-новости. Первые 1-2 часа после анонса = максимальный FYP push.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">@aliabdaal / Productivity + Career</div>
+    <div class="stats">Massive audience | Talking head | Study/career tips | High production quality</div>
+    <p><strong>Takeaway:</strong> Talking head с text overlay &mdash; top performer. Raw authenticity &gt; polished production. 31% higher engagement для unscripted.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">@careercontessa / Career Advice</div>
+    <div class="stats">Career niche pure play | "POV: you just got hired" | Transitions | Relatable scenarios</div>
+    <p><strong>Takeaway:</strong> POV формат для карьерных сценариев = viral format. "POV: your resume passed ATS" с transition effect.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Russian AI/Tech Creators</div>
+    <div class="stats">Small audience (1-5K) | Irregular posting | Low competition</div>
+    <p><strong>Takeaway:</strong> <strong style="color:var(--emerald)">Massive gap.</strong> Русскоязычных AI+Career создателей на TikTok практически нет. First-mover advantage. 60% контента на RU, 40% EN.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Russian Career Coaches</div>
+    <div class="stats">Mostly on YouTube/Instagram | TikTok presence weak | Long-form format</div>
+    <p><strong>Takeaway:</strong> Карьерные коучи не освоили TikTok format (коротко, динамично). Тим может быть первым, кто адаптирует career advice под TikTok.</p>
+  </div>
+</div>
+
+<!-- ===== 4. CONTENT FORMATS ===== -->
+<div class="section">
+  <h2>4. Форматы контента и скрипты</h2>
+
+  <h3>Рейтинг форматов для AI/Career</h3>
+  <table>
+    <tr><th>Формат</th><th>Performance</th><th>Длина</th><th>Пример</th></tr>
+    <tr><td><strong>Talking head + text overlay</strong></td><td><span class="badge badge-boost">Best</span></td><td>15-30 сек</td><td>"3 вещи, которые HR никогда не скажет"</td></tr>
+    <tr><td>Screen recording + voiceover</td><td><span class="badge badge-boost">High</span></td><td>15-45 сек</td><td>AI tool demo: "ChatGPT пишет резюме за 30 сек"</td></tr>
+    <tr><td>POV transitions</td><td><span class="badge badge-boost">High</span></td><td>8-15 сек</td><td>"POV: ты прошёл все 3 раунда собеседования"</td></tr>
+    <tr><td>Green screen (news reaction)</td><td><span class="badge badge-medium">Medium-High</span></td><td>30-60 сек</td><td>Реакция на AI-новость с экспертным комментарием</td></tr>
+    <tr><td>Before/After</td><td><span class="badge badge-medium">Medium-High</span></td><td>15-25 сек</td><td>Резюме до/после AI-переделки</td></tr>
+    <tr><td>Stitch/Duet</td><td><span class="badge badge-medium">Medium</span></td><td>15-30 сек</td><td>Ответ на карьерный совет другого creator'а</td></tr>
+  </table>
+
+  <h3>Hook-формулы (первые 1-3 сек)</h3>
+  <table>
+    <tr><th>Тип hook</th><th>Пример</th><th>Эффект</th></tr>
+    <tr><td>Curiosity gap</td><td>"AI заменит 40% рабочих мест. Но не эти..."</td><td>High watch time</td></tr>
+    <tr><td>Fear-based</td><td>"Если ты до сих пор отправляешь резюме вручную..."</td><td>Saves + shares</td></tr>
+    <tr><td>Contradiction</td><td>"Всё что тебе говорили о собеседованиях &mdash; ложь"</td><td>Comments + shares</td></tr>
+    <tr><td>Opportunity</td><td>"Эта AI-тактика помогла 50 людям найти работу за 6 недель"</td><td>Saves + profile visits</td></tr>
+  </table>
+
+  <h3>Готовые скрипты</h3>
+  <div class="script">
+    <div class="script-title">AI Tool Demo (24 сек)</div>
+    <p><strong>Hook (0-3s):</strong> "ChatGPT может найти тебе работу. Серьёзно."<br>
+    <strong>Body (3-20s):</strong> [Screen recording] "Открываю ChatGPT. Вставляю описание вакансии. Прошу адаптировать резюме. Готово за 30 секунд."<br>
+    <strong>CTA (20-24s):</strong> "Сохрани это. Ссылка на полный гайд в bio."</p>
+  </div>
+  <div class="script">
+    <div class="script-title">Career Myth Busting (24 сек)</div>
+    <p><strong>Hook (0-3s):</strong> "Тебе не нужен диплом CS чтобы работать в AI."<br>
+    <strong>Body (3-20s):</strong> "78% людей в AI-индустрии пришли из других сфер. Я помог 50 людям сменить профессию. Вот 3 навыка которые реально нужны..."<br>
+    <strong>CTA (20-24s):</strong> "Хочешь план действий? Комментируй ПЛАН и я пришлю."</p>
+  </div>
+  <div class="script">
+    <div class="script-title">Before/After Resume (26 сек)</div>
+    <p><strong>Hook (0-3s):</strong> "Это резюме получало 0 откликов. А это &mdash; 12 за неделю."<br>
+    <strong>Body (3-22s):</strong> [Split screen] "Слева &mdash; до. Справа &mdash; после AI-переделки. 3 изменения: [1] [2] [3]"<br>
+    <strong>CTA (22-26s):</strong> "AI-разбор резюме бесплатно &mdash; ссылка в bio."</p>
+  </div>
+</div>
+
+<!-- ===== 5. TIKTOK SEO ===== -->
+<div class="section">
+  <h2>5. TikTok SEO</h2>
+
+  <div class="insight"><b>41% Gen Z</b> используют TikTok как поисковик. Keyword optimization = долгосрочный discovery engine.</div>
+
+  <h3>Keyword Hierarchy (по весу)</h3>
+  <table>
+    <tr><th>Расположение</th><th>Вес</th><th>Пример</th></tr>
+    <tr><td><strong>Captions</strong></td><td>60%</td><td>"3 AI tools для поиска работы в 2026 #карьера #ai"</td></tr>
+    <tr><td>On-screen text</td><td>40%</td><td>Text overlay: "AI JOB SEARCH HACK"</td></tr>
+    <tr><td>Voiceover/speech</td><td>20%</td><td>Проговорить ключевые слова вслух (ASR detection)</td></tr>
+    <tr><td>Hashtags</td><td>10%</td><td>3-6 нишевых: #CareerAdvice #AItools #резюме</td></tr>
+  </table>
+
+  <h3>Keyword стратегия</h3>
+  <table>
+    <tr><th>Тип</th><th>Keywords (EN)</th><th>Keywords (RU)</th></tr>
+    <tr><td>High-volume</td><td>AI jobs, resume tips, interview tips</td><td>поиск работы, резюме, собеседование</td></tr>
+    <tr><td>Medium (sweet spot)</td><td>ChatGPT job hunting, ATS resume, remote AI work</td><td>работа в AI, карьера в IT, смена профессии</td></tr>
+    <tr><td>Long-tail</td><td>Get hired without CS degree, AI career no experience</td><td>как найти работу без опыта, AI для поиска работы</td></tr>
+  </table>
+</div>
+
+<!-- ===== 6. TONE OF VOICE ===== -->
+<div class="section">
+  <h2>6. Tone of Voice</h2>
+
+  <div class="grid-2">
+    <div class="do-list">
+      <h4>РАБОТАЕТ</h4>
+      <ul>
+        <li>Raw, authentic, unscripted feel (31% higher engagement)</li>
+        <li>Быстрый темп речи, без пауз</li>
+        <li>Controversial takes с данными</li>
+        <li>"Я построил это / я помог 50 людям" (experience-based)</li>
+        <li>Двуязычность: 60% RU / 40% EN</li>
+        <li>Self-deprecating humor</li>
+        <li>Eye contact с камерой (talking head)</li>
+      </ul>
+    </div>
+    <div class="dont-list">
+      <h4>НЕ РАБОТАЕТ</h4>
+      <ul>
+        <li>Overproduced, студийное качество (выглядит как реклама)</li>
+        <li>Длинные интро (3+ сек до hook = scroll)</li>
+        <li>Generic мотивация без specifics</li>
+        <li>"Follow for more" (penalized)</li>
+        <li>Watermarks других платформ</li>
+        <li>Horizontal video (9:16 only)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 7. CROSS-PLATFORM ===== -->
+<div class="section">
+  <h2>7. Cross-Platform Pipeline</h2>
+
+  <div class="formula">Record in CapCut (без watermark) → 4 варианта:
+  ├→ TikTok (Day 0) — оригинал
+  ├→ IG Reels (Day 1) — без TikTok watermark
+  ├→ YouTube Shorts (Day 2)
+  ├→ FB Reels (Day 3)
+  └→ VK Clips (Day 3)
+
+Stagger по 24ч чтобы избежать duplicate penalty.
+Всего ~25-35 мин/день на публикацию на 5 платформ.</div>
+
+  <div class="warning"><b>Watermark:</b> TikTok watermark на других платформах = penalty. Всегда записывать в CapCut FIRST, потом загружать на TikTok. Или использовать snaptik.app для removal.</div>
+</div>
+
+<!-- ===== 8. CTA STRATEGY ===== -->
+<div class="section">
+  <h2>8. CTA Strategy → sborka.work</h2>
+
+  <h3>6 CTA-тактик (по эффективности)</h3>
+  <table>
+    <tr><th>#</th><th>Тактика</th><th>CTR</th><th>Как</th></tr>
+    <tr><td>1</td><td><strong>Verbal CTA + link in bio</strong></td><td>2-4%</td><td>"Ссылка в bio на бесплатный гайд" (проговорить!)</td></tr>
+    <tr><td>2</td><td><strong>"Comment KEYWORD" DM funnel</strong></td><td>3-5%</td><td>"Комментируй ПЛАН &mdash; пришлю бесплатный чеклист в DM"</td></tr>
+    <tr><td>3</td><td><strong>Pinned comment с ссылкой</strong></td><td>1-2%</td><td>Закрепить коммент с UTM-ссылкой на sborka.work</td></tr>
+    <tr><td>4</td><td><strong>On-screen text CTA</strong></td><td>0.5-1%</td><td>Text overlay: "Link in bio" в последних 3 сек</td></tr>
+    <tr><td>5</td><td><strong>Linktree в bio</strong></td><td>Baseline</td><td>Linktree/linktr.ee с UTM на sborka.work</td></tr>
+    <tr><td>6</td><td><strong>Series (10K+ followers)</strong></td><td>N/A</td><td>Платный мини-курс после 10K subs</td></tr>
+  </table>
+
+  <h3>Conversion Math</h3>
+  <div class="formula">10K views → 50-200 bio clicks (0.5-2%)
+             → 10-80 landing page visits
+             → 2-24 email signups (20-30%)
+             → 1-7 СБОРКА applications
+
+UTM: sborka.work/?utm_source=tiktok&amp;utm_medium=social&amp;utm_campaign=s08_tiktok&amp;utm_content={video_id}</div>
+</div>
+
+<!-- ===== 9. 30-DAY ACTION PLAN ===== -->
+<div class="section">
+  <h2>9. 30-Day Action Plan: 1,288 → 3,000+</h2>
+
+  <div class="timeline">
+    <div class="timeline-item"><span class="week">Подготовка</span>Bio, Linktree, batch record 14 видео, bridge content</div>
+    <div class="timeline-item"><span class="week">Нед. 1-2</span>Bridge content (travel+career), 2 видео/день, SEO keywords</div>
+    <div class="timeline-item"><span class="week">Нед. 3-4</span>Full AI/Career, duets, stitches, scale winning formats</div>
+    <div class="timeline-item"><span class="week">Нед. 5+</span>Batch repurpose → 5 платформ, Series подготовка</div>
+  </div>
+
+  <div class="action-plan">
+    <div class="action-item">
+      <strong>Обновить bio:</strong> "AI agent builder | Career club founder | sborka.work" + Linktree с UTM. <span class="badge badge-boost">День 0</span>
+    </div>
+    <div class="action-item">
+      <strong>Batch record: 14 видео</strong> за 4-hour session. 7 bridge (travel+career) + 7 pure AI/career. CapCut без watermark. <span class="badge badge-boost">День 0</span>
+    </div>
+    <div class="action-item">
+      <strong>Публикация: 2 видео/день</strong> (6 AM + 6 PM). Bridge content первые 2 недели. Hashtags: 3-6 нишевых. <span class="badge badge-boost">Дни 1-14</span>
+    </div>
+    <div class="action-item">
+      <strong>Engagement routine (30 мин/день):</strong> 20 comments на видео в AI/career нише. Reply на ВСЕ комменты. Follow 5-10 relevant creators. <span class="badge badge-medium">Ежедневно</span>
+    </div>
+    <div class="action-item">
+      <strong>Full transition к AI/Career контенту.</strong> 100% нишевый контент. Duets + stitches с bigger creators. <span class="badge badge-medium">Неделя 3</span>
+    </div>
+    <div class="action-item">
+      <strong>Launch "Comment ПЛАН" DM funnel.</strong> Автоматизировать отправку чеклиста через DM при keyword comment. <span class="badge badge-medium">Неделя 3</span>
+    </div>
+    <div class="action-item">
+      <strong>Анализ: top-5 видео по completion rate.</strong> Удвоить winning format. Отказаться от форматов с &lt;50% completion. <span class="badge badge-medium">Неделя 4</span>
+    </div>
+    <div class="action-item">
+      <strong>Start cross-platform repurpose:</strong> TikTok → IG Reels (Day+1) → YT Shorts (Day+2) → FB Reels (Day+3) → VK Clips (Day+3). <span class="badge badge-boost">Неделя 4</span>
+    </div>
+  </div>
+
+  <h3>Целевые метрики</h3>
+  <table>
+    <tr><th>Метрика</th><th>Week 1</th><th>Week 2</th><th>Week 3</th><th>Week 4</th></tr>
+    <tr><td>Subscribers</td><td>1,400</td><td>1,700</td><td>2,200</td><td>3,000+</td></tr>
+    <tr><td>Videos posted</td><td>14</td><td>28</td><td>42</td><td>56</td></tr>
+    <tr><td>Avg completion rate</td><td>50%</td><td>60%</td><td>65%</td><td>70%+</td></tr>
+    <tr><td>Bio clicks</td><td>20</td><td>50</td><td>100</td><td>200+</td></tr>
+    <tr><td>Email signups</td><td>5</td><td>15</td><td>30</td><td>60+</td></tr>
+  </table>
+
+  <div class="insight"><b>Ресурсы:</b> 2 видео/день x 30 дней = 60 видео. При batch recording 4ч/неделю + 30 мин/день engagement = ~8ч/неделю total. Repurpose на 5 платформ добавляет ещё 30 мин/день.</div>
+</div>
+
+<footer>
+  S-08 TikTok &mdash; Research compiled 2026-03-04 | SMM Research Hub | Тим Зинин
+</footer>
+
+</div>
+</body>
+</html>

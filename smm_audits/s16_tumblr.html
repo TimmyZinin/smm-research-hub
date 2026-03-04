@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-16 Tumblr — SMM Research Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--tumblr:#36465D;--tumblr-dark:#2B3849;--tumblr-light:#EDF0F4}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--tumblr);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+
+.container{max-width:1100px;margin:0 auto;padding:20px}
+
+header{background:linear-gradient(135deg,#36465D,#2B3849,#1A2333);color:#fff;padding:48px 40px;border-radius:16px;margin-bottom:32px;position:relative;overflow:hidden}
+header::before{content:'t';position:absolute;right:30px;top:15px;font-size:5em;font-weight:900;opacity:.08;font-family:'Playfair Display',serif}
+header h1{font-family:'Playfair Display',serif;font-size:2.2em;margin-bottom:6px}
+header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
+.hero-stats{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stat{background:rgba(255,255,255,.15);border-radius:10px;padding:10px 18px;text-align:center}
+.hero-stat strong{font-family:'JetBrains Mono',monospace;font-size:1.5em;display:block}
+.hero-stat span{font-size:.7em;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+
+.section{background:var(--card);border-radius:12px;padding:32px;margin-bottom:24px;box-shadow:0 2px 12px rgba(44,36,24,.06)}
+.section h2{font-family:'Playfair Display',serif;font-size:1.5em;color:var(--tumblr);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+
+.tactic{background:var(--tumblr-light);border-left:4px solid var(--tumblr);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0;font-size:.95em}
+.tactic strong{color:var(--tumblr-dark)}
+.insight{background:#F0FAF5;border-left:4px solid var(--emerald);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0}
+.insight strong{color:var(--emerald)}
+.warning{background:#FFF5EE;border-left:4px solid var(--terra);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0}
+.warning strong{color:var(--terra)}
+.formula{background:var(--dark);color:var(--white);padding:16px 24px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:.9em;margin:16px 0;line-height:1.8;white-space:pre-wrap}
+
+.competitor{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px;background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:12px}
+.competitor .ava{width:48px;height:48px;border-radius:50%;background:var(--tumblr);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2em}
+.competitor h4{margin-bottom:4px;font-size:.95em}
+.competitor .meta{color:var(--muted);font-size:.8em;margin-bottom:6px}
+.competitor p{font-size:.9em;line-height:1.5}
+
+table{width:100%;border-collapse:collapse;font-size:.9em;margin:16px 0}
+th{background:var(--tumblr-light);color:var(--tumblr-dark);font-weight:600;text-transform:uppercase;font-size:.75em;letter-spacing:.5px;padding:10px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--white)}
+
+.action-plan{counter-reset:step}
+.action-plan .step{position:relative;padding:16px 16px 16px 56px;background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:10px}
+.action-plan .step::before{counter-increment:step;content:counter(step);position:absolute;left:16px;top:16px;width:28px;height:28px;background:var(--tumblr);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em}
+.action-plan .step h4{margin-bottom:4px;font-size:.95em}
+.action-plan .step p{font-size:.9em;color:var(--muted)}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kpi-card{background:var(--tumblr-light);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .num{font-family:'JetBrains Mono',monospace;font-size:2em;font-weight:700;color:var(--tumblr)}
+.kpi-card .label{font-size:.8em;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+
+footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
+
+@media(max-width:700px){
+  .topnav{gap:8px}.topnav a{font-size:.75em;padding:3px 7px}
+  header{padding:24px 20px}header h1{font-size:1.6em}
+  .grid-2{grid-template-columns:1fr}
+  .competitor{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="logo">SMM Hub</span>
+  <a href="../smm_platform_audit.html">Dashboard</a>
+  <span class="sep">|</span>
+  <a href="s01_linkedin.html">LinkedIn</a>
+  <a href="s02_instagram.html">Instagram</a>
+  <a href="s03_youtube.html">YouTube</a>
+  <a href="s04_telegram_personal.html">TG Personal</a>
+  <a href="s05_telegram_sborka.html">TG Sborka</a>
+  <a href="s06_threads.html">Threads</a>
+  <a href="s07_facebook.html">Facebook</a>
+  <a href="s08_tiktok.html">TikTok</a>
+  <a href="s09_vk.html">VK</a>
+  <a href="s10_vcru.html">VC.ru</a>
+  <a href="s11_devto.html">Dev.to</a>
+  <a href="s12_medium.html">Medium</a>
+  <a href="s13_hashnode.html">Hashnode</a>
+  <a href="s14_bluesky.html">Bluesky</a>
+  <a href="s15_mastodon.html">Mastodon</a>
+  <a href="s16_tumblr.html" class="active">Tumblr</a>
+</nav>
+
+<div class="container">
+
+<header>
+  <h1>S-16: Tumblr</h1>
+  <div class="sub">Reblog Chains &middot; Anti-Corporate Culture &middot; Visual + Personality &middot; Gen Z Audience</div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>135M</strong><span>MAU</span></div>
+    <div class="hero-stat"><strong>50%</strong><span>Gen Z Users</span></div>
+    <div class="hero-stat"><strong>20</strong><span>Indexed Tags</span></div>
+    <div class="hero-stat"><strong>$0</strong><span>API Cost</span></div>
+    <div class="hero-stat"><strong>100K+</strong><span>Max Viral Notes</span></div>
+  </div>
+</header>
+
+<!-- ===== 1. ALGORITHM ===== -->
+<div class="section">
+  <h2>1. Algorithm &amp; Content Distribution</h2>
+
+  <p>Tumblr's distribution is fundamentally different from algorithm-heavy platforms. There is no single powerful algorithmic feed. Content reaches users through <strong>four channels</strong>:</p>
+
+  <table>
+    <tr><th>Channel</th><th>Mechanics</th><th>Growth Impact</th></tr>
+    <tr><td><strong>Dashboard (Following)</strong></td><td>Chronological. &laquo;Best Stuff First&raquo; exists but most power users disable it</td><td>MEDIUM &mdash; followers actually see your content</td></tr>
+    <tr><td><strong>Reblog Chains</strong></td><td>THE core mechanic. Each reblog exposes to reblogger's followers. Multi-level chains expand exponentially</td><td>VERY HIGH &mdash; 1 reblog by popular account = 10K-100K+ notes</td></tr>
+    <tr><td><strong>Explore / For You</strong></td><td>Trending + recommended. Considers engagement velocity, tag relevance, blog activity</td><td>HIGH &mdash; primary discovery for new users</td></tr>
+    <tr><td><strong>Tags &amp; Search</strong></td><td>First 20 tags indexed. Users can follow tags &rarr; posts appear on strangers' dashboards</td><td>HIGH &mdash; tag following is critical discovery channel</td></tr>
+  </table>
+
+  <div class="tactic"><strong>Key Rule:</strong> Optimize for reblogs, not likes. Likes are vanity metrics on Tumblr. Reblogs ARE distribution. Create content people want to put on their own blog. Posts with commentary added in reblogs perform best because each addition renews the post.</div>
+
+  <div class="formula">REBLOG CHAIN VIRAL MECHANICS:
+  Tim posts → User A reblogs (adds commentary)
+    → User B reblogs from A (adds more)
+      → User C reblogs from B ...
+  Each level = exponential reach expansion
+
+  1 reblog by 50K-follower account = 10,000-100,000+ notes
+  NO equivalent mechanism on LinkedIn or Telegram</div>
+</div>
+
+<!-- ===== 2. CONTENT FORMATS ===== -->
+<div class="section">
+  <h2>2. Content Formats &amp; Performance</h2>
+
+  <table>
+    <tr><th>Format</th><th>Reblog Rate</th><th>Discovery</th><th>Recommendation</th></tr>
+    <tr><td><strong>Image + Short Text</strong></td><td>Very High</td><td>High</td><td>PRIMARY &mdash; 3-5x/week. Screenshots, diagrams, infographics</td></tr>
+    <tr><td><strong>Text Posts (200-500 words)</strong></td><td>High</td><td>Medium</td><td>PRIMARY &mdash; 3-4x/week. Personality + observations</td></tr>
+    <tr><td><strong>Photo Sets (2-10 images)</strong></td><td>Very High</td><td>High</td><td>HIGH &mdash; 2-3x/week. Architecture breakdowns, before/after</td></tr>
+    <tr><td><strong>GIFs (original)</strong></td><td>Very High</td><td>Very High</td><td>MEDIUM &mdash; if resources allow. Agent outputs as GIFs</td></tr>
+    <tr><td><strong>Asks/Polls</strong></td><td>High</td><td>Medium</td><td>COMMUNITY BUILDER &mdash; 2-3x/week. Anonymous asks open</td></tr>
+    <tr><td><strong>Long-form (1000+ words)</strong></td><td>Medium</td><td>Medium</td><td>WEEKLY &mdash; 1x. Use &laquo;read more&raquo; cut</td></tr>
+    <tr><td><strong>Native Video</strong></td><td>Low</td><td>Medium</td><td>LOW priority. Tumblr's video player is historically poor</td></tr>
+    <tr><td><strong>Link posts</strong></td><td>Low</td><td>Low</td><td>AVOID. Tumblr users stay on Tumblr. Embed links in text instead</td></tr>
+  </table>
+
+  <div class="insight"><strong>The &laquo;Tumblr Post&raquo; Format:</strong> Short, punchy observation in a specific voice. Often absurdist or meta. Example: &laquo;the thing about building AI agents is that eventually you realize you're just teaching a computer to procrastinate the same way you do.&raquo; This format can reach 50,000+ notes. Study the rhythm, then apply it to AI/tech observations. This is the #1 growth lever.</div>
+
+  <div class="tactic"><strong>Growth Hack: Ask Games.</strong> Enable anonymous asks. Post &laquo;send me your AI hot takes.&raquo; Answer each as a separate post. One prompt = 5-10 posts + builds community. Each answer gets reblogged independently.</div>
+</div>
+
+<!-- ===== 3. COMPETITOR ANALYSIS ===== -->
+<div class="section">
+  <h2>3. Competitor Analysis</h2>
+
+  <div class="competitor">
+    <div class="ava">JS</div>
+    <div>
+      <h4>Janelle Shane (@aiweirdness)</h4>
+      <div class="meta">5,000-50,000+ notes per viral post &middot; AI experiments, model failures, humor</div>
+      <p>Funny AI experiments, screenshots of AI outputs (especially failures). Accessible explanations. Has crossed over to mainstream media. <strong>Lesson:</strong> &laquo;AI does weird things&raquo; angle is Tumblr's favorite AI content. Show your agents' failures with humor.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">PR</div>
+    <div>
+      <h4>prokopetz</h4>
+      <div class="meta">2,000-20,000 notes regularly &middot; Systems thinking, game design, programming humor</div>
+      <p>Short, insightful observations about how systems work. Connects design to broader concepts. <strong>Lesson:</strong> Systems thinking content (which agent architecture IS) resonates deeply. Frame multi-agent as intellectually fascinating, not corporate.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">NG</div>
+    <div>
+      <h4>nostalgebraist</h4>
+      <div class="meta">500-5,000 notes on technical posts &middot; Deep ML analysis, AI safety, language model internals</div>
+      <p>Rigorous technical analysis that's accessible. Posts get cited in actual research. <strong>Lesson:</strong> Serious AI technical content works on Tumblr when genuinely insightful, not marketing dressed as thought leadership.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">TW</div>
+    <div>
+      <h4>technicallywrong</h4>
+      <div class="meta">1,000-5,000 notes &middot; Tech criticism, AI ethics, startup culture critique</div>
+      <p>Sharp, witty text posts. Anti-corporate but technically literate. <strong>Lesson:</strong> Technical expertise + irreverent voice = Tumblr gold.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">EC</div>
+    <div>
+      <h4>existentialcomics</h4>
+      <div class="meta">High engagement &middot; Philosophy + tech criticism through visual comics</div>
+      <p>Visual format + intellectual content + humor. Makes complex ideas accessible. <strong>Lesson:</strong> Even simple visual content (diagrams, flowcharts about AI agents) could be extremely high-performing.</p>
+    </div>
+  </div>
+
+  <div class="warning"><strong>Critical Gap:</strong> There is NO prominent &laquo;AI builder&raquo; voice on Tumblr. Most AI content is either critical/skeptical, funny/absurdist, or deeply academic. <strong>Tim's opportunity:</strong> Be the builder who bridges all three. Build cool things, acknowledge problems, make it funny, drop real technical knowledge. This position is UNOCCUPIED.</div>
+</div>
+
+<!-- ===== 4. TAG STRATEGY ===== -->
+<div class="section">
+  <h2>4. Tag Strategy</h2>
+
+  <div class="tactic"><strong>Critical Rules:</strong> Only first 20 tags are indexed for search. Tags on reblogs are NOT searchable (only organize reblogger's blog). Tags are case-insensitive. Multi-word tags supported (spaces allowed). Users can FOLLOW tags &rarr; posts appear on strangers' dashboards.</div>
+
+  <table>
+    <tr><th>Tier</th><th>Tags</th><th>Usage</th></tr>
+    <tr><td><strong>Primary (every post)</strong></td><td>#ai, #artificial intelligence, #tech, #technology</td><td>Maximum reach, high-volume tags</td></tr>
+    <tr><td><strong>Niche (rotate)</strong></td><td>#ai agents, #machine learning, #coding, #programming, #build in public</td><td>Targeted discovery, engaged followers</td></tr>
+    <tr><td><strong>Career</strong></td><td>#career advice, #tech careers, #job search, #hiring</td><td>СБОРКА positioning</td></tr>
+    <tr><td><strong>Culture</strong></td><td>#hot take, #unpopular opinion, #the thing about</td><td>Tumblr-native discovery formats</td></tr>
+    <tr><td><strong>Brand</strong></td><td>#one brain many agents, #multi agent, #ai architecture</td><td>Own your niche tags over time</td></tr>
+  </table>
+
+  <div class="formula">TAG TEMPLATE PER POST (use 10-15, max 20):
+  3-4 broad reach tags + 3-4 niche tags + 2-3 format/culture tags
+
+  Build-in-Public post:
+  #ai #tech #artificial intelligence #build in public
+  #ai agents #python #automation #multi agent
+  #coding #the thing about
+
+  Career post:
+  #ai #tech #career advice #tech careers
+  #job search #hiring #ai and work #future of work</div>
+</div>
+
+<!-- ===== 5. COMMUNITY CULTURE ===== -->
+<div class="section">
+  <h2>5. Community Culture &amp; Norms</h2>
+
+  <p>Tumblr's culture is shaped by anti-corporate sentiment, humor-first ethos, Gen Z dominance (50% of users), and strong creative communities. Understanding this is essential.</p>
+
+  <div class="grid-2">
+    <div style="background:#F0FAF5;padding:16px;border-radius:10px">
+      <h4 style="color:var(--emerald)">EARNS REBLOGS</h4>
+      <ul style="font-size:.85em;margin-top:8px;margin-left:16px">
+        <li>Genuine personality in every post</li>
+        <li>Self-deprecating humor about building AI</li>
+        <li>Admitting failures and messy processes</li>
+        <li>Original infographics/visual content</li>
+        <li>Answering asks thoughtfully</li>
+        <li>Reblogging others with added commentary</li>
+        <li>Anti-hype, realistic takes on AI</li>
+      </ul>
+    </div>
+    <div style="background:#FDF0ED;padding:16px;border-radius:10px">
+      <h4 style="color:var(--terra)">GETS YOU IGNORED</h4>
+      <ul style="font-size:.85em;margin-top:8px;margin-left:16px">
+        <li>Corporate language (&laquo;leveraging synergies&raquo;)</li>
+        <li>Screenshots of LinkedIn/Twitter posts</li>
+        <li>Pure promotional content</li>
+        <li>Link-only posts</li>
+        <li>Hustle culture (&laquo;rise and grind&raquo;)</li>
+        <li>One-way broadcasting without engagement</li>
+        <li>AI-generated images without disclosure</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="warning"><strong>Anti-AI-Art Sentiment:</strong> Tumblr community has strong feelings against AI-generated art. If using AI images, ALWAYS disclose. Better: use real screenshots, diagrams, infographics. Frame AI work as augmenting humans, not replacing them. &laquo;The system is broken, here's how to navigate it&raquo; resonates better than &laquo;5 tips to optimize your LinkedIn.&raquo;</div>
+</div>
+
+<!-- ===== 6. TONE OF VOICE ===== -->
+<div class="section">
+  <h2>6. Tone of Voice</h2>
+
+  <div class="formula">TIM'S TUMBLR VOICE FORMULA:
+  technical expertise + self-aware humor + genuine enthusiasm + slight chaos energy
+
+  Words to AVOID: leverage, synergy, hustle, disrupt, link in bio, 10x
+  Words that WORK: honestly, the thing about, turns out, TIL, so apparently</div>
+
+  <h3 style="margin:16px 0 12px">LinkedIn Voice vs Tumblr Voice</h3>
+  <table>
+    <tr><th>LinkedIn (DON'T)</th><th>Tumblr (DO)</th></tr>
+    <tr><td>&laquo;Proud to announce our revolutionary AI system is live! 6 agents processing 10K items/day.&raquo;</td><td>&laquo;so i accidentally deployed 6 AI agents to production at 2am and they've been arguing with each other about formatting ever since. this is fine.&raquo;</td></tr>
+    <tr><td>&laquo;5 Tips to Optimize Your AI Career in 2026&raquo;</td><td>&laquo;the thing about AI job titles is they change faster than my agents can keep up. 'prompt engineer' lasted like 8 months. we're all just making it up.&raquo;</td></tr>
+  </table>
+
+  <div class="tactic"><strong>Key Principle:</strong> Be a person, not a brand. Lowercase is fine. Show the messy reality. Tumblr rewards authenticity and personality over polish. The &laquo;builder who shows their work, including the disasters&raquo; voice is unoccupied and perfectly aligned with Tim's brand.</div>
+</div>
+
+<!-- ===== 7. CTA STRATEGY ===== -->
+<div class="section">
+  <h2>7. CTA Strategy &rarr; sborka.work</h2>
+
+  <div class="insight"><strong>Core Rule:</strong> Give 95% of value ON Tumblr. CTA is for the remaining 5%. Maximum 1 in 10 posts should have any outbound link. Value-first, always.</div>
+
+  <table>
+    <tr><th>CTA Channel</th><th>Method</th><th>Effectiveness</th></tr>
+    <tr><td><strong>Bio Link</strong></td><td>sborka.work?utm_source=tumblr&amp;utm_medium=profile &mdash; passive, always visible</td><td>PASSIVE (consistent)</td></tr>
+    <tr><td><strong>Ask Funnel</strong></td><td>Answer career questions, occasionally mention sborka.work when genuinely relevant</td><td>HIGH (organic, contextual)</td></tr>
+    <tr><td><strong>Master/Resource Post</strong></td><td>Comprehensive resource post listing sborka.work among many resources. Gets pinned and reblogged</td><td>HIGH (evergreen)</td></tr>
+    <tr><td><strong>Long-form CTA</strong></td><td>End of weekly deep-dive: &laquo;full data on sborka.work/research/...&raquo;</td><td>MEDIUM</td></tr>
+    <tr><td><strong>Infographic CTA</strong></td><td>Small sborka.work watermark on shareable infographics</td><td>MEDIUM (passive, viral)</td></tr>
+  </table>
+
+  <div class="formula">UTM FORMAT:
+  sborka.work/{path}
+    ?utm_source=tumblr
+    &utm_medium=social
+    &utm_campaign={campaign}
+    &utm_content=t16_{post_type}_{date}
+
+  Bot: t.me/Sborka_work_bot?start=source_tmblr_tim_{date}</div>
+
+  <div class="warning"><strong>NEVER on Tumblr:</strong> &laquo;Link in bio&raquo; (Instagram-speak), hard sells, urgency/scarcity language, pure promotional posts, follow-for-follow schemes. These will get you mocked and unfollowed instantly.</div>
+</div>
+
+<!-- ===== 8. CROSS-PLATFORM ===== -->
+<div class="section">
+  <h2>8. Cross-Platform Pipeline</h2>
+
+  <div class="formula">CONTENT ADAPTATION FLOW:
+  LinkedIn (professional) ──→ REWRITE in Tumblr voice (never screenshot!)
+  Tumblr (ideas/drafts)  ──→ Polish for LinkedIn/Dev.to
+
+  30% of Tumblr content should be PLATFORM-EXCLUSIVE
+  Tumblr works as idea testing ground — viral posts → polished LinkedIn
+
+  API INTEGRATION:
+  pytumblr library + Tumblr API v2
+  Rate limit: 250 posts/day (more than enough)
+  Integration with existing auto_publisher.py</div>
+
+  <div class="tactic"><strong>Two-Way Pipeline:</strong> Adapt LinkedIn posts by rewriting in Tumblr voice (never screenshot). Use Tumblr as testing ground &mdash; what goes viral here can be polished for LinkedIn. Tumblr-native voice elements (&laquo;the thing about...&raquo;) actually work well when adapted to other platforms too.</div>
+</div>
+
+<!-- ===== 9. PROFILE OPTIMIZATION ===== -->
+<div class="section">
+  <h2>9. Profile Optimization</h2>
+
+  <div class="action-plan">
+    <div class="step">
+      <h4>Blog title: &laquo;one brain, many agents&raquo;</h4>
+      <p>Lowercase, Tumblr-native. Memorable, positions the brand immediately.</p>
+    </div>
+    <div class="step">
+      <h4>Avatar: Real photo (same as LinkedIn)</h4>
+      <p>Not a logo, not AI-generated. People follow people on Tumblr.</p>
+    </div>
+    <div class="step">
+      <h4>Header: Warm/light palette</h4>
+      <p>Per brand guidelines. NOT dark/cyberpunk. Clean, readable.</p>
+    </div>
+    <div class="step">
+      <h4>Bio: Under 200 characters + one link</h4>
+      <p>&laquo;building AI agents that run 8 businesses from a laptop. honest numbers, real failures, occasional code. founder of sborka.work&raquo;</p>
+    </div>
+    <div class="step">
+      <h4>Enable anonymous asks</h4>
+      <p>Critical for community building. Asks = content generation engine.</p>
+    </div>
+    <div class="step">
+      <h4>Pin intro post</h4>
+      <p>Personality-driven introduction (NOT a CTA). Who you are, what you build, Tumblr-native voice.</p>
+    </div>
+    <div class="step">
+      <h4>Custom theme with navigation</h4>
+      <p>Clean theme, navigation links to key series/resources. Tumblr supports custom HTML themes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 10. 30-DAY ACTION PLAN ===== -->
+<div class="section">
+  <h2>10. 30-Day Action Plan</h2>
+
+  <h3 style="margin-bottom:12px">Week 1: Foundation (Days 1-7)</h3>
+  <table>
+    <tr><th>Day</th><th>Action</th><th>Notes</th></tr>
+    <tr><td>1</td><td>Profile setup + pinned intro post in Tumblr voice</td><td>Enable asks, follow 20-30 AI/tech blogs</td></tr>
+    <tr><td>2</td><td>Image post: &laquo;My 6-agent architecture in one diagram&raquo;</td><td>Shareable infographic format</td></tr>
+    <tr><td>3</td><td>Text post: hot take on AI (&laquo;the thing about...&raquo; format)</td><td>Aim for Tumblr-native voice</td></tr>
+    <tr><td>4</td><td>Reblog 5-10 posts with added commentary</td><td>Be part of the community, not just broadcasting</td></tr>
+    <tr><td>5</td><td>Ask prompt: &laquo;send me your AI hot takes&raquo;</td><td>Answer each as separate post</td></tr>
+    <tr><td>6</td><td>Photo set: &laquo;A day in the life of my AI agents&raquo;</td><td>Screenshots + captions</td></tr>
+    <tr><td>7</td><td>Review: what got reblogs vs likes? Adjust</td><td>Target: 20-50 followers</td></tr>
+  </table>
+
+  <h3 style="margin:24px 0 12px">Week 2: Increase Cadence (Days 8-14)</h3>
+  <p>2-3 posts/day. First viral attempt with &laquo;Tumblr post&raquo; format about AI. Master resource post with sborka.work link. Continue reblogging and engaging. Target: 80-150 followers.</p>
+
+  <h3 style="margin:24px 0 12px">Week 3: Community Integration (Days 15-21)</h3>
+  <p>Launch recurring series: &laquo;Agent Diaries&raquo; (weekly updates from the agents' perspective). Deepen engagement in reblog chains. First long-form deep-dive with &laquo;read more&raquo; cut. Target: 200-350 followers.</p>
+
+  <h3 style="margin:24px 0 12px">Week 4: Scale (Days 22-30)</h3>
+  <p>Begin light CTA integration (1-in-10 rule). Poll: career/AI topic. Second master post. Evaluate: which content types get most reblogs? Target: 400-600 followers.</p>
+
+  <h3 style="margin:24px 0 12px">Month 1 KPIs</h3>
+  <div class="grid-2">
+    <div class="kpi-card"><div class="num">400-600</div><div class="label">Followers</div></div>
+    <div class="kpi-card"><div class="num">50-70</div><div class="label">Original Posts</div></div>
+    <div class="kpi-card"><div class="num">100+</div><div class="label">Reblogs Given</div></div>
+    <div class="kpi-card"><div class="num">20+</div><div class="label">Asks Answered</div></div>
+    <div class="kpi-card"><div class="num">1</div><div class="label">Post with 1K+ Notes</div></div>
+    <div class="kpi-card"><div class="num">5+</div><div class="label">sborka.work Clicks</div></div>
+    <div class="kpi-card"><div class="num">2-3/day</div><div class="label">Sustainable Cadence</div></div>
+    <div class="kpi-card"><div class="num">3-5/day</div><div class="label">Reblogs with Commentary</div></div>
+  </div>
+
+  <div class="insight"><strong>Sustainable Cadence:</strong> 2-3 original posts + 3-5 reblogs with commentary per day. Mix of image+text (primary), text posts, photo sets, asks. One long-form weekly. Key metric: reblog rate, not likes.</div>
+</div>
+
+<footer>
+  SMM Research Hub &copy; 2026 | Тим Зинин | Sprint S-16 Tumblr
+</footer>
+
+</div>
+</body>
+</html>

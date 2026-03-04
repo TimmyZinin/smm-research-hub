@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S-25 Apple Podcasts — SMM Research Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--ap:#9B59B6;--ap-dark:#7D3C98;--ap-light:#F3E5F5}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--dark);line-height:1.7}
+.topnav{position:sticky;top:0;z-index:100;background:var(--dark);padding:8px 16px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{color:rgba(255,253,247,.7);text-decoration:none;font-size:.75em;padding:4px 10px;border-radius:20px;transition:.2s;flex-shrink:0}
+.topnav a:hover,.topnav a.active{color:var(--white);background:rgba(255,253,247,.15)}
+.topnav a.active{background:var(--ap)}
+.hero{background:linear-gradient(135deg,#9B59B6,#7D3C98,#512E5F);color:#fff;padding:80px 24px 60px;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:8px}
+.hero .sub{opacity:.85;font-size:1.05em;margin-bottom:20px}
+.hero .badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero .badge-row span{background:rgba(255,255,255,.18);padding:6px 16px;border-radius:20px;font-size:.85em}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 60px}
+.section{margin-bottom:48px}
+.section h2{font-family:'Playfair Display',serif;font-size:1.6em;color:var(--ap-dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--ap-light)}
+.section h3{font-size:1.15em;color:var(--ap);margin:20px 0 10px;font-weight:600}
+p{margin-bottom:14px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.92em}
+th{background:var(--ap);color:#fff;padding:10px 14px;text-align:left;font-weight:600}
+td{padding:10px 14px;border-bottom:1px solid #e8e0d4}
+tr:hover td{background:var(--ap-light)}
+ul,ol{margin:10px 0 16px 20px}
+li{margin-bottom:6px}
+.callout{background:var(--ap-light);border-left:4px solid var(--ap);padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
+.callout-warn{background:#FFF8E1;border-left-color:var(--gold)}
+.callout-green{background:#E8F5E9;border-left-color:var(--emerald)}
+.callout-terra{background:#FDEEEA;border-left-color:var(--terra)}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:16px 0}
+.metric-card{background:var(--sand);border-radius:12px;padding:16px;text-align:center}
+.metric-card .num{font-family:'Playfair Display',serif;font-size:1.8em;color:var(--ap)}
+.metric-card .label{font-size:.82em;color:var(--muted)}
+code{font-family:'JetBrains Mono',monospace;background:var(--sand);padding:2px 6px;border-radius:4px;font-size:.88em}
+pre{background:var(--dark);color:#e8e0d4;padding:16px;border-radius:8px;overflow-x:auto;margin:12px 0;font-family:'JetBrains Mono',monospace;font-size:.85em;line-height:1.6}
+.timeline{position:relative;padding-left:28px;margin:20px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:3px;background:var(--ap-light)}
+.timeline-item{position:relative;margin-bottom:20px}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--ap);border:3px solid var(--white)}
+.timeline-item h4{color:var(--ap-dark);margin-bottom:4px}
+footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;border-top:1px solid #e8e0d4}
+@media(max-width:600px){.hero{padding:60px 16px 40px}.hero h1{font-size:1.8rem}table{font-size:.82em}th,td{padding:8px 10px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="../smm_platform_audit.html">&larr; Dashboard</a>
+  <a href="s01_telegram.html">TG</a><a href="s02_linkedin.html">LI</a><a href="s03_threads.html">Thr</a><a href="s04_youtube.html">YT</a><a href="s05_vk.html">VK</a><a href="s06_instagram.html">IG</a><a href="s07_bluesky.html">BS</a><a href="s08_tiktok.html">TT</a><a href="s09_medium.html">Med</a><a href="s10_substack.html">Sub</a><a href="s11_mastodon.html">Mast</a><a href="s12_facebook.html">FB</a><a href="s13_reddit.html">Red</a><a href="s14_pinterest.html">Pin</a><a href="s15_hackernews.html">HN</a><a href="s16_tumblr.html">Tmb</a><a href="s17_okru.html">OK</a><a href="s18_nostr.html">Nostr</a><a href="s19_minds.html">Minds</a><a href="s20_writeas.html">W.as</a><a href="s21_lemmy.html">Lem</a><a href="s22_twitter.html">X</a><a href="s23_mave.html">Mave</a><a href="s24_spotify.html">Spot</a>
+  <a href="s25_apple.html" class="active">Apple</a>
+  <a href="s26_yandex.html">Yandex</a><a href="s27_deezer.html">Deezer</a><a href="s28_pocketcasts.html">PC</a><a href="s29_vkmusic.html">VKM</a>
+</nav>
+
+<div class="hero">
+  <h1>S-25: Apple Podcasts</h1>
+  <div class="sub">Discovery, Ratings & Charts — СБОРКА</div>
+  <div class="badge-row">
+    <span>ID: 1878410962</span>
+    <span>Auto-sync RSS</span>
+    <span>18% RU рынка</span>
+    <span>iPhone-аудитория 25-45</span>
+    <span>Tier 4 — Podcast</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ===== 1. ALGORITHM ===== -->
+<div class="section">
+  <h2>1. Алгоритм и обнаружение</h2>
+  <h3>1.1 Ранжирующие сигналы Apple</h3>
+  <table>
+    <tr><th>Сигнал</th><th>Вес</th><th>Описание</th></tr>
+    <tr><td style="font-weight:600">New subscriber velocity</td><td style="color:var(--terra)">Very High</td><td>Число новых подписчиков/время. Самый важный сигнал.</td></tr>
+    <tr><td style="font-weight:600">Download velocity</td><td style="color:var(--terra)">Very High</td><td>Загрузки в первые 24-72 часа после релиза</td></tr>
+    <tr><td>Completion rate</td><td style="color:var(--ap)">High</td><td>14-мин эпизод с 12 мин — лучше 60-мин с 15 мин (СБОРКА в плюсе!)</td></tr>
+    <tr><td>Ratings velocity</td><td style="color:var(--ap)">High</td><td>10 рейтингов за неделю > 50 total без новых</td></tr>
+    <tr><td>Reviews (written)</td><td>Medium-High</td><td>Текстовые отзывы весят больше просто звёзд</td></tr>
+    <tr><td>Episode frequency</td><td>Medium</td><td>Регулярный weekly = сигнал активного шоу</td></tr>
+    <tr><td>Category relevance</td><td>Medium</td><td>Careers (Business) + Self-Improvement</td></tr>
+  </table>
+
+  <h3>1.2 Charts и Editorial</h3>
+  <ul>
+    <li><strong>Top Shows by Category</strong> — главная цель. Обновляется каждые 4-8 часов, вес на последние 24-48ч</li>
+    <li><strong>"New Shows"</strong> — куратируется редакцией Apple, окно ~8 недель с первого эпизода</li>
+  </ul>
+  <div class="callout-terra callout">
+    <strong>СРОЧНО: Окно "New & Noteworthy" закрывается ~середина апреля 2026!</strong> Первый эпизод СБОРКИ — 19 фев 2026. Следующие 4-6 недель — единственный шанс попасть в featured. Максимизировать ratings velocity СЕЙЧАС.
+  </div>
+
+  <h3>1.3 Browse vs Search</h3>
+  <table>
+    <tr><th>Метод</th><th>% новых</th><th>Стратегия</th></tr>
+    <tr><td>Browse (Charts, Categories)</td><td>~35%</td><td>Category chart placement, editorial</td></tr>
+    <tr><td>Search (keywords)</td><td>~30%</td><td>SEO title/subtitle/description</td></tr>
+    <tr><td>External referral</td><td>~25%</td><td>CTA ссылки в соцсетях, на сайте</td></tr>
+    <tr><td>Siri / HomePod</td><td>~5%</td><td>"Привет Siri, подпишись на подкаст СБОРКА"</td></tr>
+  </table>
+
+  <div class="callout-green callout">
+    <strong>Преимущество СБОРКИ:</strong> Короткий формат (14 мин) = высокий completion rate = алгоритмический буст. Уникальное имя "СБОРКА" = идеально для Siri-запросов.
+  </div>
+</div>
+
+<!-- ===== 2. CONTENT FORMATS ===== -->
+<div class="section">
+  <h2>2. Форматы контента</h2>
+  <h3>2.1 Chapters (поддерживаются Apple)</h3>
+  <p>Apple Podcasts отображает chapter titles в UI плеера. Очень мало русских подкастов используют chapters — это дифференциатор.</p>
+  <pre>Chapter 1: 00:00 - Intro (problem hook)
+Chapter 2: 00:30 - The core issue
+Chapter 3: 06:00 - Practical steps
+Chapter 4: 11:00 - Action plan + CTA</pre>
+
+  <h3>2.2 Show Notes (HTML)</h3>
+  <p>Apple рендерит ограниченный HTML: <code>&lt;p&gt;</code>, <code>&lt;a href&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code>. Ссылки кликабельны — это основной CTA-канал.</p>
+
+  <h3>2.3 Per-Episode Artwork</h3>
+  <p>Apple поддерживает уникальную обложку для каждого эпизода (3000×3000). Рекомендация: шаблон с брендом + номер + ключевое слово. Генерация через Python (Pillow) или Gemini.</p>
+
+  <h3>2.4 Season Structure</h3>
+  <table>
+    <tr><th>Season</th><th>Тема</th><th>Эпизоды</th><th>Формат</th></tr>
+    <tr><td>Season 1</td><td>"Getting Started"</td><td>ep01-ep08</td><td>Solo monologue</td></tr>
+    <tr><td>Season 2</td><td>"Real Stories"</td><td>ep09-ep16</td><td>Интервью</td></tr>
+    <tr><td>Season 3</td><td>"Advanced Strategies"</td><td>ep17-ep24</td><td>Микс</td></tr>
+  </table>
+  <p>Season premieres получают алгоритмический буст (аналог нового шоу). Создаёт естественные content arcs.</p>
+</div>
+
+<!-- ===== 3. COMPETITORS ===== -->
+<div class="section">
+  <h2>3. Анализ конкурентов</h2>
+  <table>
+    <tr><th>Подкаст</th><th>Эпизоды</th><th>Рейтинг</th><th>Reviews</th><th>Формат</th><th>Урок для СБОРКИ</th></tr>
+    <tr><td><strong>Два по цене одного</strong></td><td>100+</td><td>4.7</td><td>50+</td><td>2 хоста, weekly</td><td>Weekly каденция = золотой стандарт</td></tr>
+    <tr><td><strong>Карьерный Консультант</strong></td><td>60+</td><td>4.5</td><td>25+</td><td>Solo + интервью</td><td>Inconsistency = возможность</td></tr>
+    <tr><td><strong>Работа в IT</strong></td><td>150+</td><td>4.8</td><td>80+</td><td>Interview</td><td>High review count = ranking</td></tr>
+    <tr><td><strong>Хантфлоу Инсайт</strong></td><td>40+</td><td>4.3</td><td>15+</td><td>Interview (corporate)</td><td>Corporate tone lacks warmth</td></tr>
+    <tr><td><strong>Ken Coleman</strong> (EN)</td><td>1500+</td><td>4.8</td><td>12,000+</td><td>Call-in Q&A</td><td>Q&A → listeners leave reviews</td></tr>
+    <tr><td><strong>Career Tools</strong> (EN)</td><td>500+</td><td>4.7</td><td>3,000+</td><td>Structured</td><td>Consistent structure → habits</td></tr>
+  </table>
+
+  <h3>Competitive Gaps</h3>
+  <table>
+    <tr><th>Фактор</th><th>Русский рынок</th><th>Позиция СБОРКИ</th></tr>
+    <tr><td>Short-form (&lt;15 мин)</td><td>Почти нет</td><td style="color:var(--emerald);font-weight:600">Уникальное преимущество</td></tr>
+    <tr><td>AI voice clone</td><td>Никто</td><td style="color:var(--emerald);font-weight:600">First mover</td></tr>
+    <tr><td>Candidate-focused</td><td>Большинство для HR</td><td style="color:var(--emerald);font-weight:600">Clear gap</td></tr>
+    <tr><td>Active review solicitation</td><td>Редко</td><td>Low-hanging fruit</td></tr>
+    <tr><td>Chapters</td><td>Почти никто</td><td>Technical differentiator</td></tr>
+    <tr><td>Season structure</td><td>Редко</td><td>Professional polish</td></tr>
+  </table>
+</div>
+
+<!-- ===== 4. APPLE PODCASTS CONNECT ===== -->
+<div class="section">
+  <h2>4. Apple Podcasts Connect</h2>
+  <h3>4.1 Claiming</h3>
+  <p>Claim через <code>podcastsconnect.apple.com</code> → Apple ID Тима → Submit RSS <code>cloud.mave.digital/69800</code> → Email verification → Access to analytics + metadata.</p>
+  <div class="callout-warn callout">
+    <strong>Без claim = НОЛЬ аналитики.</strong> Нельзя редактировать metadata, отвечать на reviews, подать на editorial.
+  </div>
+
+  <h3>4.2 Analytics</h3>
+  <table>
+    <tr><th>Метрика</th><th>Описание</th></tr>
+    <tr><td>Listeners</td><td>Уникальные устройства (любое воспроизведение)</td></tr>
+    <tr><td>Engaged Listeners</td><td>20+ мин total ИЛИ 40%+ эпизода</td></tr>
+    <tr><td>Followers</td><td>Нажали "Follow" — главная метрика роста</td></tr>
+    <tr><td>Listener Retention</td><td>Поминутный drop-off граф — где уходят</td></tr>
+    <tr><td>Geography</td><td>Страновая разбивка</td></tr>
+    <tr><td>Devices</td><td>iPhone, iPad, Mac, HomePod, CarPlay</td></tr>
+  </table>
+  <p>Данные с задержкой 48-72ч. Доступны за последние 60 дней (daily) и 2 года (monthly).</p>
+
+  <h3>4.3 Metadata Optimization</h3>
+  <pre>Title: СБОРКА | Подкаст про поиск работы и карьеру
+Subtitle: Как найти работу мечты: резюме, собеседования,
+          карьерный рост. Практические советы для тех, кто ищет.
+Author: Тим Зинин
+Category: Careers (primary) | Self-Improvement (secondary)</pre>
+  <p><strong>Текущий title "Сборка"</strong> — теряет ключевые слова. Добавление "подкаст про поиск работы и карьеру" драматически улучшает discoverability.</p>
+</div>
+
+<!-- ===== 5. TONE OF VOICE ===== -->
+<div class="section">
+  <h2>5. Tone of Voice</h2>
+  <h3>5.1 Apple-аудитория vs Spotify</h3>
+  <table>
+    <tr><th>Характеристика</th><th>Apple Podcasts</th><th>Spotify</th></tr>
+    <tr><td>Средний возраст</td><td>30-45</td><td>20-35</td></tr>
+    <tr><td>Доход</td><td>Выше (iPhone/Mac users)</td><td>Смешанный</td></tr>
+    <tr><td>Контент</td><td>In-depth, professional, polished</td><td>Casual, trendy</td></tr>
+    <tr><td>Reviews</td><td>Активно оставляют</td><td>Редко</td></tr>
+    <tr><td>Commitment</td><td>Follow + слушают регулярно</td><td>Sample + move on</td></tr>
+  </table>
+
+  <h3>5.2 Адаптации</h3>
+  <ul>
+    <li><strong>Opening:</strong> Problem-first (ToV rule #1). Apple слушатели ценят конкретику</li>
+    <li><strong>Depth:</strong> Чуть глубже, чем для Spotify. 14 мин позволяют</li>
+    <li><strong>Polish:</strong> Consistent intro/outro, smooth transitions — Apple слушатели замечают</li>
+    <li><strong>CTA tone:</strong> Warm: "Если выпуск помог, буду благодарен за оценку" — не "LEAVE 5 STARS"</li>
+    <li><strong>Говори "follow", не "subscribe"</strong> — Apple сменил термин в 2021</li>
+  </ul>
+
+  <h3>5.3 Audio Quality</h3>
+  <p>Нормализация: <code>ffmpeg -i input.mp3 -af loudnorm=I=-16:TP=-1.5 output.mp3</code></p>
+  <p>ElevenLabs = чистый звук без шумов, кликов, дыхания. Фактически лучше большинства human-recorded подкастов.</p>
+</div>
+
+<!-- ===== 6. SEO ===== -->
+<div class="section">
+  <h2>6. SEO и обнаружение</h2>
+  <h3>6.1 Episode Title Optimization</h3>
+  <table>
+    <tr><th>Текущий</th><th>Оптимизированный (keyword-first)</th></tr>
+    <tr><td>Почему так сложно начать</td><td>Поиск работы: почему так сложно начать и что с этим делать</td></tr>
+    <tr><td>Резюме, которое работает за тебя</td><td>Как написать резюме: чтобы оно работало за тебя</td></tr>
+    <tr><td>Собеседование без паники</td><td>Подготовка к собеседованию: как пройти без паники</td></tr>
+    <tr><td>Когда кажется, что ничего не получится</td><td>Мотивация в поиске работы: когда ничего не получается</td></tr>
+  </table>
+
+  <h3>6.2 Keyword Research (RU)</h3>
+  <table>
+    <tr><th>Keyword</th><th>Volume</th><th>Episode Opportunity</th></tr>
+    <tr><td>поиск работы</td><td>Very High</td><td>Show subtitle (core)</td></tr>
+    <tr><td>резюме</td><td>Very High</td><td>ep02 (exists)</td></tr>
+    <tr><td>собеседование</td><td>Very High</td><td>ep03 (exists)</td></tr>
+    <tr><td>удалённая работа</td><td>Medium-High</td><td>Будущий эпизод</td></tr>
+    <tr><td>карьерный рост</td><td>High</td><td>Subtitle + будущий ep</td></tr>
+    <tr><td>выгорание</td><td>Medium-High</td><td>Будущий эпизод</td></tr>
+    <tr><td>LinkedIn</td><td>Medium</td><td>Будущий эпизод</td></tr>
+    <tr><td>HeadHunter</td><td>High (RU)</td><td>Будущий эпизод</td></tr>
+  </table>
+
+  <h3>6.3 Siri Integration</h3>
+  <p>"Привет Siri, включи подкаст СБОРКА" — уникальное имя = 100% match. CTA в эпизодах: "Если вы на iPhone, скажите: «Привет, Siri, подпишись на подкаст СБОРКА». Готово."</p>
+</div>
+
+<!-- ===== 7. CTA ===== -->
+<div class="section">
+  <h2>7. CTA-стратегии</h2>
+  <h3>7.1 In-Episode</h3>
+  <table>
+    <tr><th>Сегмент</th><th>Время</th><th>Тип CTA</th><th>Пример</th></tr>
+    <tr><td>Hook</td><td>0:30-3:00</td><td>Soft mention</td><td>"...это то, чем мы занимаемся в СБОРКЕ"</td></tr>
+    <tr><td>Content</td><td>6:00-8:00</td><td>Mid-roll</td><td>"Чек-лист есть на сайте, ссылка в описании"</td></tr>
+    <tr><td>Practical</td><td>12:00-14:00</td><td>Primary CTA</td><td>"Заходи в бот СБОРКИ, ссылка в описании"</td></tr>
+    <tr><td>Outro</td><td>14:00</td><td>Rating ask</td><td>"Оставьте оценку на Apple Podcasts"</td></tr>
+  </table>
+
+  <h3>7.2 Show Notes Template (HTML)</h3>
+  <pre>&lt;p&gt;&lt;b&gt;Полезные ссылки:&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="sborka.work?utm_source=apple&amp;..."&gt;СБОРКА&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="t.me/Sborka_work_bot?start=source_apple_ep1"&gt;Бот&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="t.me/public_sborka"&gt;Telegram&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Если выпуск был полезен, оставьте оценку.&lt;/p&gt;</pre>
+
+  <h3>7.3 Subscriber Acquisition</h3>
+  <ul>
+    <li>Apple Podcasts link в каждом TG-посте о подкасте</li>
+    <li>QR code на вебинарах → Apple Podcasts page</li>
+    <li>Siri CTA в эпизодах</li>
+    <li>Apple badge на sborka.work</li>
+    <li>Упоминание подкаста на вебинарах СБОРКИ (captive audience)</li>
+  </ul>
+</div>
+
+<!-- ===== 8. RATINGS & REVIEWS ===== -->
+<div class="section">
+  <h2>8. Ratings и Reviews</h2>
+
+  <div class="metric-grid">
+    <div class="metric-card"><div class="num">5</div><div class="label">ratings Week 1-2</div></div>
+    <div class="metric-card"><div class="num">15</div><div class="label">ratings Month 1</div></div>
+    <div class="metric-card"><div class="num">30+</div><div class="label">ratings Month 3</div></div>
+    <div class="metric-card"><div class="num">4.7+</div><div class="label">target stars</div></div>
+  </div>
+
+  <h3>5 методов получения отзывов (ToV-compliant)</h3>
+  <ol>
+    <li><strong>In-episode ask</strong> — в конце, после ценности. "Буду благодарен за оценку" (каждый 3-4 эпизод)</li>
+    <li><strong>Telegram-пост</strong> — после нового эпизода в @public_sborka с Apple-ссылкой</li>
+    <li><strong>Вебинар</strong> — упоминание после ивента (тёплая аудитория)</li>
+    <li><strong>Бот</strong> — one-time сообщение после onboarding</li>
+    <li><strong>Reciprocal</strong> — взаимные отзывы с другими RU-подкастерами</li>
+  </ol>
+
+  <h3>Review Solicitation Script</h3>
+  <div class="callout-green callout">
+    "Если этот выпуск оказался полезным, я буду благодарен за оценку в Apple Podcasts. Это занимает буквально минуту, а нам помогает находить тех, кому подкаст нужен. Просто откройте СБОРКУ в приложении Подкасты и нажмите на звёздочки. Спасибо." (~15 сек)
+  </div>
+
+  <h3>Чего НЕ делать</h3>
+  <ul>
+    <li>❌ Не incentivize reviews (скидки за отзыв — Apple удалит)</li>
+    <li>❌ Не просить "5 звёзд" — просить "честную оценку"</li>
+    <li>❌ Не создавать фейковые отзывы</li>
+    <li>❌ Не просить в каждом эпизоде — ротация каждые 3-4</li>
+  </ul>
+</div>
+
+<!-- ===== 9. CROSS-PLATFORM ===== -->
+<div class="section">
+  <h2>9. Кросс-платформа</h2>
+  <h3>Apple Podcasts Embed</h3>
+  <pre>&lt;iframe allow="autoplay *; encrypted-media *"
+  frameborder="0" height="450"
+  style="width:100%;max-width:660px;border-radius:10px;"
+  src="https://embed.podcasts.apple.com/podcast/id1878410962"&gt;
+&lt;/iframe&gt;</pre>
+  <p>Разместить на sborka.work/podcast + Apple Podcasts marketing badge (официальный).</p>
+
+  <h3>Cross-Promotion Matrix</h3>
+  <table>
+    <tr><th>Источник</th><th>Действие</th></tr>
+    <tr><td>TG @public_sborka</td><td>"Слушайте на Apple Podcasts" в каждом посте</td></tr>
+    <tr><td>@Sborka_work_bot</td><td>One-time message после onboarding</td></tr>
+    <tr><td>sborka.work</td><td>Podcast section + Apple badge + embed</td></tr>
+    <tr><td>LinkedIn (Tim)</td><td>Периодические посты с Apple link</td></tr>
+    <tr><td>Вебинары</td><td>Live mention + QR code</td></tr>
+    <tr><td>Guest episodes</td><td>Гость шарит → новые Apple subscribers</td></tr>
+  </table>
+</div>
+
+<!-- ===== 10. 30-DAY PLAN ===== -->
+<div class="section">
+  <h2>10. 30-дневный план</h2>
+  <h3>Неделя 1: Foundation</h3>
+  <div class="timeline">
+    <div class="timeline-item"><h4>День 1: Claim + Metadata</h4><p>Claim в Apple Podcasts Connect. Обновить title: "СБОРКА | Подкаст про поиск работы и карьеру". Description + categories.</p></div>
+    <div class="timeline-item"><h4>Дни 2-3: Episode Optimization</h4><p>Keyword-first titles для ep01-04. HTML show notes с ссылками. Chapter markers.</p></div>
+    <div class="timeline-item"><h4>Дни 4-5: ep05 + Trailer</h4><p>"Оффер: как не продешевить" + 2-мин trailer. Publish on Mave → auto-sync.</p></div>
+    <div class="timeline-item"><h4>Дни 6-7: Ratings Push</h4><p>Пост в @public_sborka + podcast page на sborka.work.</p></div>
+  </div>
+
+  <h3>Неделя 2-3: Content + Reviews</h3>
+  <div class="timeline">
+    <div class="timeline-item"><h4>ep06-ep07 + Per-Episode Artwork</h4><p>Networking + Resume episodes. Episode-specific artwork. Rating solicitation в ogni 3-4 эпизоде.</p></div>
+    <div class="timeline-item"><h4>Cross-promo outreach</h4><p>3 русских карьерных подкаста для взаимной промоции.</p></div>
+  </div>
+
+  <h3>Неделя 4: Optimization</h3>
+  <div class="timeline">
+    <div class="timeline-item"><h4>ep08 (Season 1 Finale) + Analytics</h4><p>Milestone ask: "Какой выпуск запомнился больше всего? Напишите в отзыве." Analytics report. Season 2 plan.</p></div>
+  </div>
+
+  <h3>KPI Dashboard</h3>
+  <table>
+    <tr><th>Метрика</th><th>Target</th><th>Stretch</th></tr>
+    <tr><td>Эпизоды</td><td style="font-weight:600;color:var(--ap)">8 + trailer</td><td>10</td></tr>
+    <tr><td>Apple followers</td><td style="font-weight:600;color:var(--ap)">25</td><td>50</td></tr>
+    <tr><td>Apple ratings</td><td style="font-weight:600;color:var(--ap)">15</td><td>25</td></tr>
+    <tr><td>Written reviews</td><td>8</td><td>12</td></tr>
+    <tr><td>Avg rating</td><td>4.7+</td><td>4.9+</td></tr>
+    <tr><td>Total downloads (Mave)</td><td>200</td><td>500</td></tr>
+    <tr><td>Category chart (Careers, RU)</td><td style="font-weight:600;color:var(--ap)">Top 150</td><td>Top 50</td></tr>
+    <tr><td>Bot starts (apple source)</td><td>5</td><td>15</td></tr>
+  </table>
+</div>
+
+</div>
+
+<footer>
+  S-25 Apple Podcasts Research &middot; SMM Research Hub &middot; Тим Зинин &middot; Март 2026<br>
+  <a href="../smm_platform_audit.html" style="color:var(--ap)">&larr; Вернуться к Dashboard</a>
+</footer>
+</body>
+</html>

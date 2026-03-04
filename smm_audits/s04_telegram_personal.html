@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-04 Telegram Personal — SMM Research | Тим Зинин</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--telegram:#229ED9}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--telegram);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+header{background:linear-gradient(135deg,var(--telegram),#1B8AC4);color:var(--white);padding:48px 40px;border-radius:16px;margin-bottom:32px}
+header h1{font-family:'Playfair Display',serif;font-size:2.4em;margin-bottom:8px}
+header .sub{opacity:.9;font-size:1.1em;margin-bottom:16px}
+header .meta{display:flex;gap:24px;flex-wrap:wrap}
+header .meta-item{background:rgba(255,255,255,.15);border-radius:10px;padding:10px 18px;text-align:center}
+header .meta-num{font-family:'JetBrains Mono',monospace;font-size:1.6em;font-weight:700;display:block}
+header .meta-label{font-size:.7em;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+.section{background:var(--card);border-radius:12px;padding:32px;margin-bottom:24px;box-shadow:0 2px 12px rgba(44,36,24,.06)}
+.section h2{font-family:'Playfair Display',serif;font-size:1.5em;color:var(--telegram);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+.section h3{font-size:1.1em;color:var(--terra);margin:20px 0 10px}
+.section h4{font-size:.95em;color:var(--dark);margin:14px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:.88em;margin:12px 0}
+th{background:var(--sand);color:var(--dark);font-weight:600;text-transform:uppercase;font-size:.72em;letter-spacing:.5px;padding:10px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--white)}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#fff}
+.badge-boost{background:var(--emerald)}.badge-penalty{background:var(--terra)}.badge-medium{background:var(--gold);color:var(--dark)}
+.insight{background:#EDF7F0;border:1px solid #C5E8CE;border-radius:8px;padding:14px 18px;margin:12px 0;font-size:.9em}
+.insight b{color:var(--emerald)}
+.warning{background:#FDF0ED;border:1px solid #F0C8BE;border-radius:8px;padding:14px 18px;margin:12px 0;font-size:.9em}
+.warning b{color:var(--terra)}
+.tactic{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--telegram);border-radius:8px;padding:16px 20px;margin:12px 0}
+.tactic .tactic-title{font-weight:700;font-size:.95em;margin-bottom:6px}
+.tactic .tactic-data{font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--telegram);margin-bottom:6px}
+.tactic .tactic-action{font-size:.88em;color:var(--dark)}
+.formula{background:var(--sand);border-radius:8px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:.82em;line-height:1.7;margin:12px 0;white-space:pre-wrap}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.do-list,.dont-list{padding:14px 18px;border-radius:8px;font-size:.88em}
+.do-list{background:#EDF7F0;border:1px solid #C5E8CE}
+.dont-list{background:#FDF0ED;border:1px solid #F0C8BE}
+.do-list h4{color:var(--emerald);margin-bottom:8px}.dont-list h4{color:var(--terra);margin-bottom:8px}
+.do-list li,.dont-list li{margin-bottom:5px;margin-left:16px}
+.competitor{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;margin:10px 0}
+.competitor .name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05em;color:var(--telegram)}
+.competitor .stats{font-family:'JetBrains Mono',monospace;font-size:.8em;color:var(--muted);margin:4px 0 8px}
+.action-plan{counter-reset:action}
+.action-item{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin:8px 0;position:relative;padding-left:50px}
+.action-item::before{counter-increment:action;content:counter(action);position:absolute;left:14px;top:14px;background:var(--telegram);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em}
+.timeline{display:flex;gap:0;margin:20px 0}
+.timeline-item{flex:1;padding:12px;text-align:center;background:var(--sand);border:1px solid var(--border);font-size:.82em}
+.timeline-item:first-child{border-radius:8px 0 0 8px}
+.timeline-item:last-child{border-radius:0 8px 8px 0}
+.timeline-item .week{font-weight:700;color:var(--telegram);display:block;margin-bottom:4px}
+footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="logo">SMM Hub</span>
+  <a href="../smm_platform_audit.html">Dashboard</a>
+  <span class="sep">|</span>
+  <a href="s01_linkedin.html">LinkedIn</a>
+  <a href="s02_instagram.html">Instagram</a>
+  <a href="s03_youtube.html">YouTube</a>
+  <a href="s04_telegram_personal.html" class="active">TG Personal</a>
+  <a href="s05_telegram_sborka.html">TG Sborka</a>
+  <a href="s06_threads.html">Threads</a>
+  <a href="s07_facebook.html">Facebook</a>
+  <a href="s08_tiktok.html">TikTok</a>
+</nav>
+
+<div class="container">
+
+<header>
+  <h1>S-04 Telegram Personal</h1>
+  <div class="sub">@timofeyzinin &middot; Personal Brand &middot; AI + Career + Build in Public</div>
+  <div class="meta">
+    <div class="meta-item"><span class="meta-num">~93</span><span class="meta-label">Подписчиков</span></div>
+    <div class="meta-item"><span class="meta-num">40-60%</span><span class="meta-label">Views/Subs</span></div>
+    <div class="meta-item"><span class="meta-num">5-7</span><span class="meta-label">Постов/неделю (цель)</span></div>
+    <div class="meta-item"><span class="meta-num">500</span><span class="meta-label">Цель подписчиков</span></div>
+  </div>
+</header>
+
+<!-- SECTION 1: Algorithm -->
+<div class="section">
+  <h2>1. Telegram Channel Discovery 2026</h2>
+
+  <div class="insight">
+    <b>Ключевое отличие TG от других платформ:</b> Нет алгоритмической ленты. ВСЕ подписчики видят ВСЕ посты в хронологическом порядке. 93 подписчика = 93 потенциальных просмотра. Охват 100% (vs Instagram 5-15%, LinkedIn 3-8%).
+  </div>
+
+  <h3>Механизмы discovery</h3>
+  <table>
+    <tr><th>Механизм</th><th>Как работает</th><th>Импакт для @timofeyzinin</th></tr>
+    <tr><td><strong>Форварды постов</strong></td><td>Кликабельная атрибуция при пересылке в чаты/каналы</td><td><span class="badge badge-boost">Главный двигатель</span> роста для малых каналов</td></tr>
+    <tr><td><strong>Similar Channels</strong></td><td>TG рекомендует похожие каналы на профиле. С 2024 — анализ контента постов</td><td>Активен при 50+ subs. Описание должно быть keyword-rich</td></tr>
+    <tr><td><strong>Telegram Search</strong></td><td>С 2024 индексируется контент постов (не только название/описание)</td><td><span class="badge badge-boost">SEO-возможность</span> — ключевые слова в текстах постов</td></tr>
+    <tr><td><strong>Каталоги</strong></td><td>tgstat.ru, tlgrm.ru, telemetr.io, combot.org</td><td>Бесплатная регистрация = доп. discovery</td></tr>
+    <tr><td><strong>Ссылки в группах</strong></td><td>Публикация в тематических группах</td><td>Тим в Botanica, career groups, crypto groups</td></tr>
+    <tr><td><strong>Stories (Premium)</strong></td><td>Каналы могут публиковать исчезающие Stories</td><td>Доступно с Premium ($5/мес), хорошо для engagement</td></tr>
+    <tr><td><strong>Bot интеграция</strong></td><td>Промо через ботов и Mini Apps</td><td>@Sborka_work_bot может промоутить канал</td></tr>
+  </table>
+
+  <h3>Что изменилось в 2025-2026</h3>
+  <table>
+    <tr><th>Изменение</th><th>Значение для стратегии</th></tr>
+    <tr><td>Контент постов индексируется в поиске</td><td>Использовать ключевые слова: AI, карьера, агенты, нейросети, поиск работы</td></tr>
+    <tr><td>Similar Channels анализирует контент</td><td>Фокус на AI/career темах = рекомендации рядом с niche-каналами</td></tr>
+    <tr><td>Revenue sharing с 1000+ подписчиков</td><td>Milestone: 1000 subs = начало монетизации через рекламу</td></tr>
+    <tr><td>Channel Boost system</td><td>Boosts от Premium-подписчиков открывают кастом-фичи</td></tr>
+    <tr><td>Reactions расширены</td><td>Кастомные эмодзи + звёздные реакции. Видны в статистике</td></tr>
+  </table>
+</div>
+
+<!-- SECTION 2: Competitor Teardown -->
+<div class="section">
+  <h2>2. Competitor Teardown — бенчмарки и паттерны</h2>
+
+  <h3>Engagement benchmarks</h3>
+  <table>
+    <tr><th>Размер канала</th><th>Engagement Rate</th><th>Views/Post</th><th>Forwards</th></tr>
+    <tr><td>50-500 subs</td><td>40-65%</td><td>30-300</td><td>1-5 per post</td></tr>
+    <tr><td>500-5K subs</td><td>30-50%</td><td>200-2,500</td><td>5-30</td></tr>
+    <tr><td>5K-50K subs</td><td>25-45%</td><td>2K-20K</td><td>30-200</td></tr>
+    <tr><td>50K+</td><td>20-40%</td><td>10K-50K+</td><td>100-500+</td></tr>
+  </table>
+
+  <h3>5 каналов для анализа</h3>
+  <div class="competitor">
+    <div class="name">Svoimxodom</div>
+    <div class="stats">101K subs &middot; 62% engagement &middot; 4-7 постов/неделю &middot; Travel + Business</div>
+    <p>Personal journey storytelling + behind-the-scenes + community building в комментариях. Гибрид lifestyle/business = высокая вовлечённость.</p>
+    <p><strong>Урок:</strong> Персональные истории с уроками = самый высокий engagement в TG. Не медиа, а человек.</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Pognali!</div>
+    <div class="stats">108K subs &middot; 45-55% engagement &middot; 5-6 постов/неделю</div>
+    <p>Эксклюзивный контент не из YouTube. Short-form insights (1-3 абзаца). Visual-first. Hot takes.</p>
+    <p><strong>Урок:</strong> TG-эксклюзивность → ценность подписки. "Этого нет нигде больше."</p>
+  </div>
+
+  <div class="competitor">
+    <div class="name">Tech/Career Authority Model</div>
+    <div class="stats">5K-25K subs &middot; 40-65% engagement &middot; Daily news + opinion</div>
+    <p>Индустриальные инсайты + карьерные советы + обзоры инструментов. Ежедневный ритм. Newsletter-style.</p>
+    <p><strong>Урок:</strong> Ежедневная ценность + POV = привычка у читателя. Это ТОЧНАЯ модель для Тима.</p>
+  </div>
+
+  <div class="insight">
+    <b>Никто не занимает пересечение:</b> Russian-speaking Multi-Agent Revenue Architect + career expert + real builder с production метриками. Это уникальная позиция Тима в TG.
+  </div>
+</div>
+
+<!-- SECTION 3: Content Formats -->
+<div class="section">
+  <h2>3. Content Formats & Strategy</h2>
+
+  <h3>Типы контента по engagement</h3>
+  <table>
+    <tr><th>Формат</th><th>Engagement</th><th>Лучше всего для</th></tr>
+    <tr style="background:#EDF7F0"><td><strong>Polls / Quizzes</strong></td><td>10-25%</td><td>Активация аудитории, исследование мнений</td></tr>
+    <tr style="background:#EDF7F0"><td><strong>Personal stories + lessons</strong></td><td>8-15%</td><td>Форварды, эмоциональная связь</td></tr>
+    <tr><td>Text + Image</td><td>6-12%</td><td>Скриншоты, графики, инфографики</td></tr>
+    <tr><td>Build in Public / Behind-the-scenes</td><td>6-12%</td><td>Уникальный контент, dashboard screenshots</td></tr>
+    <tr><td>Hot takes / Contrarian opinions</td><td>5-10%</td><td>"Посмотри что он написал" форварды</td></tr>
+    <tr><td>Video circles</td><td>4-8%</td><td>Личный контакт, "голос человека"</td></tr>
+    <tr><td>Voice messages</td><td>3-6%</td><td>Быстрые апдейты, аутентичность</td></tr>
+    <tr><td>Curated links + commentary</td><td>4-8%</td><td>"Я прочитал, чтобы тебе не пришлось"</td></tr>
+  </table>
+
+  <h3>Оптимальная длина постов</h3>
+  <table>
+    <tr><th>Длина</th><th>Символы</th><th>Доля</th><th>Когда использовать</th></tr>
+    <tr style="background:#EDF7F0"><td><strong>Short (sweet spot)</strong></td><td>300-800</td><td><strong>60%</strong></td><td>Инсайты, мнения, ежедневные наблюдения. Максимум шеринга.</td></tr>
+    <tr><td>Medium</td><td>800-2000</td><td>25%</td><td>Истории, анализ, тьюториалы. Нужно форматирование.</td></tr>
+    <tr><td>Long</td><td>2000-4096</td><td>15%</td><td>Deep dives, личные эссе. Выше saves/forwards среди engaged.</td></tr>
+  </table>
+
+  <h3>Posting frequency & timing</h3>
+  <div class="tactic">
+    <div class="tactic-title">Рекомендуемая частота: 5-7 постов/неделю</div>
+    <div class="tactic-data">Лучшее время: 09:00-10:00 MSK (утро) и 18:00-19:00 MSK (вечер). Вт-Чт — пиковые дни.</div>
+    <div class="tactic-action">Consistency > volume. 5 постов/неделю каждую неделю лучше, чем 10 одну неделю и 2 следующую.</div>
+  </div>
+
+  <h3>5 content pillars для @timofeyzinin</h3>
+  <table>
+    <tr><th>Pillar</th><th>Описание</th><th>Частота</th><th>Пример</th></tr>
+    <tr><td><strong>Agent Dispatch</strong></td><td>Build in Public: метрики агентов, что сделали, ошибки</td><td>2/нед</td><td>"Мои 6 агентов обработали 47 задач за ночь. Вот что пошло не так..."</td></tr>
+    <tr><td><strong>Career Signal</strong></td><td>Инсайты из СБОРКИ: тренды найма, ошибки соискателей</td><td>2/нед</td><td>"Вчера разбирали резюме в СБОРКЕ. 4 из 5 допускают одну ошибку..."</td></tr>
+    <tr><td><strong>Tool of the Week</strong></td><td>AI-инструмент с реальным юзкейсом</td><td>1/нед</td><td>"Протестировал [tool] на реальной задаче. Результат: [скриншот]"</td></tr>
+    <tr><td><strong>Hot Take</strong></td><td>Contrarian мнение о AI/карьере/рынке</td><td>1/нед</td><td>"Все говорят что AI заменит разработчиков. А я думаю наоборот..."</td></tr>
+    <tr><td><strong>Open Numbers</strong></td><td>Прозрачность: доходы, расходы, метрики проектов</td><td>1/2 нед</td><td>"MRR $515. Вот откуда: [разбивка]"</td></tr>
+  </table>
+</div>
+
+<!-- SECTION 4: Tone of Voice -->
+<div class="section">
+  <h2>4. Tone of Voice — Стиль для Telegram</h2>
+
+  <div class="grid-2">
+    <div class="do-list">
+      <h4>Стиль Тима в TG</h4>
+      <ul>
+        <li><strong>Разговорный</strong> — как в чате с другом, не как статья</li>
+        <li><strong>Компактные абзацы</strong> — связанные мысли вместе, max 4-5 блоков</li>
+        <li><strong>Начинай с проблемы аудитории</strong> — не с "я сделал"</li>
+        <li><strong>Bold для акцентов</strong> — 2-3 на пост максимум</li>
+        <li><strong>2-3 эмодзи max</strong> — не бусы из смайлов</li>
+        <li><strong>CTA дружелюбный</strong> — "подписывайтесь, приходите"</li>
+        <li><strong>Называй людей по имени</strong> — конкретика = доверие</li>
+        <li><strong>"Ты/тебе" > "я/мне"</strong> — фокус на читателе</li>
+      </ul>
+    </div>
+    <div class="dont-list">
+      <h4>Антипаттерны (ЗАПРЕЩЕНО)</h4>
+      <ul>
+        <li>"Последний месяц я работал без выходных..."</li>
+        <li>Тире (—) между частями предложения</li>
+        <li>Двойные отступы между всеми абзацами</li>
+        <li>Негативные сравнения ("это не вебинар")</li>
+        <li>Пафос ("я вижу вокруг", "и большинство делает")</li>
+        <li>Истории "про знакомого"</li>
+        <li>Поучительный тон ("приходи, я тебя научу")</li>
+        <li>Посты без ссылок и UTM</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Формулы хуков для TG-постов</h3>
+  <div class="tactic">
+    <div class="tactic-title">1. The Reframe</div>
+    <div class="tactic-action">"Все думают, что [common belief]. На самом деле [surprising truth]." — Переворот ожиданий, провоцирует дочитать.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">2. List Lead</div>
+    <div class="tactic-action">"3 вещи, которые я понял после [action/event]:" — Конкретика в числе + personal experience = открытие.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">3. Question Hook</div>
+    <div class="tactic-action">"Тебе когда-нибудь говорили, что [X]? Вот почему это не работает." — Прямое обращение + вызов.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">4. Story Lead</div>
+    <div class="tactic-action">"Вчера в СБОРКЕ разбирали [situation]. Один участник [did X]. Результат:" — Конкретная история с outcome.</div>
+  </div>
+  <div class="tactic">
+    <div class="tactic-title">5. Open Numbers</div>
+    <div class="tactic-action">"$515 MRR. 6 AI-агентов. 26 платформ. Вот что произошло за последний месяц:" — Цифры в первой строке = attention.</div>
+  </div>
+
+  <h3>Форматирование</h3>
+  <div class="formula">**Bold** — для ключевых мыслей (2-3 на пост)
+*Italic* — для цитат и внутреннего диалога
+`Monospace` — для чисел, метрик, кода
+[Ссылка](url) — всегда с UTM, в конце поста или mid-text
+Хэштеги: 2-3 max (#AI #карьера #СБОРКА)
+Emoji: 2-3 max, в начале абзацев для визуальной структуры</div>
+</div>
+
+<!-- SECTION 5: Profile Optimization -->
+<div class="section">
+  <h2>5. Channel Optimization</h2>
+
+  <h3>Элементы для обновления</h3>
+  <table>
+    <tr><th>Элемент</th><th>Рекомендация</th></tr>
+    <tr><td><strong>Аватар</strong></td><td>Профессиональное фото, совпадающее со всеми платформами. 1280x1280px. Тёплые цвета (бренд-палитра).</td></tr>
+    <tr><td><strong>Название канала</strong></td><td>Включить ключевые слова: "Tim Zinin | AI + Career" или "Тим Зинин | AI-агенты и карьера"</td></tr>
+    <tr><td><strong>Описание</strong></td><td>100-150 слов. SEO-ключи: AI-агенты, карьера, СБОРКА, personal brand, нейросети. CTA на sborka.work.</td></tr>
+    <tr><td><strong>Pinned message</strong></td><td>Welcome-пост: кто я, что здесь будет, CTA (подписка + sborka.work). Обновлять ежемесячно.</td></tr>
+    <tr><td><strong>Username</strong></td><td>@timofeyzinin — оставить (consistency across platforms)</td></tr>
+    <tr><td><strong>Discussion group</strong></td><td><span class="badge badge-boost">КРИТИЧНО</span> — подключить группу для комментариев. Без этого engagement сильно ниже.</td></tr>
+    <tr><td><strong>Ссылки</strong></td><td>sborka.work (первая), LinkedIn, YouTube, Instagram</td></tr>
+  </table>
+
+  <div class="warning">
+    <b>Discussion group = обязательно.</b> Без привязанной группы нет комментариев, нет discussion = engagement только через reactions. С комментами: engagement +30-50%. Создать группу и привязать к каналу.
+  </div>
+
+  <h3>Описание канала (шаблон)</h3>
+  <div class="formula">One Brain, Many Agents 🧠
+
+AI-агенты, карьера, building in public.
+6 AI-агентов работают 24/7 на 26 платформах.
+
+Кто я: основатель СБОРКА (карьерный клуб), строю AI Blogger Factory.
+Что здесь: реальные метрики, агентские апдейты, карьерные инсайты, AI-инструменты.
+
+🔗 sborka.work — карьерный клуб</div>
+</div>
+
+<!-- SECTION 6: Content Playbook -->
+<div class="section">
+  <h2>6. Content Playbook — Недельный календарь</h2>
+
+  <table>
+    <tr><th>День</th><th>Время</th><th>Pillar</th><th>Формат</th><th>Пример</th></tr>
+    <tr><td><strong>Пн</strong></td><td>09:00</td><td>Agent Dispatch</td><td>Short (300-800)</td><td>"Утро понедельника. Мои агенты за выходные: [метрики]"</td></tr>
+    <tr><td><strong>Вт</strong></td><td>18:00</td><td>Career Signal</td><td>Medium (800-2000)</td><td>"Разбирали в СБОРКЕ кейс: [история + урок]"</td></tr>
+    <tr><td><strong>Ср</strong></td><td>10:00</td><td>Tool of the Week</td><td>Text + Image</td><td>"Тестирую [tool]: [скриншот] + вердикт"</td></tr>
+    <tr><td><strong>Чт</strong></td><td>18:00</td><td>Hot Take</td><td>Short (300-800)</td><td>"Все говорят [X]. А я считаю [Y]. Вот почему..."</td></tr>
+    <tr><td><strong>Пт</strong></td><td>10:00</td><td>Open Numbers / BIP</td><td>Text + Image</td><td>"Итоги недели: MRR, подписчики, что сделали агенты"</td></tr>
+    <tr><td><strong>Сб</strong></td><td>12:00</td><td>Career Signal</td><td>Poll/Quiz</td><td>"Какой AI-инструмент ты используешь для работы?" [poll]</td></tr>
+    <tr><td><strong>Вс</strong></td><td>—</td><td>—</td><td>—</td><td>Отдых (или лёгкий personal пост)</td></tr>
+  </table>
+
+  <h3>Content mix (30% / 25% / 25% / 10% / 10%)</h3>
+  <div class="formula">30% Personal insights (истории, build in public, open numbers)
+25% Industry news + commentary (AI-новости с POV)
+25% Educational (тьюториалы, карьерные tips, tool reviews)
+10% CTA / Promotion (sborka.work, бот, вебинары)
+10% Engagement (polls, quizzes, вопросы аудитории)</div>
+
+  <h3>Repurposing pipeline</h3>
+  <table>
+    <tr><th>Из</th><th>В</th><th>Как</th></tr>
+    <tr><td>TG пост (300-800 chars)</td><td>LinkedIn пост</td><td>Расширить до 1300 chars, добавить хук и CTA</td></tr>
+    <tr><td>TG пост</td><td>Threads пост</td><td>Сократить до 500 chars, добавить UTM-ссылку</td></tr>
+    <tr><td>TG long post</td><td>Dev.to / Medium статья</td><td>Развернуть в полноценную статью 1500-3000 слов</td></tr>
+    <tr><td>LinkedIn пост</td><td>TG пост</td><td>Сократить, убрать LinkedIn-specific CTAs</td></tr>
+    <tr><td>YouTube видео</td><td>3-5 TG постов</td><td>Key insights из видео как отдельные посты</td></tr>
+  </table>
+</div>
+
+<!-- SECTION 7: Growth Hacks -->
+<div class="section">
+  <h2>7. Growth Hacks — Тактики роста</h2>
+
+  <div class="tactic">
+    <div class="tactic-title">Forward-Optimized Posts</div>
+    <div class="tactic-data">Forward-to-view ratio: 15-25% = вирусный пост</div>
+    <div class="tactic-action">Писать посты, которые хочется переслать: useful lists, hot takes, "посмотри что написал", personal failures с уроками. Каждый форвард = бесплатная acquisition.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Cross-Promotion с каналами</div>
+    <div class="tactic-data">Обмен упоминаниями: 5-15% конверсия от overlap аудитории</div>
+    <div class="tactic-action">Найти 5-10 каналов в нише (AI, карьера, tech, 500-5K subs). Написать админам: "Давай сделаем взаимный пост — я расскажу о твоём канале, ты о моём." 1-2 свопа в неделю.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Bot-Driven Acquisition</div>
+    <div class="tactic-data">@Sborka_work_bot → подписка на канал</div>
+    <div class="tactic-action">В боте @Sborka_work_bot добавить кнопку "Канал Тима" или auto-suggest подписки после welcome. Каждый новый пользователь бота = потенциальный подписчик канала.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Group Participation</div>
+    <div class="tactic-data">Активность в 5-10 тематических группах с 1K+ участниками</div>
+    <div class="tactic-action">Писать полезные ответы в чатах (Botanica, career groups, AI groups). В профиле — ссылка на канал. НЕ спамить, а давать ценность → любопытство → переход на канал.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Directory Registration</div>
+    <div class="tactic-data">tgstat.ru + telemetr.io + combot.org</div>
+    <div class="tactic-action">Зарегистрировать канал во всех крупных каталогах. Бесплатно. Улучшает discoverability и даёт социальное доказательство (рейтинги, статистика).</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Invite Link Strategy</div>
+    <div class="tactic-data">Уникальные инвайт-ссылки для каждого канала/платформы</div>
+    <div class="tactic-action">Создать отдельные invite links для: LinkedIn bio, Instagram bio, YouTube description, sborka.work, подпись email. Отслеживать какой канал приводит подписчиков.</div>
+  </div>
+
+  <div class="tactic">
+    <div class="tactic-title">Event-Driven Growth</div>
+    <div class="tactic-data">Вебинары СБОРКИ → подписчики канала</div>
+    <div class="tactic-action">"Подписывайтесь на канал для анонсов следующих вебинаров и эксклюзивных материалов". Каждый вебинар = 10-30 новых подписчиков канала при правильном CTA.</div>
+  </div>
+</div>
+
+<!-- SECTION 8: CTA Strategy -->
+<div class="section">
+  <h2>8. CTA Strategy — Трафик на sborka.work</h2>
+
+  <h3>Правило: 1 прямой CTA на 5-6 value-постов</h3>
+  <div class="warning">
+    <b>НЕ превращать канал в рекламную площадку.</b> 80%+ контента = чистая ценность без CTA. 10-20% = soft/direct CTA на sborka.work. Подписчики остаются за ценность, уходят от рекламы.
+  </div>
+
+  <h3>4 формулы CTA</h3>
+  <table>
+    <tr><th>Тип</th><th>Когда</th><th>Пример</th></tr>
+    <tr><td><strong>Soft CTA</strong></td><td>В конце value-поста</td><td>"Подробнее разбираем на встречах СБОРКИ → sborka.work"</td></tr>
+    <tr><td><strong>Direct CTA</strong></td><td>1 раз в неделю</td><td>"Карьерный клуб СБОРКА. Присоединяйся → sborka.work?utm_source=telegram"</td></tr>
+    <tr><td><strong>Urgency CTA</strong></td><td>Перед вебинаром</td><td>"Через 2 дня разбираем [тема]. Бесплатно. Запись → [ссылка]"</td></tr>
+    <tr><td><strong>Value-First CTA</strong></td><td>После полезного поста</td><td>"Если полезно, в СБОРКЕ таких разборов каждую неделю → sborka.work"</td></tr>
+  </table>
+
+  <h3>UTM-шаблоны для Telegram</h3>
+  <div class="formula">Сайт: sborka.work?utm_source=telegram&utm_medium=social&utm_campaign=s04_tg&utm_content={post_topic}
+Бот: t.me/Sborka_work_bot?start=source_tg_tim_{date}
+Pinned: sborka.work?utm_source=telegram&utm_medium=pinned
+Bio: sborka.work?utm_source=telegram&utm_medium=bio</div>
+
+  <h3>Воронка конверсии</h3>
+  <div class="formula">93 подписчика (текущее)
+  → 40-60 views/пост (40-65% engagement)
+    → 2-5 кликов по ссылке (3-8% CTR)
+      → 1-3 визита sborka.work
+        → 0-1 регистрация (при 93 subs масштаб мал)
+
+При 500 подписчиков:
+  → 200-300 views/пост
+    → 10-25 кликов по ссылке
+      → 5-12 визитов sborka.work
+        → 1-3 регистрации/пост с CTA
+
+При 1000 подписчиков:
+  → 400-600 views/пост
+    → 20-50 кликов
+      → 10-25 визитов
+        → 2-5 регистраций/пост с CTA</div>
+</div>
+
+<!-- SECTION 9: 30-Day Action Plan -->
+<div class="section">
+  <h2>9. 30-Day Action Plan — Рост @timofeyzinin</h2>
+
+  <div class="timeline">
+    <div class="timeline-item"><span class="week">Week 1</span>Setup + Launch</div>
+    <div class="timeline-item"><span class="week">Week 2</span>Content Rhythm</div>
+    <div class="timeline-item"><span class="week">Week 3</span>Cross-Promo</div>
+    <div class="timeline-item"><span class="week">Week 4</span>Optimize</div>
+  </div>
+
+  <h3>Week 1: Setup & Launch</h3>
+  <div class="action-plan">
+    <div class="action-item"><strong>Оптимизировать профиль канала:</strong> обновить описание (SEO-ключи), аватар (consistency), pinned message (welcome + CTA).</div>
+    <div class="action-item"><strong>Подключить discussion group</strong> для комментариев. Создать группу, привязать к каналу.</div>
+    <div class="action-item"><strong>Зарегистрировать канал</strong> на tgstat.ru, telemetr.io, combot.org.</div>
+    <div class="action-item"><strong>Создать invite links</strong> для каждого источника (LinkedIn, Instagram, YouTube, email).</div>
+    <div class="action-item"><strong>Опубликовать 5 постов:</strong> Agent Dispatch, Career Signal, Tool review, Hot Take, Open Numbers.</div>
+  </div>
+
+  <h3>Week 2: Content Rhythm</h3>
+  <div class="action-plan">
+    <div class="action-item"><strong>Установить расписание:</strong> 5-7 постов/неделю по calendar template. Batching: написать 3-5 постов за одну сессию в понедельник.</div>
+    <div class="action-item"><strong>Добавить polls/quizzes:</strong> 1-2 в неделю для engagement. "Какой AI-инструмент используешь?" "Где ищешь работу?"</div>
+    <div class="action-item"><strong>Cross-post из LinkedIn:</strong> адаптировать лучшие LinkedIn-посты для TG (короче, неформальнее).</div>
+  </div>
+
+  <h3>Week 3: Cross-Promotion</h3>
+  <div class="action-plan">
+    <div class="action-item"><strong>Outreach 5-10 каналов</strong> в нише для взаимного промо. Написать админам с предложением swap.</div>
+    <div class="action-item"><strong>Активность в 5 группах:</strong> писать полезные ответы с ссылкой на канал в профиле.</div>
+    <div class="action-item"><strong>Добавить CTA на канал</strong> в бот @Sborka_work_bot, в подпись email, в LinkedIn/Instagram bio.</div>
+  </div>
+
+  <h3>Week 4: Optimize</h3>
+  <div class="action-plan">
+    <div class="action-item"><strong>Анализ статистики:</strong> какие посты получили больше views/reactions/forwards? Удвоить формат-лидер.</div>
+    <div class="action-item"><strong>A/B тест:</strong> попробовать утренний (09:00) vs вечерний (18:00) posting. Сравнить views.</div>
+    <div class="action-item"><strong>Ревью forward-to-view ratio:</strong> посты с >15% = формулу повторить. Посты с <5% = формат убрать.</div>
+  </div>
+
+  <h3>KPIs</h3>
+  <table>
+    <tr><th>Метрика</th><th>Сейчас</th><th>Month 1</th><th>Month 3</th><th>Month 6</th></tr>
+    <tr><td><strong>Подписчики</strong></td><td>93</td><td>150-200</td><td>500</td><td>1,000</td></tr>
+    <tr><td>Views/пост</td><td>40-60</td><td>80-120</td><td>200-300</td><td>400-600</td></tr>
+    <tr><td>Engagement rate</td><td>40-65%</td><td>40-60%</td><td>35-50%</td><td>30-45%</td></tr>
+    <tr><td>Forwards/пост</td><td>1-3</td><td>3-5</td><td>5-15</td><td>15-30</td></tr>
+    <tr><td>sborka.work clicks/мес</td><td>~5</td><td>20-40</td><td>60-120</td><td>150-300</td></tr>
+    <tr><td>Постов/неделю</td><td>~1-2</td><td>5-7</td><td>5-7</td><td>5-7</td></tr>
+  </table>
+
+  <div class="insight">
+    <b>Growth milestones:</b> 100 subs (мар) → 500 (июнь) → 1,000 (сентябрь) → 3,000 (дек 2026). При 1,000+ открывается Telegram Ads revenue sharing и платные размещения.
+  </div>
+</div>
+
+<footer>
+  <p>S-04 Telegram Personal Research &middot; Тим Зинин &middot; Март 2026</p>
+  <p>Данные: TGStat, Telemetrio, Telegram documentation, industry benchmarks 2025-2026</p>
+  <p style="margin-top:12px"><a href="../smm_platform_audit.html" style="color:var(--telegram)">&larr; Вернуться на Dashboard</a> &nbsp;|&nbsp; <a href="s03_youtube.html" style="color:var(--muted)">&larr; S-03 YouTube</a> &nbsp;|&nbsp; <a href="s05_telegram_sborka.html" style="color:var(--muted)">S-05 TG Sborka &rarr;</a></p>
+</footer>
+
+</div>
+</body>
+</html>

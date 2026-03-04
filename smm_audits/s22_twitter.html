@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S-22 Twitter/X — SMM Research Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--tw:#1DA1F2;--tw-dark:#0D8BD9;--tw-light:#E8F5FE}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--dark);line-height:1.7}
+.topnav{position:sticky;top:0;z-index:100;background:var(--dark);padding:8px 16px;display:flex;align-items:center;gap:8px;overflow-x:auto;white-space:nowrap;font-size:.82em}
+.topnav a{color:var(--sand);text-decoration:none;padding:4px 10px;border-radius:6px;transition:all .2s}
+.topnav a:hover,.topnav a.active{background:var(--tw);color:#fff}
+.topnav .sep{color:var(--muted);margin:0 2px}
+.container{max-width:900px;margin:0 auto;padding:20px 24px 60px}
+header{text-align:center;padding:48px 20px;margin-bottom:32px;background:linear-gradient(135deg,#1DA1F2,#0D8BD9,#0A5C8F);border-radius:16px;color:#fff}
+header h1{font-family:'Playfair Display',serif;font-size:2.4em;margin-bottom:8px}
+header .sub{opacity:.9;font-size:1.05em;margin-bottom:6px}
+header .meta{opacity:.7;font-size:.85em}
+.platform-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);padding:8px 20px;border-radius:99px;font-weight:600;margin-top:12px;font-size:.95em}
+h2{font-family:'Playfair Display',serif;font-size:1.6em;color:var(--dark);margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--tw)}
+h3{font-size:1.15em;color:var(--tw-dark);margin:24px 0 10px;font-weight:700}
+p{margin-bottom:14px}
+.section{background:var(--sand);border-radius:14px;padding:28px;margin-bottom:24px}
+.insight{background:var(--tw-light);border-left:4px solid var(--tw);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0;font-size:.95em}
+.warning{background:#FFF3E5;border-left:4px solid var(--gold);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0;font-size:.95em}
+.tactic{background:#fff;border:1px solid #e0d5c5;border-radius:10px;padding:18px;margin:14px 0}
+.tactic strong{color:var(--tw-dark)}
+.formula{background:var(--dark);color:var(--sand);padding:16px 20px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:.85em;margin:14px 0;overflow-x:auto;white-space:pre-wrap}
+.competitor{display:grid;grid-template-columns:auto 1fr;gap:12px 16px;background:#fff;border:1px solid #e0d5c5;border-radius:10px;padding:16px;margin:12px 0}
+.competitor .num{font-family:'Playfair Display',serif;font-size:1.8em;color:var(--tw);font-weight:700;line-height:1}
+.competitor .det{font-size:.92em}
+.competitor .det strong{display:block;font-size:1.05em;margin-bottom:4px}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9em}
+th{background:var(--tw);color:#fff;padding:10px 14px;text-align:left;font-weight:600}
+td{padding:10px 14px;border-bottom:1px solid #e0d5c5}
+tr:nth-child(even){background:rgba(29,161,242,.05)}
+.action-plan{border:2px solid var(--tw);border-radius:14px;padding:24px;margin:20px 0}
+.week{margin:16px 0}
+.week-label{display:inline-block;background:var(--tw);color:#fff;padding:4px 12px;border-radius:6px;font-weight:700;font-size:.85em;margin-bottom:8px}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin:16px 0}
+.kpi-card{background:#fff;border:1px solid #e0d5c5;border-radius:10px;padding:16px;text-align:center}
+.kpi-card .num{font-family:'Playfair Display',serif;font-size:1.8em;color:var(--tw);font-weight:700}
+.kpi-card .label{font-size:.8em;color:var(--muted);margin-top:4px}
+code{font-family:'JetBrains Mono',monospace;background:var(--tw-light);padding:2px 6px;border-radius:4px;font-size:.88em}
+ul,ol{margin:10px 0 14px 20px}
+li{margin-bottom:6px}
+.back-link{display:inline-block;margin:20px 0;padding:10px 20px;background:var(--tw);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;transition:all .2s}
+.back-link:hover{background:var(--tw-dark)}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="../smm_platform_audit.html">&larr; Dashboard</a>
+  <span class="sep">|</span>
+  <a href="s01_telegram.html">TG</a>
+  <a href="s02_linkedin.html">LI</a>
+  <a href="s03_threads.html">Threads</a>
+  <a href="s04_instagram.html">IG</a>
+  <a href="s05_youtube.html">YT</a>
+  <a href="s06_tiktok.html">TikTok</a>
+  <a href="s07_facebook.html">FB</a>
+  <a href="s08_x.html">X</a>
+  <span class="sep">|</span>
+  <a href="s09_vk.html">VK</a>
+  <a href="s10_vcru.html">VC</a>
+  <a href="s11_devto.html">Dev.to</a>
+  <a href="s12_medium.html">Medium</a>
+  <a href="s13_hashnode.html">Hashnode</a>
+  <a href="s14_bluesky.html">Bluesky</a>
+  <a href="s15_mastodon.html">Mastodon</a>
+  <a href="s16_tumblr.html">Tumblr</a>
+  <a href="s17_okru.html">OK.ru</a>
+  <a href="s18_nostr.html">Nostr</a>
+  <a href="s19_minds.html">Minds</a>
+  <span class="sep">|</span>
+  <a href="s20_writeas.html">Write.as</a>
+  <a href="s21_lemmy.html">Lemmy</a>
+  <a href="s22_twitter.html" class="active">Twitter/X</a>
+</nav>
+
+<div class="container">
+
+<header>
+  <h1>Twitter / X</h1>
+  <div class="sub">S-22 — Главная платформа для Tech/AI Builder аудитории</div>
+  <div class="meta">@timofeyzinin &middot; ~300 followers &middot; API: $200/мес (не нужен для старта)</div>
+  <div class="platform-badge">&#120143; For You Algorithm &middot; Threads &middot; Spaces &middot; X Premium</div>
+</header>
+
+<!-- ===== 1. ALGORITHM ===== -->
+<div class="section">
+  <h2>1. Алгоритм и распространение контента</h2>
+
+  <h3>For You vs Following</h3>
+  <p><strong>For You (алгоритмическая)</strong> — дефолтная вкладка, где происходит виральность. 50% контент от подписок (ранжированный Real Graph моделью) + 50% out-of-network (через Social Graph + SimClusters ~145K interest communities).</p>
+  <p><strong>Following (хронологическая)</strong> — чистая хронология. ~15-20% сессий. Важна для лояльных подписчиков.</p>
+
+  <h3>Engagement signals и их веса</h3>
+  <table>
+    <tr><th>Signal</th><th>Вес</th><th>Примечание</th></tr>
+    <tr><td><strong>Bookmark</strong></td><td>~4x</td><td>САМЫЙ мощный сигнал. "Хочу вернуться к этому"</td></tr>
+    <tr><td>Reply</td><td>~1x</td><td>Начало conversation = high quality</td></tr>
+    <tr><td>Retweet</td><td>~1x</td><td>Amplification signal</td></tr>
+    <tr><td>Quote Tweet</td><td>~1x + compounding</td><td>Создаёт свой engagement → feedback loop</td></tr>
+    <tr><td>Profile Click</td><td>~1x</td><td>"Кто этот автор?" = strong quality</td></tr>
+    <tr><td>Like</td><td>~0.5x</td><td>Lightweight, но объём компенсирует</td></tr>
+    <tr><td>Link Click</td><td>Slightly negative</td><td>Twitter ДЕБУСТИТ внешние ссылки (40-60% меньше impressions)</td></tr>
+    <tr><td>Video Watch Time</td><td>HIGH</td><td>Для видео — watch-through rate доминирует</td></tr>
+  </table>
+
+  <div class="warning">
+    <strong>Negative signals:</strong> Mute/Block/Report, "Not interested", Unfollow после просмотра, engagement от ботов. Всё это РЕЖЕТ reach.
+  </div>
+
+  <h3>X Premium ($8/мес) — ROI Assessment</h3>
+  <div class="insight">
+    <strong>Рекомендация: подписаться СРАЗУ.</strong> За $8/мес: algorithmic boost 2-4x impressions, 25,000 символов (vs 280), edit button, revenue sharing (после 5M impressions). Это НЕ $200/мес API — это personal subscription. Самая высокая ROI инвестиция на платформе.
+  </div>
+
+  <h3>Tweet Lifecycle</h3>
+  <div class="formula">0-15 мин: показ ~10-20% followers (тестовая выборка)
+15-30 мин: если engagement rate высокий → amplification mode
+30 мин - 4 ч: расширение на For You feeds non-followers
+4-24 ч: только high-performing продолжают расти
+Half-life обычного tweet: ~18 минут</div>
+
+  <h3>Оптимальное время постинга</h3>
+  <table>
+    <tr><th>Аудитория</th><th>Лучшее время (UTC)</th><th>Дни</th></tr>
+    <tr><td>EN tech builders</td><td>14:00-16:00</td><td>Вт-Чт</td></tr>
+    <tr><td>Saudi/Gulf CTOs</td><td>06:00-09:00</td><td>Вс-Чт (рабочая неделя!)</td></tr>
+    <tr><td>RU предприниматели</td><td>08:00-11:00</td><td>Пн-Пт</td></tr>
+    <tr><td colspan="3"><strong>Best overlap: Вт-Чт 08:00-10:00 UTC</strong> — утро MENA, полдень RU, pre-work scroll US</td></tr>
+  </table>
+</div>
+
+<!-- ===== 2. CONTENT FORMATS ===== -->
+<div class="section">
+  <h2>2. Форматы контента</h2>
+
+  <h3>Single Tweets — 4 формата</h3>
+  <div class="tactic">
+    <strong>A. Hot Take (наивысший engagement)</strong>
+    <div class="formula">Unpopular opinion: Most "AI agents" are just if-else chains
+wrapped in an API call.
+
+Real agents need: persistent memory, tool selection,
+error recovery, autonomous decision-making.
+
+I run 6 of them in production. 90% of what I see on
+my timeline wouldn't survive a weekend.</div>
+  </div>
+
+  <div class="tactic">
+    <strong>B. Metric Drop (высокий bookmark rate)</strong>
+    <div class="formula">My AI video pipeline costs:
+- $0.09/minute of video
+- 47 seconds generation time
+- 0 human editing
+
+The agency quoted me $500/minute.
+
+Here's the exact stack: [thread]</div>
+  </div>
+
+  <div class="tactic">
+    <strong>C. Screenshot/Demo</strong> — terminal output, dashboards, side-by-side. Tech Twitter loves real outputs.<br>
+    <strong>D. Contrarian Question</strong> — "How many of your 'autonomous agents' actually run without intervention for 72h? I'll go first: 4 out of 6."
+  </div>
+
+  <h3>Threads — самый мощный формат</h3>
+  <p>Генерируют наивысший total engagement. Optimum: <strong>5-10 tweets</strong>. Hook tweet определяет 90% reach. Body tweets — independently valuable. Closer: CTA или engagement question.</p>
+
+  <h3>Video — 3-5x algorithmic boost в 2025-2026</h3>
+  <p>Twitter активно бустит видео (конкуренция с TikTok/Shorts). Screen recordings 30-90 sec, talking head + screen 2-5 min, demo reels 15-30 sec. Существующий AI video pipeline (shorts_v2.py, $0.09/мин) → near-zero cost репёрпозинг.</p>
+
+  <h3>Другие форматы</h3>
+  <table>
+    <tr><th>Формат</th><th>Применение</th></tr>
+    <tr><td>Spaces (audio)</td><td>Weekly "Agent Report" 30 мин + guest builders. Purple notification = guaranteed visibility</td></tr>
+    <tr><td>Communities</td><td>"AI Builders", "Build in Public", "Indie Hackers" — post 1-2x/week</td></tr>
+    <tr><td>Polls</td><td>4 варианта, 24h. Zero-friction engagement. Follow up с results analysis</td></tr>
+    <tr><td>Articles (Premium)</td><td>Длинные гайды, бенчмарки. Permanent shareable URL, indexed by Google</td></tr>
+  </table>
+</div>
+
+<!-- ===== 3. COMPETITORS ===== -->
+<div class="section">
+  <h2>3. Анализ конкурентов</h2>
+
+  <div class="competitor">
+    <div class="num">1</div>
+    <div class="det">
+      <strong>@levelsio (Pieter Levels) — 530K followers</strong>
+      10-30 tweets/day &middot; Revenue screenshots &middot; Hot takes + memes<br>
+      <em>Learn:</em> Revenue transparency = FOMO. Frequent posting OK if engagement stays. <em>Don't copy:</em> Unsustainable volume, controversial territory.
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="num">2</div>
+    <div class="det">
+      <strong>@mattshumer_ (Matt Shumer) — 120K followers</strong>
+      3-5/day &middot; Threads + benchmarks &middot; First mover on new AI releases<br>
+      <em>Learn:</em> "First mover on new models" = massive organic reach. Thread hooks = art form. <em>Differentiation:</em> Tim runs agents for REAL businesses, Matt evaluates models.
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="num">3</div>
+    <div class="det">
+      <strong>@yaborfl (Yohei Nakajima, BabyAGI) — 85K followers</strong>
+      2-5/day &middot; OSS project announcements &middot; Architecture threads<br>
+      <em>Learn:</em> Open-source = permanent credibility. Architecture diagrams = highest bookmarks. <em>Differentiation:</em> Tim = production for businesses, Yohei = research prototypes.
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="num">4</div>
+    <div class="det">
+      <strong>@mcaborern (Greg Isenberg) — 350K followers</strong>
+      5-10/day &middot; "Here's a $1M startup idea" &middot; Podcast clips repurposing<br>
+      <em>Learn:</em> Video clips 5-10x engagement vs text. Deep reply engagement = compounding reach.
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="num">5</div>
+    <div class="det">
+      <strong>@nickscamara_ (Nick Saraev) — 45K followers</strong>
+      2-4/day &middot; $72K/mo income reports &middot; No-code automation<br>
+      <em>Differentiation:</em> Tim's code-first approach = stronger technical credibility vs Nick's Make.com.
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="num">6</div>
+    <div class="det">
+      <strong>@_nerdspiration (Sara Du) — 55K followers</strong>
+      3-5/day &middot; "Founder diary" &middot; Honest failure stories<br>
+      <em>Learn:</em> Failure posts 3-5x more engagement than success. Narrative arcs create retention.
+    </div>
+  </div>
+
+  <div class="insight">
+    <strong>Tim's positioning gap:</strong> НИКТО не комбинирует (a) production multi-agent systems + (b) real revenue from agents + (c) MENA/Saudi knowledge + (d) bilingual EN/RU. Это уникальная территория Tim.
+  </div>
+</div>
+
+<!-- ===== 4. COMMUNITY CULTURE ===== -->
+<div class="section">
+  <h2>4. Культура Tech Twitter</h2>
+
+  <h3>Builder Identity = высший статус</h3>
+  <p>"I shipped this" весит больше любых credentials. Каждый tweet должен подтверждать, что Tim СТРОИТ. Screenshots > descriptions. Terminal output > promises. Deployed URLs > pitch decks.</p>
+
+  <h3>Quote Tweet культура</h3>
+  <table>
+    <tr><th>Тип QT</th><th>Применение</th><th>Для Tim</th></tr>
+    <tr><td>Supportive (добавляя value)</td><td>"Great point. From my experience running agents: [insight]"</td><td>PRIMARY</td></tr>
+    <tr><td>Disagreement (respectful)</td><td>"My data shows opposite. [evidence]"</td><td>OK when grounded</td></tr>
+    <tr><td>Dunking (hostile)</td><td>Mockery of original</td><td>NEVER</td></tr>
+  </table>
+
+  <h3>Правило "10 replies before 1 post"</h3>
+  <p>Каждый день: 10 thoughtful replies на tweets из ниши → потом свой контент. Это: (a) profile exposure для чужих аудиторий, (b) relationships с авторами, (c) signal для алгоритма что ты active participant.</p>
+
+  <h3>5 AI Twitter субкультур</h3>
+  <table>
+    <tr><th>Субкультура</th><th>Focus</th><th>Tim's роль</th></tr>
+    <tr><td>AI Safety</td><td>Alignment, existential risk</td><td>Уважительно, но не центр</td></tr>
+    <tr><td>AI Art</td><td>Midjourney, SD, DALL-E</td><td>Video pipeline bridge</td></tr>
+    <tr><td><strong>AI Agents</strong></td><td>LangChain, CrewAI, AutoGPT</td><td><strong>HOME territory</strong></td></tr>
+    <tr><td>Indie Hackers</td><td>Solo SaaS, bootstrapping</td><td>"One brain" narrative</td></tr>
+    <tr><td>Future of Work</td><td>Remote, AI in hiring</td><td>СБОРКА CTA space</td></tr>
+  </table>
+
+  <div class="warning">
+    <strong>Red Lines:</strong> Никогда не фейкать метрики. Не присваивать чужой OSS. Не "engagement bait" с false urgency. Не трэшить конкурентов лично. Critique ideas, not people.
+  </div>
+</div>
+
+<!-- ===== 5. TONE OF VOICE ===== -->
+<div class="section">
+  <h2>5. Tone of Voice — адаптация для Twitter</h2>
+
+  <h3>Twitter rewards opinion velocity</h3>
+  <p>LinkedIn = polished thought leadership. Telegram = conversational warmth. Twitter = <strong>fast, sharp, opinionated takes backed by evidence</strong>. Контент должен быть dialogical — argue, debate, challenge, respond.</p>
+
+  <h3>Builder's Log Voice — Tim's authentic Twitter voice</h3>
+  <div class="formula">Day 47 of running AI bloggers in production.
+
+Today's surprise: the Threads API rate-limited us after 247 posts.
+Docs say 250/day. Reality: 247.
+
+Workaround: stagger posts across 2 tokens.
+Cost of the fix: 12 minutes of my time.
+
+These are the details nobody writes about.</div>
+
+  <h3>Адаптации от существующего tone of voice</h3>
+  <table>
+    <tr><th>Правило</th><th>Twitter адаптация</th></tr>
+    <tr><td>Не начинай с "я сделал"</td><td>Twitter: "I" OK когда = proof-of-work ("I shipped", "I tested", "I benchmarked")</td></tr>
+    <tr><td>No messianic narratives</td><td>KEEP — cringe detection на Twitter ещё выше</td></tr>
+    <tr><td>Links в каждом посте</td><td>MODIFY — links go in REPLIES, не main tweet (40-60% fewer impressions)</td></tr>
+    <tr><td>Дружелюбный тон</td><td>SHARPEN — Twitter "friendly" более casual + допускает edge/sharpness</td></tr>
+  </table>
+
+  <h3>Что НИКОГДА не писать на Twitter</h3>
+  <ul>
+    <li>"I'm so excited to announce..." (cringe)</li>
+    <li>"Thread incoming!" без самого thread</li>
+    <li>"Please RT" / "share this" (begging = credibility kill)</li>
+    <li>LinkedIn-style длинные абзацы с эмодзи</li>
+    <li>"AI will take all jobs" doom (clash с SBORKA mission)</li>
+  </ul>
+</div>
+
+<!-- ===== 6. HASHTAG & LIST STRATEGY ===== -->
+<div class="section">
+  <h2>6. Hashtag & List стратегия</h2>
+
+  <h3>3-tier Hashtag System</h3>
+  <table>
+    <tr><th>Tier</th><th>Hashtags</th><th>Использование</th></tr>
+    <tr><td>Core (always)</td><td>#BuildInPublic, #AIAgents, #AgenticAI, #IndieHacker, #LLM, #AI</td><td>1-2 на tweet</td></tr>
+    <tr><td>Contextual</td><td>#OpenSource, #CrewAI, #LangChain, #FutureOfWork, #Vision2030, #SaaS, #DevOps</td><td>Когда релевантно</td></tr>
+    <tr><td>Avoid</td><td>#ChatGPT (spam), #Web3/#NFT (dead), #Hustle (guru), #FollowBack</td><td>НИКОГДА</td></tr>
+  </table>
+  <p>Max 2-3 hashtags per tweet. Integrate naturally, не стакать в конце.</p>
+
+  <h3>Twitter Lists</h3>
+  <table>
+    <tr><th>List</th><th>Type</th><th>Purpose</th></tr>
+    <tr><td>AI Builders</td><td>Private</td><td>30-50 accounts, daily engagement targets</td></tr>
+    <tr><td>Saudi/MENA Tech</td><td>Private</td><td>20-30 accounts, market intelligence</td></tr>
+    <tr><td>"AI Agents in Production"</td><td><strong>Public</strong></td><td>Curation resource — being added = compliment → reciprocal engagement</td></tr>
+    <tr><td>"Builders I Follow"</td><td><strong>Public</strong></td><td>25-30 respected accounts</td></tr>
+  </table>
+</div>
+
+<!-- ===== 7. CTA STRATEGY ===== -->
+<div class="section">
+  <h2>7. CTA стратегии для sborka.work</h2>
+
+  <div class="warning">
+    <strong>КРИТИЧНО:</strong> Twitter ДЕБУСТИТ tweets с внешними ссылками (40-60% меньше impressions). Ссылки → в REPLIES, не в main tweet.
+  </div>
+
+  <h3>Link-in-Reply Pattern (PRIMARY)</h3>
+  <div class="formula">[MAIN TWEET — no link, full algorithmic treatment]
+My career bot matched 47 people with jobs this week.
+Average time to first match: 3 minutes.
+Quality score (user feedback): 8.2/10.
+The bot is free. Built it for our career club СБОРКА.
+
+[SELF-REPLY — link goes here]
+Try the bot: t.me/Sborka_work_bot?start=source_tw_tim_0304
+Full breakdown: sborka.work?utm_source=twitter&...&utm_content=career_bot_01</div>
+
+  <h3>UTM формат</h3>
+  <div class="formula">sborka.work?utm_source=twitter&utm_medium=social&utm_campaign=s22_twitter&utm_content={id}
+
+Content IDs:
+bio, pinned_thread, thread_{topic}_{date},
+reply_{context}_{date}, space_{topic}_{date}</div>
+
+  <h3>Bio = единственная link без penalty</h3>
+  <div class="tactic">
+    <strong>Рекомендуемый bio:</strong><br>
+    Multi-Agent Revenue Architect<br>
+    6 AI agents. 8 businesses. 1 laptop. $47/mo infra.<br>
+    Building in public. Ships that actually ship.<br>
+    Career tech: sborka.work
+  </div>
+
+  <h3>Pinned Tweet — conversion machine</h3>
+  <p>Обновлять ежемесячно. Thread: "I run 8 businesses with 6 AI agents" → agent-by-agent breakdown → costs ($47/мо) → СБОРКА career bot mention → follow CTA.</p>
+
+  <h3>3 CTA Pattern'а в threads</h3>
+  <ol>
+    <li><strong>"Value First, CTA Last"</strong> — 6-8 value tweets, CTA в финальном (30-40% дочитывают, но конвертят лучше)</li>
+    <li><strong>"Embedded CTA"</strong> — sborka.work naturally in value tweet: "We built a free career bot at sborka.work that does this automatically"</li>
+    <li><strong>"Reply CTA"</strong> — через 2-3 часа после engagement: "Lots of questions about the bot. Direct link: ..."</li>
+  </ol>
+</div>
+
+<!-- ===== 8. ADVERTISING ===== -->
+<div class="section">
+  <h2>8. Twitter/X Advertising</h2>
+
+  <h3>Ad Products</h3>
+  <table>
+    <tr><th>Product</th><th>CPM</th><th>CPC</th><th>Для Tim</th></tr>
+    <tr><td>Promoted Tweets</td><td>$2-6</td><td>$0.30-1.50</td><td>Бустить лучшие threads</td></tr>
+    <tr><td>Follower Campaigns</td><td>—</td><td>$1-4/follower</td><td>Для быстрого роста base</td></tr>
+    <tr><td>Website Traffic</td><td>$3-8</td><td>$0.50-2.00</td><td>sborka.work direct traffic</td></tr>
+    <tr><td>Engagement</td><td>$1-3</td><td>$0.02-0.20</td><td>Boost awareness</td></tr>
+  </table>
+
+  <h3>Targeting для Tim</h3>
+  <ul>
+    <li><strong>Interest:</strong> AI, Machine Learning, Startups, Programming</li>
+    <li><strong>Keyword:</strong> "AI agents", "build in public", "LLM", "automation"</li>
+    <li><strong>Follower look-alike:</strong> @levelsio, @mattshumer_, @yaborfl followers</li>
+    <li><strong>Geographic:</strong> Saudi Arabia, UAE, Qatar (для MENA angle)</li>
+  </ul>
+
+  <h3>Budget Plan — Month 1: $250</h3>
+  <table>
+    <tr><th>Phase</th><th>Budget</th><th>Action</th></tr>
+    <tr><td>Week 1-2</td><td>$50</td><td>Promote pinned thread для initial exposure</td></tr>
+    <tr><td>Week 2-3</td><td>$100</td><td>Follower campaign targeting AI builder audience</td></tr>
+    <tr><td>Week 3-4</td><td>$100</td><td>Promote best-performing organic thread</td></tr>
+  </table>
+
+  <div class="insight">
+    <strong>API cost:</strong> $200/мес NOT needed для старта. Free tier = 1,500 tweets/мо via v2. X Premium ($8/мес) даёт algorithmic boost. API нужен только при масштабировании автопостинга на 26+ платформ.
+  </div>
+</div>
+
+<!-- ===== 9. CROSS-PLATFORM ===== -->
+<div class="section">
+  <h2>9. Cross-Platform Syndication</h2>
+
+  <h3>"One Idea, Five Formats" Framework</h3>
+  <div class="formula">Одна идея ("AI agents cost $47/mo") →
+1. Twitter: Hot take single tweet
+2. LinkedIn: Professional breakdown (500 words)
+3. Threads: Micro-take (500 chars)
+4. Telegram: Разговорный пост (RU)
+5. Dev.to: Full technical article (2000+ words)</div>
+
+  <h3>Правила адаптации</h3>
+  <table>
+    <tr><th>Direction</th><th>Правило</th></tr>
+    <tr><td>Twitter → LinkedIn</td><td>Expand, add context, remove edge/sharpness, add "takeaway" framing</td></tr>
+    <tr><td>LinkedIn → Twitter</td><td>Extract hottest take, strip corporate tone, add numbers</td></tr>
+    <tr><td>Twitter → Threads</td><td>Compress to 500 chars, keep hook, add emoji sparingly</td></tr>
+    <tr><td>Twitter → Telegram</td><td>Translate to RU, add warmth, expand context</td></tr>
+    <tr><td>YouTube → Twitter</td><td>30-sec clips from videos, screen recordings, key moments</td></tr>
+  </table>
+
+  <div class="warning">
+    <strong>What NOT to cross-post:</strong> Twitter hot takes → LinkedIn (too edgy). LinkedIn essays → Twitter verbatim (too polished). Platform-specific engagement bait (polls designed for one platform).
+  </div>
+</div>
+
+<!-- ===== 10. 30-DAY PLAN ===== -->
+<div class="section">
+  <h2>10. 30-дневный план действий</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="num">600</div><div class="label">Followers (target)</div></div>
+    <div class="kpi-card"><div class="num">50K</div><div class="label">Impressions</div></div>
+    <div class="kpi-card"><div class="num">100+</div><div class="label">sborka.work visits</div></div>
+    <div class="kpi-card"><div class="num">~$270</div><div class="label">Budget (Premium + Ads)</div></div>
+  </div>
+
+  <div class="action-plan">
+    <div class="week">
+      <div class="week-label">Day 0: Setup Checklist</div>
+      <ul>
+        <li>Subscribe to X Premium ($8/мес)</li>
+        <li>Update bio: "Multi-Agent Revenue Architect. 6 agents. 8 businesses. 1 laptop."</li>
+        <li>Set bio link: <code>sborka.work?utm_source=twitter&...&utm_content=bio</code></li>
+        <li>Create + pin introductory thread (8 businesses, 6 agents, $47/mo)</li>
+        <li>Create 4 private lists (AI Builders, MENA Tech, Career/Work, Competitors)</li>
+        <li>Create 2 public lists ("AI Agents in Production", "Builders I Follow")</li>
+        <li>Follow 50 accounts from competitor analysis</li>
+        <li>Join 3-5 Communities (AI Builders, Build in Public, Indie Hackers)</li>
+        <li>Set profile photo + header (brand-consistent warm palette)</li>
+      </ul>
+    </div>
+
+    <div class="week">
+      <div class="week-label">Неделя 1: Foundation</div>
+      <ul>
+        <li><strong>Daily:</strong> 10 replies to AI builder tweets (morning, 15 min) + 2-3 original tweets</li>
+        <li><strong>День 1:</strong> Hot take tweet about AI agents in production</li>
+        <li><strong>День 2:</strong> Screenshot of agent dashboard + metric drop</li>
+        <li><strong>День 3:</strong> Thread #1: "6 AI agents, $47/mo — the full architecture"</li>
+        <li><strong>День 5:</strong> Poll: "Biggest bottleneck in your AI agent pipeline?"</li>
+        <li><strong>День 7:</strong> Week 1 "Builder's Log" tweet</li>
+      </ul>
+      <p><strong>KPI:</strong> 350 followers, 10K impressions, 20+ sborka.work visits</p>
+    </div>
+
+    <div class="week">
+      <div class="week-label">Неделя 2: Consistency + Video</div>
+      <ul>
+        <li><strong>Daily:</strong> 10 replies + 2-3 tweets. Start promoting pinned thread ($50 ad budget)</li>
+        <li><strong>День 8:</strong> First video tweet (30-sec screen recording of agent output)</li>
+        <li><strong>День 10:</strong> Thread #2: "Real cost of AI agents: 8-month breakdown"</li>
+        <li><strong>День 12:</strong> Contrarian take: "90% of 'AI agents' are glorified cron jobs"</li>
+        <li><strong>День 14:</strong> First Space: "Agent Report" (30 min, invite 1-2 builders)</li>
+      </ul>
+      <p><strong>KPI:</strong> 420 followers, 25K impressions, 50+ sborka.work visits</p>
+    </div>
+
+    <div class="week">
+      <div class="week-label">Неделя 3: Amplification</div>
+      <ul>
+        <li>Launch follower campaign ($100). Target: @mattshumer_, @levelsio lookalikes</li>
+        <li><strong>День 15:</strong> Thread #3: "I built an AI blogger that posts to 26 platforms" (viral potential)</li>
+        <li><strong>День 17:</strong> Failure post: "3 agent failures that cost me money"</li>
+        <li><strong>День 19:</strong> MENA-targeted thread: "HUMAIN's 150-Agent Architecture vs my 7-Agent System"</li>
+        <li><strong>День 21:</strong> Quote tweet chain — respond to top AI takes with production data</li>
+      </ul>
+      <p><strong>KPI:</strong> 500 followers, 40K impressions, 75+ sborka.work visits</p>
+    </div>
+
+    <div class="week">
+      <div class="week-label">Неделя 4: Optimization</div>
+      <ul>
+        <li>Promote best organic thread ($100)</li>
+        <li><strong>День 22:</strong> Article (Premium): "Complete Guide to Production AI Agents in 2026"</li>
+        <li><strong>День 24:</strong> Thread #4: "CrewAI multi-agent orchestration — practical guide"</li>
+        <li><strong>День 26:</strong> Video: 2-min demo of career bot matching jobs in real-time</li>
+        <li><strong>День 28:</strong> Second Space: "AI Career Moves" (СБОРКА-branded, 45 min)</li>
+        <li><strong>День 30:</strong> Month 1 retrospective tweet + plan Month 2</li>
+      </ul>
+      <p><strong>KPI:</strong> 600 followers, 50K impressions, 100+ sborka.work visits</p>
+    </div>
+  </div>
+
+  <div class="insight">
+    <strong>Month 2-3 trajectory:</strong> With consistent 3-5 tweets/day + weekly threads + bi-weekly Spaces → target 1,200+ followers by end of Month 3. При viral hit (1 thread with 100K+ impressions) → could reach 2,000+ organically.
+  </div>
+</div>
+
+<a href="../smm_platform_audit.html" class="back-link">&larr; Вернуться к Dashboard</a>
+
+</div>
+</body>
+</html>

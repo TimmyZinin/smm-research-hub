@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S-26 Яндекс.Музыка — SMM Research Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--ym:#FFCC00;--ym-dark:#E6B800;--ym-light:#FFF9E0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--dark);line-height:1.7}
+.topnav{position:sticky;top:0;z-index:100;background:var(--dark);padding:8px 16px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{color:rgba(255,253,247,.7);text-decoration:none;font-size:.75em;padding:4px 10px;border-radius:20px;transition:.2s;flex-shrink:0}
+.topnav a:hover,.topnav a.active{color:var(--white);background:rgba(255,253,247,.15)}
+.topnav a.active{background:var(--ym-dark);color:var(--dark)}
+.hero{background:linear-gradient(135deg,#FFCC00,#E6B800,#CC9900);color:var(--dark);padding:80px 24px 60px;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:8px}
+.hero .sub{opacity:.75;font-size:1.05em;margin-bottom:20px}
+.hero .badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero .badge-row span{background:rgba(0,0,0,.12);padding:6px 16px;border-radius:20px;font-size:.85em}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 60px}
+.section{margin-bottom:48px}
+.section h2{font-family:'Playfair Display',serif;font-size:1.6em;color:var(--dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--ym)}
+.section h3{font-size:1.15em;color:#997A00;margin:20px 0 10px;font-weight:600}
+p{margin-bottom:14px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.92em}
+th{background:#997A00;color:#fff;padding:10px 14px;text-align:left;font-weight:600}
+td{padding:10px 14px;border-bottom:1px solid #e8e0d4}
+tr:hover td{background:var(--ym-light)}
+ul,ol{margin:0 0 16px 20px}
+li{margin-bottom:6px}
+.card{background:var(--sand);border-radius:12px;padding:20px;margin:16px 0}
+.highlight{background:var(--ym-light);border-left:4px solid var(--ym);padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
+.cta-box{background:linear-gradient(135deg,var(--ym-light),#fff);border:2px solid var(--ym);border-radius:12px;padding:20px;margin:20px 0}
+code{font-family:'JetBrains Mono',monospace;background:var(--sand);padding:2px 8px;border-radius:4px;font-size:.88em}
+pre{background:var(--dark);color:var(--ym);padding:20px;border-radius:8px;overflow-x:auto;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.85em;line-height:1.5}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+.metric{background:var(--ym-light);border-radius:10px;padding:16px;text-align:center}
+.metric .num{font-family:'JetBrains Mono',monospace;font-size:1.8em;font-weight:700;color:#997A00;display:block}
+.metric .label{font-size:.8em;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+footer{text-align:center;padding:40px;color:var(--muted);font-size:.85em;border-top:1px solid var(--sand)}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+<a href="../smm_platform_audit.html">Dashboard</a>
+<a href="s01_linkedin.html">LinkedIn</a>
+<a href="s02_instagram.html">IG</a>
+<a href="s03_youtube.html">YT</a>
+<a href="s04_telegram_personal.html">TG</a>
+<a href="s05_telegram_sborka.html">TG Sborka</a>
+<a href="s06_threads.html">Threads</a>
+<a href="s07_facebook.html">FB</a>
+<a href="s08_tiktok.html">TikTok</a>
+<a href="s09_vk.html">VK</a>
+<a href="s10_vcru.html">VC.ru</a>
+<a href="s11_devto.html">Dev.to</a>
+<a href="s12_medium.html">Medium</a>
+<a href="s13_hashnode.html">Hashnode</a>
+<a href="s14_bluesky.html">Bluesky</a>
+<a href="s15_mastodon.html">Mastodon</a>
+<a href="s16_tumblr.html">Tumblr</a>
+<a href="s17_okru.html">OK.ru</a>
+<a href="s18_nostr.html">Nostr</a>
+<a href="s19_minds.html">Minds</a>
+<a href="s23_mave.html">Mave</a>
+<a href="s24_spotify.html">Spotify</a>
+<a href="s25_apple.html">Apple</a>
+<a href="s26_yandex.html" class="active">Yandex</a>
+<a href="s27_deezer.html">Deezer</a>
+<a href="s28_pocketcasts.html">PocketCasts</a>
+<a href="s29_vkmusic_castbox.html">VK Music</a>
+</nav>
+
+<div class="hero">
+<h1>Яндекс.Музыка</h1>
+<div class="sub">S-26 | Подкаст-площадка #1 в России</div>
+<div class="badge-row">
+<span>Album ID: 40778773</span>
+<span>RSS via Mave</span>
+<span>4 эпизода</span>
+<span>~20M+ слушателей подкастов</span>
+<span>Алиса + Яндекс.Станция</span>
+</div>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1 -->
+<div class="section">
+<h2>1. Алгоритм и Discovery</h2>
+<p>Яндекс.Музыка уникальна интеграцией в экосистему Яндекса: поиск, Дзен, Алиса, Яндекс.Станция. Это создаёт discovery-каналы, недоступные ни одной другой подкаст-платформе.</p>
+
+<h3>Ключевые сигналы ранжирования</h3>
+<table>
+<tr><th>Сигнал</th><th>Вес</th><th>Описание</th></tr>
+<tr><td>Completion Rate</td><td><strong>HIGH</strong></td><td>% прослушанного эпизода. Эпизоды с &gt;60% получают значительное продвижение</td></tr>
+<tr><td>Subscription Velocity</td><td><strong>HIGH</strong></td><td>Скорость набора подписчиков. Всплеск 10-20 новых за неделю = сигнал роста</td></tr>
+<tr><td>Freshness</td><td><strong>HIGH</strong></td><td>Новые эпизоды (24-72ч) получают буст. Еженедельный цикл усиливает эффект</td></tr>
+<tr><td>Listening Duration</td><td>MEDIUM-HIGH</td><td>14 мин = sweet spot: достаточно для сигнала, достаточно коротко для высокого completion</td></tr>
+<tr><td>Skip Rate</td><td>MEDIUM</td><td>Обратный сигнал. Пропуск в первые 60 сек = депрайоритизация. Хук критичен</td></tr>
+<tr><td>Category Relevance</td><td>MEDIUM</td><td>Правильная категория ("Образование" / "Карьера") = попадание в тематический browse</td></tr>
+<tr><td>Рейтинг и отзывы</td><td>LOW-MEDIUM</td><td>4.5+ звёзд и 10+ отзывов = минорный буст видимости</td></tr>
+</table>
+
+<h3>Формула ранжирования в поиске</h3>
+<pre>Relevance Score = (Title Match × 3.0) + (Description Match × 1.5) + (Episode Title Match × 1.0) + (Category Match × 0.5) + (Popularity Bonus × 0.3)</pre>
+
+<h3>Алиса и голосовой поиск</h3>
+<div class="highlight">
+<strong>20M+ устройств с Алисой</strong> (Яндекс.Станция, Браузер, Авто, приложение). Голосовые команды — мощный канал discovery.
+</div>
+<p>Оптимизация для голосовых запросов:</p>
+<ul>
+<li><strong>"Алиса, включи подкаст Сборка"</strong> — прямой запрос (работает при уникальном имени)</li>
+<li><strong>"Алиса, включи подкаст про карьеру"</strong> — тематический запрос (нужна правильная категория)</li>
+<li><strong>"Алиса, включи подкаст про поиск работы"</strong> — ключевое слово в описании</li>
+<li><strong>"Алиса, что послушать про собеседование"</strong> — открытый discovery</li>
+</ul>
+<p>"Сборка" — идеальное имя для Алисы: короткое, фонетически чёткое, без двусмысленности.</p>
+
+<h3>"Горячие подкасты" и подборки</h3>
+<p>Редакция Яндекс.Музыки создаёт тематические подборки ("Подкасты для карьеры", "Подкасты для саморазвития"). Попадание = эквивалент Spotify "New & Noteworthy". Триггеры: растущая аудитория + регулярные выпуски + высокий completion rate.</p>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+<h2>2. Форматы контента</h2>
+
+<h3>Оптимальная длина эпизода (RU аудитория)</h3>
+<table>
+<tr><th>Длина</th><th>Completion Rate</th><th>Лучше всего для</th></tr>
+<tr><td>5-10 мин</td><td>75-90%</td><td>Быстрые советы, новости</td></tr>
+<tr><td><strong>10-20 мин</strong></td><td><strong>60-80%</strong></td><td><strong>Фокусные deep-dives, практические советы (СБОРКА = 14 мин)</strong></td></tr>
+<tr><td>20-40 мин</td><td>40-60%</td><td>Интервью, storytelling</td></tr>
+<tr><td>40-60 мин</td><td>30-50%</td><td>Экспертные панели</td></tr>
+<tr><td>60+ мин</td><td>20-40%</td><td>Длинные разговоры (нишевая аудитория)</td></tr>
+</table>
+
+<div class="highlight">
+<strong>14 минут СБОРКИ — в идеальном диапазоне.</strong> Не менять длину. Допустима вариация 12-18 мин.
+</div>
+
+<h3>Возможности плеера Яндекс.Музыки</h3>
+<table>
+<tr><th>Функция</th><th>Статус</th><th>Заметки</th></tr>
+<tr><td>Глава (chapters)</td><td>НЕ поддерживается</td><td>Яндекс игнорирует chapter-теги. В отличие от Apple/Deezer</td></tr>
+<tr><td>Транскрипт</td><td>НЕ поддерживается</td><td>Но RSS-транскрипт может помочь в поисковой индексации</td></tr>
+<tr><td>Show notes / описание</td><td>Поддерживается</td><td>HTML → plain text. Ссылки кликабельны на мобильных. ~500 символов до "Ещё"</td></tr>
+<tr><td>Видео подкасты</td><td>НЕ поддерживается</td><td>Только аудио</td></tr>
+<tr><td>Скорость воспроизведения</td><td>Поддерживается</td><td>0.5x, 0.75x, 1x, 1.25x, 1.5x, 2x</td></tr>
+<tr><td>Оффлайн загрузка</td><td>Подписка Plus (299₽/мес)</td><td>Подкасты бесплатны для стриминга</td></tr>
+<tr><td>Автовоспроизведение следующего</td><td>Поддерживается</td><td>Retention driver — слушатель переходит к следующему эпизоду</td></tr>
+</table>
+
+<h3>Техническая оптимизация аудио</h3>
+<ul>
+<li><strong>Формат:</strong> MP3, 128-192 kbps CBR</li>
+<li><strong>Sample rate:</strong> 44.1 kHz</li>
+<li><strong>Каналы:</strong> Моно (для голоса — меньше размер, стабильная громкость)</li>
+<li><strong>Громкость:</strong> -16 LUFS (стандарт подкастинга)</li>
+<li><strong>Тишина в начале:</strong> Не более 1 секунды (быстрый старт = низкий skip rate)</li>
+<li><strong>Текущие эпизоды СБОРКИ (12.5-12.6 МБ)</strong> — в оптимальном диапазоне</li>
+</ul>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+<h2>3. Анализ конкурентов</h2>
+
+<h3>Карьерные подкасты на Яндекс.Музыке</h3>
+<table>
+<tr><th>Подкаст</th><th>Формат</th><th>Длина</th><th>Аудитория</th><th>Частота</th></tr>
+<tr><td><strong>Работа в IT</strong></td><td>Интервью</td><td>40-60 мин</td><td>20-50K/мес</td><td>Еженедельно</td></tr>
+<tr><td><strong>Podlodka</strong></td><td>Панельная дискуссия</td><td>45-90 мин</td><td>30-80K/мес</td><td>Еженедельно</td></tr>
+<tr><td>Два по цене одного</td><td>Интервью</td><td>30-50 мин</td><td>5-15K/мес</td><td>Раз в 2 недели</td></tr>
+<tr><td>Карьерный Консультант</td><td>Монолог + интервью</td><td>20-35 мин</td><td>2-8K/мес</td><td>Нерегулярно</td></tr>
+<tr><td>Хантфлоу</td><td>Интервью</td><td>25-40 мин</td><td>3-10K/мес</td><td>Еженедельно</td></tr>
+<tr><td>Ищу работу</td><td>Монолог + истории</td><td>15-25 мин</td><td>1-5K/мес</td><td>Нерегулярно</td></tr>
+</table>
+
+<h3>Матрица позиционирования</h3>
+<table>
+<tr><th>Фактор</th><th>СБОРКА</th><th>Работа в IT</th><th>Podlodka</th><th>Ищу работу</th></tr>
+<tr><td>Длина эпизода</td><td><strong>14 мин (оптимально)</strong></td><td>40-60 мин</td><td>45-90 мин</td><td>15-25 мин</td></tr>
+<tr><td>Целевая аудитория</td><td>Job seekers 25-35</td><td>IT-профессионалы</td><td>Разработчики</td><td>Все ищущие работу</td></tr>
+<tr><td>Тон</td><td>Тёплый, поддерживающий</td><td>Tech casual</td><td>Tech casual</td><td>Эмоциональный</td></tr>
+<tr><td>CTA-интеграция</td><td><strong>Бот + сайт + клуб</strong></td><td>Сообщество</td><td>Платные события</td><td>Нет</td></tr>
+<tr><td>AI-угол</td><td><strong>Сильный</strong></td><td>Сильный</td><td>Сильный</td><td>Нет</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Незанятые ниши:</strong>
+<ul style="margin-top:8px">
+<li>Нет сильного "подкаста для ищущих работу" с современным продакшном</li>
+<li>"AI + карьера" — полностью незанятая территория</li>
+<li>Short-form карьерный подкаст (все конкуренты 30+ мин)</li>
+<li>Интеграция с Telegram-ботом — уникальный CTA-путь</li>
+</ul>
+</div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+<h2>4. Яндекс.Музыка для подкастеров</h2>
+
+<h3>Дашборд аналитики</h3>
+<table>
+<tr><th>Метрика</th><th>Описание</th><th>Гранулярность</th></tr>
+<tr><td>Прослушивания</td><td>Общее число запусков</td><td>День / неделя / месяц</td></tr>
+<tr><td>Уникальные слушатели</td><td>Distinct пользователи</td><td>День / неделя / месяц</td></tr>
+<tr><td>Подписчики</td><td>Кумулятивно + дневная дельта</td><td>По дням</td></tr>
+<tr><td>Дослушиваемость</td><td>% прослушанного эпизода</td><td>По эпизодам</td></tr>
+<tr><td>Демографика</td><td>Возраст, пол, город</td><td>Агрегат</td></tr>
+<tr><td>Устройства</td><td>Мобильный, десктоп, Станция, Авто</td><td>Агрегат</td></tr>
+<tr><td>Источники Discovery</td><td>Поиск, рекомендации, прямая ссылка, Алиса</td><td>Агрегат</td></tr>
+</table>
+
+<h3>Клейм шоу (обязательно)</h3>
+<div class="cta-box">
+<strong>Статус СБОРКИ:</strong> Album ID 40778773 на Яндекс.Музыке.<br>
+Если шоу не "заклеймлено" — аналитика недоступна. Процедура:
+<ol style="margin-top:10px">
+<li>podcasts.yandex.ru → войти аккаунтом Яндекс</li>
+<li>Найти шоу по имени или RSS URL</li>
+<li>"Забрать подкаст" → верификация через RSS (Mave добавляет тег)</li>
+<li>После верификации — полный доступ к аналитике</li>
+</ol>
+</div>
+
+<h3>Управление метаданными</h3>
+<ul>
+<li><strong>Категория:</strong> "Образование" (обязательно)</li>
+<li><strong>Теги:</strong> карьера, работа, поиск работы, резюме, собеседование, AI</li>
+<li><strong>Язык:</strong> Русский</li>
+<li><strong>Автор:</strong> "Тим Зинин" или "Сборка / Tim Zinin"</li>
+<li><strong>Обложка:</strong> 3000x3000 (текущая корректна)</li>
+</ul>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+<h2>5. Tone of Voice для аудио</h2>
+
+<h3>Специфика русскоязычного подкаст-аудио</h3>
+<table>
+<tr><th>Параметр</th><th>Рекомендация</th></tr>
+<tr><td>Темп речи</td><td>140-160 слов/мин. Ускорять на волнующих моментах, замедлять на ключевых тезисах</td></tr>
+<tr><td>Обращение</td><td><strong>"Ты", не "Вы"</strong> — последовательно с текущим подходом</td></tr>
+<tr><td>Лексика</td><td>Без академизмов: "этот" (не "данный"), "делать" (не "осуществлять")</td></tr>
+<tr><td>Коллоквиализмы</td><td>"Короче", "ну вот" — умеренно, для естественности</td></tr>
+<tr><td>Региональность</td><td>Стандартное московское произношение, без региональных маркеров</td></tr>
+<tr><td>Юмор</td><td>Сухой, самоироничный. Без forced jokes</td></tr>
+</table>
+
+<h3>Культурные ожидания RU-аудитории</h3>
+<ul>
+<li><strong>Прямота ценится.</strong> "Get to the point" — 30-секундное интро перед хуком = правильно</li>
+<li><strong>Личные истории резонируют:</strong> "Я сам когда-то..." — мощный хук</li>
+<li><strong>Избегать toxic positivity.</strong> Русская аудитория не доверяет безудержному оптимизму. "Тёплый, поддерживающий, но реалистичный" = идеально</li>
+<li><strong>Экспертность важна:</strong> "Мой опыт", "я видел сотни кейсов" — строит доверие</li>
+</ul>
+
+<h3>TTS-оптимизация (ElevenLabs)</h3>
+<ul>
+<li>Избегать сокращений: "то есть" (не "т.е.")</li>
+<li>Числа прописью: "двадцать пять" (не "25")</li>
+<li>CAPS для акцентов: "И вот это ГЛАВНОЕ"</li>
+<li>Запятые = точки дыхания для TTS</li>
+<li>Иностранные слова: транслитерация или пояснение</li>
+</ul>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+<h2>6. SEO и Discovery</h2>
+
+<h3>Интеграция с поиском Яндекса</h3>
+<p>При поиске на yandex.ru подкасты появляются в нескольких позициях: органические результаты, виджет Яндекс.Музыки в выдаче, Knowledge Panel, интеграция с Дзеном.</p>
+
+<div class="highlight">
+<strong>Ключевой инсайт:</strong> Пользователи, которые ищут карьерные темы на Яндексе, смотрят карьерные видео на Дзене, читают карьерные статьи — получают подкаст-рекомендации на Яндекс.Музыке. <strong>Экосистема связана.</strong>
+</div>
+
+<h3>Ключевые слова (Yandex Wordstat)</h3>
+<table>
+<tr><th>Фраза</th><th>Месячные показы</th><th>Конкуренция</th><th>Приоритет</th></tr>
+<tr><td>подкаст карьера</td><td>1,000-3,000</td><td>LOW</td><td>P0</td></tr>
+<tr><td>подкаст поиск работы</td><td>500-2,000</td><td>LOW</td><td>P0</td></tr>
+<tr><td>подкаст про работу</td><td>1,000-3,000</td><td>LOW</td><td>P0</td></tr>
+<tr><td>как найти работу подкаст</td><td>300-1,000</td><td>VERY LOW</td><td>P0</td></tr>
+<tr><td>подкаст резюме</td><td>200-500</td><td>VERY LOW</td><td>P1</td></tr>
+<tr><td>подкаст собеседование</td><td>300-800</td><td>VERY LOW</td><td>P1</td></tr>
+<tr><td>подкаст про карьеру</td><td>500-1,500</td><td>LOW</td><td>P0</td></tr>
+<tr><td>как составить резюме</td><td>50,000-80,000</td><td>HIGH</td><td>P2 (для эпизодов)</td></tr>
+</table>
+
+<div class="highlight">
+<strong>"Подкаст про карьеру"</strong> — низкая конкуренция, растёт быстро. СБОРКА может занять этот запрос при правильной оптимизации.
+</div>
+
+<h3>Оптимизированное описание шоу</h3>
+<pre>Сборка — подкаст для тех, кто хочет найти работу мечты.
+Каждую неделю разбираем поиск работы, резюме, собеседования,
+офферы и карьерный рост. Конкретные советы, реальные примеры, без воды.
+
+Ведущий: Тим Зинин, основатель карьерного клуба СБОРКА (sborka.work).
+
+Для кого: если ты ищешь работу, хочешь сменить профессию,
+готовишься к собеседованию или хочешь получить оффер мечты —
+этот подкаст для тебя.
+
+Больше: sborka.work | Бот: t.me/Sborka_work_bot</pre>
+
+<h3>Формула заголовков эпизодов</h3>
+<pre>Выпуск N: [Keyword-Rich Title] | Сборка
+
+Примеры:
+Выпуск 1: Почему так сложно начать поиск работы
+Выпуск 2: Резюме, которое работает за тебя
+Выпуск 3: Собеседование без паники
+Выпуск 4: Когда кажется, что ничего не получится</pre>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section">
+<h2>7. CTA-стратегии</h2>
+
+<h3>Иерархия CTA для Яндекс.Музыки</h3>
+<table>
+<tr><th>Уровень</th><th>CTA</th><th>Где</th></tr>
+<tr><td><strong>Tier 1 (каждый эпизод)</strong></td><td>Бот СБОРКИ: t.me/Sborka_work_bot?start=source_ym_ep{N}</td><td>Описание + аудио</td></tr>
+<tr><td><strong>Tier 2 (каждый эпизод)</strong></td><td>sborka.work?utm_source=yandex_music&amp;utm_medium=podcast&amp;utm_campaign=s26_yandex&amp;utm_content=ep{N}</td><td>Описание</td></tr>
+<tr><td>Tier 3 (контекстно)</td><td>Вебинар / чеклист / конкретный ресурс</td><td>Описание + аудио</td></tr>
+</table>
+
+<h3>Аудио CTA для Яндекс.Музыки</h3>
+<ul>
+<li><strong>Середина эпизода (~7-8 мин):</strong> "Если хочешь чеклист по [теме] — ссылка в описании"</li>
+<li><strong>Конец эпизода (~13 мин):</strong> "Заходи в бот @Sborka_work_bot — там практика к этому выпуску"</li>
+<li><strong>НЕ диктовать URL.</strong> Слушатели на Станции/Авто не могут набрать</li>
+<li><strong>НЕ просить "подпишись и оставь отзыв"</strong> — раздражает регулярную аудиторию</li>
+</ul>
+
+<h3>UTM-шаблоны</h3>
+<pre>sborka.work?utm_source=yandex_music&amp;utm_medium=podcast&amp;utm_campaign=s26_yandex&amp;utm_content=ep01
+sborka.work?utm_source=yandex_music&amp;utm_medium=podcast&amp;utm_campaign=s26_yandex&amp;utm_content=ep02
+sborka.work?utm_source=yandex_music&amp;utm_medium=podcast&amp;utm_campaign=s26_yandex&amp;utm_content=ep03
+sborka.work?utm_source=yandex_music&amp;utm_medium=podcast&amp;utm_campaign=s26_yandex&amp;utm_content=ep04</pre>
+</div>
+
+<!-- SECTION 8 -->
+<div class="section">
+<h2>8. Экосистема Яндекса</h2>
+
+<h3>Кросс-продвижение через экосистему</h3>
+<table>
+<tr><th>Канал</th><th>Механизм</th><th>Приоритет</th></tr>
+<tr><td><strong>Яндекс.Станция</strong></td><td>"Алиса, включи подкаст Сборка" — голосовой discovery через 20M+ устройств</td><td>P0</td></tr>
+<tr><td><strong>Яндекс.Дзен</strong></td><td>Статьи о карьере → ссылка на подкаст. Cross-ranking signals</td><td>P1</td></tr>
+<tr><td><strong>Яндекс.Поиск</strong></td><td>Виджет Яндекс.Музыки в выдаче для запроса "подкаст про карьеру"</td><td>P1</td></tr>
+<tr><td><strong>Яндекс.Авто</strong></td><td>Подкасты в машине через Алису. Идеально для 14-минутных эпизодов</td><td>P2</td></tr>
+<tr><td><strong>Яндекс.Браузер</strong></td><td>Алиса встроена в браузер — голосовой запрос с десктопа</td><td>P2</td></tr>
+</table>
+
+<div class="card">
+<h3>Контекст прослушивания (RU аудитория)</h3>
+<ul>
+<li><strong>Утренний коммьют (Метро):</strong> 20-40 мин — идеально для 1-2 эпизодов</li>
+<li><strong>Обед:</strong> 15-25 мин</li>
+<li><strong>Домашние дела:</strong> 30-60 мин фоном</li>
+<li><strong>Перед сном:</strong> 15-30 мин</li>
+<li><strong>Яндекс.Станция дома:</strong> 10-30 мин</li>
+</ul>
+</div>
+</div>
+
+<!-- SECTION 9 -->
+<div class="section">
+<h2>9. Кросс-платформенная синдикация</h2>
+
+<h3>Яндекс.Музыка в экосистеме дистрибуции</h3>
+<table>
+<tr><th>Платформа</th><th>Роль</th><th>Синхронизация</th></tr>
+<tr><td>Mave.digital</td><td>Первичный хост (RSS-источник)</td><td>Источник для всех</td></tr>
+<tr><td><strong>Яндекс.Музыка</strong></td><td><strong>Основная RU площадка</strong></td><td>RSS → 1-4 часа</td></tr>
+<tr><td>Spotify</td><td>Volume driver</td><td>RSS → 2-12 часов</td></tr>
+<tr><td>Apple Podcasts</td><td>Authority signal</td><td>RSS → 4-24 часа</td></tr>
+<tr><td>Deezer</td><td>European diaspora</td><td>RSS → 4-12 часов</td></tr>
+<tr><td>Pocket Casts</td><td>Power listeners</td><td>RSS → 1-4 часа</td></tr>
+<tr><td>VK Music</td><td>VK-экосистема</td><td>Ручная подача, затем RSS</td></tr>
+<tr><td>CastBox</td><td>Android/Global</td><td>Ручная подача, затем RSS</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Яндекс.Музыка = самая быстрая синхронизация (1-4 часа).</strong> Новые эпизоды появляются раньше, чем на Spotify/Apple. Это даёт преимущество для первых прослушиваний и retention.
+</div>
+
+<h3>Кросс-промо стратегия</h3>
+<ul>
+<li>Ссылка <code>music.yandex.ru/album/40778773</code> — во все TG-посты о подкасте</li>
+<li>В описании каждого эпизода: ссылки на бот и sborka.work с UTM</li>
+<li>В Telegram-канале @public_sborka: явное упоминание Яндекс.Музыки</li>
+<li>На sborka.work: бейдж "Слушайте на Яндекс.Музыке"</li>
+</ul>
+</div>
+
+<!-- SECTION 10 -->
+<div class="section">
+<h2>10. 30-дневный план действий</h2>
+
+<h3>Неделя 1: Фундамент (Дни 1-7)</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>1</td><td>Заклеймить шоу на podcasts.yandex.ru. Верификация через Mave</td><td>Доступ к аналитике</td></tr>
+<tr><td>1</td><td>Проверить категорию: "Образование". Добавить теги</td><td>Категория корректна</td></tr>
+<tr><td>2</td><td>Оптимизировать описание шоу (keyword-rich, первые 200 символов)</td><td>Описание обновлено</td></tr>
+<tr><td>3</td><td>Обновить описания всех 4 эпизодов с CTA-ссылками и UTM</td><td>4 описания с UTM</td></tr>
+<tr><td>4-5</td><td>Голосовой тест: "Алиса, включи подкаст Сборка" — проверить discovery</td><td>Алиса находит шоу</td></tr>
+<tr><td>6-7</td><td>Опубликовать ep05 (после ресета ElevenLabs)</td><td>ep05 на Яндекс.Музыке</td></tr>
+</table>
+
+<h3>Неделя 2: Оптимизация (Дни 8-14)</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>8</td><td>Добавить бейдж "Яндекс.Музыка" на sborka.work</td><td>Бейдж на сайте</td></tr>
+<tr><td>9</td><td>Написать карьерную статью на Яндекс.Дзен со ссылкой на подкаст</td><td>Статья опубликована</td></tr>
+<tr><td>10</td><td>Пост в @public_sborka: "Слушайте на Яндекс.Музыке" + прямая ссылка</td><td>TG пост</td></tr>
+<tr><td>11-12</td><td>Формула заголовков: "Выпуск N: [Keyword] | Сборка" для всех эпизодов</td><td>5 заголовков обновлены</td></tr>
+<tr><td>13-14</td><td>Нормализация аудио (-16 LUFS) + перезалив в Mave</td><td>Стабильная громкость</td></tr>
+</table>
+
+<h3>Неделя 3: Рост (Дни 15-21)</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>15</td><td>Подготовить ep06 оптимизированный для YM (keyword в заголовке)</td><td>Скрипт готов</td></tr>
+<tr><td>16-17</td><td>Сгенерировать и опубликовать ep06</td><td>ep06 на YM</td></tr>
+<tr><td>18</td><td>Кросс-промо ep06 в TG, LinkedIn + ссылка YM</td><td>Мульти-платформа</td></tr>
+<tr><td>19-20</td><td>Написать ещё 1 статью на Дзен (тема ep06)</td><td>2-я статья на Дзене</td></tr>
+<tr><td>21</td><td>Чекнуть аналитику YM: прослушивания, подписчики, completion</td><td>Snapshot аналитики</td></tr>
+</table>
+
+<h3>Неделя 4: Анализ (Дни 22-30)</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>22</td><td>Полный отчёт: прослушивания по эпизодам, источники discovery</td><td>Аналитика собрана</td></tr>
+<tr><td>23</td><td>Определить лучший эпизод по completion rate</td><td>Топ-эпизод определён</td></tr>
+<tr><td>24</td><td>Проверить UTM-трафик в Umami (utm_source=yandex_music)</td><td>YM-трафик измерен</td></tr>
+<tr><td>25-27</td><td>Подготовить ep07 на тему лучшего эпизода</td><td>Скрипт ep07</td></tr>
+<tr><td>28-30</td><td>Скомпилировать отчёт за 30 дней. План следующего спринта</td><td>Отчёт готов</td></tr>
+</table>
+
+<h3>KPI-таргеты (30 дней)</h3>
+<div class="metric-grid">
+<div class="metric"><span class="num">100+</span><span class="label">Подписчиков YM</span></div>
+<div class="metric"><span class="num">500+</span><span class="label">Прослушиваний</span></div>
+<div class="metric"><span class="num">60%+</span><span class="label">Completion Rate</span></div>
+<div class="metric"><span class="num">20+</span><span class="label">Кликов sborka.work</span></div>
+<div class="metric"><span class="num">10+</span><span class="label">Стартов бота</span></div>
+<div class="metric"><span class="num">6</span><span class="label">Эпизодов (было 4)</span></div>
+</div>
+</div>
+
+</div>
+
+<footer>
+Sprint S-26 Яндекс.Музыка | Исследование завершено 4 марта 2026 | SMM Research Hub
+</footer>
+</body>
+</html>

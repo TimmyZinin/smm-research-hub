@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S-23 Mave.digital — SMM Research Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--mave:#7B6BA8;--mave-dark:#5E4F8B;--mave-light:#F0ECF7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--dark);line-height:1.7}
+.topnav{position:sticky;top:0;z-index:100;background:var(--dark);padding:8px 16px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{color:rgba(255,253,247,.7);text-decoration:none;font-size:.75em;padding:4px 10px;border-radius:20px;transition:.2s;flex-shrink:0}
+.topnav a:hover,.topnav a.active{color:var(--white);background:rgba(255,253,247,.15)}
+.topnav a.active{background:var(--mave)}
+.hero{background:linear-gradient(135deg,#7B6BA8,#5E4F8B,#3D2F6B);color:#fff;padding:80px 24px 60px;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:8px}
+.hero .sub{opacity:.85;font-size:1.05em;margin-bottom:20px}
+.hero .badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero .badge-row span{background:rgba(255,255,255,.18);padding:6px 16px;border-radius:20px;font-size:.85em}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 60px}
+.section{margin-bottom:48px}
+.section h2{font-family:'Playfair Display',serif;font-size:1.6em;color:var(--mave-dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--mave-light)}
+.section h3{font-size:1.15em;color:var(--mave);margin:20px 0 10px;font-weight:600}
+p{margin-bottom:14px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.92em}
+th{background:var(--mave);color:#fff;padding:10px 14px;text-align:left;font-weight:600}
+td{padding:10px 14px;border-bottom:1px solid #e8e0d4}
+tr:hover td{background:var(--mave-light)}
+ul,ol{margin:10px 0 16px 20px}
+li{margin-bottom:6px}
+.callout{background:var(--mave-light);border-left:4px solid var(--mave);padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
+.callout-warn{background:#FFF8E1;border-left-color:var(--gold)}
+.callout-green{background:#E8F5E9;border-left-color:var(--emerald)}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:16px 0}
+.metric-card{background:var(--sand);border-radius:12px;padding:16px;text-align:center}
+.metric-card .num{font-family:'Playfair Display',serif;font-size:1.8em;color:var(--mave)}
+.metric-card .label{font-size:.82em;color:var(--muted)}
+code{font-family:'JetBrains Mono',monospace;background:var(--sand);padding:2px 6px;border-radius:4px;font-size:.88em}
+pre{background:var(--dark);color:#e8e0d4;padding:16px;border-radius:8px;overflow-x:auto;margin:12px 0;font-family:'JetBrains Mono',monospace;font-size:.85em;line-height:1.6}
+.timeline{position:relative;padding-left:28px;margin:20px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:3px;background:var(--mave-light)}
+.timeline-item{position:relative;margin-bottom:20px}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--mave);border:3px solid var(--white)}
+.timeline-item h4{color:var(--mave-dark);margin-bottom:4px}
+footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.85em;border-top:1px solid #e8e0d4}
+@media(max-width:600px){.hero{padding:60px 16px 40px}.hero h1{font-size:1.8rem}table{font-size:.82em}th,td{padding:8px 10px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="../smm_platform_audit.html">&larr; Dashboard</a>
+  <a href="s01_telegram.html">TG</a>
+  <a href="s02_linkedin.html">LI</a>
+  <a href="s03_threads.html">Thr</a>
+  <a href="s04_youtube.html">YT</a>
+  <a href="s05_vk.html">VK</a>
+  <a href="s06_instagram.html">IG</a>
+  <a href="s07_bluesky.html">BS</a>
+  <a href="s08_tiktok.html">TT</a>
+  <a href="s09_medium.html">Med</a>
+  <a href="s10_substack.html">Sub</a>
+  <a href="s11_mastodon.html">Mast</a>
+  <a href="s12_facebook.html">FB</a>
+  <a href="s13_reddit.html">Red</a>
+  <a href="s14_pinterest.html">Pin</a>
+  <a href="s15_hackernews.html">HN</a>
+  <a href="s16_tumblr.html">Tmb</a>
+  <a href="s17_okru.html">OK</a>
+  <a href="s18_nostr.html">Nostr</a>
+  <a href="s19_minds.html">Minds</a>
+  <a href="s20_writeas.html">W.as</a>
+  <a href="s21_lemmy.html">Lem</a>
+  <a href="s22_twitter.html">X</a>
+  <a href="s23_mave.html" class="active">Mave</a>
+  <a href="s24_spotify.html">Spot</a>
+  <a href="s25_apple.html">Apple</a>
+  <a href="s26_yandex.html">Yandex</a>
+  <a href="s27_deezer.html">Deezer</a>
+  <a href="s28_pocketcasts.html">PC</a>
+  <a href="s29_vkmusic.html">VKM</a>
+</nav>
+
+<div class="hero">
+  <h1>S-23: Mave.digital</h1>
+  <div class="sub">Podcast Hosting & RSS Hub — СБОРКА</div>
+  <div class="badge-row">
+    <span>sborka.mave.digital</span>
+    <span>4 эпизода</span>
+    <span>RSS-источник</span>
+    <span>Бесплатный хостинг</span>
+    <span>Tier 4 — Podcast</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ===== CURRENT STATE ===== -->
+<div class="section">
+  <h2>Текущее состояние</h2>
+  <div class="metric-grid">
+    <div class="metric-card"><div class="num">4</div><div class="label">Эпизодов</div></div>
+    <div class="metric-card"><div class="num">~14</div><div class="label">мин / эпизод</div></div>
+    <div class="metric-card"><div class="num">7</div><div class="label">Платформ</div></div>
+    <div class="metric-card"><div class="num">$22</div><div class="label">/мес (ElevenLabs)</div></div>
+  </div>
+  <table>
+    <tr><th>Параметр</th><th>Значение</th></tr>
+    <tr><td>RSS Feed</td><td><code>cloud.mave.digital/69800</code></td></tr>
+    <tr><td>Mave-сайт</td><td><code>sborka.mave.digital</code></td></tr>
+    <tr><td>Формат</td><td>Соло-монолог (ElevenLabs voice clone Тима)</td></tr>
+    <tr><td>Логин</td><td>tim.zinin@gmail.com</td></tr>
+    <tr><td>TG Mini App</td><td>t.me/mavestreambot/app?startapp=sborka</td></tr>
+    <tr><td>Не подключены</td><td>CastBox, VK Music, YouTube Music (блокер)</td></tr>
+  </table>
+</div>
+
+<!-- ===== 1. ALGORITHM ===== -->
+<div class="section">
+  <h2>1. Алгоритм и дистрибуция</h2>
+
+  <h3>1.1 Как работает Mave</h3>
+  <p>Mave.digital — ведущая российская подкаст-платформа (основана 2019). Работает как хостинг + дистрибуционный хаб: загрузка MP3 → генерация канонического RSS 2.0 → автосинхронизация на все платформы.</p>
+
+  <h3>1.2 Тайминг синхронизации RSS</h3>
+  <table>
+    <tr><th>Платформа</th><th>Время синхронизации</th><th>Приоритет</th></tr>
+    <tr><td>Mave (sborka.mave.digital)</td><td>Мгновенно</td><td>—</td></tr>
+    <tr><td>Яндекс Музыка</td><td>1-4 часа</td><td>CRITICAL</td></tr>
+    <tr><td>Spotify</td><td>2-12 часов</td><td>HIGH</td></tr>
+    <tr><td>Apple Podcasts</td><td>4-24 часа</td><td>HIGH</td></tr>
+    <tr><td>Deezer, Pocket Casts</td><td>6-48 часов</td><td>MEDIUM</td></tr>
+  </table>
+
+  <div class="callout-green callout">
+    <strong>Оптимальное время публикации:</strong> 08:00-10:00 MSK (Пн или Ср). Яндекс подхватит до вечернего прайм-тайма (17:00-19:00).
+  </div>
+
+  <h3>1.3 Критические RSS-поля</h3>
+  <ul>
+    <li><code>&lt;itunes:category&gt;</code> — размещение в чартах категорий</li>
+    <li><code>&lt;itunes:summary&gt;</code> — индексируется Apple и Spotify для поиска</li>
+    <li><code>&lt;itunes:image&gt;</code> — обложка 3000×3000 для Apple</li>
+    <li><code>&lt;pubDate&gt;</code> — порядок сортировки на платформах</li>
+    <li><code>&lt;itunes:keywords&gt;</code> — deprecated Apple, но используется Яндексом</li>
+  </ul>
+
+  <h3>1.4 Статус авто-дистрибуции Mave</h3>
+  <table>
+    <tr><th>Платформа</th><th>Авто-Submit</th><th>Статус</th></tr>
+    <tr><td>Apple Podcasts</td><td>Да (one-click)</td><td style="color:var(--emerald)">✅ ACCEPTED</td></tr>
+    <tr><td>Spotify</td><td>Да</td><td style="color:var(--emerald)">✅ ACCEPTED</td></tr>
+    <tr><td>Яндекс Музыка</td><td>Да</td><td style="color:var(--emerald)">✅ ACCEPTED</td></tr>
+    <tr><td>Deezer</td><td>Да</td><td style="color:var(--emerald)">✅ ACCEPTED</td></tr>
+    <tr><td>Pocket Casts</td><td>Да</td><td style="color:var(--emerald)">✅ ACCEPTED</td></tr>
+    <tr><td>CastBox</td><td>Ручная подача</td><td style="color:var(--terra)">❌ НЕ ПОДАНО</td></tr>
+    <tr><td>VK Music</td><td>Ручная через VK</td><td style="color:var(--terra)">❌ НЕ ПОДАНО</td></tr>
+    <tr><td>YouTube Music</td><td>Не поддерж.</td><td style="color:var(--muted)">⛔ BLOCKED</td></tr>
+  </table>
+
+  <h3>1.5 Требования к аудио</h3>
+  <ul>
+    <li>MP3 128-192 kbps mono, 44.1 kHz</li>
+    <li>Громкость: -16 LUFS (stereo) / -19 LUFS (mono)</li>
+    <li>Текущие эпизоды СБОРКИ ~12.5 MB при ~13:50 — <strong>оптимально</strong></li>
+  </ul>
+</div>
+
+<!-- ===== 2. CONTENT FORMATS ===== -->
+<div class="section">
+  <h2>2. Форматы контента</h2>
+
+  <h3>2.1 Типы эпизодов для карьерного подкаста</h3>
+  <table>
+    <tr><th>Формат</th><th>Усилия</th><th>Вовлечение</th><th>Рекомендация</th></tr>
+    <tr><td><strong>Соло-монолог</strong> (текущий)</td><td>Низкие</td><td>Среднее</td><td>5 из 10 следующих</td></tr>
+    <tr><td><strong>Интервью</strong></td><td>Средние</td><td>Высокое</td><td>2 из 10 (HR/рекрутер)</td></tr>
+    <tr><td><strong>Кейс-стади</strong></td><td>Средние</td><td>Очень высокое</td><td>2 из 10</td></tr>
+    <tr><td><strong>Q&A / Mailbag</strong></td><td>Низкие</td><td>Очень высокое</td><td>1 из 10</td></tr>
+    <tr><td>Мини-эпизод (5-7 мин)</td><td>Очень низкие</td><td>Среднее</td><td>Факультативно</td></tr>
+  </table>
+
+  <h3>2.2 Оптимальная длина (данные RU-рынка)</h3>
+  <table>
+    <tr><th>Длина</th><th>Completion Rate (RU avg)</th><th>Best For</th></tr>
+    <tr><td>5-10 мин</td><td>78-85%</td><td>Новости, мини-выпуски</td></tr>
+    <tr><td style="background:var(--mave-light);font-weight:600">10-20 мин</td><td style="background:var(--mave-light);font-weight:600">60-72%</td><td style="background:var(--mave-light);font-weight:600">Образование (sweet spot СБОРКИ!)</td></tr>
+    <tr><td>20-40 мин</td><td>45-55%</td><td>Глубокие интервью</td></tr>
+    <tr><td>40-60 мин</td><td>30-40%</td><td>Длинные разговоры</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>~14 мин СБОРКИ — в оптимальной зоне.</strong> Не превышать 20 мин для соло. Для интервью sweet spot = 25-35 мин.
+  </div>
+
+  <h3>2.3 Формат заголовка</h3>
+  <p><code>#{N}: {Keyword-rich вопрос или утверждение}</code></p>
+  <ul>
+    <li>✅ <code>#5: Оффер: как не продешевить и не спугнуть работодателя</code></li>
+    <li>❌ <code>Эпизод 5 - Разговор про офферы</code></li>
+  </ul>
+
+  <h3>2.4 Chapter Markers</h3>
+  <p>Mave поддерживает chapter markers (ID3). Рекомендуемая структура:</p>
+  <pre>00:00 - Привет, это Сборка
+00:30 - {Main topic hook}
+03:00 - {Секция 1}
+07:00 - {Секция 2}
+12:00 - Практика: что делать прямо сейчас
+15:00 - Про СБОРКУ
+16:30 - Анонс следующего выпуска</pre>
+</div>
+
+<!-- ===== 3. COMPETITORS ===== -->
+<div class="section">
+  <h2>3. Анализ конкурентов</h2>
+
+  <table>
+    <tr><th>Подкаст</th><th>Эпизоды</th><th>Частота</th><th>Формат</th><th>Дифференциатор</th></tr>
+    <tr><td><strong>Два по цене одного</strong></td><td>80+</td><td>Weekly</td><td>Интервью (2 хоста)</td><td>Энергия двух ведущих</td></tr>
+    <tr><td><strong>Карьерный Консультант</strong></td><td>120+</td><td>2x/нед</td><td>Соло + интервью</td><td>High volume SEO</td></tr>
+    <tr><td><strong>Работа в IT</strong></td><td>200+</td><td>2-3x/нед</td><td>Интервью</td><td>Tech-селебрити гости</td></tr>
+    <tr><td><strong>Podlodka</strong></td><td>350+</td><td>Weekly</td><td>Панель</td><td>Сообщество + ивенты</td></tr>
+    <tr><td><strong>Хантфлоу</strong></td><td>90+</td><td>Biweekly</td><td>Brand podcast</td><td>Кейс-стади</td></tr>
+    <tr><td><strong>СБОРКА (сейчас)</strong></td><td style="color:var(--terra)">4</td><td>Irregular</td><td>Соло монолог</td><td>AI voice, клуб</td></tr>
+    <tr><td style="background:var(--mave-light)"><strong>СБОРКА (цель Day 30)</strong></td><td style="background:var(--mave-light)"><strong>12</strong></td><td style="background:var(--mave-light)"><strong>2x/нед</strong></td><td style="background:var(--mave-light)"><strong>Соло + Q&A</strong></td><td style="background:var(--mave-light)"><strong>AI voice + бот</strong></td></tr>
+  </table>
+
+  <div class="callout-warn callout">
+    <strong>Ключевой разрыв:</strong> 4 эпизода СБОРКИ vs среднее конкурентов 80-200. Решение — регулярная weekly/biweekly каденция.
+  </div>
+
+  <h3>Что перенять у конкурентов</h3>
+  <ul>
+    <li><strong>Два по цене одного:</strong> Weekly каденция = золотой стандарт. Telegram-канал с 3K+ = growth flywheel</li>
+    <li><strong>Карьерный Консультант:</strong> SEO-оптимизированные заголовки-вопросы. Q&A эпизоды = бесконечный контент</li>
+    <li><strong>Работа в IT:</strong> Даже 1 интервью с известным tech-человеком → непропорциональное внимание</li>
+    <li><strong>Podlodka:</strong> Вебинары СБОРКИ = "event arm" подкаста</li>
+    <li><strong>Хантфлоу:</strong> Кейс-стади из реальных участников СБОРКИ = компеллинг-контент</li>
+  </ul>
+</div>
+
+<!-- ===== 4. COMMUNITY ===== -->
+<div class="section">
+  <h2>4. Аудитория и культура</h2>
+
+  <h3>4.1 Российский подкаст-рынок</h3>
+  <div class="metric-grid">
+    <div class="metric-card"><div class="num">18-22М</div><div class="label">ежемесячных слушателей</div></div>
+    <div class="metric-card"><div class="num">35%</div><div class="label">25-34 лет</div></div>
+    <div class="metric-card"><div class="num">38%</div><div class="label">Яндекс.Музыка</div></div>
+    <div class="metric-card"><div class="num">62%</div><div class="label">discovery по рекомендации</div></div>
+  </div>
+
+  <h3>4.2 Когда слушают</h3>
+  <table>
+    <tr><th>Время</th><th>% прослушиваний</th><th>Контекст</th></tr>
+    <tr><td>07:00-09:00</td><td>18%</td><td>Утренняя дорога</td></tr>
+    <tr><td>12:00-14:00</td><td>15%</td><td>Обеденный перерыв</td></tr>
+    <tr><td style="background:var(--mave-light);font-weight:600">17:00-19:00</td><td style="background:var(--mave-light);font-weight:600">22%</td><td style="background:var(--mave-light);font-weight:600">Вечерняя дорога (ПИКОВОЕ)</td></tr>
+    <tr><td>19:00-22:00</td><td>20%</td><td>Вечерний отдых</td></tr>
+  </table>
+
+  <h3>4.3 Ключевые паттерны</h3>
+  <ul>
+    <li><strong>Binge-listening:</strong> 45% новых слушателей слушают 3+ back-эпизодов за первую неделю → нужен каталог 10+ эпизодов</li>
+    <li><strong>Retention:</strong> Подписчики слушают 70%+ новых выпусков → сложно привлечь, легко удержать</li>
+    <li><strong>Сезонность:</strong> Пики — январь и сентябрь ("новое начало"). Март — вторичный пик</li>
+    <li><strong>Completion для 10-15 мин:</strong> 65-75% — формат СБОРКИ идеально позиционирован</li>
+  </ul>
+
+  <h3>4.4 Community touchpoints</h3>
+  <p><strong>Есть:</strong> @public_sborka, @Sborka_work_bot, вебинары</p>
+  <p><strong>Не хватает:</strong> Пост-эпизодные обсуждения в канале, команда <code>/podcast_question</code> в боте, запросы рейтингов на Apple Podcasts</p>
+</div>
+
+<!-- ===== 5. TONE OF VOICE ===== -->
+<div class="section">
+  <h2>5. Tone of Voice для аудио</h2>
+
+  <h3>5.1 Адаптация письменного ToV</h3>
+  <table>
+    <tr><th>Письменное правило</th><th>Аудио-адаптация</th></tr>
+    <tr><td>"Начинай с проблемы слушателя"</td><td>"Представь: ты сидишь перед ноутбуком, десятый отклик за неделю..."</td></tr>
+    <tr><td>"Никаких мессианских нарративов"</td><td>Без "I've seen this pattern everywhere" вступлений</td></tr>
+    <tr><td>"Называй людей по имени"</td><td>"Маша, одна из участниц СБОРКИ, HR-менеджер из Москвы"</td></tr>
+    <tr><td>"Дружелюбный CTA"</td><td>"Если тебе это знакомо, заходи в бот СБОРКИ, ссылка в описании"</td></tr>
+  </table>
+
+  <h3>5.2 Аудио-специфика</h3>
+  <ul>
+    <li><strong>Темп:</strong> 140-160 слов/мин — не слишком быстро (тревога для job seekers), не слишком медленно</li>
+    <li><strong>Паузы:</strong> 1-2 сек после ключевых утверждений. Больше пауз на эмоциональных темах</li>
+    <li><strong>Теплота > авторитет:</strong> Поддерживающий друг, не карьерный гуру с подиума</li>
+    <li><strong>Риторические вопросы:</strong> "А ты знаешь, сколько реально стоит твой опыт?"</li>
+    <li><strong>НИКОГДА не читай ссылки вслух.</strong> "Ссылка в описании этого выпуска. Просто нажми, и всё."</li>
+  </ul>
+
+  <h3>5.3 Эмоциональная арка эпизода</h3>
+  <pre>Validation → Understanding → Hope → Action → Support
+
+[0:00-0:30]  INTRO (нейтрально, тепло)
+[0:30-3:00]  VALIDATION: "Это нормально. Ты не один."
+[3:00-7:00]  UNDERSTANDING: "Вот почему это происходит..."
+[7:00-12:00] HOPE + ACTION: "И вот что реально работает..."
+[12:00-14:00] SUPPORT: "А если хочешь не один..." (СБОРКА = community)
+[14:00-14:30] OUTRO + ТИЗЕР</pre>
+</div>
+
+<!-- ===== 6. SEO & DISCOVERY ===== -->
+<div class="section">
+  <h2>6. SEO и обнаружение</h2>
+
+  <h3>6.1 SEO-функции Mave</h3>
+  <ul>
+    <li><strong>Podcast page</strong> <code>sborka.mave.digital</code> — индексируется Яндексом и Google</li>
+    <li><strong>Embed player</strong> — можно встроить на sborka.work (content loop)</li>
+    <li><strong>Internal discovery</strong> — mave.digital/podcasts, порог рекомендаций: 10+ эпизодов</li>
+  </ul>
+
+  <h3>6.2 Категории Apple Podcasts</h3>
+  <p><strong>Primary:</strong> Careers (under Business) | <strong>Secondary:</strong> Self-Improvement (under Education)</p>
+  <p>Менее конкурентны на русском языке → больше шансов попасть в чарты.</p>
+
+  <h3>6.3 Keyword-стратегия для заголовков</h3>
+  <table>
+    <tr><th>Keyword кластер</th><th>Месячные запросы (RU)</th><th>Идея заголовка</th></tr>
+    <tr><td>как найти работу</td><td>120K+</td><td>#6: Как найти работу в 2026: пошаговый план</td></tr>
+    <tr><td>как договориться о зарплате</td><td>40K+</td><td>#7: Сколько ты стоишь: как договориться</td></tr>
+    <tr><td>смена профессии</td><td>55K+</td><td>#8: Смена профессии после 30: реальный план</td></tr>
+    <tr><td>удалённая работа</td><td>45K+</td><td>#10: Удалёнка мечты: где и как</td></tr>
+    <tr><td>синдром самозванца</td><td>25K+</td><td>#11: Синдром самозванца: когда кажется...</td></tr>
+    <tr><td>AI в найме</td><td>15K+ (растёт)</td><td>#13: AI на собеседовании: что знают рекрутеры</td></tr>
+    <tr><td>карьерный рост</td><td>50K+</td><td>#14: Почему тебя не повышают: 5 причин</td></tr>
+  </table>
+</div>
+
+<!-- ===== 7. CTA STRATEGIES ===== -->
+<div class="section">
+  <h2>7. CTA-стратегии</h2>
+
+  <h3>7.1 In-Episode CTA</h3>
+  <table>
+    <tr><th>Момент</th><th>Эффективность</th><th>Реализация</th></tr>
+    <tr><td>Pre-roll (0:00-0:30)</td><td>Низкая для конверсии</td><td>Текущий интро, без CTA</td></tr>
+    <tr><td style="background:var(--mave-light);font-weight:600">Mid-roll (~8:00)</td><td style="background:var(--mave-light);font-weight:600">МАКСИМАЛЬНАЯ</td><td style="background:var(--mave-light);font-weight:600">Мягкий CTA к боту</td></tr>
+    <tr><td>Post-roll (конец)</td><td>Средняя (многие не дослушивают)</td><td>Секция "Про СБОРКУ"</td></tr>
+    <tr><td>Natural mention</td><td>Очень высокая</td><td>Вплетать СБОРКУ в истории</td></tr>
+  </table>
+
+  <h3>Mid-roll CTA скрипт</h3>
+  <div class="callout-green callout">
+    "Если тебе сейчас резонирует то, о чём мы говорим, и ты хочешь не просто слушать, а действовать, загляни в бот СБОРКИ. Ссылка в описании выпуска. Там есть бесплатные инструменты для карьеры, и можно задать вопрос. А мы продолжаем..."
+  </div>
+
+  <h3>7.2 Show Notes Links (UTM)</h3>
+  <pre>ССЫЛКИ:
+- Бот СБОРКА: https://t.me/Sborka_work_bot?start=source_mave_ep{N}
+- Сайт: sborka.work?utm_source=mave&utm_medium=podcast&utm_campaign=s23_mave&utm_content=ep{N}
+- Telegram-канал: https://t.me/public_sborka
+- Яндекс Музыка: https://music.yandex.ru/album/40778773</pre>
+
+  <h3>7.3 Cross-Promotion Flow</h3>
+  <pre>Podcast Episode
+    |
+    +--> Show notes → sborka.work (UTM) → Tariff page → Tribute
+    |
+    +--> Bot deep link → @Sborka_work_bot → Free tools → Upsell
+    |
+    +--> TG channel → @public_sborka → Community → Retention</pre>
+</div>
+
+<!-- ===== 8. MONETIZATION ===== -->
+<div class="section">
+  <h2>8. Монетизация</h2>
+
+  <h3>8.1 Возможности Mave</h3>
+  <table>
+    <tr><th>Функция</th><th>Описание</th><th>Доступность</th></tr>
+    <tr><td>Mave Ads</td><td>Pre-roll/mid-roll marketplace</td><td>После 1000+ прослушиваний/эпизод</td></tr>
+    <tr><td>Mave Boost</td><td>Донаты от слушателей</td><td>Доступно сейчас</td></tr>
+    <tr><td>Premium эпизоды</td><td>Платные эпизоды за paywall</td><td>С Pro-планом</td></tr>
+    <tr><td>Спонсоры</td><td>Brand-podcast matching</td><td>После 10+ эпизодов</td></tr>
+  </table>
+
+  <h3>8.2 Roadmap монетизации</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h4>Фаза 1 (сейчас — Month 3): Foundation</h4>
+      <p>Подкаст = top-of-funnel для подписок СБОРКИ. Каждый эпизод → трафик на бот и сайт. Метрика ROI: bot signups с <code>source_mave</code>.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Фаза 2 (Month 3-6): Boost + Cross-sell</h4>
+      <p>Mave Boost (донаты) при 200+ прослушиваний. Эксклюзивный контент для платных участников. Упоминание тарифов (СТАРТ 4,900₽ / ПРОРЫВ 9,900₽).</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Фаза 3 (Month 6-12): Спонсорство</h4>
+      <p>При 500+ прослушиваний: HeadHunter, Яндекс.Практикум, Skillbox, Huntflow. Ставки: 3,000-15,000₽ за рекламную интеграцию.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Фаза 4 (12+): Full Mix</h4>
+      <p>Mave Ads marketplace + регулярные спонсоры + premium эпизоды + ивенты + affiliate.</p>
+    </div>
+  </div>
+
+  <h3>8.3 Unit-экономика подкаста</h3>
+  <pre>1 эпизод (14 мин)
+  → ~50-200 прослушиваний
+  → ~5-10% кликают ссылки (2.5-20 человек)
+  → ~20-30% запускают бот (0.5-6 человек)
+  → ~5-10% конвертятся в платных (0.025-0.6/эпизод)
+
+При СТАРТ 4,900₽/мес:
+  → 0.025-0.6 × 4,900 = 122-2,940₽/эпизод
+
+Break-even ElevenLabs ($22/мес ≈ 2,000₽):
+  → Нужно ~0.4 платных конверсий/мес
+  → Достижимо при ~100 прослушиваний с хорошим CTA</pre>
+</div>
+
+<!-- ===== 9. CROSS-PLATFORM ===== -->
+<div class="section">
+  <h2>9. Кросс-платформенная синдикация</h2>
+
+  <h3>9.1 Текущий статус</h3>
+  <table>
+    <tr><th>Платформа</th><th>Статус</th><th>Auto-Sync</th><th>Приоритет подачи</th></tr>
+    <tr><td>Mave.digital</td><td style="color:var(--emerald)">✅ ACTIVE (4 ep)</td><td>Источник</td><td>—</td></tr>
+    <tr><td>Spotify</td><td style="color:var(--emerald)">✅ ACTIVE</td><td>Да (RSS)</td><td>—</td></tr>
+    <tr><td>Apple Podcasts</td><td style="color:var(--emerald)">✅ ACTIVE</td><td>Да (RSS)</td><td>—</td></tr>
+    <tr><td>Яндекс.Музыка</td><td style="color:var(--emerald)">✅ ACTIVE</td><td>Да (RSS)</td><td>—</td></tr>
+    <tr><td>Deezer</td><td style="color:var(--emerald)">✅ ACTIVE</td><td>Да (RSS)</td><td>—</td></tr>
+    <tr><td>Pocket Casts</td><td style="color:var(--emerald)">✅ ACTIVE</td><td>Да (RSS)</td><td>—</td></tr>
+    <tr><td>VK Music</td><td style="color:var(--terra)">❌ NOT SUBMITTED</td><td>Нет</td><td style="font-weight:600;color:var(--terra)">HIGH</td></tr>
+    <tr><td>CastBox</td><td style="color:var(--terra)">❌ NOT SUBMITTED</td><td>Нет</td><td style="font-weight:600;color:var(--gold)">MEDIUM</td></tr>
+    <tr><td>Overcast</td><td style="color:var(--muted)">❌ NOT SUBMITTED</td><td>Нет</td><td>LOW</td></tr>
+    <tr><td>Listen Notes</td><td style="color:var(--muted)">❌ NOT SUBMITTED</td><td>Auto (RSS)</td><td>MEDIUM</td></tr>
+  </table>
+
+  <h3>9.2 Embed Player на sborka.work</h3>
+  <pre>&lt;iframe
+  src="https://embed.mave.digital/podcast/sborka"
+  width="100%" height="235" frameborder="0"
+  allow="autoplay"
+  style="border-radius: 12px;"
+&gt;&lt;/iframe&gt;</pre>
+  <p>Размещение: отдельная страница <code>/podcast</code> + секция на главной "Слушай подкаст СБОРКА".</p>
+
+  <h3>9.3 Workflow публикации эпизода</h3>
+  <ol>
+    <li>Генерация аудио (ElevenLabs + ffmpeg)</li>
+    <li>Загрузка на Mave с оптимизированными заголовком, описанием, UTM</li>
+    <li>Проверка на sborka.mave.digital (мгновенно)</li>
+    <li>Пост в @public_sborka (аудио + обложка + подпись)</li>
+    <li>Через 2-4 часа: проверить Яндекс.Музыку и Spotify</li>
+    <li>Через 12-24 часа: проверить Apple, Deezer</li>
+    <li>Кросс-пост анонсов в LinkedIn, Threads, VK, Bluesky (с UTM)</li>
+  </ol>
+</div>
+
+<!-- ===== 10. 30-DAY PLAN ===== -->
+<div class="section">
+  <h2>10. 30-дневный план</h2>
+
+  <h3>Неделя 1: Foundation & Catch-Up</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h4>Дни 1-2: Генерация ep05</h4>
+      <p>Генерация аудио "Оффер: как не продешевить" через ElevenLabs. Загрузка на Mave с оптимизированным описанием + UTM.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Дни 3-4: Верификация + VK Music</h4>
+      <p>Проверить ep05 на Яндекс/Spotify/Apple. Подать подкаст в VK Music (ручная подача, нужен Тим 1 мин).</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Дни 5-7: Написать + опубликовать ep06</h4>
+      <p>"Как найти работу в 2026: пошаговый план" — SEO keyword #1 (120K+ запросов/мес).</p>
+    </div>
+  </div>
+
+  <h3>Неделя 2: Content Velocity</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h4>Дни 8-10: ep07 + кросс-промо</h4>
+      <p>"Сколько ты стоишь: как договориться о зарплате". Промо ep05-07 в LinkedIn, Threads, VK, Bluesky.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Дни 11-14: ep08 + Mave embed</h4>
+      <p>"Смена профессии после 30". Добавить Mave embed player на sborka.work (dev branch). Первая аналитика.</p>
+    </div>
+  </div>
+
+  <h3>Неделя 3: Engagement & Discovery</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h4>Дни 15-17: ep09 + /podcast_question</h4>
+      <p>"Работа за рубежом: с чего начать". Добавить команду <code>/podcast_question</code> в бот. Request Apple Podcasts ratings.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Дни 18-21: ep10 — MILESTONE 10 эпизодов!</h4>
+      <p>"Удалёнка мечты: где искать". Подать в Listen Notes + Overcast. 10 эпизодов = порог для рекомендаций Mave.</p>
+    </div>
+  </div>
+
+  <h3>Неделя 4: Optimization & Scale</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h4>Дни 22-26: A/B test + 2 эпизода</h4>
+      <p>Тест: короткий 8-мин quick tip vs стандартный 14 мин. Написать + опубликовать 2 эпизода на темы best performers.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Дни 27-30: Analytics + Plan Month 2</h4>
+      <p>"Best of" компиляция в @public_sborka. Обновить описание подкаста ("12+ episodes"). Контент-календарь на Month 2.</p>
+    </div>
+  </div>
+
+  <h3>KPI Dashboard</h3>
+  <table>
+    <tr><th>Метрика</th><th>Старт (Day 0)</th><th>Цель (Day 30)</th><th>Как измерять</th></tr>
+    <tr><td>Эпизоды на Mave</td><td>4</td><td style="font-weight:600;color:var(--mave)">12</td><td>Mave dashboard</td></tr>
+    <tr><td>Платформы</td><td>7</td><td style="font-weight:600;color:var(--mave)">11</td><td>Ручной подсчёт</td></tr>
+    <tr><td>Avg listens/эпизод</td><td>Unknown</td><td>30+</td><td>Mave analytics</td></tr>
+    <tr><td>Apple Podcasts reviews</td><td>0</td><td>2+</td><td>Apple Podcasts</td></tr>
+    <tr><td>Bot signups (mave source)</td><td>0</td><td>5+</td><td>Bot analytics</td></tr>
+    <tr><td>sborka.work visits (mave UTM)</td><td>0</td><td>10+</td><td>Umami analytics</td></tr>
+    <tr><td>Каденция</td><td>Irregular</td><td style="font-weight:600;color:var(--mave)">2x/week</td><td>Calendar</td></tr>
+  </table>
+
+  <div class="callout-green callout">
+    <strong>Бюджет на 30 дней: ~$22/мес</strong> (только ElevenLabs). Всё остальное бесплатно. Break-even при 0.4 конверсий/мес.
+  </div>
+</div>
+
+</div>
+
+<footer>
+  S-23 Mave.digital Research &middot; SMM Research Hub &middot; Тим Зинин &middot; Март 2026<br>
+  <a href="../smm_platform_audit.html" style="color:var(--mave)">&larr; Вернуться к Dashboard</a>
+</footer>
+
+</body>
+</html>

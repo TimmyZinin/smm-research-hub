@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-15 Mastodon — SMM Research Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--masto:#6364FF;--masto-dark:#4A4BD4;--masto-light:#EEEEFF}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--masto);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+
+.container{max-width:1100px;margin:0 auto;padding:20px}
+
+header{background:linear-gradient(135deg,#6364FF,#4A4BD4,#2D2E8C);color:#fff;padding:48px 40px;border-radius:16px;margin-bottom:32px;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;right:-40px;top:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);border-radius:50%}
+header h1{font-family:'Playfair Display',serif;font-size:2.2em;margin-bottom:6px}
+header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
+.hero-stats{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stat{background:rgba(255,255,255,.15);border-radius:10px;padding:10px 18px;text-align:center}
+.hero-stat strong{font-family:'JetBrains Mono',monospace;font-size:1.5em;display:block}
+.hero-stat span{font-size:.7em;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+
+.section{background:var(--card);border-radius:12px;padding:32px;margin-bottom:24px;box-shadow:0 2px 12px rgba(44,36,24,.06)}
+.section h2{font-family:'Playfair Display',serif;font-size:1.5em;color:var(--masto);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+
+.tactic{background:var(--masto-light);border-left:4px solid var(--masto);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0;font-size:.95em}
+.tactic strong{color:var(--masto-dark)}
+.insight{background:#F0FAF5;border-left:4px solid var(--emerald);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0}
+.insight strong{color:var(--emerald)}
+.warning{background:#FFF5EE;border-left:4px solid var(--terra);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0}
+.warning strong{color:var(--terra)}
+.formula{background:var(--dark);color:var(--white);padding:16px 24px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:.9em;margin:16px 0;line-height:1.8;white-space:pre-wrap}
+
+.competitor{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px;background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:12px}
+.competitor .ava{width:48px;height:48px;border-radius:50%;background:var(--masto);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2em}
+.competitor h4{margin-bottom:4px;font-size:.95em}
+.competitor .meta{color:var(--muted);font-size:.8em;margin-bottom:6px}
+.competitor p{font-size:.9em;line-height:1.5}
+
+table{width:100%;border-collapse:collapse;font-size:.9em;margin:16px 0}
+th{background:var(--masto-light);color:var(--masto-dark);font-weight:600;text-transform:uppercase;font-size:.75em;letter-spacing:.5px;padding:10px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--white)}
+
+.action-plan{counter-reset:step}
+.action-plan .step{position:relative;padding:16px 16px 16px 56px;background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:10px}
+.action-plan .step::before{counter-increment:step;content:counter(step);position:absolute;left:16px;top:16px;width:28px;height:28px;background:var(--masto);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em}
+.action-plan .step h4{margin-bottom:4px;font-size:.95em}
+.action-plan .step p{font-size:.9em;color:var(--muted)}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kpi-card{background:var(--masto-light);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .num{font-family:'JetBrains Mono',monospace;font-size:2em;font-weight:700;color:var(--masto)}
+.kpi-card .label{font-size:.8em;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+
+footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
+
+@media(max-width:700px){
+  .topnav{gap:8px}.topnav a{font-size:.75em;padding:3px 7px}
+  header{padding:24px 20px}header h1{font-size:1.6em}
+  .grid-2{grid-template-columns:1fr}
+  .competitor{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="logo">SMM Hub</span>
+  <a href="../smm_platform_audit.html">Dashboard</a>
+  <span class="sep">|</span>
+  <a href="s01_linkedin.html">LinkedIn</a>
+  <a href="s02_instagram.html">Instagram</a>
+  <a href="s03_youtube.html">YouTube</a>
+  <a href="s04_telegram_personal.html">TG Personal</a>
+  <a href="s05_telegram_sborka.html">TG Sborka</a>
+  <a href="s06_threads.html">Threads</a>
+  <a href="s07_facebook.html">Facebook</a>
+  <a href="s08_tiktok.html">TikTok</a>
+  <a href="s09_vk.html">VK</a>
+  <a href="s10_vcru.html">VC.ru</a>
+  <a href="s11_devto.html">Dev.to</a>
+  <a href="s12_medium.html">Medium</a>
+  <a href="s13_hashnode.html">Hashnode</a>
+  <a href="s14_bluesky.html">Bluesky</a>
+  <a href="s15_mastodon.html" class="active">Mastodon</a>
+</nav>
+
+<div class="container">
+
+<header>
+  <h1>S-15: Mastodon</h1>
+  <div class="sub">Fediverse &middot; ActivityPub &middot; Zero Algorithm &middot; Anti-Commercial Culture</div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>5-7M</strong><span>Monthly Active</span></div>
+    <div class="hero-stat"><strong>500</strong><span>Char Limit</span></div>
+    <div class="hero-stat"><strong>$0</strong><span>API Cost</span></div>
+    <div class="hero-stat"><strong>0</strong><span>Algorithm</span></div>
+    <div class="hero-stat"><strong>300</strong><span>req/5min Rate</span></div>
+  </div>
+</header>
+
+<!-- ===== 1. FEDIVERSE MECHANICS ===== -->
+<div class="section">
+  <h2>1. Fediverse Mechanics &amp; Content Distribution</h2>
+
+  <p>Mastodon is the largest platform in the Fediverse &mdash; a network of interconnected, independently operated servers communicating via the <strong>ActivityPub</strong> open protocol. ~10-12M active monthly users collectively, with Mastodon accounting for 5-7M. The user base is disproportionately developers, academics, and open-source advocates &mdash; <em>exactly</em> Tim's target audience.</p>
+
+  <div class="tactic"><strong>Critical Difference:</strong> Mastodon has NO algorithm. Content discovery is purely chronological and follower/hashtag-driven. Boosts (retoots) are the ONLY viral mechanism. There is no &laquo;For You&raquo; page, no engagement optimization, no pay-to-play.</div>
+
+  <h3 style="margin:20px 0 12px">Three Timelines</h3>
+  <table>
+    <tr><th>Timeline</th><th>Content</th><th>Reach</th></tr>
+    <tr><td><strong>Home</strong></td><td>Posts from people you follow (any instance)</td><td>Your followers only</td></tr>
+    <tr><td><strong>Local</strong></td><td>All public posts from your instance</td><td>Everyone on mastodon.social (~2.2M accounts)</td></tr>
+    <tr><td><strong>Federated</strong></td><td>All public posts your instance knows about</td><td>Variable &mdash; depends on instance connections</td></tr>
+  </table>
+
+  <div class="formula">HOW A POST REACHES NEW PEOPLE:
+  1. Direct followers → Home timeline
+  2. Boosts → ALL booster's followers see it (PRIMARY VIRAL MECHANISM)
+  3. Hashtags → Searchable + followable since Mastodon 4.x
+  4. Relay servers → Expand federated timeline
+  5. Explore/Trending → Curated by instance admins (opt-in)
+
+  KEY INSIGHT: Getting boosted by accounts with large followings
+  on active instances is THE primary growth lever.</div>
+
+  <h3 style="margin:20px 0 12px">Mastodon vs Bluesky vs Twitter</h3>
+  <table>
+    <tr><th>Feature</th><th>Mastodon</th><th>Bluesky</th><th>Twitter/X</th></tr>
+    <tr><td>Algorithm</td><td>None (chronological)</td><td>Chronological + custom feeds</td><td>Algorithmic + For You</td></tr>
+    <tr><td>API access</td><td><strong>Free, open</strong></td><td>Free, open</td><td>$100-$42K/month</td></tr>
+    <tr><td>Character limit</td><td>500</td><td>300</td><td>280 (free)</td></tr>
+    <tr><td>Federation</td><td>Full (ActivityPub)</td><td>AT Protocol</td><td>None</td></tr>
+    <tr><td>Edit posts</td><td>Yes</td><td>No</td><td>Premium only</td></tr>
+    <tr><td>Ads</td><td>None</td><td>None</td><td>Pervasive</td></tr>
+  </table>
+
+  <div class="insight"><strong>API Advantage:</strong> Mastodon's free open API is massive vs Twitter's $200/month. Tim already has &laquo;Zinin Corp SMM&raquo; app registered with 6 statuses posted. Auto-publishing costs $0.</div>
+</div>
+
+<!-- ===== 2. INSTANCE SELECTION ===== -->
+<div class="section">
+  <h2>2. Instance Selection</h2>
+
+  <p>Tim is on <strong>mastodon.social</strong> &mdash; the flagship instance (~2.2M accounts, 200-300K MAU). Analysis of alternatives:</p>
+
+  <table>
+    <tr><th>Instance</th><th>Focus</th><th>Users</th><th>Verdict</th></tr>
+    <tr><td><strong>mastodon.social</strong></td><td>General</td><td>~2.2M</td><td style="color:var(--emerald);font-weight:700">STAY (recommended)</td></tr>
+    <tr><td>fosstodon.org</td><td>FOSS/Tech</td><td>~60K</td><td>Strong dev community, but may resist AI/commercial</td></tr>
+    <tr><td>hachyderm.io</td><td>Tech professionals</td><td>~55K</td><td>Tech-focused, tolerant of professional content</td></tr>
+    <tr><td>sigmoid.social</td><td>AI/ML</td><td>~5K</td><td>AI-specific; consider as secondary account later</td></tr>
+    <tr><td>social.vivaldi.net</td><td>General (Vivaldi)</td><td>~40K</td><td>5,000 char limit; tech-leaning</td></tr>
+  </table>
+
+  <div class="tactic"><strong>Recommendation: STAY on mastodon.social.</strong> Maximum federation reach (connected to more instances than any other), API already configured, stable (Mastodon gGmbH, funded by Patreon + EU grants), permissive rules for professional content. Reassess at 90 days.</div>
+</div>
+
+<!-- ===== 3. COMPETITOR ANALYSIS ===== -->
+<div class="section">
+  <h2>3. Competitor Analysis</h2>
+
+  <div class="competitor">
+    <div class="ava">SW</div>
+    <div>
+      <h4>Simon Willison (@simon@simonwillison.net)</h4>
+      <div class="meta">35,000+ followers &middot; Self-hosted instance &middot; 3-8 posts/day</div>
+      <p>LLM tool reviews, Python snippets, blog links. Very high boost-to-favorite ratio. Threads about new AI tools get 200-500 boosts. <strong>Lesson:</strong> genuine discovery process, always educational, never promotional.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">CD</div>
+    <div>
+      <h4>Cory Doctorow (@pluralistic@mamot.fr)</h4>
+      <div class="meta">80,000+ followers &middot; mamot.fr &middot; 5-15 posts/day</div>
+      <p>Anti-enshittification, tech policy. 500-2000 boosts on long threads. Uses Mastodon as PRIMARY platform (not cross-posting). <strong>Lesson:</strong> thread mastery + authenticity is massively rewarded.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">TG</div>
+    <div>
+      <h4>Timnit Gebru (@timnitgebru@dair-community.social)</h4>
+      <div class="meta">25,000+ followers &middot; Self-hosted &middot; 2-5 posts/day</div>
+      <p>AI ethics, industry critique. Controversial takes get highest engagement. <strong>Lesson:</strong> authentic voice and principled positions win.</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">JG</div>
+    <div>
+      <h4>Jeff Geerling (@geerlingguy@mastodon.social)</h4>
+      <div class="meta">20,000+ followers &middot; mastodon.social &middot; 1-3 posts/day</div>
+      <p>DevOps/Ansible, Raspberry Pi. Hardware project photos get most boosts. <strong>Lesson:</strong> always provides value in the post itself, never just &laquo;new video, check it out.&raquo;</p>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="ava">JE</div>
+    <div>
+      <h4>Julia Evans (@b0rk@mastodon.social)</h4>
+      <div class="meta">25,000+ followers &middot; mastodon.social &middot; 1-2 posts/day</div>
+      <p>Technical zines/infographics. Visual content gets 500-1500 boosts. <strong>Lesson:</strong> visual technical content is king on Mastodon. Making complex topics accessible through visuals.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:20px 0 12px">Engagement Benchmarks (500-5K followers)</h3>
+  <table>
+    <tr><th>Metric</th><th>Low</th><th>Average</th><th>Good</th><th>Excellent</th></tr>
+    <tr><td>Favorites/post</td><td>2-5</td><td>10-25</td><td>30-75</td><td>100+</td></tr>
+    <tr><td>Boosts/post</td><td>0-2</td><td>3-10</td><td>15-40</td><td>50+</td></tr>
+    <tr><td>Replies/post</td><td>0-1</td><td>2-5</td><td>5-15</td><td>20+</td></tr>
+    <tr><td>Thread engagement</td><td>1.5x</td><td>2x</td><td>3x</td><td>5x+</td></tr>
+  </table>
+
+  <div class="insight"><strong>Growth Projections:</strong> Month 1: 50-200 followers &middot; Month 3: 200-800 &middot; Month 6: 500-2,000 &middot; Month 12: 1,000-5,000. Realistic for AI/tech account with daily quality content + active engagement.</div>
+</div>
+
+<!-- ===== 4. COMMUNITY CULTURE ===== -->
+<div class="section">
+  <h2>4. Community Culture &amp; Accessibility</h2>
+
+  <p>Mastodon's culture is shaped by anti-surveillance capitalism, open source ethos, and accessibility-first principles. Understanding this is <strong>non-negotiable</strong> for success.</p>
+
+  <div class="warning"><strong>Core Values:</strong>
+    <ul style="margin:8px 0 0 20px;font-size:.9em">
+      <li><strong>Anti-surveillance capitalism</strong> &mdash; any &laquo;growth hacking&raquo; or &laquo;funnel&raquo; language = hostility</li>
+      <li><strong>Open source &amp; decentralization</strong> &mdash; FOSS contributions earn massive respect</li>
+      <li><strong>Accessibility is not optional</strong> &mdash; alt text, CamelCase hashtags, content warnings = basic courtesy</li>
+      <li><strong>Community over celebrity</strong> &mdash; nobody wants to be a &laquo;Mastodon influencer&raquo;</li>
+      <li><strong>Anti-metrics obsession</strong> &mdash; celebrating follower counts is frowned upon</li>
+    </ul>
+  </div>
+
+  <h3 style="margin:20px 0 12px">What Earns Respect vs Gets You Unfollowed</h3>
+  <div class="grid-2">
+    <div style="background:#F0FAF5;padding:16px;border-radius:10px">
+      <h4 style="color:var(--emerald)">EARNS RESPECT</h4>
+      <ul style="font-size:.85em;margin-top:8px;margin-left:16px">
+        <li>Sharing open-source tools/code</li>
+        <li>Writing detailed alt text</li>
+        <li>Boosting others' content</li>
+        <li>Admitting mistakes publicly</li>
+        <li>Using CW appropriately</li>
+        <li>Responding to questions helpfully</li>
+        <li>Contributing to Fediverse projects</li>
+      </ul>
+    </div>
+    <div style="background:#FDF0ED;padding:16px;border-radius:10px">
+      <h4 style="color:var(--terra)">GETS YOU UNFOLLOWED</h4>
+      <ul style="font-size:.85em;margin-top:8px;margin-left:16px">
+        <li>No alt text on images consistently</li>
+        <li>Cross-posting with &laquo;RT @user&raquo; format</li>
+        <li>Excessive self-promotion</li>
+        <li>Corporate/marketing language</li>
+        <li>One-way broadcast behavior</li>
+        <li>Mentioning follower counts</li>
+        <li>&laquo;Follow me on Twitter/X&raquo; links</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin:20px 0 12px">Accessibility Requirements (NON-NEGOTIABLE)</h3>
+  <div class="tactic"><strong>Alt Text:</strong> EVERY image must have alt text. For code screenshots: describe the code. For infographics: describe key data points. For architecture diagrams: describe components and connections. Mastodon UI warns if you post without alt text. Some clients hide images without it. <code>auto_publisher.py</code> MUST include alt text in every media upload.</div>
+
+  <div class="tactic"><strong>CamelCase Hashtags:</strong> #ArtificialIntelligence, NOT #artificialintelligence. Screen readers parse CamelCase as separate words. Violating this signals &laquo;outsider.&raquo;</div>
+</div>
+
+<!-- ===== 5. HASHTAG STRATEGY ===== -->
+<div class="section">
+  <h2>5. Hashtag Strategy</h2>
+
+  <p>Hashtags are the primary discovery mechanism on Mastodon. Users can FOLLOW hashtags (since 4.x), making them appear in Home timeline. Use 3-5 per post, max 7. More = spam.</p>
+
+  <table>
+    <tr><th>Tier</th><th>Hashtags</th><th>Est. Followers</th></tr>
+    <tr><td><strong>Tier 1 (most posts)</strong></td><td>#AI, #ArtificialIntelligence, #MachineLearning, #OpenSource, #Python, #Tech</td><td>40K-100K+ each</td></tr>
+    <tr><td><strong>Tier 2 (rotate)</strong></td><td>#AIAgents, #MultiAgent, #AgenticAI, #BuildInPublic, #DevOps, #TechCareers, #Fediverse</td><td>5K-40K each</td></tr>
+    <tr><td><strong>Tier 3 (specific)</strong></td><td>#CrewAI, #LangChain, #Docker, #SelfHosted, #FOSS, #NLP, #RAG</td><td>1K-15K each</td></tr>
+  </table>
+
+  <div class="formula">HASHTAG FORMULAS BY CONTENT PILLAR:
+
+  Build in Public: #BuildInPublic #AI #AIAgents #Python #Automation
+  Technical:       #AI #MachineLearning #LLM #OpenSource #Tech
+  Career:          #TechCareers #AI #HRTech #Hiring #Tech
+  Multi-agent:     #AIAgents #AgenticAI #MultiAgent #Python #AI
+  Open source:     #OpenSource #FOSS #Python #AI #BuildInPublic</div>
+
+  <div class="warning"><strong>Avoid:</strong> #Mastodon (only for platform discussion), #FollowFriday (only genuine recommendations), #Introduction (only first post). No hashtags mid-sentence. No hashtag stuffing (&gt;7).</div>
+</div>
+
+<!-- ===== 6. TONE OF VOICE ===== -->
+<div class="section">
+  <h2>6. Tone of Voice</h2>
+
+  <table>
+    <tr><th>Platform</th><th>Winning Tone</th></tr>
+    <tr><td>LinkedIn</td><td>Professional, achievement-focused</td></tr>
+    <tr><td>Twitter/X</td><td>Hot takes, provocative, viral-optimized</td></tr>
+    <tr><td>Threads</td><td>Casual, visual, trendy</td></tr>
+    <tr><td><strong>Mastodon</strong></td><td><strong>Authentic, technical, community-minded, practitioner voice</strong></td></tr>
+  </table>
+
+  <div class="grid-2">
+    <div style="background:#F0FAF5;padding:16px;border-radius:10px">
+      <h4 style="color:var(--emerald)">DO</h4>
+      <ul style="font-size:.85em;margin-top:8px;margin-left:16px">
+        <li>Write as practitioner sharing experience</li>
+        <li>First person: &laquo;I built,&raquo; &laquo;I learned&raquo;</li>
+        <li>Be specific: numbers, code, architecture</li>
+        <li>Acknowledge uncertainty: &laquo;not sure this scales, but...&raquo;</li>
+        <li>Show the messy middle, not polished results</li>
+        <li>Reference open-source tools, credit builders</li>
+        <li>Dry, self-deprecating humor</li>
+      </ul>
+    </div>
+    <div style="background:#FDF0ED;padding:16px;border-radius:10px">
+      <h4 style="color:var(--terra)">DON'T</h4>
+      <ul style="font-size:.85em;margin-top:8px;margin-left:16px">
+        <li>LinkedIn-speak: &laquo;Excited to share,&raquo; &laquo;Thrilled to announce&raquo;</li>
+        <li>Marketing: &laquo;revolutionary,&raquo; &laquo;disrupting,&raquo; &laquo;10x&raquo;</li>
+        <li>Growth-hacker: &laquo;funnel,&raquo; &laquo;conversion,&raquo; &laquo;lead magnet&raquo;</li>
+        <li>CTA urgency: &laquo;Don't miss out,&raquo; &laquo;Limited time&raquo;</li>
+        <li>Cross-post without tone adaptation</li>
+        <li>Emoji walls</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin:20px 0 12px">Sample Posts</h3>
+  <div class="tactic" style="font-style:italic;font-family:'JetBrains Mono',monospace;font-size:.85em">Six months into running 6 AI agents that auto-publish to 26 platforms.<br><br>The honest truth: agent reliability is still the hardest problem.<br>Not the AI part -- the "did the API rate-limit change again at 3AM" part.<br><br>Current stack: Python, CrewAI, Docker on a single VPS.<br>Total monthly cost: ~$15.<br><br>#BuildInPublic #AIAgents #Python</div>
+
+  <div class="tactic" style="font-style:italic;font-family:'JetBrains Mono',monospace;font-size:.85em">We analyzed 500 AI job postings on our career platform.<br><br>Interesting finding: "prompt engineering" mentions dropped 40% in 6 months. "Agent orchestration" mentions up 300%.<br><br>The market is shifting from "talk to AI" to "build AI systems."<br><br>Raw data: [link]<br><br>#TechCareers #AI #AIAgents #Hiring</div>
+</div>
+
+<!-- ===== 7. CTA STRATEGY ===== -->
+<div class="section">
+  <h2>7. CTA Strategy &rarr; sborka.work</h2>
+
+  <div class="warning"><strong>The Anti-Commercial Challenge:</strong> Mastodon culture is deeply skeptical of commercial content. The fundamental equation: <code>Value given &gt;&gt; Value extracted</code>. If you consistently provide more than you take, the community will actively support your projects.</div>
+
+  <h3 style="margin:16px 0 12px">Approved CTA Patterns</h3>
+  <table>
+    <tr><th>Pattern</th><th>Why It Works</th><th>Conversion</th></tr>
+    <tr><td><strong>Research Share</strong></td><td>Genuinely useful data. Link to free content. CTA is implicit</td><td>HIGHEST</td></tr>
+    <tr><td><strong>Open Source Announcement</strong></td><td>FOSS contributions earn massive goodwill. sborka.work link is contextual</td><td>HIGH</td></tr>
+    <tr><td><strong>Career Data Insight</strong></td><td>Data is inherently valuable. CTA is informational, not commercial</td><td>HIGH</td></tr>
+    <tr><td><strong>Build-in-Public Progress</strong></td><td>Honest numbers (including low revenue) signal authenticity</td><td>MEDIUM</td></tr>
+    <tr><td><strong>Community Contribution</strong></td><td>Create something useful FOR the community. Maximum goodwill</td><td>MEDIUM</td></tr>
+  </table>
+
+  <div class="formula">RESEARCH SHARE (BEST CTA):
+  "We published our research on AI agent reliability benchmarks.
+  Tested 14 video generation models, measured cost per minute,
+  failure rates, and output quality.
+
+  Full report with raw data:
+  sborka.work/knowledge/research/ai-video-benchmarks
+    ?utm_source=mastodon&amp;utm_medium=social
+    &amp;utm_campaign=research_mar2026&amp;utm_content=m15_01
+
+  #AI #MachineLearning #GenerativeAI"</div>
+
+  <div class="warning"><strong>CTA Patterns to AVOID:</strong>
+    <ul style="margin:8px 0 0 20px;font-size:.9em">
+      <li>&laquo;Visit sborka.work to find AI jobs!&raquo; (direct commercial pitch)</li>
+      <li>&laquo;Sign up for our newsletter&raquo; (email capture feels extractive)</li>
+      <li>&laquo;Link in bio&raquo; (Instagram-speak)</li>
+      <li>&laquo;Join 500+ members&raquo; (social proof = salesy)</li>
+      <li>&laquo;Limited spots available&raquo; (urgency/scarcity)</li>
+    </ul>
+  </div>
+
+  <h3 style="margin:20px 0 12px">Profile Link Verification</h3>
+  <div class="tactic"><strong>rel=&quot;me&quot; Verification:</strong> Add <code>&lt;a rel=&quot;me&quot; href=&quot;https://mastodon.social/@timzinin&quot;&gt;</code> to sborka.work HTML. Mastodon verifies the link and shows a green checkmark &mdash; the equivalent of a blue badge. Significantly increases trust. Set sborka.work as verified metadata field.</div>
+</div>
+
+<!-- ===== 8. CROSS-PLATFORM: ACTIVITYPUB FEDERATION ===== -->
+<div class="section">
+  <h2>8. Cross-Platform: ActivityPub Federation</h2>
+
+  <p>Mastodon's ActivityPub protocol enables interoperability with a growing ecosystem &mdash; a unique advantage no centralized platform offers.</p>
+
+  <table>
+    <tr><th>Platform</th><th>Type</th><th>Interop</th><th>Priority</th></tr>
+    <tr><td><strong>WordPress (ActivityPub plugin)</strong></td><td>Blog</td><td>Blog posts appear as Mastodon posts, receive comments</td><td style="color:var(--emerald);font-weight:700">HIGH</td></tr>
+    <tr><td><strong>Lemmy</strong></td><td>Reddit-like</td><td>Follow communities from Mastodon, see posts</td><td>MEDIUM</td></tr>
+    <tr><td><strong>PeerTube</strong></td><td>YouTube-like</td><td>Follow channels, see video posts</td><td>MEDIUM</td></tr>
+    <tr><td><strong>Threads</strong></td><td>Microblog</td><td>Limited ActivityPub since Dec 2024, opt-in</td><td>LOW</td></tr>
+    <tr><td><strong>Pixelfed</strong></td><td>Instagram-like</td><td>Full interop: follow, comment, boost</td><td>LOW</td></tr>
+    <tr><td><strong>Flipboard</strong></td><td>News</td><td>ActivityPub support since 2024</td><td>LOW</td></tr>
+  </table>
+
+  <div class="insight"><strong>Power Play:</strong> If sborka.work adds ActivityPub support (WordPress plugin or custom implementation), every research report automatically federates to Mastodon. Users follow <code>@blog@sborka.work</code> and see articles in their timeline. This is the most powerful cross-platform CTA available &mdash; content discovery without any promotion.</div>
+
+  <div class="formula">CROSS-POSTING RULES:
+  BEST: Write for Mastodon first → adapt to other platforms
+  GOOD: Post on Mastodon, then share adapted version elsewhere
+  OK:   Write LinkedIn post, then GENUINELY rephrase for Mastodon
+  BAD:  Auto-cross-post from Twitter with "RT" format
+  BAD:  Post identical text on Mastodon and LinkedIn
+  BAD:  Link to your LinkedIn/Twitter post ("Fediverse colonialism")</div>
+</div>
+
+<!-- ===== 9. CONTENT STRATEGY ===== -->
+<div class="section">
+  <h2>9. Content Strategy &amp; Formats</h2>
+
+  <table>
+    <tr><th>Content Type</th><th>Engagement</th><th>Example</th></tr>
+    <tr><td><strong>Open source announcements</strong></td><td>VERY HIGH</td><td>&laquo;Just open-sourced our multi-platform auto-publisher. Python, 26 platforms, $0/month.&raquo;</td></tr>
+    <tr><td><strong>Build in Public</strong></td><td>HIGH</td><td>&laquo;Deployed 6 AI agents. Here's what 3 months taught me about orchestration.&raquo;</td></tr>
+    <tr><td><strong>Technical breakdowns</strong></td><td>HIGH</td><td>Thread: &laquo;How ActivityPub federation works under the hood&raquo;</td></tr>
+    <tr><td><strong>Code snippets</strong></td><td>HIGH</td><td>Screenshot of auto_publisher.py with explanation + alt text</td></tr>
+    <tr><td><strong>Hot takes on AI</strong></td><td>MEDIUM-HIGH</td><td>&laquo;90% of AI pilots fail because they optimize for demos, not production.&raquo;</td></tr>
+    <tr><td><strong>Polls</strong></td><td>HIGH</td><td>&laquo;Biggest challenge with AI agents? 1) Reliability 2) Cost 3) Orchestration 4) Trust&raquo;</td></tr>
+    <tr><td><strong>Career insights</strong></td><td>MEDIUM</td><td>&laquo;We analyzed 500 AI job postings. The skill gap isn't technical.&raquo;</td></tr>
+    <tr><td><strong>Pure promotion</strong></td><td>VERY LOW</td><td>&laquo;Check out sborka.work!&raquo; &mdash; will get you unfollowed</td></tr>
+  </table>
+
+  <h3 style="margin:20px 0 12px">Posting Schedule</h3>
+  <table>
+    <tr><th>Activity</th><th>Frequency</th><th>Best Time (UTC)</th></tr>
+    <tr><td>Original posts</td><td>1 per day (growth phase)</td><td>12:00-14:00 (EU lunch + US morning)</td></tr>
+    <tr><td>Boosts of others</td><td>2-3 per day</td><td>Throughout the day</td></tr>
+    <tr><td>Replies to others</td><td>3-5 per day</td><td>Active conversation hours</td></tr>
+    <tr><td>Threads</td><td>1 per week</td><td>12:00 UTC for max EU+US reach</td></tr>
+    <tr><td>#FollowFriday</td><td>Weekly (genuine only)</td><td>Fridays</td></tr>
+  </table>
+
+  <div class="tactic"><strong>Content Warnings (CW):</strong> Use for AI doomerism/existential risk, controversial hot takes, posts about job loss/displacement. When in doubt, add a CW &mdash; the community respects over-use but punishes under-use. NOT needed for: technical posts, career advice, build-in-public, open source.</div>
+</div>
+
+<!-- ===== 10. 30-DAY ACTION PLAN ===== -->
+<div class="section">
+  <h2>10. 30-Day Action Plan</h2>
+
+  <h3 style="margin-bottom:16px">Pre-Launch (Day 0)</h3>
+  <div class="action-plan">
+    <div class="step">
+      <h4>Optimize profile</h4>
+      <p>Display: &laquo;Tim Zinin&raquo;. Bio (500 chars): &laquo;Multi-agent AI architect. Building systems where 6 AI agents run 8 businesses from a laptop. Open source, build in public. Creator of SBORKA career platform.&raquo; 4 metadata fields: Site (sborka.work verified), GitHub, Blog (Dev.to), YouTube.</p>
+    </div>
+    <div class="step">
+      <h4>Add rel=&quot;me&quot; verification</h4>
+      <p>Add <code>&lt;a rel=&quot;me&quot;&gt;</code> link to sborka.work for green checkmark. Enable &laquo;discoverable&raquo; and &laquo;searchable&raquo; in settings.</p>
+    </div>
+    <div class="step">
+      <h4>Update auto_publisher.py</h4>
+      <p>Mastodon module: 500 char limit, CamelCase hashtags, mandatory alt text on all media uploads. UTM tracking on all links. Test post with image + alt text via API.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:24px 0 12px">Week 1: Introduction &amp; Orientation</h3>
+  <table>
+    <tr><th>Day</th><th>Action</th><th>Type</th></tr>
+    <tr><td>1</td><td>#Introduction post: who you are, what you build, open source links, &laquo;What are people working on?&raquo;</td><td>Introduction</td></tr>
+    <tr><td>2</td><td>Technical insight from multi-agent stack + code screenshot WITH alt text</td><td>Technical</td></tr>
+    <tr><td>3</td><td>BOOST DAY: 0 original content. Boost 5-10 great AI/tech posts. Reply to 3-5 thoughtfully</td><td>Community</td></tr>
+    <tr><td>4</td><td>Thread (3-5 posts): &laquo;What 6 months of multi-agent orchestration taught me&raquo;</td><td>Thread</td></tr>
+    <tr><td>5</td><td>Search #AI, #AIAgents, #BuildInPublic. Reply to 5-10 posts. Follow 10-20 genuine interests</td><td>Engagement</td></tr>
+    <tr><td>6</td><td>Architecture diagram/infographic with detailed alt text + soft CTA to sborka.work</td><td>Visual + CTA</td></tr>
+    <tr><td>7</td><td>Light personal/humorous post or more boosts</td><td>Personal</td></tr>
+  </table>
+
+  <h3 style="margin:24px 0 12px">Week 2: Establishing Rhythm</h3>
+  <p>Daily: 1 original post + 2-3 boosts + 3-5 replies. Day 9: first career data CTA to sborka.work research. Day 11: #FollowFriday &mdash; recommend 3-5 accounts you genuinely enjoy.</p>
+
+  <h3 style="margin:24px 0 12px">Week 3: Deepening Community Ties</h3>
+  <p>Focus on building relationships, not broadcasting. Participate in ongoing AI/tech conversations. Share open-source contributions. Join Lemmy AI communities for cross-federation.</p>
+
+  <h3 style="margin:24px 0 12px">Week 4: Consolidation</h3>
+  <p>Establish consistent posting rhythm. Second research CTA. Evaluate engagement patterns. Plan Month 2 content calendar.</p>
+
+  <h3 style="margin:24px 0 12px">Month 1 KPIs</h3>
+  <div class="grid-2">
+    <div class="kpi-card"><div class="num">50-200</div><div class="label">Followers</div></div>
+    <div class="kpi-card"><div class="num">28+</div><div class="label">Original Posts</div></div>
+    <div class="kpi-card"><div class="num">60+</div><div class="label">Boosts Given</div></div>
+    <div class="kpi-card"><div class="num">100+</div><div class="label">Replies Written</div></div>
+    <div class="kpi-card"><div class="num">10+</div><div class="label">Boosts on Best Post</div></div>
+    <div class="kpi-card"><div class="num">5+</div><div class="label">sborka.work Clicks</div></div>
+    <div class="kpi-card"><div class="num">1</div><div class="label">Verified Profile Link</div></div>
+    <div class="kpi-card"><div class="num">5+</div><div class="label">Conversations Joined</div></div>
+  </div>
+</div>
+
+<footer>
+  SMM Research Hub &copy; 2026 | Тим Зинин | Sprint S-15 Mastodon
+</footer>
+
+</div>
+</body>
+</html>

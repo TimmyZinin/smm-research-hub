@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-19 Minds — SMM Research Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--minds:#1B85D6;--minds-dark:#1570B8;--minds-light:#E8F4FF}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--minds);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+
+.container{max-width:1100px;margin:0 auto;padding:20px}
+
+header{background:linear-gradient(135deg,#1B85D6,#1570B8,#0D4F82);color:#fff;padding:48px 40px;border-radius:16px;margin-bottom:32px;position:relative;overflow:hidden}
+header::before{content:'minds';position:absolute;right:20px;top:15px;font-size:4em;font-weight:900;opacity:.06;font-family:'JetBrains Mono',monospace}
+header h1{font-family:'Playfair Display',serif;font-size:2.2em;margin-bottom:6px}
+header .sub{opacity:.9;font-size:1.05em;margin-bottom:20px}
+.hero-stats{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stat{background:rgba(255,255,255,.15);border-radius:10px;padding:10px 18px;text-align:center}
+.hero-stat strong{font-family:'JetBrains Mono',monospace;font-size:1.5em;display:block}
+.hero-stat span{font-size:.7em;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+
+section{background:var(--card);border-radius:14px;padding:32px;margin-bottom:24px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(44,36,24,.05)}
+section h2{font-family:'Playfair Display',serif;font-size:1.5em;margin-bottom:18px;color:var(--minds-dark);border-bottom:2px solid var(--minds-light);padding-bottom:10px}
+section h3{font-size:1.1em;font-weight:700;margin:18px 0 10px;color:var(--dark)}
+
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th{background:var(--minds-light);text-align:left;padding:10px 12px;font-weight:600;border-bottom:2px solid var(--minds)}
+td{padding:10px 12px;border-bottom:1px solid var(--border)}
+tr:hover td{background:var(--minds-light)}
+
+.tactic{background:var(--minds-light);border-left:4px solid var(--minds);padding:16px 20px;border-radius:0 10px 10px 0;margin:14px 0}
+.tactic strong{color:var(--minds-dark)}
+
+.insight{background:linear-gradient(135deg,#E8F4FF,#F0F8FF);border:1px solid var(--minds);border-radius:10px;padding:16px 20px;margin:14px 0}
+.insight::before{content:'INSIGHT';font-family:'JetBrains Mono',monospace;font-size:.7em;font-weight:700;color:var(--minds);letter-spacing:2px;display:block;margin-bottom:6px}
+
+.warning{background:#FFF0E6;border-left:4px solid var(--terra);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-size:.93em}
+.warning::before{content:'WARNING: ';font-weight:700;color:var(--terra)}
+
+.formula{background:var(--dark);color:var(--white);padding:16px 24px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:.95em;margin:14px 0;text-align:center}
+.formula .highlight{color:var(--minds);font-weight:700}
+
+.competitor{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;margin:12px 0;transition:box-shadow .2s}
+.competitor:hover{box-shadow:0 4px 16px rgba(27,133,214,.15)}
+.competitor .name{font-weight:700;font-size:1.05em;margin-bottom:4px;color:var(--minds-dark)}
+.competitor .meta{font-size:.85em;color:var(--muted);margin-bottom:8px;font-family:'JetBrains Mono',monospace}
+.competitor .takeaway{font-size:.92em;color:var(--dark)}
+
+.action-plan{counter-reset:step}
+.action-plan .step{position:relative;padding:18px 20px 18px 60px;margin:10px 0;background:var(--card);border:1px solid var(--border);border-radius:10px}
+.action-plan .step::before{counter-increment:step;content:counter(step);position:absolute;left:16px;top:16px;width:32px;height:32px;background:var(--minds);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9em}
+.action-plan .step strong{color:var(--minds-dark)}
+
+.kpi-card{display:inline-block;background:linear-gradient(135deg,var(--minds),var(--minds-dark));color:#fff;padding:12px 20px;border-radius:10px;margin:6px 8px 6px 0;text-align:center}
+.kpi-card .val{font-family:'JetBrains Mono',monospace;font-size:1.4em;font-weight:700;display:block}
+.kpi-card .label{font-size:.75em;text-transform:uppercase;letter-spacing:1px;opacity:.9}
+
+.pillar{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:14px 0}
+.pillar-item{background:var(--minds-light);border-radius:10px;padding:16px;border-top:3px solid var(--minds)}
+.pillar-item .pct{font-family:'JetBrains Mono',monospace;font-size:1.8em;font-weight:700;color:var(--minds)}
+.pillar-item h4{margin:6px 0;font-size:.95em}
+.pillar-item p{font-size:.85em;color:var(--muted)}
+
+ul,ol{margin:10px 0 10px 20px}
+li{margin-bottom:6px;font-size:.94em}
+code{font-family:'JetBrains Mono',monospace;background:var(--minds-light);padding:2px 6px;border-radius:4px;font-size:.88em}
+
+@media(max-width:768px){
+header{padding:28px 20px}header h1{font-size:1.5em}
+section{padding:20px}
+.hero-stats{flex-direction:column}
+.topnav{gap:8px;padding:8px 12px}.topnav a{font-size:.75em;padding:3px 7px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+<span class="logo">SMM Hub</span>
+<a href="../smm_platform_audit.html">Dashboard</a>
+<span class="sep">|</span>
+<a href="s01_linkedin.html">LinkedIn</a>
+<a href="s02_instagram.html">IG</a>
+<a href="s03_threads.html">Threads</a>
+<a href="s04_telegram.html">TG</a>
+<a href="s05_youtube.html">YT</a>
+<a href="s06_tiktok.html">TikTok</a>
+<a href="s07_vk.html">VK</a>
+<a href="s08_x.html">X</a>
+<a href="s09_facebook.html">FB</a>
+<a href="s10_pinterest.html">Pin</a>
+<a href="s11_reddit.html">Reddit</a>
+<a href="s12_medium.html">Medium</a>
+<a href="s13_hashnode.html">Hashnode</a>
+<a href="s14_bluesky.html">Bluesky</a>
+<a href="s15_mastodon.html">Mastodon</a>
+<a href="s16_tumblr.html">Tumblr</a>
+<a href="s17_okru.html">OK.ru</a>
+<a href="s18_nostr.html">Nostr</a>
+<a href="s19_minds.html" class="active">Minds</a>
+<span class="sep">|</span>
+</nav>
+
+<div class="container">
+
+<header>
+<h1>S-19: Minds.com</h1>
+<p class="sub">Open-Source Social with Token Economy &mdash; MINDS ERC-20 Boosts, Transparent Algorithm, Crypto-Native Audience</p>
+<div class="hero-stats">
+<div class="hero-stat"><strong>~5M</strong><span>Registered Users</span></div>
+<div class="hero-stat"><strong>0</strong><span>AI Agent Creators</span></div>
+<div class="hero-stat"><strong>MINDS</strong><span>ERC-20 Token</span></div>
+<div class="hero-stat"><strong>$0</strong><span>Link Penalty</span></div>
+<div class="hero-stat"><strong>250-500</strong><span>30-Day Target</span></div>
+</div>
+</header>
+
+<!-- SECTION 1: Algorithm -->
+<section id="algorithm">
+<h2>1. Algorithm &amp; Content Distribution</h2>
+<p>Minds uses a fundamentally different model: <strong>no opaque black box</strong>. The platform is open-source (GitLab: <code>gitlab.com/minds</code>) and the ranking algorithm is publicly auditable.</p>
+
+<h3>Three Feed Mechanisms</h3>
+<div class="pillar">
+<div class="pillar-item">
+<div class="pct">Top</div>
+<h4>Algorithmic Feed</h4>
+<p>Transparent scoring: engagement (votes, comments, reminds) + recency + boost status. Open-source ranking code.</p>
+</div>
+<div class="pillar-item">
+<div class="pct">New</div>
+<h4>Chronological Feed</h4>
+<p>Pure reverse-chronological. Default for power users who distrust algorithms. Posting frequency matters more here.</p>
+</div>
+<div class="pillar-item">
+<div class="pct">$</div>
+<h4>Boost Feed</h4>
+<p>Dedicated tab for boosted posts. Spend MINDS tokens for views. CPM-like auction: ~1 token per 1K impressions.</p>
+</div>
+</div>
+
+<h3>Distribution Factors</h3>
+<table>
+<tr><th>Factor</th><th>Impact</th><th>Tim's Action</th></tr>
+<tr><td><strong>Early engagement (first 2h)</strong></td><td>High &mdash; triggers wider distribution</td><td>Post when audience active</td></tr>
+<tr><td><strong>Boost spending</strong></td><td>Very High &mdash; primary growth lever</td><td>50-100 tokens/week on best posts</td></tr>
+<tr><td><strong>Reminds (reshares)</strong></td><td>High &mdash; equivalent of retweets</td><td>Create shareable frameworks, hot takes</td></tr>
+<tr><td><strong>Comments</strong></td><td>High &mdash; boosts ranking + community</td><td>End posts with questions, reply to every comment</td></tr>
+<tr><td><strong>Hashtags</strong></td><td>Medium &mdash; discovery mechanism</td><td>3-5 targeted: #AI #MultiAgent #Automation #Crypto</td></tr>
+</table>
+
+<div class="insight">Because Minds' code is open-source, Tim can <strong>literally read the ranking algorithm</strong> at <code>gitlab.com/minds/engine</code>. Relevant: <code>Core/Feeds/Top/</code> (ranking), <code>Core/Boost/</code> (boost logic). No other platform offers this transparency.</div>
+</section>
+
+<!-- SECTION 2: Token Economy -->
+<section id="tokens">
+<h2>2. MINDS Token Economy</h2>
+
+<h3>Token Overview</h3>
+<table>
+<tr><th>Property</th><th>Detail</th></tr>
+<tr><td>Type</td><td>ERC-20 (Ethereum mainnet)</td></tr>
+<tr><td>Supply</td><td>12 billion (fixed cap, no inflation)</td></tr>
+<tr><td>Price range</td><td>~$0.01-0.05 (volatile)</td></tr>
+<tr><td>Earning</td><td>Daily engagement rewards, Wire tips, Supermind payments, referrals</td></tr>
+<tr><td>Spending</td><td>Boost posts, peer boost, Wire tips, Minds Pro subscription</td></tr>
+</table>
+
+<h3>Token Strategy for Tim</h3>
+<div class="action-plan">
+<div class="step"><strong>Days 1-14: Accumulate.</strong> Post actively to earn daily engagement rewards. Don't spend on boosts yet &mdash; build content library first. Estimated: 20-100 tokens.</div>
+<div class="step"><strong>Days 15-30: Strategic Boost.</strong> Identify top 3 performing posts. Boost each with 10-30 tokens. Track views/token and subscriber conversion.</div>
+<div class="step"><strong>Ongoing: Reinvest.</strong> Aim for token-neutral operation: earn more through engagement than you spend. Optional: purchase 500-1000 tokens (~$10-25) as boost capital.</div>
+</div>
+
+<div class="formula">
+Boost economics: <span class="highlight">~1 MINDS token = 1,000 impressions</span> | 30 tokens = 30K views on your best post | Total cost: ~$0.30-1.50
+</div>
+</section>
+
+<!-- SECTION 3: Content Formats -->
+<section id="formats">
+<h2>3. Content Formats &amp; Strategy</h2>
+
+<h3>Available Formats</h3>
+<table>
+<tr><th>Format</th><th>Details</th><th>Priority</th></tr>
+<tr><td><strong>Text Posts</strong></td><td>20,000 chars (!), Markdown, links with NO penalty</td><td>HIGH &mdash; daily 1-2/day</td></tr>
+<tr><td><strong>Blog Posts</strong></td><td>Full CMS, SEO-indexed, code blocks, custom URLs</td><td>HIGH &mdash; weekly 1/week</td></tr>
+<tr><td><strong>Images</strong></td><td>Infographics, diagrams, AI-generated visuals</td><td>MEDIUM &mdash; 2-3/week</td></tr>
+<tr><td><strong>Video</strong></td><td>Native hosting, autoplay in feed, live for Pro</td><td>LOW initially &mdash; 1-2/month</td></tr>
+<tr><td><strong>Supermind</strong></td><td>Paid Q&amp;A: user pays, creator must respond publicly</td><td>MEDIUM &mdash; always-on</td></tr>
+<tr><td><strong>Wire (Tips)</strong></td><td>Peer-to-peer token tips, 0% platform cut</td><td>Passive income</td></tr>
+</table>
+
+<div class="tactic"><strong>Key advantage: Minds does NOT suppress external links.</strong> Unlike Facebook, Instagram, or X, posting <code>sborka.work</code> links directly in posts has ZERO reach penalty. This makes CTA strategy dramatically simpler.</div>
+
+<div class="tactic"><strong>Markdown support</strong> is rare among social platforms. Use bold, bullets, blockquotes, code formatting, and direct links. 20K character limit = mini-articles on-platform without needing a blog.</div>
+</section>
+
+<!-- SECTION 4: Competitors -->
+<section id="competitors">
+<h2>4. Competitor Analysis &mdash; AI/Tech on Minds</h2>
+
+<div class="insight">The AI/tech niche on Minds is a <strong>blue ocean</strong>. No dominant AI creator produces original expert-level content about multi-agent systems. Closest competition: news aggregators and crypto-adjacent AI enthusiasts &mdash; none with Tim's practitioner depth.</div>
+
+<div class="competitor">
+<div class="name">@ottman (Bill Ottman) &mdash; Minds CEO</div>
+<div class="meta">100K+ subscribers &middot; 3-5x/week &middot; Platform updates, AI/censorship</div>
+<div class="takeaway">Not a direct competitor but sets the tone. Posts about AI censorship and open-source AI get massive engagement. <strong>Lesson:</strong> AI + freedom/decentralization framing resonates enormously.</div>
+</div>
+
+<div class="competitor">
+<div class="name">Tech-focused Independent Creators (composite)</div>
+<div class="meta">500-5,000 subscribers &middot; Inconsistent posting &middot; Mostly news aggregators</div>
+<div class="takeaway">Most tech accounts reshare articles with brief commentary. Very few produce original analysis or demonstrations. <strong>Lesson:</strong> Original multi-agent content is genuinely unique on the platform.</div>
+</div>
+
+<div class="competitor">
+<div class="name">Crypto/DeFi Creators</div>
+<div class="meta">1,000-50,000 subscribers &middot; High engagement &middot; Token-native audience</div>
+<div class="takeaway">Crypto is native to Minds' audience. AI + crypto crossover = gold. <strong>Lesson:</strong> "AI agents managing DeFi portfolios" bridges two large audiences.</div>
+</div>
+
+<div class="competitor">
+<div class="name">Privacy/Security Tech Accounts</div>
+<div class="meta">Moderate following &middot; Self-hosting, encryption, FOSS advocacy</div>
+<div class="takeaway">Multi-agent systems users control (vs centralized ChatGPT) aligns with this audience. <strong>Lesson:</strong> Frame agents as sovereignty tools.</div>
+</div>
+
+<h3>Competitive Gap Analysis</h3>
+<table>
+<tr><th>Content Type</th><th>Supply</th><th>Demand</th><th>Opportunity</th></tr>
+<tr><td>AI news reshares</td><td>Oversupplied</td><td>Low engagement</td><td>AVOID &mdash; commoditized</td></tr>
+<tr><td><strong>Original AI frameworks</strong></td><td>Very undersupplied</td><td>High when it appears</td><td><strong>PRIMARY &mdash; "One Brain, Many Agents"</strong></td></tr>
+<tr><td>AI + crypto intersection</td><td>Undersupplied</td><td>Very high</td><td>HIGH &mdash; agent-based DeFi</td></tr>
+<tr><td>AI + privacy/decentralization</td><td>Undersupplied</td><td>High</td><td>HIGH &mdash; self-hosted agents, local LLMs</td></tr>
+<tr><td>AI industry hot takes</td><td>Moderate</td><td>High engagement</td><td>HIGH &mdash; contrarian takes perform well</td></tr>
+</table>
+</section>
+
+<!-- SECTION 5: Community Culture -->
+<section id="culture">
+<h2>5. Community Culture &amp; Audience Psychology</h2>
+
+<h3>Audience Segments</h3>
+<table>
+<tr><th>Segment</th><th>%</th><th>Values</th></tr>
+<tr><td><strong>Free speech advocates</strong></td><td>30-40%</td><td>Anti-censorship, anti-Big Tech, libertarian-leaning</td></tr>
+<tr><td><strong>Crypto/blockchain enthusiasts</strong></td><td>20-30%</td><td>Early adopters, DeFi, token-native, Web3</td></tr>
+<tr><td><strong>Privacy technologists</strong></td><td>10-15%</td><td>Self-hosters, Linux, FOSS, anti-surveillance</td></tr>
+<tr><td><strong>Platform migrants</strong></td><td>10-15%</td><td>Deplatformed from or frustrated with mainstream</td></tr>
+<tr><td><strong>Alternative creators</strong></td><td>5-10%</td><td>YouTubers, bloggers diversifying platforms</td></tr>
+</table>
+
+<h3>What Gets Engagement</h3>
+<ol>
+<li><strong>Contrarian takes</strong> &mdash; challenging mainstream AI narratives</li>
+<li><strong>Original analysis</strong> &mdash; not resharing news</li>
+<li><strong>Behind-the-scenes / transparency</strong> &mdash; real builds, real metrics</li>
+<li><strong>Decentralization + sovereignty themes</strong></li>
+<li><strong>AI + crypto practical applications</strong></li>
+<li><strong>Long-form thought pieces</strong> (substance over polish)</li>
+</ol>
+
+<div class="warning">What FAILS: Corporate marketing speak, heavily branded promo, mainstream media reshares, virtue signaling, surface-level listicles, anything that "feels like LinkedIn." AI hype without substance gets eye-rolls.</div>
+
+<h3>AI Content Reception</h3>
+<div class="pillar">
+<div class="pillar-item" style="border-top-color:var(--emerald)">
+<div class="pct" style="color:var(--emerald)">+</div>
+<h4>Positive Reception</h4>
+<p>Local/open-source AI, agents giving user autonomy, AI for privacy, challenging Big Tech monopolies, AI + crypto.</p>
+</div>
+<div class="pillar-item" style="border-top-color:var(--terra)">
+<div class="pct" style="color:var(--terra)">&minus;</div>
+<h4>Negative Reception</h4>
+<p>Cheerleading OpenAI/Google, AI surveillance, "AI will replace you" fear-mongering, uncritical hype, centralized AI control.</p>
+</div>
+</div>
+</section>
+
+<!-- SECTION 6: Tone of Voice -->
+<section id="tone">
+<h2>6. Tone of Voice &amp; Group Strategy</h2>
+
+<h3>Tone Adaptation Matrix</h3>
+<table>
+<tr><th>Dimension</th><th>LinkedIn/Mainstream</th><th>Minds Adaptation</th></tr>
+<tr><td>Formality</td><td>Business professional</td><td><strong>Smart casual &mdash; knowledgeable but approachable</strong></td></tr>
+<tr><td>Jargon</td><td>Industry buzzwords OK</td><td><strong>Technical depth YES, corporate buzzwords NO</strong></td></tr>
+<tr><td>Stance</td><td>Balanced, diplomatic</td><td><strong>Opinionated, direct, willing to criticize</strong></td></tr>
+<tr><td>Humor</td><td>Minimal, safe</td><td><strong>Dry wit, sarcasm welcome, irreverence OK</strong></td></tr>
+<tr><td>Identity</td><td>Thought leader</td><td><strong>Builder &mdash; "I build this stuff daily"</strong></td></tr>
+</table>
+
+<h3>Tim's Cultural Positioning</h3>
+<ul>
+<li><strong>Practitioner, not hype man</strong> &mdash; "Here's what actually works"</li>
+<li><strong>Decentralist</strong> &mdash; "I run my own agents on my own servers" (RUVDS, self-hosted)</li>
+<li><strong>Crypto-friendly</strong> &mdash; comfortable with tokens, DeFi</li>
+<li><strong>Anti-monoculture</strong> &mdash; against one company controlling all AI</li>
+<li><strong>Open-knowledge</strong> &mdash; sharing frameworks freely</li>
+</ul>
+
+<h3>Group Strategy</h3>
+<div class="tactic"><strong>Phase 1 (Days 1-14):</strong> Join AI/ML, cryptocurrency, tech/FOSS, entrepreneurship, and free speech groups. Participate actively: 2-3 posts/week per group + 5 comments/week. Provide genuine value. NO self-promotion in weeks 1-2.<br>
+<strong>Phase 2 (Week 2-3):</strong> Create own group "AI Agent Builders" &mdash; public, with rules (share builds, no hype). Seed with daily content. Welcome every new member personally (first 100).</div>
+</section>
+
+<!-- SECTION 7: CTA Strategy -->
+<section id="cta">
+<h2>7. CTA Strategy &amp; Traffic to sborka.work</h2>
+
+<div class="formula">
+Minds' <span class="highlight">UNIQUE ADVANTAGE</span>: NO link suppression. External URLs in posts have ZERO reach penalty. Direct links to sborka.work work perfectly.
+</div>
+
+<h3>Three-Tier CTA Framework</h3>
+<div class="pillar">
+<div class="pillar-item">
+<div class="pct">T1</div>
+<h4>Soft CTA (daily)</h4>
+<p>Mention sborka.work naturally in context: "Built this as part of my career platform: sborka.work"</p>
+</div>
+<div class="pillar-item">
+<div class="pct">T2</div>
+<h4>Medium CTA (2-3/week)</h4>
+<p>Blog posts linking to sborka.work resources. "Full guide on our website." Referral link in profile.</p>
+</div>
+<div class="pillar-item">
+<div class="pct">T3</div>
+<h4>Direct CTA (1/week)</h4>
+<p>"Join SBORKA career club: sborka.work. AI-powered career development. Free to start."</p>
+</div>
+</div>
+
+<h3>UTM Format</h3>
+<div class="formula">
+sborka.work?<span class="highlight">utm_source=minds</span>&amp;utm_medium=social&amp;utm_campaign=s19_minds&amp;utm_content={type}_{date}
+</div>
+
+<h3>Referral Link Strategy</h3>
+<div class="tactic"><strong>Minds referral program:</strong> <code>minds.com/register?referrer=timzinin</code> earns Tim tokens for each signup. Include in bio and occasional posts to grow audience AND earn boost capital simultaneously.</div>
+</section>
+
+<!-- SECTION 8: Monetization -->
+<section id="monetization">
+<h2>8. Minds Pro &amp; Monetization Tiers</h2>
+
+<table>
+<tr><th>Tier</th><th>Cost</th><th>Features</th><th>Recommendation</th></tr>
+<tr><td><strong>Free</strong></td><td>$0</td><td>Full posting, boosting, groups, Wire tips</td><td>Start here (Month 1)</td></tr>
+<tr><td><strong>Minds+</strong></td><td>$7/mo</td><td>Verification badge, extra reach, custom themes</td><td>Evaluate Month 2-3</td></tr>
+<tr><td><strong>Pro</strong></td><td>$60/mo</td><td>Custom domain, memberships, paywalls, live streaming, analytics</td><td>Only at 500+ subscribers</td></tr>
+</table>
+
+<h3>Revenue Streams on Minds</h3>
+<ol>
+<li><strong>Wire subscriptions</strong> &mdash; recurring token payments from subscribers (like Patreon)</li>
+<li><strong>Supermind</strong> &mdash; paid Q&amp;A: set minimum at 5-10 MINDS, position as "Ask me about multi-agent AI"</li>
+<li><strong>Pay-per-view content</strong> &mdash; exclusive AI agent blueprints behind Wire paywall</li>
+<li><strong>Daily engagement rewards</strong> &mdash; passive token earnings from active posting</li>
+<li><strong>Referral bonuses</strong> &mdash; tokens for each new user signup</li>
+</ol>
+
+<div class="insight">Realistic revenue at maturity (6+ months, 1000+ subscribers): <strong>$70-300/month</strong> in MINDS tokens. Not a primary revenue source, but covers boost costs and proves demand. Real value = funneling crypto-savvy audience to sborka.work services.</div>
+</section>
+
+<!-- SECTION 9: Cross-Platform -->
+<section id="cross-platform">
+<h2>9. Cross-Platform Syndication</h2>
+
+<h3>Content Adaptation</h3>
+<table>
+<tr><th>From Minds</th><th>To Platform</th><th>Adaptation</th></tr>
+<tr><td>Hot takes</td><td>X/Twitter, Bluesky</td><td>Shorten, remove crypto jargon</td></tr>
+<tr><td>Blog posts</td><td>Dev.to, Hashnode, Medium</td><td>Add code blocks, tutorial framing</td></tr>
+<tr><td>AI + crypto content</td><td>Nostr</td><td>Add zap references, Bitcoin framing</td></tr>
+<tr><td>Frameworks</td><td>LinkedIn</td><td>Corporate framing, remove anti-establishment tone</td></tr>
+<tr><td>Long-form analysis</td><td>VK, OK.ru</td><td>Russian translation, warmer tone, explain tech terms</td></tr>
+</table>
+
+<div class="tactic"><strong>Minds blog posts get indexed by Google</strong> with their own URLs (<code>minds.com/timzinin/blog/title-slug</code>). This provides SEO value that most social platforms don't offer. Cross-link between Minds blog and sborka.work for mutual SEO benefit.</div>
+</section>
+
+<!-- SECTION 10: 30-Day Plan -->
+<section id="plan">
+<h2>10. 30-Day Action Plan: 0 &rarr; 250-500 Subscribers</h2>
+
+<div class="action-plan">
+<div class="step"><strong>Day 1 &mdash; Profile Setup.</strong> Complete profile with "Multi-Agent Revenue Architect" positioning. Bio: builder, decentralist, crypto-friendly. Link to sborka.work with UTM. Referral link in bio. Set Supermind minimum (5 MINDS). Join 5+ relevant groups (AI, crypto, FOSS, entrepreneurship, free speech).</div>
+
+<div class="step"><strong>Days 2-3 &mdash; First Content.</strong> Publish introduction post (long-form, 1000+ chars): "I run 8 businesses with 6 AI agents. Here's my tech stack." Publish first blog post: "Why Multi-Agent Systems Are the Future of AI" (SEO-optimized). Comment on 10+ posts in joined groups. Follow/subscribe to 50 relevant accounts.</div>
+
+<div class="step"><strong>Days 4-7 &mdash; Engagement Rhythm.</strong> Daily: 1-2 text posts (hot takes, frameworks, build-in-public). 5+ meaningful comments in groups. Share 1 infographic (agent architecture diagram). End every post with a question. Track which hashtags drive discovery.</div>
+
+<div class="step"><strong>Week 2 &mdash; Content Depth.</strong> Publish 2nd blog post (cross-linked to sborka.work). Daily posts continue. Begin earned token accumulation. Create "AI Agent Builders" group (public). Seed with daily content + welcome messages. Post AI + crypto crossover content in crypto groups.<br>
+<strong>Target: 50+ subscribers, 20-100 MINDS tokens accumulated</strong></div>
+
+<div class="step"><strong>Week 3 &mdash; Authority.</strong> Publish 3rd blog post (case study with real metrics). Share first Supermind response publicly. Cross-post best content to other platforms. Engage with large accounts via replies/reminds. Begin strategic boosting: top 2 posts, 10-30 tokens each.<br>
+<strong>Target: 150+ subscribers, first Wire tips received</strong></div>
+
+<div class="step"><strong>Week 4 &mdash; Scale.</strong> Publish 4th blog post + daily posts. Review analytics: which content types get most engagement. Optimize posting schedule. Boost 2-3 more posts. Active group moderation. Plan Month 2 content calendar based on data.<br>
+<strong>Target: 250-500 subscribers, 30+ posts, 4+ blog posts, token-neutral or positive</strong></div>
+</div>
+
+<h3>Monthly KPIs</h3>
+<div style="margin-top:14px">
+<div class="kpi-card"><span class="val">250-500</span><span class="label">Subscribers</span></div>
+<div class="kpi-card"><span class="val">30+</span><span class="label">Posts</span></div>
+<div class="kpi-card"><span class="val">4+</span><span class="label">Blog Posts</span></div>
+<div class="kpi-card"><span class="val">50-100</span><span class="label">sborka.work visits</span></div>
+<div class="kpi-card"><span class="val">45min</span><span class="label">Daily Time</span></div>
+</div>
+
+<div class="insight"><strong>Key advantage over other platforms:</strong> Minds' transparent algorithm + token boost system + zero link penalty creates a uniquely favorable environment for Tim's content. The crypto-native audience aligns perfectly with the AI agents + sovereignty positioning.</div>
+</section>
+
+</div>
+
+<footer style="text-align:center;padding:30px;color:var(--muted);font-size:.85em">
+SMM Research Hub &mdash; S-19 Minds &middot; Generated 2026-03-04 &middot; For Tim Zinin / SBORKA
+</footer>
+
+</body>
+</html>

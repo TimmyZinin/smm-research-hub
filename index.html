@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMM Research Hub — Тим Зинин (март 2026)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--card:#fff;--border:#E8E2D8;--p0:#C2573A;--p1:#D4A843;--p2:#2D8A6E;--p3:#8B7E6A;--done:#2D8A6E;--wip:#D4A843;--pending:#8B7E6A}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--dark);line-height:1.6}
+
+/* Shared Nav */
+.topnav{background:var(--dark);color:var(--white);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(44,36,24,.2)}
+.topnav a{color:var(--white);text-decoration:none;font-size:.85em;padding:4px 10px;border-radius:6px;transition:background .2s;white-space:nowrap}
+.topnav a:hover{background:rgba(255,255,255,.15)}
+.topnav a.active{background:var(--terra);font-weight:600}
+.topnav .logo{font-family:'Playfair Display',serif;font-size:1.1em;font-weight:700;margin-right:8px;color:var(--gold)}
+.topnav .sep{color:var(--muted);font-size:.7em}
+
+.container{max-width:1280px;margin:0 auto;padding:20px}
+
+/* Header */
+header{background:linear-gradient(135deg,var(--terra),#D4734A);color:var(--white);padding:48px 40px;border-radius:16px;margin-bottom:32px}
+header h1{font-family:'Playfair Display',serif;font-size:2.4em;margin-bottom:8px}
+header .sub{opacity:.9;font-size:1.1em;margin-bottom:24px}
+.stats-row{display:flex;gap:24px;flex-wrap:wrap}
+.stat{background:rgba(255,255,255,.15);border-radius:10px;padding:12px 20px;text-align:center;min-width:100px}
+.stat-num{font-family:'JetBrains Mono',monospace;font-size:1.8em;font-weight:700;display:block}
+.stat-label{font-size:.75em;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+
+/* Section */
+.section{background:var(--card);border-radius:12px;padding:32px;margin-bottom:24px;box-shadow:0 2px 12px rgba(44,36,24,.06)}
+.section h2{font-family:'Playfair Display',serif;font-size:1.6em;color:var(--terra);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+
+/* Status badges */
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#fff}
+.badge-p0{background:var(--p0)}.badge-p1{background:var(--p1)}.badge-p2{background:var(--p2)}.badge-p3{background:var(--p3)}
+.badge-done{background:var(--done)}.badge-wip{background:var(--wip);color:var(--dark)}.badge-pending{background:var(--pending)}
+
+/* Sprint table */
+table{width:100%;border-collapse:collapse;font-size:.9em}
+th{background:var(--sand);color:var(--dark);font-weight:600;text-transform:uppercase;font-size:.75em;letter-spacing:.5px;padding:10px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--white)}
+
+/* Sprint cards */
+.sprint-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.sprint-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px;border-left:4px solid var(--muted);transition:transform .15s,box-shadow .15s;position:relative}
+.sprint-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(44,36,24,.1)}
+.sprint-card.tier-1{border-left-color:var(--terra)}
+.sprint-card.tier-2{border-left-color:var(--gold)}
+.sprint-card.tier-3{border-left-color:var(--emerald)}
+.sprint-card.tier-4{border-left-color:#7B6BA8}
+.sprint-card .sprint-id{font-family:'JetBrains Mono',monospace;font-size:.75em;color:var(--muted);margin-bottom:4px}
+.sprint-card .sprint-name{font-family:'Playfair Display',serif;font-size:1.15em;font-weight:700;margin-bottom:8px}
+.sprint-card .sprint-meta{font-size:.85em;color:var(--muted);margin-bottom:12px}
+.sprint-card .sprint-meta strong{color:var(--dark);font-family:'JetBrains Mono',monospace}
+.sprint-card .sprint-focus{font-size:.8em;color:var(--dark);margin-bottom:12px;line-height:1.5}
+.sprint-card .sprint-link{display:inline-block;padding:6px 14px;background:var(--terra);color:var(--white);border-radius:8px;text-decoration:none;font-size:.8em;font-weight:600;transition:background .2s}
+.sprint-card .sprint-link:hover{background:#A84830}
+.sprint-card .sprint-link.pending{background:var(--muted);cursor:default;pointer-events:none}
+.sprint-card .sprint-link.wip{background:var(--gold);color:var(--dark)}
+
+/* Tier headers */
+.tier-header{display:flex;align-items:center;gap:12px;margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+.tier-header h3{font-family:'Playfair Display',serif;font-size:1.3em;color:var(--dark)}
+.tier-header .tier-tag{padding:4px 12px;border-radius:20px;font-size:.75em;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.5px}
+.tier-tag-1{background:var(--terra)}
+.tier-tag-2{background:var(--gold);color:var(--dark)}
+.tier-tag-3{background:var(--emerald)}
+.tier-tag-4{background:#7B6BA8}
+
+/* Progress bar */
+.progress-bar{width:100%;height:24px;background:var(--border);border-radius:12px;overflow:hidden;margin:12px 0}
+.progress-fill{height:100%;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:.75em;font-weight:700;color:#fff;transition:width .5s}
+
+/* Target rows */
+.target-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.target-bar{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.target-fill{height:100%;border-radius:4px;background:var(--emerald)}
+.target-label{font-size:.85em;min-width:180px}.target-nums{font-family:'JetBrains Mono',monospace;font-size:.8em;min-width:100px;text-align:right}
+
+/* Crosspost diagram */
+.crosspost{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:.8em;line-height:1.8;white-space:pre-wrap;color:var(--dark)}
+
+/* CTA cards */
+.cta-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.cta-card{padding:16px;border-radius:10px;border:1px solid var(--border)}
+.cta-cold{background:#F0F4FF;border-color:#B8C9E8}.cta-warm{background:#FFF8ED;border-color:#E8D5B0}.cta-hot{background:#FDF0ED;border-color:#F0C8BE}
+.cta-card h4{margin-bottom:8px;font-size:.9em}
+.cta-card blockquote{font-style:italic;color:var(--muted);font-size:.9em;border-left:3px solid var(--border);padding-left:12px}
+
+/* Method card */
+.method{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px}
+.method h4{color:var(--terra);margin-bottom:8px;font-size:.95em}
+.method ol,.method ul{margin-left:20px;font-size:.9em}
+.method li{margin-bottom:4px}
+
+footer{text-align:center;padding:24px;color:var(--muted);font-size:.85em}
+
+@media(max-width:700px){
+  .sprint-grid{grid-template-columns:1fr}
+  .topnav{gap:8px}
+  .topnav a{font-size:.75em;padding:3px 7px}
+  header{padding:24px 20px}
+  header h1{font-size:1.6em}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== SHARED NAVIGATION ===== -->
+<nav class="topnav" id="topnav">
+  <span class="logo">SMM Hub</span>
+  <a href="smm_platform_audit.html" class="active">Dashboard</a>
+  <span class="sep">|</span>
+  <a href="smm_audits/s01_linkedin.html">LinkedIn</a>
+  <a href="smm_audits/s02_instagram.html">Instagram</a>
+  <a href="smm_audits/s03_youtube.html">YouTube</a>
+  <a href="smm_audits/s04_telegram_personal.html">TG Personal</a>
+  <a href="smm_audits/s05_telegram_sborka.html">TG Sborka</a>
+  <a href="smm_audits/s06_threads.html">Threads</a>
+  <a href="smm_audits/s07_facebook.html">Facebook</a>
+  <a href="smm_audits/s08_tiktok.html">TikTok</a>
+  <a href="smm_audits/s09_vk.html">VK</a>
+  <a href="smm_audits/s10_vcru.html">VC.ru</a>
+  <a href="smm_audits/s11_devto.html">Dev.to</a>
+  <a href="smm_audits/s12_medium.html">Medium</a>
+  <a href="smm_audits/s13_hashnode.html">Hashnode</a>
+  <a href="smm_audits/s14_bluesky.html">Bluesky</a>
+  <a href="smm_audits/s15_mastodon.html">Mastodon</a>
+  <a href="smm_audits/s16_tumblr.html">Tumblr</a>
+  <a href="smm_audits/s17_okru.html">OK.ru</a>
+  <a href="smm_audits/s18_nostr.html">Nostr</a>
+  <a href="smm_audits/s19_minds.html">Minds</a>
+  <span class="sep">|</span>
+  <a href="smm_audits/s23_mave.html">Mave</a>
+  <a href="smm_audits/s24_spotify.html">Spotify</a>
+  <a href="smm_audits/s25_apple.html">Apple</a>
+  <a href="smm_audits/s26_yandex.html">Yandex</a>
+  <a href="smm_audits/s27_deezer.html">Deezer</a>
+  <a href="smm_audits/s28_pocketcasts.html">PocketCasts</a>
+  <a href="smm_audits/s29_vkmusic_castbox.html">VK Music</a>
+</nav>
+
+<div class="container">
+
+<!-- ===== HEADER ===== -->
+<header>
+  <h1>SMM Research Hub</h1>
+  <div class="sub">Тим Зинин | Личный бренд + СБОРКА | Март 2026</div>
+  <div class="stats-row">
+    <div class="stat"><span class="stat-num">29</span><span class="stat-label">Спринтов</span></div>
+    <div class="stat"><span class="stat-num">29/29</span><span class="stat-label">Завершено</span></div>
+    <div class="stat"><span class="stat-num">~14K</span><span class="stat-label">Подписчиков</span></div>
+    <div class="stat"><span class="stat-num">25</span><span class="stat-label">Платформ</span></div>
+    <div class="stat"><span class="stat-num">7</span><span class="stat-label">Подкаст-площадок</span></div>
+  </div>
+</header>
+
+<!-- ===== OVERALL PROGRESS ===== -->
+<div class="section">
+  <h2>Общий прогресс исследования</h2>
+  <div class="progress-bar">
+    <div class="progress-fill" style="width:100%;background:var(--emerald)" id="progress-fill">29 / 29</div>
+  </div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:12px">
+    <span><span class="badge badge-done">Done</span> 1</span>
+    <span><span class="badge badge-wip">In Progress</span> 0</span>
+    <span><span class="badge badge-pending">Pending</span> 28</span>
+  </div>
+</div>
+
+<!-- ===== METHODOLOGY ===== -->
+<div class="section">
+  <h2>Методология исследования</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+    <div class="method">
+      <h4>Агенты</h4>
+      <ul>
+        <li><b>research-orchestrator</b> — координация исследования</li>
+        <li><b>technical-researcher</b> — алгоритмы платформы, API, механики</li>
+        <li><b>content-marketer</b> — контент-стратегия, tone of voice</li>
+        <li><b>Instagram MCP</b> — визуальный анализ конкурентов</li>
+        <li><b>WebSearch</b> — свежие данные 2026, кейсы, growth hacks</li>
+      </ul>
+    </div>
+    <div class="method">
+      <h4>Структура каждого отчёта</h4>
+      <ol>
+        <li>Growth Mechanics — алгоритм, что буст/штрафует</li>
+        <li>Competitor Teardown — 3-5 конкурентов, их цифры</li>
+        <li>Top Content Analysis — что зацепило, паттерны</li>
+        <li>Tone of Voice — конкретные рекомендации + примеры</li>
+        <li>Profile Optimization — bio, аватар, ссылки</li>
+        <li>Content Playbook — форматы, частота, рубрики</li>
+        <li>Growth Hacks — тактики наращивания</li>
+        <li>CTA &rarr; sborka.work — воронка, формулировки</li>
+        <li>30-Day Action Plan — первые 30 дней</li>
+      </ol>
+    </div>
+    <div class="method">
+      <h4>Цель каждого спринта</h4>
+      <ul>
+        <li>Максимизировать рост подписчиков</li>
+        <li>Увеличить конверсию в CTA (sborka.work)</li>
+        <li>Определить оптимальный tone of voice</li>
+        <li>Найти growth hacks на основе исследований</li>
+        <li>Дать actionable 30-дневный план</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TIER 1: ОСНОВНЫЕ СОЦСЕТИ ===== -->
+<div class="section">
+  <div class="tier-header">
+    <h3>Tier 1 — Основные соцсети</h3>
+    <span class="tier-tag tier-tag-1">P0 Critical</span>
+    <span style="color:var(--muted);font-size:.85em;margin-left:auto">8 спринтов</span>
+  </div>
+
+  <div class="sprint-grid">
+    <!-- S-01 LinkedIn -->
+    <div class="sprint-card tier-1">
+      <div class="sprint-id">S-01</div>
+      <div class="sprint-name">LinkedIn</div>
+      <div class="sprint-meta"><strong>7,000</strong> подписчиков &middot; Best conversion to СБОРКА</div>
+      <div class="sprint-focus">Algorithm 2026, carousel hacks, comment strategy, B2B conversion, Creator Mode, newsletter, SSI score optimization</div>
+      <span class="badge badge-done">Done</span>
+      <br><br>
+      <a href="smm_audits/s01_linkedin.html" class="sprint-link">Открыть исследование</a>
+    </div>
+
+    <!-- S-02 Instagram -->
+    <div class="sprint-card tier-1" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-02</div>
+      <div class="sprint-name">Instagram</div>
+      <div class="sprint-meta"><strong>1,684</strong> подписчиков &middot; 574 поста</div>
+      <div class="sprint-focus">Reels algorithm, carousel templates, hashtag strategy 2026, Collab posts, MCP-исследование конкурентов, Guides</div>
+      <span class="badge badge-done">Done</span>
+      <br><br>
+      <a href="smm_audits/s02_instagram.html" class="sprint-link">Открыть исследование →</a>
+    </div>
+
+    <!-- S-03 YouTube -->
+    <div class="sprint-card tier-1" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-03</div>
+      <div class="sprint-name">YouTube</div>
+      <div class="sprint-meta"><strong>1,870</strong> подписчиков &middot; 429 видео</div>
+      <div class="sprint-focus">Shorts algorithm, thumbnail CTR, playlists, subscriber reactivation, Community tab, end screens</div>
+      <span class="badge badge-done">Done</span>
+      <br><br>
+      <a href="smm_audits/s03_youtube.html" class="sprint-link">Открыть исследование →</a>
+    </div>
+
+    <!-- S-04 Telegram Personal -->
+    <div class="sprint-card tier-1" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-04</div>
+      <div class="sprint-name">Telegram @timofeyzinin</div>
+      <div class="sprint-meta"><strong>93</strong> подписчика &middot; 1,572 views</div>
+      <div class="sprint-focus">Рост канала, форварды, cross-promo, реакции, comments, ботовая воронка, Premium features</div>
+      <span class="badge badge-done">Done</span>
+      <br><br>
+      <a href="smm_audits/s04_telegram_personal.html" class="sprint-link">Открыть исследование →</a>
+    </div>
+
+    <!-- S-05 Telegram Sborka -->
+    <div class="sprint-card tier-1" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-05</div>
+      <div class="sprint-name">Telegram @public_sborka</div>
+      <div class="sprint-meta"><strong>~93</strong> подписчика &middot; 55 CRM users</div>
+      <div class="sprint-focus">Bot+Channel синергия, вебинарная воронка, community growth, TG Ads, контент-план, conversion funnel</div>
+      <span class="badge badge-done">Done</span>
+      <br><br>
+      <a href="smm_audits/s05_telegram_sborka.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <!-- S-06 Threads -->
+    <div class="sprint-card tier-1" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-06</div>
+      <div class="sprint-name">Threads</div>
+      <div class="sprint-meta"><strong>177</strong> подписчиков &middot; 5,007 views</div>
+      <div class="sprint-focus">Conversation-first platform, thread-jacking, bilingual strategy, IG cross-promo, link penalty workarounds</div>
+      <span class="badge badge-done">Done</span>
+      <br><br>
+      <a href="smm_audits/s06_threads.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <!-- S-07 Facebook -->
+    <div class="sprint-card tier-1" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-07</div>
+      <div class="sprint-name">Facebook</div>
+      <div class="sprint-meta"><strong>~1,600</strong> друзей</div>
+      <div class="sprint-focus">Three-Tier Strategy: Profile + Group + Page, Reels, Events, FB Ads, community building</div>
+      <span class="badge badge-done">Done</span>
+      <br><br>
+      <a href="smm_audits/s07_facebook.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <!-- S-08 TikTok -->
+    <div class="sprint-card tier-1" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-08</div>
+      <div class="sprint-name">TikTok</div>
+      <div class="sprint-meta"><strong>1,288</strong> подписчиков &middot; 4,844 лайка</div>
+      <div class="sprint-focus">3-Stage FYP Funnel, Niche Pivot travel→AI/Career, Cross-Platform Pipeline, TikTok SEO, ready-to-use scripts</div>
+      <span class="badge badge-done">Done</span>
+      <br><br>
+      <a href="smm_audits/s08_tiktok.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TIER 2: ВТОРИЧНЫЕ ПЛАТФОРМЫ ===== -->
+<div class="section">
+  <div class="tier-header">
+    <h3>Tier 2 — Вторичные платформы</h3>
+    <span class="tier-tag tier-tag-2">P1 Important</span>
+    <span style="color:var(--muted);font-size:.85em;margin-left:auto">8 спринтов</span>
+  </div>
+
+  <div class="sprint-grid">
+    <div class="sprint-card tier-2" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-09</div>
+      <div class="sprint-name">VK</div>
+      <div class="sprint-meta"><strong>17</strong> подписчиков &middot; 61 view</div>
+      <div class="sprint-focus">Smart Feed Algorithm, VK Clips (primary growth lever), VK Articles SEO, Community Growth 17→1K+, 6 CTA workarounds, VK Ads benchmarks</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s09_vk.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-2" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-10</div>
+      <div class="sprint-name">VC.ru</div>
+      <div class="sprint-meta"><strong>1</strong> подписчик &middot; рейтинг +7</div>
+      <div class="sprint-focus">Comment-First Growth (+7→+200 karma), 5-Stage Distribution Pipeline, Yandex IKS 27K+ SEO, Anti-promo Culture CTA, Viral Patterns, AI+Career Blue Ocean</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s10_vcru.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-2" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-11</div>
+      <div class="sprint-name">Dev.to</div>
+      <div class="sprint-meta"><strong>35</strong> views &middot; 5 статей</div>
+      <div class="sprint-focus">Forem Algorithm DA90+, Tag Strategy 250K+ reach, Series Funnel CTA, 8 Competitors, Build-in-Public format, 10 articles/30 days plan</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s11_devto.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-2" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-12</div>
+      <div class="sprint-name">Medium</div>
+      <div class="sprint-meta"><strong>DA 95</strong> &middot; 0 followers</div>
+      <div class="sprint-focus">Boost Program 5-50x reach, Publication Strategy (16 pubs mapped), DA95 SEO, Paywall + Friend Links, 8 Competitors, 8 articles/30 days plan</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s12_medium.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-2" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-13</div>
+      <div class="sprint-name">Hashnode</div>
+      <div class="sprint-meta">timzinin.hashnode.dev &middot; Weekly Digest 300K reach</div>
+      <div class="sprint-focus">Custom Domain blog.sborka.work SEO, Weekly Digest 300K reach, Newsletter Integration, Canonical URL Strategy (Hashnode first → cross-post), 5 Competitors, Graduated CTA Funnel</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s13_hashnode.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-2" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-14</div>
+      <div class="sprint-name">Bluesky</div>
+      <div class="sprint-meta"><strong>40M+</strong> users &middot; $0 API &middot; 0 link penalty</div>
+      <div class="sprint-focus">AT Protocol Custom Feeds &amp; Starter Packs, Domain Handle (sborka.work), 6 Competitors (Simon Willison 80K, swyx 30K), Zero Link Penalty CTA, 500 followers/30 days plan</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s14_bluesky.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-2" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-15</div>
+      <div class="sprint-name">Mastodon</div>
+      <div class="sprint-meta">6 statuses &middot; mastodon.social &middot; $0 API</div>
+      <div class="sprint-focus">Fediverse ActivityPub, Anti-Commercial Culture CTA, Boost-Driven Viral, 5 Competitors (Doctorow 80K, Willison 35K), Hashtag Following, rel=me Verification, Cross-Federation</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s15_mastodon.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-2" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-16</div>
+      <div class="sprint-name">Tumblr</div>
+      <div class="sprint-meta">timofeyzinin.tumblr.com &middot; 500M+ users &middot; $0 API</div>
+      <div class="sprint-focus">Reblog-Driven Viral (exponential reach), Tag Ecosystem (first 5 = discovery), Aesthetic Culture Adaptation, 5 Competitors (TechCrunch 1.2M, MIT Tech 340K), Shitpost-Friendly Tone, CTA via Pinned + Bio Link, Queue Scheduling, 30-Day Plan targeting 200 followers</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s16_tumblr.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TIER 3: НИШЕВЫЕ ПЛАТФОРМЫ ===== -->
+<div class="section">
+  <div class="tier-header">
+    <h3>Tier 3 — Нишевые платформы</h3>
+    <span class="tier-tag tier-tag-3">P2-P3</span>
+    <span style="color:var(--muted);font-size:.85em;margin-left:auto">6 спринтов</span>
+  </div>
+
+  <div class="sprint-grid">
+    <div class="sprint-card tier-3" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-17</div>
+      <div class="sprint-name">OK.ru</div>
+      <div class="sprint-meta">2 друга &middot; 56 заметок &middot; 40M MAU</div>
+      <div class="sprint-focus">"Класс" Cascade Viral Mechanic, OK Video 40M+ views/day, 6 Competitors (HH 500K, SuperJob 150K), Group Strategy (create + join 20), CTA in Comments (not body!), myTarget Ads 30-50% cheaper than VK, Yandex SEO via Master Classes, 30-Day Plan targeting 500+ connections</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s17_okru.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-3" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-18</div>
+      <div class="sprint-name">Nostr</div>
+      <div class="sprint-meta">Protocol &middot; 700K+ users &middot; Lightning Network</div>
+      <div class="sprint-focus">Event-Based Protocol (keypairs + relays), Primal Client Recommended, AI/Agent Niche EMPTY, 5 Competitors (ODELL 80K, fiatjaf 40K), Lightning Zaps Micropayments, 10-Relay Strategy (3 tiers + self-hosted), NIP-05 CTA (tim@sborka.work), Mostr.pub Bridge to Mastodon, 30-Day Plan targeting 200 followers</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s18_nostr.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-3" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-19</div>
+      <div class="sprint-name">Minds</div>
+      <div class="sprint-meta">minds.com/timzinin &middot; MINDS Token &middot; Open-Source</div>
+      <div class="sprint-focus">3-Feed Algorithm (Top/Latest/Boost), MINDS ERC-20 Token Economy (~1 token/1K views), 20K char Markdown + Blog CMS, Blue Ocean (AI niche empty), NO Link Suppression (unique!), Supermind Q&amp;A Monetization, Wire Tips + Minds Pro ($7-$60/mo), 30-Day Plan targeting 250-500 subscribers</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s19_minds.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-3" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-20</div>
+      <div class="sprint-name">Write.as</div>
+      <div class="sprint-meta">write.as/timzinin &middot; REST API &middot; ActivityPub Native</div>
+      <div class="sprint-focus">No Algorithm (POSSE Hub), ActivityPub Federation auto-broadcast, 8 Competitors (Xe Iaso 15K, Drew DeVault 10K — AI niche EMPTY), Canonical Source for Long-Form, Custom CSS Brand, SEO via HN/lobste.rs, Subtle CTA (Footer Bio 1-3% CTR), WriteFreely Self-Host Option, 30-Day Plan targeting 50 Fediverse followers + 8 posts</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s20_writeas.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-3" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-21</div>
+      <div class="sprint-name">Lemmy</div>
+      <div class="sprint-meta">lemmy.world + programming.dev &middot; ActivityPub &middot; 350K+ users</div>
+      <div class="sprint-focus">Hot/Active/Scaled Algorithms, 15+ Target Communities (!selfhosted 40K, !technology 60K, !programming 10K), FOSS Culture Alignment, 10:1 Self-Promo Rule, Anti-Reddit Sentiment, Week 1 Lurk-Only, Community Creation Month 3-4, 30-Day Plan targeting 80+ post karma + 9 posts</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s21_lemmy.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card tier-3" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-22</div>
+      <div class="sprint-name">Twitter / X</div>
+      <div class="sprint-meta">@timzinin &middot; 79 подписчиков &middot; X Premium рекомендован ($8/мес)</div>
+      <div class="sprint-focus">For You Algorithm (Bookmark=4x, Reply=1x), Threads 5-10 optimal, Link-in-Reply CTA (40-60% link penalty), 6 Competitors (levelsio 530K, mattshumer_ 120K, Greg Isenberg 350K), Builder's Log Voice, #BuildInPublic Core Tag, Twitter Ads $250 Month 1, 30-Day Plan targeting 600 followers + 50K impressions</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s22_twitter.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TIER 4: ПОДКАСТ ===== -->
+<div class="section">
+  <div class="tier-header">
+    <h3>Tier 4 — Подкастные платформы</h3>
+    <span class="tier-tag tier-tag-4">Podcast</span>
+    <span style="color:var(--muted);font-size:.85em;margin-left:auto">7 спринтов &middot; 4 эпизода опубликованы</span>
+  </div>
+
+  <div class="sprint-grid">
+    <div class="sprint-card" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-23</div>
+      <div class="sprint-name">Mave.digital</div>
+      <div class="sprint-meta">sborka.mave.digital &middot; RSS cloud.mave.digital/69800 &middot; $22/мес ElevenLabs</div>
+      <div class="sprint-focus">RSS Distribution (YM 1-4h, Spotify 2-12h, Apple 4-24h), 7 Platforms Connected, 6 Competitors (Podlodka 350+ ep, Работа в IT 200+), Emotional Arc Template, Mid-Roll CTA at ~8:00 = Max Conv, VK Music + CastBox не подключены, Unit-экономика 0.4 conv/мес = break-even, 30-Day Plan 4→12 эпизодов</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s23_mave.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-24</div>
+      <div class="sprint-name">Spotify</div>
+      <div class="sprint-meta">open.spotify.com/show/21bqNRvcjY0mj0Zthp2qw3 &middot; Auto-sync RSS &middot; 600M+ users</div>
+      <div class="sprint-focus">Completion Rate = #1 Signal, Video = 2-3x Impressions, "Hook Before Intro" Pattern, 8 Competitors (Lenny 200K+, Ken Coleman 100K+), RU Diaspora Target (500K-1M), Polls/Q&A/Chapters, Show Trailer Priority, Lead Magnets per Episode, 30-Day Plan +100 followers +4 episodes</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s24_spotify.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-25</div>
+      <div class="sprint-name">Apple Podcasts</div>
+      <div class="sprint-meta">ID: 1878410962 &middot; Ranking Signals: Subscriber Velocity + Download Velocity &middot; New &amp; Noteworthy Window</div>
+      <div class="sprint-focus">Ranking Signals (subscriber velocity Very High), Chapters + HTML Show Notes + Per-Episode Artwork + Seasons, 6 Competitors (Работа в IT 4.8★ 80+ reviews), Apple Podcasts Connect (claim + analytics), Keyword-First Title Optimization, Siri Integration, 5 Ethical Review Methods с скриптами, Embed + Badges + Deep Links, URGENT: "New &amp; Noteworthy" окно закрывается mid-April 2026, 30-Day Plan 25 followers + 15 ratings + Top 150 chart</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s25_apple.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-26</div>
+      <div class="sprint-name">Яндекс.Музыка</div>
+      <div class="sprint-meta">album/40778773 &middot; RSS sync 1-4h (fastest) &middot; 20M+ Алиса-устройств</div>
+      <div class="sprint-focus">Completion Rate + Subscription Velocity = TOP signals, Алиса voice discovery (20M+ устройств), Яндекс Search + Дзен cross-ranking, 7 Competitors (Podlodka 80K/мес, Работа в IT 50K/мес), "Подкаст про карьеру" = растущий low-competition запрос, Yandex Wordstat keywords, Claim шоу на podcasts.yandex.ru, Экосистема: Станция + Дзен + Авто + Браузер, 30-Day Plan 100+ подписчиков + 500+ прослушиваний</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s26_yandex.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-27</div>
+      <div class="sprint-name">Deezer</div>
+      <div class="sprint-meta">show/1002671801 &middot; EU Diaspora 200-400K RU &middot; 0 RU-career конкурентов</div>
+      <div class="sprint-focus">Flow Recommendation Engine (10-15 listeners = trigger), 0 активных RU-career подкастов (поле пустое!), EU Diaspora: Германия 150K, Франция 100K, Израиль 60K, Chapters + HTML show notes + episode artwork = full support, Editorial pitch: podcasts@deezer.com (ищут мультиязычный контент), Deezer for Creators portal (claim + analytics), Diaspora topics: релокация, EU CV, нетворкинг за границей, 30-Day Plan 30+ followers + 1 editorial pitch</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s27_deezer.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-28</div>
+      <div class="sprint-name">Pocket Casts</div>
+      <div class="sprint-meta">pca.st/95ecagwv &middot; Automattic &middot; Power Listeners 25-45</div>
+      <div class="sprint-focus">Subscriber Velocity = #1 lever (20-30 burst = trending), 70% Search / 20% Curated / 10% Trending, Chapter Markers (ID3v2 CHAP) = главный дифференциатор, RU competition = near zero, Senior tech professionals (high-value leads), 1.2-1.5x speed norm (content density matters), Chapter URLs = underused CTA channel, Conversion platform (not reach), Python mutagen script для chapters, 30-Day Plan 30-50 subscribers + chapters on all episodes</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s28_pocketcasts.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+
+    <div class="sprint-card" style="border-left-color:var(--done)">
+      <div class="sprint-id">S-29</div>
+      <div class="sprint-name">VK Music + CastBox</div>
+      <div class="sprint-meta">VK 100M+ MAU &middot; CastBox 30M+ global &middot; Ещё не подключены</div>
+      <div class="sprint-focus">VK Social Graph = #1 signal ("3 друга слушают"), CastBox In-Audio Comments + Clips = unique engagement, VK: vk.com/app51488920 submission (1-3 дня модерация), CastBox: creators.castbox.fm (24-48ч), VK Clips для промо (15-60 сек), 7 VK ecosystem integration points, CastBox HTML show notes (кликабельные ссылки), Low competition на обеих, 30-Day Plan: VK 50 subs + 200 plays, CastBox 20 subs + 50 plays</div>
+      <span class="badge badge-done">Done</span>
+      <br><br><a href="smm_audits/s29_vkmusic_castbox.html" class="sprint-link">Открыть исследование &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CROSSPOST STRATEGY ===== -->
+<div class="section">
+  <h2>Кросс-постинг стратегия</h2>
+  <div class="crosspost">LinkedIn (оригинал, длинный)
+  |--&gt; Facebook (адаптация, личный тон)
+  |--&gt; VK (перевод на RU)
+  |--&gt; VC.ru (расширение до лонгрида)
+
+Threads (оригинал, короткий)
+  |--&gt; Bluesky (автомат)
+  |--&gt; Mastodon (автомат)
+  |--&gt; Nostr (автомат)
+  |--&gt; Minds (автомат)
+
+Dev.to (оригинал, туториал)
+  |--&gt; Hashnode (кросс-пост)
+  |--&gt; Medium (адаптация в essay)
+  |--&gt; Write.as (кросс-пост)
+
+Telegram (оригинал, личные заметки)
+Instagram (уникальный визуал)
+  |--&gt; TikTok (Reels формат)
+
+YouTube (уникальное видео)
+  |--&gt; Shorts --&gt; TikTok / Instagram Reels
+
+Подкаст (Mave хостинг)
+  |--&gt; Spotify, Apple, Deezer, Pocket Casts, Яндекс (RSS авто)
+  |--&gt; @public_sborka (ручная отправка)
+  |--&gt; VK Music, CastBox (после подключения)</div>
+</div>
+
+<!-- ===== CTA ===== -->
+<div class="section">
+  <h2>CTA формулы по температуре</h2>
+  <div class="cta-cards">
+    <div class="cta-card cta-cold">
+      <h4 style="color:#4A6FA5">Холодная аудитория</h4>
+      <blockquote>"Я строю AI-систему для поиска работы. Если интересно — подписывайтесь, покажу как это работает."</blockquote>
+    </div>
+    <div class="cta-card cta-warm">
+      <h4 style="color:var(--gold)">Тёплая аудитория</h4>
+      <blockquote>"55 человек уже используют СБОРКУ для поиска работы. Бесплатный вебинар &rarr; sborka.work"</blockquote>
+    </div>
+    <div class="cta-card cta-hot">
+      <h4 style="color:var(--terra)">Горячая аудитория</h4>
+      <blockquote>"Старт нового потока СБОРКИ. Начать &rarr; @sborka_career_bot"</blockquote>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TARGETS ===== -->
+<div class="section">
+  <h2>Метрики: сейчас &rarr; цель к 1 апреля</h2>
+  <div class="target-row">
+    <span class="target-label">Регистрации СБОРКИ/мес</span>
+    <div class="target-bar"><div class="target-fill" style="width:24%;background:var(--terra)"></div></div>
+    <span class="target-nums">6 &rarr; <b>25</b></span>
+  </div>
+  <div class="target-row">
+    <span class="target-label">LinkedIn followers</span>
+    <div class="target-bar"><div class="target-fill" style="width:93%"></div></div>
+    <span class="target-nums">7,000 &rarr; <b>7,500</b></span>
+  </div>
+  <div class="target-row">
+    <span class="target-label">Threads followers</span>
+    <div class="target-bar"><div class="target-fill" style="width:35%"></div></div>
+    <span class="target-nums">177 &rarr; <b>500</b></span>
+  </div>
+  <div class="target-row">
+    <span class="target-label">YouTube subscribers</span>
+    <div class="target-bar"><div class="target-fill" style="width:85%"></div></div>
+    <span class="target-nums">1,870 &rarr; <b>2,200</b></span>
+  </div>
+  <div class="target-row">
+    <span class="target-label">Instagram followers</span>
+    <div class="target-bar"><div class="target-fill" style="width:84%"></div></div>
+    <span class="target-nums">1,684 &rarr; <b>2,000</b></span>
+  </div>
+  <div class="target-row">
+    <span class="target-label">TikTok followers</span>
+    <div class="target-bar"><div class="target-fill" style="width:64%"></div></div>
+    <span class="target-nums">1,288 &rarr; <b>2,000</b></span>
+  </div>
+  <div class="target-row">
+    <span class="target-label">Telegram подписчики</span>
+    <div class="target-bar"><div class="target-fill" style="width:62%"></div></div>
+    <span class="target-nums">93 &rarr; <b>150</b></span>
+  </div>
+  <div class="target-row">
+    <span class="target-label">VK подписчики</span>
+    <div class="target-bar"><div class="target-fill" style="width:34%"></div></div>
+    <span class="target-nums">17 &rarr; <b>50</b></span>
+  </div>
+  <div class="target-row">
+    <span class="target-label">Engagement rate (avg)</span>
+    <div class="target-bar"><div class="target-fill" style="width:33%;background:var(--gold)"></div></div>
+    <span class="target-nums">~1% &rarr; <b>3%+</b></span>
+  </div>
+  <div class="target-row">
+    <span class="target-label">Подкаст прослушиваний/мес</span>
+    <div class="target-bar"><div class="target-fill" style="width:20%;background:#7B6BA8"></div></div>
+    <span class="target-nums">? &rarr; <b>100</b></span>
+  </div>
+</div>
+
+<footer>
+  Zinin Corporation | SMM Research Hub | Обновлено 4 марта 2026<br>
+  <span style="font-size:.8em">Каждый спринт генерирует отдельный HTML-отчёт с исследованием, рекомендациями и 30-дневным планом</span>
+</footer>
+
+</div>
+</body>
+</html>

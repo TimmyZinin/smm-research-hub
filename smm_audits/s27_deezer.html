@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S-27 Deezer — SMM Research Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FFFDF7;--sand:#F5EDE0;--terra:#C2573A;--gold:#D4A843;--emerald:#2D8A6E;--dark:#2C2418;--muted:#8B7E6A;--dz:#A238FF;--dz-dark:#8518E6;--dz-light:#F0E5FF}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--dark);line-height:1.7}
+.topnav{position:sticky;top:0;z-index:100;background:var(--dark);padding:8px 16px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{color:rgba(255,253,247,.7);text-decoration:none;font-size:.75em;padding:4px 10px;border-radius:20px;transition:.2s;flex-shrink:0}
+.topnav a:hover,.topnav a.active{color:var(--white);background:rgba(255,253,247,.15)}
+.topnav a.active{background:var(--dz)}
+.hero{background:linear-gradient(135deg,#A238FF,#8518E6,#5C0FA0);color:#fff;padding:80px 24px 60px;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:8px}
+.hero .sub{opacity:.85;font-size:1.05em;margin-bottom:20px}
+.hero .badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero .badge-row span{background:rgba(255,255,255,.18);padding:6px 16px;border-radius:20px;font-size:.85em}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 60px}
+.section{margin-bottom:48px}
+.section h2{font-family:'Playfair Display',serif;font-size:1.6em;color:var(--dz-dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--dz-light)}
+.section h3{font-size:1.15em;color:var(--dz);margin:20px 0 10px;font-weight:600}
+p{margin-bottom:14px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.92em}
+th{background:var(--dz);color:#fff;padding:10px 14px;text-align:left;font-weight:600}
+td{padding:10px 14px;border-bottom:1px solid #e8e0d4}
+tr:hover td{background:var(--dz-light)}
+ul,ol{margin:0 0 16px 20px}
+li{margin-bottom:6px}
+.card{background:var(--sand);border-radius:12px;padding:20px;margin:16px 0}
+.highlight{background:var(--dz-light);border-left:4px solid var(--dz);padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
+.cta-box{background:linear-gradient(135deg,var(--dz-light),#fff);border:2px solid var(--dz);border-radius:12px;padding:20px;margin:20px 0}
+code{font-family:'JetBrains Mono',monospace;background:var(--sand);padding:2px 8px;border-radius:4px;font-size:.88em}
+pre{background:var(--dark);color:var(--dz);padding:20px;border-radius:8px;overflow-x:auto;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.85em;line-height:1.5}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+.metric{background:var(--dz-light);border-radius:10px;padding:16px;text-align:center}
+.metric .num{font-family:'JetBrains Mono',monospace;font-size:1.8em;font-weight:700;color:var(--dz-dark);display:block}
+.metric .label{font-size:.8em;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+footer{text-align:center;padding:40px;color:var(--muted);font-size:.85em;border-top:1px solid var(--sand)}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+<a href="../smm_platform_audit.html">Dashboard</a>
+<a href="s01_linkedin.html">LinkedIn</a>
+<a href="s02_instagram.html">IG</a>
+<a href="s03_youtube.html">YT</a>
+<a href="s04_telegram_personal.html">TG</a>
+<a href="s05_telegram_sborka.html">TG Sborka</a>
+<a href="s06_threads.html">Threads</a>
+<a href="s07_facebook.html">FB</a>
+<a href="s08_tiktok.html">TikTok</a>
+<a href="s09_vk.html">VK</a>
+<a href="s10_vcru.html">VC.ru</a>
+<a href="s11_devto.html">Dev.to</a>
+<a href="s12_medium.html">Medium</a>
+<a href="s13_hashnode.html">Hashnode</a>
+<a href="s14_bluesky.html">Bluesky</a>
+<a href="s15_mastodon.html">Mastodon</a>
+<a href="s16_tumblr.html">Tumblr</a>
+<a href="s17_okru.html">OK.ru</a>
+<a href="s18_nostr.html">Nostr</a>
+<a href="s19_minds.html">Minds</a>
+<a href="s23_mave.html">Mave</a>
+<a href="s24_spotify.html">Spotify</a>
+<a href="s25_apple.html">Apple</a>
+<a href="s26_yandex.html">Yandex</a>
+<a href="s27_deezer.html" class="active">Deezer</a>
+<a href="s28_pocketcasts.html">PocketCasts</a>
+<a href="s29_vkmusic_castbox.html">VK Music</a>
+</nav>
+
+<div class="hero">
+<h1>Deezer</h1>
+<div class="sub">S-27 | European Podcast Platform</div>
+<div class="badge-row">
+<span>Show ID: 1002671801</span>
+<span>RSS via Mave</span>
+<span>200-400K RU diaspora</span>
+<span>0 конкурентов (RU career)</span>
+<span>Editorial: podcasts@deezer.com</span>
+</div>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1 -->
+<div class="section">
+<h2>1. Алгоритм и Discovery</h2>
+
+<h3>Flow Recommendation Engine</h3>
+<p>Deezer Flow — AI-движок, изначально для музыки, расширен на подкасты с 2020. Гибрид collaborative filtering + content-based + editorial curation.</p>
+
+<table>
+<tr><th>Сигнал</th><th>Описание</th></tr>
+<tr><td><strong>Completion Rate</strong></td><td>Эпизоды, прослушанные на 75%+ = сильный позитивный сигнал. Под 30% = плохой fit</td></tr>
+<tr><td><strong>Cold Start</strong></td><td>Для новых шоу (СБОРКА = 4 эпизода) алгоритм полагается на метаданные, а не коллаборативную фильтрацию</td></tr>
+<tr><td>Follow/Unfollow</td><td>Динамика подписок — сигнал интереса</td></tr>
+<tr><td>Replay Behavior</td><td>Повторные прослушивания = высокое качество контента</td></tr>
+<tr><td>Time-of-Day</td><td>Алгоритм учитывает привычное время прослушивания пользователя</td></tr>
+</table>
+
+<div class="highlight">
+<strong>10-15 преданных слушателей, которые дослушивают эпизоды</strong>, могут запустить алгоритмическое продвижение. Критическая масса для подкаста на Deezer очень низкая.
+</div>
+
+<h3>Поиск</h3>
+<ul>
+<li><strong>Title weight = #1.</strong> "СБОРКА" — уникальное слово с низкой конкуренцией в глобальном индексе Deezer</li>
+<li>Описание полностью индексируется. Русский текст поддерживается</li>
+<li>Exact match > fuzzy. "Сборка подкаст" находится сразу, транслитерация "sborka" — ниже</li>
+<li>Freshness boost: шоу с недавним эпизодом ранжируется выше</li>
+</ul>
+
+<h3>Editorial Curation</h3>
+<p>Deezer активнее в ручной курации подкастов, чем Spotify. Редакция ищет не-англоязычный, не-французский контент для диверсификации каталога. Контакт: <strong>podcasts@deezer.com</strong></p>
+
+<h3>Geo-персонализация</h3>
+<p>Deezer персонализирует контент по локации и языку. Пользователи в Германии/Франции/Израиле с русскоязычными настройками увидят русские подкасты приоритетнее. Кросс-языковой discovery: если RU-пользователь слушает EN-карьерные подкасты, Deezer может рекомендовать СБОРКУ по тематике.</p>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+<h2>2. Форматы контента</h2>
+
+<h3>Возможности плеера Deezer</h3>
+<table>
+<tr><th>Функция</th><th>Статус</th><th>Заметки</th></tr>
+<tr><td>Chapter markers</td><td><strong>Поддерживается</strong></td><td>Через RSS &lt;psc:chapters&gt;. Отображаются в timeline. Большое преимущество!</td></tr>
+<tr><td>Описание эпизода</td><td>Поддерживается</td><td>HTML-форматирование, кликабельные ссылки на web и mobile</td></tr>
+<tr><td>Artwork по эпизодам</td><td>Поддерживается</td><td>Перезаписывает обложку шоу. 400x400 на мобильном</td></tr>
+<tr><td>Видео</td><td>Не поддерживается</td><td>Только аудио</td></tr>
+<tr><td>Скорость</td><td>Поддерживается</td><td>0.5x, 0.75x, 1x, 1.25x, 1.5x, 2x</td></tr>
+<tr><td>Smart speakers</td><td>Поддерживается</td><td>Google Home, Amazon Alexa, Samsung SmartThings</td></tr>
+<tr><td>Оффлайн</td><td>Premium/Hi-Fi</td><td>Бесплатные юзеры — только стриминг</td></tr>
+<tr><td>Автовоспроизведение</td><td>Поддерживается</td><td>Следующий эпизод автоматически</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Chapters + HTML show notes + episode artwork</strong> = Deezer поддерживает больше метаданных, чем Яндекс.Музыка. Максимально использовать все три.
+</div>
+
+<h3>Структура глав (~14 мин)</h3>
+<pre>00:00 - Интро
+00:30 - [Тема дня: конкретный хук]
+03:00 - [Основной контент: название секции]
+08:00 - [Продвинутые советы / Кейс]
+12:00 - Практические шаги
+14:00 - Итоги и что дальше</pre>
+
+<h3>Шаблон show notes</h3>
+<pre>[Episode title + 2-sentence summary]
+
+Что в этом выпуске:
+- [Key point 1]
+- [Key point 2]
+- [Key point 3]
+
+Полезные ссылки:
+- Бот СБОРКИ: t.me/Sborka_work_bot?start=source_deezer_ep{N}
+- Сайт: sborka.work?utm_source=deezer&amp;utm_medium=podcast&amp;utm_campaign=s27_deezer&amp;utm_content=ep{N}
+- TG канал: t.me/public_sborka
+
+Следующий выпуск: [тизер]</pre>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+<h2>3. Анализ конкурентов</h2>
+
+<div class="cta-box" style="border-color:#D32F2F;background:linear-gradient(135deg,#FDECEA,#fff)">
+<h3 style="color:#D32F2F;margin-top:0">Стратегическая находка</h3>
+<p style="margin-bottom:0"><strong>Русскоязычных карьерных подкастов на Deezer практически нет.</strong> Менее 2,000 RU-шоу (vs. 50,000+ на Яндекс.Музыке). СБОРКА имеет поле целиком для себя.</p>
+</div>
+
+<h3>RU-карьерные подкасты на Deezer</h3>
+<table>
+<tr><th>Шоу</th><th>Эпизоды</th><th>Статус</th></tr>
+<tr><td>Рабочие будни</td><td>~30</td><td>Неактивен с 2024</td></tr>
+<tr><td>Карьерный марафон</td><td>~15</td><td>Спорадические обновления</td></tr>
+<tr><td>Подкаст "Работа"</td><td>~50</td><td>Активен (IT recruitment нишa)</td></tr>
+<tr><td>HR-аналитика</td><td>~20</td><td>Узкотехнический, малая аудитория</td></tr>
+</table>
+
+<h3>Оценка возможностей</h3>
+<table>
+<tr><th>Фактор</th><th>Рейтинг</th><th>Комментарий</th></tr>
+<tr><td>Конкуренция (RU career)</td><td><strong>Очень низкая</strong></td><td>Фактически нет прямого конкурента</td></tr>
+<tr><td>Category opportunity</td><td><strong>Высокая</strong></td><td>Education/Business для RU недообслужены</td></tr>
+<tr><td>Editorial pitch</td><td><strong>Высокий шанс</strong></td><td>Deezer ищет мультиязычный контент</td></tr>
+<tr><td>RU diaspora на Deezer</td><td>Средняя</td><td>200-400K RU-говорящих пользователей в ЕС</td></tr>
+</table>
+
+<h3>Топ EN-career подкасты на Deezer</h3>
+<table>
+<tr><th>Шоу</th><th>Аудитория</th><th>Присутствие</th></tr>
+<tr><td>The Ken Coleman Show</td><td>US-centric</td><td>Сильное</td></tr>
+<tr><td>WorkLife with Adam Grant</td><td>Broad professional</td><td>Сильное (бренд TED)</td></tr>
+<tr><td>Happen to Your Career</td><td>Career changers</td><td>Среднее</td></tr>
+</table>
+
+<h3>Факторы ранжирования в категориях</h3>
+<ol>
+<li><strong>Consistency wins:</strong> Еженедельное обновление &gt; спорадическое</li>
+<li><strong>Episode count:</strong> 20+ эпизодов = попадание в "Popular". СБОРКА пока 4 → цель: 10-12</li>
+<li><strong>Follower velocity:</strong> 20-30 новых за неделю = Trending в категории</li>
+<li><strong>Completion rate = king:</strong> 14-мин формат СБОРКИ идеален</li>
+<li><strong>Editorial selection:</strong> Не-EN шоу underrepresented → pitch вероятнее</li>
+</ol>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+<h2>4. Deezer for Creators</h2>
+
+<h3>Клейм шоу</h3>
+<div class="cta-box">
+<strong>СБОРКА на Deezer:</strong> Show ID 1002671801, auto-sync через Mave RSS.<br><br>
+<strong>Процедура клейма:</strong>
+<ol>
+<li>podcasters.deezer.com → войти аккаунтом Deezer</li>
+<li>Найти "СБОРКА" или вставить RSS URL</li>
+<li>Deezer отправит верификационный email на tim.zinin@gmail.com (через Mave)</li>
+<li>Подтвердить → полный дашборд разблокирован</li>
+</ol>
+<br>
+<strong>Преимущества:</strong> аналитика (plays, listeners, completion, geo), редактирование метаданных, подача на editorial, приоритет в поиске.
+</div>
+
+<h3>Аналитика после клейма</h3>
+<table>
+<tr><th>Метрика</th><th>Гранулярность</th></tr>
+<tr><td>Streams / Plays</td><td>По эпизодам, день/неделя/месяц</td></tr>
+<tr><td>Unique listeners</td><td>По шоу, неделя/месяц</td></tr>
+<tr><td>Completion rate</td><td>По эпизодам</td></tr>
+<tr><td>Followers + net change</td><td>По времени</td></tr>
+<tr><td>Geo breakdown</td><td>По странам</td></tr>
+<tr><td>Source of discovery</td><td>Search / Browse / Recommendation / Direct</td></tr>
+</table>
+
+<h3>Уникальные возможности</h3>
+<ul>
+<li><strong>Episode pinning:</strong> Закрепить "лучший" или intro-эпизод наверху</li>
+<li><strong>Editorial submission:</strong> Прямая подача на рассмотрение редакции</li>
+<li><strong>Share links:</strong> Deezer-специфичные ссылки для кросс-промо</li>
+<li><strong>Embed player:</strong> Встраиваемый плеер для sborka.work</li>
+</ul>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+<h2>5. Tone of Voice</h2>
+
+<h3>Аудитория Deezer</h3>
+<table>
+<tr><th>Параметр</th><th>Значение</th></tr>
+<tr><td>Ядро</td><td>60% Европа (Франция, Германия, UK, Бенилюкс)</td></tr>
+<tr><td>Возраст</td><td>18-34 доминирует (55%). Совпадает с целевой СБОРКИ 25-35</td></tr>
+<tr><td>Поведение</td><td>Music-first: пришли за музыкой, подкасты открыли вторично</td></tr>
+<tr><td>Устройства</td><td>75% мобильный</td></tr>
+<tr><td>Подписка</td><td>~40% premium</td></tr>
+</table>
+
+<h3>RU-диаспора на Deezer</h3>
+<table>
+<tr><th>Регион</th><th>RU-говорящих пользователей</th></tr>
+<tr><td>Германия</td><td>80,000 - 150,000</td></tr>
+<tr><td>Франция</td><td>50,000 - 100,000</td></tr>
+<tr><td>Израиль</td><td>30,000 - 60,000</td></tr>
+<tr><td>Бенилюкс</td><td>20,000 - 40,000</td></tr>
+<tr><td>MEA (ОАЭ, Турция)</td><td>15,000 - 30,000</td></tr>
+<tr><td><strong>Итого TAM</strong></td><td><strong>200,000 - 400,000</strong> (5-10% слушают подкасты = 10-40K потенциальных)</td></tr>
+</table>
+
+<h3>Адаптация тона для диаспоры</h3>
+<ul>
+<li><strong>Сохранить:</strong> "Ты/тебе", разговорный русский, практичность, 14-мин формат</li>
+<li><strong>Адаптировать международный контекст:</strong> "Где бы ты ни был" вместо "в нашей стране"</li>
+<li><strong>Билингвальные элементы:</strong> resume/CV, networking, LinkedIn — естественно</li>
+<li><strong>Релокация:</strong> Карьерные изменения после переезда — мощная тема для диаспоры</li>
+</ul>
+
+<h3>Темы для диаспоры (высокая релевантность)</h3>
+<ol>
+<li>"Как устроиться на работу в новой стране"</li>
+<li>"CV по европейским стандартам"</li>
+<li>"LinkedIn для русскоговорящих"</li>
+<li>"Нетворкинг, когда ты интроверт и иностранец"</li>
+<li>"Подтверждение диплома: что реально работает"</li>
+<li>"Зарплатные переговоры на чужом языке"</li>
+<li>"Remote work из-за границы: налоги и контракты"</li>
+</ol>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+<h2>6. SEO и Discovery</h2>
+
+<h3>Ключевые слова (Deezer Search)</h3>
+<table>
+<tr><th>Категория</th><th>Ключевые слова</th><th>Конкуренция</th></tr>
+<tr><td>Primary (P0)</td><td>поиск работы, карьера, резюме, собеседование</td><td>LOW</td></tr>
+<tr><td>Secondary (P1)</td><td>карьерный рост, смена профессии, удалённая работа</td><td>VERY LOW</td></tr>
+<tr><td>Long-tail (P2)</td><td>как найти работу за рубежом, карьерный кризис, выгорание</td><td>ZERO</td></tr>
+</table>
+
+<h3>Первая строка описания (критично)</h3>
+<pre>Подкаст о карьере, поиске работы и профессиональном росте.
+Для тех, кто хочет собраться и найти работу мечты.</pre>
+<p>Deezer отображает первые ~100 символов как подзаголовок в поиске. Эта строка должна быть keyword-rich.</p>
+
+<h3>Формат заголовков</h3>
+<pre>EP01: Поиск работы. Почему так сложно начать
+EP02: Резюме. Как написать так, чтобы позвали
+EP03: Собеседование без паники
+EP04: Когда ничего не получается</pre>
+
+<h3>Категории</h3>
+<ul>
+<li><strong>Primary:</strong> Education (менее забит для RU)</li>
+<li><strong>Secondary:</strong> Business</li>
+<li>В Mave: "Education > Self-Improvement" + "Business > Careers"</li>
+<li>После клейма: проверить маппинг категорий на Deezer</li>
+</ul>
+
+<h3>Editorial Pitch</h3>
+<div class="card">
+<p><strong>Углы для pitch:</strong></p>
+<ul>
+<li>Единственный активный RU-карьерный подкаст на Deezer (market gap)</li>
+<li>AI-generated voice (tech angle для tech-forward бренда Deezer)</li>
+<li>Обслуживает underrepresented RU-диаспору</li>
+<li>Short-form (14 мин) для mobile-first аудитории</li>
+<li>Связан с sborka.work платформой (демонстрирует экосистему)</li>
+</ul>
+<p style="margin-top:12px"><strong>Контакт:</strong> podcasts@deezer.com или Deezer for Creators portal</p>
+<p><strong>Response time:</strong> 2-4 недели. Лучше тайминг: сентябрь (back-to-work) или январь (new year goals)</p>
+</div>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section">
+<h2>7. CTA-стратегии</h2>
+
+<h3>Иерархия CTA</h3>
+<table>
+<tr><th>Tier</th><th>CTA</th><th>Где</th></tr>
+<tr><td><strong>1 (каждый эпизод)</strong></td><td>Бот: t.me/Sborka_work_bot?start=source_deezer_ep{N}</td><td>Show notes (кликабельно!)</td></tr>
+<tr><td><strong>2 (каждый эпизод)</strong></td><td>sborka.work?utm_source=deezer&amp;utm_medium=podcast&amp;utm_campaign=s27_deezer&amp;utm_content=ep{N}</td><td>Show notes</td></tr>
+<tr><td>3 (контекстно)</td><td>Вебинар / чеклист (когда актуально)</td><td>Show notes + аудио</td></tr>
+</table>
+
+<h3>Deezer Embed Player для sborka.work</h3>
+<pre>&lt;iframe title="СБОРКА on Deezer"
+  src="https://widget.deezer.com/widget/dark/show/1002671801"
+  width="100%" height="300"
+  frameborder="0" allow="encrypted-media"&gt;
+&lt;/iframe&gt;</pre>
+<p>Встраиваемый плеер создаёт прямой путь прослушивания с сайта и посылает сигналы обратно в Deezer.</p>
+
+<h3>Deep Links</h3>
+<ul>
+<li><strong>Web:</strong> <code>deezer.com/show/1002671801</code></li>
+<li><strong>App:</strong> <code>deezer://www.deezer.com/show/1002671801</code></li>
+<li>Включать в мульти-платформенные списки ссылок: Spotify | Apple | YM | <strong>Deezer</strong></li>
+</ul>
+</div>
+
+<!-- SECTION 8 -->
+<div class="section">
+<h2>8. Экосистема Deezer</h2>
+
+<h3>Deezer Hardware Integrations</h3>
+<table>
+<tr><th>Устройство</th><th>Доступ</th><th>Релевантность</th></tr>
+<tr><td>Google Home</td><td>"Hey Google, play СБОРКА on Deezer"</td><td>Средняя (если Deezer = default)</td></tr>
+<tr><td>Amazon Alexa</td><td>"Alexa, play СБОРКА on Deezer"</td><td>Средняя</td></tr>
+<tr><td>Samsung TV/Speaker</td><td>Deezer app на Samsung SmartThings</td><td>Низкая</td></tr>
+<tr><td>Sonos</td><td>Native Deezer integration</td><td>Низкая (premium)</td></tr>
+</table>
+
+<h3>Free vs Premium</h3>
+<ul>
+<li><strong>Free:</strong> Стриминг подкастов без ограничений. Реклама между треками (не подкастами)</li>
+<li><strong>Premium (€10.99/мес):</strong> Оффлайн, Hi-Fi, без рекламы</li>
+<li><strong>Для СБОРКИ:</strong> Подкасты доступны бесплатно всем пользователям = максимальный охват</li>
+</ul>
+
+<h3>Social Features</h3>
+<ul>
+<li>Share episode link → recipient gets notification if on Deezer</li>
+<li>Social sharing amplifies discovery (viral loop)</li>
+<li>"Because You Listened To..." — рекомендации после завершения эпизода</li>
+<li>"Trending in [Category]" — follower growth rate + listen velocity</li>
+</ul>
+</div>
+
+<!-- SECTION 9 -->
+<div class="section">
+<h2>9. Кросс-платформа</h2>
+
+<h3>Роль Deezer в экосистеме дистрибуции</h3>
+<table>
+<tr><th>Платформа</th><th>Роль</th><th>Аудитория</th></tr>
+<tr><td>Spotify</td><td>Volume driver</td><td>Global mainstream</td></tr>
+<tr><td>Apple Podcasts</td><td>Authority signal</td><td>iOS, professional</td></tr>
+<tr><td>Яндекс.Музыка</td><td>RU mainstream</td><td>Россия</td></tr>
+<tr><td><strong>Deezer</strong></td><td><strong>EU diaspora</strong></td><td><strong>RU-говорящие в Европе</strong></td></tr>
+<tr><td>Pocket Casts</td><td>Power listeners</td><td>Tech, Android</td></tr>
+<tr><td>VK Music</td><td>VK ecosystem</td><td>VK-юзеры</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Deezer = ворота к RU-диаспоре в Европе.</strong> 200-400K русскоговорящих, пересекаются с целевой аудиторией СБОРКИ (25-35, career changers, релокация).
+</div>
+
+<h3>Google-индексация</h3>
+<p>Deezer show pages индексируются Google. "СБОРКА подкаст Deezer" должен выводить страницу шоу. Линки с sborka.work и социальных сетей усиливают SEO-сигнал.</p>
+</div>
+
+<!-- SECTION 10 -->
+<div class="section">
+<h2>10. 30-дневный план действий</h2>
+
+<h3>Неделя 1: Фундамент</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>1</td><td>Заклеймить шоу на podcasters.deezer.com</td><td>Дашборд доступен</td></tr>
+<tr><td>2</td><td>Проверить категории: Education + Business</td><td>Категории корректны</td></tr>
+<tr><td>3</td><td>Оптимизировать описание (keyword-rich, первые 100 символов)</td><td>Описание обновлено</td></tr>
+<tr><td>4</td><td>Добавить chapter markers ко всем 4 эпизодам через Mave</td><td>Chapters на Deezer</td></tr>
+<tr><td>5</td><td>Обновить show notes с CTA-ссылками и UTM</td><td>4 описания + UTM</td></tr>
+<tr><td>6-7</td><td>Опубликовать ep05</td><td>ep05 на Deezer</td></tr>
+</table>
+
+<h3>Неделя 2: Editorial + Оптимизация</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>8</td><td>Отправить editorial pitch на podcasts@deezer.com</td><td>Pitch отправлен</td></tr>
+<tr><td>9</td><td>Добавить Deezer embed player на sborka.work</td><td>Embed на сайте</td></tr>
+<tr><td>10</td><td>Бейдж "Listen on Deezer" на сайте + в TG-постах</td><td>Ссылка везде</td></tr>
+<tr><td>11-12</td><td>Per-episode artwork для всех 5 эпизодов</td><td>5 уникальных обложек</td></tr>
+<tr><td>13-14</td><td>Обновить формат заголовков: "EP0N: [Keyword]."</td><td>Заголовки оптимизированы</td></tr>
+</table>
+
+<h3>Неделя 3: Рост</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>15-16</td><td>Подготовить ep06 с темой для диаспоры ("Работа в новой стране")</td><td>Скрипт</td></tr>
+<tr><td>17-18</td><td>Сгенерировать и опубликовать ep06 с chapters</td><td>ep06 на Deezer</td></tr>
+<tr><td>19</td><td>Кросс-промо с акцентом на Deezer link</td><td>Multi-platform</td></tr>
+<tr><td>20-21</td><td>Проверить аналитику: plays, followers, geo</td><td>Snapshot</td></tr>
+</table>
+
+<h3>Неделя 4: Анализ</h3>
+<table>
+<tr><th>День</th><th>Действие</th><th>KPI</th></tr>
+<tr><td>22-24</td><td>Полный аналитический отчёт (plays, completion, geo, UTM-трафик)</td><td>Отчёт</td></tr>
+<tr><td>25-27</td><td>ep07 на основе лучшего эпизода</td><td>Скрипт ep07</td></tr>
+<tr><td>28-30</td><td>30-дневный отчёт. Решение о повторном pitch если не было ответа</td><td>План следующего спринта</td></tr>
+</table>
+
+<h3>KPI-таргеты</h3>
+<div class="metric-grid">
+<div class="metric"><span class="num">30+</span><span class="label">Followers Deezer</span></div>
+<div class="metric"><span class="num">150+</span><span class="label">Прослушиваний</span></div>
+<div class="metric"><span class="num">70%+</span><span class="label">Completion Rate</span></div>
+<div class="metric"><span class="num">10+</span><span class="label">Кликов sborka.work</span></div>
+<div class="metric"><span class="num">1</span><span class="label">Editorial Pitch</span></div>
+<div class="metric"><span class="num">6</span><span class="label">Эпизодов (было 4)</span></div>
+</div>
+</div>
+
+</div>
+
+<footer>
+Sprint S-27 Deezer | Исследование завершено 4 марта 2026 | SMM Research Hub
+</footer>
+</body>
+</html>
