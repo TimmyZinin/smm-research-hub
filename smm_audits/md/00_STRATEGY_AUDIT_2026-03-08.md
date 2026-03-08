@@ -15,12 +15,12 @@
 
 | # | Платформа | Подписчики | Рекомендация | CTA-цель | Приоритет |
 |---|-----------|-----------|-------------|----------|-----------|
-| S-01 | **LinkedIn** | 7,000 | **ЛИЧНЫЙ БРЕНД** (90%) | timzinin.com / AI Blogger Factory | **HIGH** |
+| S-01 | **LinkedIn** | 7,000 | **СБОРКА** (решение Тима) | sborka.work | **HIGH** |
 | S-02 | **Instagram** | 1,684 | HYBRID (60% бренд / 40% СБОРКА) | Linktree (оба) | LOW |
 | S-03 | **YouTube** | 1,870 | HYBRID (50/50) | Двойной CTA | MEDIUM |
 | S-04 | **TG Personal** | ~93 | **ЛИЧНЫЙ БРЕНД** (85%) | @timofeyzinin | MEDIUM |
 | S-05 | **TG СБОРКА** | ~93 | **СБОРКА** (100%) | sborka.work | MEDIUM |
-| S-06 | **Threads** | 177 | **ЛИЧНЫЙ БРЕНД** | timzinin.com | LOW |
+| S-06 | **Threads** | 177 | **СБОРКА** (решение Тима) | sborka.work | MEDIUM |
 | S-07 | **Facebook** | 1,600 | HYBRID (60% СБОРКА / 40% бренд) | Профиль: бренд, Группа: СБОРКА | MEDIUM |
 | S-08 | **TikTok** | 1,288 | **ЛИЧНЫЙ БРЕНД** | timzinin.com | MEDIUM |
 | S-09 | **VK** | 17 | HYBRID (70% СБОРКА / 30% бренд) | sborka.work | **HIGH** |
@@ -47,13 +47,13 @@
 
 ## Распределение
 
-### ЛИЧНЫЙ БРЕНД (14 платформ)
-LinkedIn, Threads, TikTok, VC.ru, Dev.to, Medium, Hashnode, Bluesky, Mastodon, Tumblr, Nostr, Minds, Write.as, Lemmy, Twitter/X + TG Personal (85%)
+### ЛИЧНЫЙ БРЕНД (12 платформ)
+TikTok, VC.ru, Dev.to, Medium, Hashnode, Bluesky, Mastodon, Tumblr, Nostr, Minds, Write.as, Lemmy, Twitter/X + TG Personal (85%)
 
 **Общий паттерн:** англоязычные платформы + tech/AI аудитория → timzinin.com
 
-### СБОРКА (10 платформ)
-TG СБОРКА, OK.ru + все подкаст-платформы (Mave, Spotify, Apple, Яндекс, Deezer, Pocket Casts, VK Music, CastBox)
+### СБОРКА (12 платформ)
+LinkedIn, Threads, TG СБОРКА, OK.ru + все подкаст-платформы (Mave, Spotify, Apple, Яндекс, Deezer, Pocket Casts, VK Music, CastBox)
 
 **Общий паттерн:** русскоязычные платформы + карьерная аудитория → sborka.work
 

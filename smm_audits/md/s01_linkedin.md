@@ -330,20 +330,18 @@ sborka.work (регистрация / вебинар)
 
 ---
 
-## РЕКОМЕНДАЦИЯ: ЛИЧНЫЙ БРЕНД (90%)
+## РЕКОМЕНДАЦИЯ: СБОРКА (решение Тима)
 
-**Приоритет:** HIGH  
-**CTA-цель:** timzinin.com / AI Blogger Factory лендинг  
+**Приоритет:** HIGH
+**CTA-цель:** sborka.work + @Sborka_work_bot
 
-**Обоснование:** 7K подписчиков — единственная платформа для прямой конверсии в AI Blogger Factory ($1,500/мес). Saudi/Gulf CTO — LinkedIn-first. 1 клиент Blogger Factory = ~30 участников СБОРКИ.
+**Обоснование:** Тим принял решение — LinkedIn остаётся за проектом СБОРКА. 7K подписчиков — сильная база для продвижения карьерного клуба. Конверсия LinkedIn → sborka.work продолжает быть основной воронкой.
 
-### Конкретные изменения
+### Стратегия без изменений
 
-- Headline профиля: убрать СБОРКУ → 'I build AI agent systems that run businesses 24/7 | AI Blogger Factory'
-- CTA-воронка: sborka.work → AI Agent Playbook PDF → Discovery Call → Retainer $1,500-10,000/мес
-- СБОРКА упоминается только как социальное доказательство ('мой карьерный клуб с 55 участниками')
-- Контент: 30% 'Карьера и навыки' → 30% 'AI Blogger Factory results' + Saudi/MENA targeting
-- Лид-магниты: 'AI Agent Build Checklist', 'AI Blogger Factory ROI Calculator' вместо 'Career Transition Framework'
-- Newsletter: 'AI Career Architect Weekly' → 'The Multi-Agent Architect'
+- Текущая стратегия остаётся актуальной
+- CTA: sborka.work с UTM-метками
+- Контент: AI + Career — как описано в стратегии
+- Лид-магниты: карьерные инструменты, чек-листы
 
-> *Обновлено: 8 марта 2026 — аудит стратегий (личный бренд vs СБОРКА)*
+> *Обновлено: 8 марта 2026 — LinkedIn остаётся за СБОРКОЙ (решение Тима)*
