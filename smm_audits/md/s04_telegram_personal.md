@@ -1,7 +1,7 @@
 ---
 id: s04_telegram_personal
 source: s04_telegram_personal.html
-updated: 2026-03-08
+updated: 2026-03-21
 ---
 
 # S-04 Telegram Personal
