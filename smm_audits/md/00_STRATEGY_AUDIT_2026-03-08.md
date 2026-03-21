@@ -1,99 +1,85 @@
-# Аудит SMM-стратегий: Личный бренд vs СБОРКА
+# Аудит SMM-стратегий: AI Marketing Architect
 
-> **Дата:** 8 марта 2026
+> **Дата:** 21 марта 2026 (обновлено, оригинал 8 марта 2026)
 > **Автор:** Claude (по заданию Тима)
-> **Цель:** Определить для каждой из 29 платформ — продвигать личный бренд Тима или СБОРКУ
+> **Цель:** Глобальная стратегия — AI 80% / Проекты 20%. Стать глобальным AI-инфлюенсером.
+> **Мастер-документ:** s00_global_strategy.md
 
-## Контекст решения
+## Контекст (обновлён)
 
-- **Личный бренд Тима:** "Multi-Agent Revenue Architect", AI Blogger Factory ($1,500/клиент/мес), консалтинг ($10K+/мес ретейнер)
-- **СБОРКА:** карьерный клуб (4,900-9,900 руб/мес), бот @Sborka_work_bot, подкаст
-- **Математика:** 33 клиента AI Blogger Factory = $50K/мес. 625 участников СБОРКИ = $50K/мес. Путь через Blogger Factory = 19x проще
-- **Текущий MRR:** ~$765 (КРМКТЛ $600 + Ботаника $165)
+- **Позиционирование:** Tim Zinin — AI Marketing Architect. Solo creator из Дубая.
+- **Офферы:** Консалтинг ($5-10K/мес), AI Blogger Factory ($1,500/мес), Клубы (СБОРКА, MentalStab)
+- **Текущий MRR:** ~$765
+- **KPI:** узнаваемость → стать известным в нише AI+маркетинг
+- **Контент-микс:** 80% AI / 20% проекты
+- **Языки:** RU (основной) + EN + TH (Threads)
 
-## Сводная таблица рекомендаций
+## Сводная таблица (обновлена 21 мар 2026)
 
-| # | Платформа | Подписчики | Рекомендация | CTA-цель | Приоритет |
-|---|-----------|-----------|-------------|----------|-----------|
-| S-01 | **LinkedIn** | 7,000 | **СБОРКА** (решение Тима) | sborka.work | **HIGH** |
-| S-02 | **Instagram** | 1,684 | HYBRID (60% бренд / 40% СБОРКА) | Linktree (оба) | LOW |
-| S-03 | **YouTube** | 1,870 | HYBRID (50/50) | Двойной CTA | MEDIUM |
-| S-04 | **TG Personal** | ~93 | **ЛИЧНЫЙ БРЕНД** (85%) | @timofeyzinin | MEDIUM |
-| S-05 | **TG СБОРКА** | ~93 | **СБОРКА** (100%) | sborka.work | MEDIUM |
-| S-06 | **Threads** | 177 | **СБОРКА** (решение Тима) | sborka.work | MEDIUM |
-| S-07 | **Facebook** | 1,600 | HYBRID (60% СБОРКА / 40% бренд) | Профиль: бренд, Группа: СБОРКА | MEDIUM |
-| S-08 | **TikTok** | 1,288 | **ЛИЧНЫЙ БРЕНД** | timzinin.com | MEDIUM |
-| S-09 | **VK** | 17 | HYBRID (70% СБОРКА / 30% бренд) | sborka.work | **HIGH** |
-| S-10 | **VC.ru** | ~1 | **ЛИЧНЫЙ БРЕНД** (80%) | TG @timofeyzinin | **HIGH** |
-| S-11 | **Dev.to** | ~35 views | **ЛИЧНЫЙ БРЕНД** | timzinin.com | **HIGH** |
-| S-12 | **Medium** | 0 | **ЛИЧНЫЙ БРЕНД** | timzinin.com | **HIGH** |
-| S-13 | **Hashnode** | 0 | **ЛИЧНЫЙ БРЕНД** | blog.timzinin.com | MEDIUM-HIGH |
-| S-14 | **Bluesky** | 0 | **ЛИЧНЫЙ БРЕНД** | timzinin.com (хендл) | MEDIUM |
-| S-15 | **Mastodon** | ~0 | **ЛИЧНЫЙ БРЕНД** | timzinin.com | LOW-MEDIUM |
-| S-16 | **Tumblr** | ~0 | **ЛИЧНЫЙ БРЕНД** | timzinin.com | LOW |
-| S-17 | **OK.ru** | ~2 | **СБОРКА** | sborka.work | MEDIUM |
-| S-18 | **Nostr** | ~0 | **ЛИЧНЫЙ БРЕНД** | timzinin.com | MEDIUM |
-| S-19 | **Minds** | ~0 | **ЛИЧНЫЙ БРЕНД** | timzinin.com | LOW-MEDIUM |
-| S-20 | **Write.as** | ~0 | **ЛИЧНЫЙ БРЕНД** | blog.timzinin.com | LOW-MEDIUM |
-| S-21 | **Lemmy** | ~0 | **ЛИЧНЫЙ БРЕНД** | GitHub + timzinin.com | LOW-MEDIUM |
-| S-22 | **Twitter/X** | ~0 | **ЛИЧНЫЙ БРЕНД** | timzinin.com | **HIGH** |
-| S-23 | **Mave** | 4 ep | **СБОРКА** | sborka.work | **HIGH** |
-| S-24 | **Spotify** | 4 ep | **СБОРКА** | sborka.work | **HIGH** |
-| S-25 | **Apple Podcasts** | 4 ep | **СБОРКА** | sborka.work | **HIGH** (СРОЧНО) |
-| S-26 | **Яндекс.Музыка** | 4 ep | **СБОРКА** | sborka.work | **HIGH** |
-| S-27 | **Deezer** | 4 ep | **СБОРКА** (диаспора) | sborka.work | MEDIUM |
-| S-28 | **Pocket Casts** | 4 ep | **СБОРКА** | sborka.work | LOW-MEDIUM |
-| S-29 | **VK Music + CastBox** | 0 | **СБОРКА** | sborka.work | MEDIUM |
+| # | Платформа | Подписчики | Фокус | CTA | Язык | Частота | Публикация |
+|---|-----------|-----------|-------|-----|------|---------|------------|
+| S-01 | **LinkedIn** | 7,300 | **AI 80%** | timzinin.com | RU | 3/нед | Publer |
+| S-02 | **Instagram** | 1,675 | **AI 80%** | timzinin.com | RU | 3-5/нед | Publer |
+| S-03 | **YouTube** | 1,890 | **AI 80%** | timzinin.com | RU/EN | 1/нед + Shorts | Publer |
+| S-04 | **TG Personal** | 121 | **AI 90%** | @timofeyzinin | RU | 1-2/день | Прямой API |
+| S-05 | **TG СБОРКА** | 4 | **СБОРКА 100%** | sborka.work | RU | 2-3/нед | Прямой API |
+| S-06 | **Threads RU** | 182 | **AI 80%** | timzinin.com | **RU** | **5+/день** | Publer |
+| S-06b | **Threads EN** | 0 (новый) | **AI 80%** | timzinin.com | **EN** | **5+/день** | Publer |
+| S-06c | **Threads TH** | 0 (новый) | **AI 80%** | timzinin.com | **TH** | **5+/день** | Publer |
+| S-07 | **Facebook** | 1,600 | **AI 80%** | timzinin.com | RU | 3/нед | Publer push |
+| S-08 | **TikTok** | 1,289 | **AI 80%** | ChatPlace | RU/EN | ежедневно | Publer |
+| S-09 | **VK** | 17 | **AI 80%** | timzinin.com | RU | 3/нед | Publer |
+| S-10 | **VC.ru** | ? | **AI 80%** | TG @timofeyzinin | RU | 1/нед | Playwright |
+| S-11 | **Dev.to** | 25 ст. | **AI 80%** | timzinin.com | EN | 1/нед | Прямой API |
+| S-12 | **Medium** | ? | **AI 80%** | timzinin.com | EN | 1/нед | Починить |
+| S-13 | **Hashnode** | 0 | **AI 80%** | timzinin.com | EN | 1/нед | Прямой API |
+| S-14 | **Bluesky** | 4 | **AI 80%** | timzinin.com | EN | 2-3/день | Прямой API |
+| S-15 | **Mastodon** | 0 | **AI 80%** | timzinin.com | EN | 1/день | Прямой API |
+| S-16 | **Tumblr** | ? | **AI 80%** | timzinin.com | EN | 1/нед | Починить |
+| S-17 | **OK.ru** | ? | **AI 80%** | timzinin.com | RU | 1/нед | Починить |
+| S-18 | **Nostr** | ? | **AI 80%** | timzinin.com | EN | 1/нед | Прямой API |
+| S-19 | **Minds** | 0 | **AI 80%** | timzinin.com | EN | 1/нед | Прямой API |
+| S-20 | **Write.as** | ? | **AI 80%** | timzinin.com | EN | 1/нед | Прямой API |
+| S-21 | **Lemmy** | ? | **AI 80%** | timzinin.com | EN | 1/нед | Починить |
+| S-22 | **Twitter/X** | 0 | **AI 80%** | timzinin.com | EN | 1/день | Publer |
+| S-23 | **Mave** | 4 эп. | **СБОРКА** | sborka.work | RU | 1/нед | RSS |
+| S-24-29 | **Подкасты** | авто | **СБОРКА** | sborka.work | RU | авто-RSS | — |
 
-## Распределение
+## Ключевые изменения vs аудит 8 марта
 
-### ЛИЧНЫЙ БРЕНД (12 платформ)
-TikTok, VC.ru, Dev.to, Medium, Hashnode, Bluesky, Mastodon, Tumblr, Nostr, Minds, Write.as, Lemmy, Twitter/X + TG Personal (85%)
+| Было (8 мар) | Стало (21 мар) |
+|-------------|---------------|
+| LinkedIn → СБОРКА, CTA sborka.work | LinkedIn → AI 80%, CTA timzinin.com |
+| Threads → СБОРКА, EN | Threads → AI 80%, **RU основной**, 5+/день, + EN + TH |
+| Facebook → бизнес-страница | Facebook → **личный профиль**, Publer push |
+| VK → HYBRID 70% СБОРКА | VK → AI 80%, CTA timzinin.com |
+| 15 тем захардкожены | Content Pipeline v2: Scout → Writer → Illustrator |
+| Ручная публикация | n8n + Publer гибрид |
+| Нет email | AI Digest (Beehiiv, ежедневно) |
+| Нет видео-воронки | ChatPlace.io (кодовое слово → подписка) |
+| 1 язык | 3 языка Threads (RU + EN + TH) |
 
-**Общий паттерн:** англоязычные платформы + tech/AI аудитория → timzinin.com
+## Публикация: гибридная схема
 
-### СБОРКА (12 платформ)
-LinkedIn, Threads, TG СБОРКА, OK.ru + все подкаст-платформы (Mave, Spotify, Apple, Яндекс, Deezer, Pocket Casts, VK Music, CastBox)
+| Метод | Платформы |
+|-------|-----------|
+| Прямые API (бесплатно) | Telegram, Bluesky, Mastodon, Dev.to, Hashnode, Nostr, Minds, Write.as |
+| Publer ($5/мес) | LinkedIn, Threads (3 акк), VK, Facebook, TikTok, Instagram, YouTube, Twitter |
+| Ручные | VC.ru (Playwright), long-form (Dev.to/Hashnode) |
 
-**Общий паттерн:** русскоязычные платформы + карьерная аудитория → sborka.work
+## Дополнительные каналы
 
-### HYBRID (5 платформ)
-Instagram, YouTube, Facebook, VK, TG Personal
+| Канал | Описание |
+|-------|----------|
+| **AI Digest** (Beehiiv) | Ежедневная email-рассылка. Отдельное медиа. |
+| **TG-бот CRM** | Подписка, lead magnets, discovery call |
+| **ChatPlace.io** | Видео-воронка: кодовое слово → подписка → ссылка (IG/TikTok/YouTube) |
 
-## Две параллельные воронки
+## Воронка
 
-### Воронка A: Личный бренд → Revenue
 ```
-LinkedIn / Twitter / Dev.to / Medium / VC.ru
-    ↓
-AI Agent Playbook (лид-магнит PDF)
-    ↓
-Discovery Call
-    ↓
-AI Blogger Factory retainer ($1,500-10,000/мес)
+AI-контент (80%) → узнаваемость
+Видео + ChatPlace → подписка на IG/TikTok/YouTube
+TG-бот + Email AI Digest → CRM
+Discovery Call → Консалтинг | AI Blogger Factory | Клубы
 ```
-
-### Воронка B: СБОРКА → Community Revenue
-```
-TG СБОРКА / VK / OK.ru / Подкаст
-    ↓
-Карьерный чек-лист / Вебинар
-    ↓
-Бот @Sborka_work_bot
-    ↓
-Клуб СБОРКА (4,900-9,900 руб/мес)
-```
-
-## ТОП-5 срочных действий
-
-1. **LinkedIn (S-01):** Переключить CTA с sborka.work на AI Blogger Factory. Обновить headline. Это платформа #1 для revenue.
-2. **Apple Podcasts (S-25):** Окно "New & Noteworthy" закрывается ~середина апреля. Нужны рейтинги СЕЙЧАС.
-3. **VC.ru (S-10):** Написать первую статью "Я построил 30 AI-агентов — вот ROI каждого". Потенциал: 50K+ views → 1-3 клиента ($1,500/мес).
-4. **timzinin.com:** Нужен лендинг personal brand + consulting + AI Blogger Factory. Сейчас сайт не готов принимать трафик от 14 платформ.
-5. **Dev.to + Medium (S-11, S-12):** Начать публикации. DA 90+ = SEO-мощь для personal brand.
-
-## Критический блокер
-
-**timzinin.com** сейчас — старый дизайн (тёмный cyberpunk). Все 14 платформ personal brand должны вести на него. Без обновления лендинга переключение CTA бессмысленно.
-
-**Решение:** Либо обновить timzinin.com, либо создать отдельный лендинг (напр. на GitHub Pages) для AI Blogger Factory.
